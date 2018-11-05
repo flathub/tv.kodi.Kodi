@@ -58,10 +58,10 @@
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DVERBOSE=1",
-                "-DCROSSGUID_URL=build/download/crossguid-8f399e8bd4.tar.gz",
-                "-DLIBDVDCSS_URL=build/download/1.4.1-Leia-Beta-3.tar.gz",
-                "-DLIBDVDREAD_URL=build/download/6.0.0-Leia-Alpha-3.tar.gz",
-                "-DLIBDVDNAV_URL=build/download/libdvdnav-6.0.0-Leia-Alpha-3.tar.gz",
+                "-DCROSSGUID_URL=build/download/crossguid.tar.gz",
+                "-DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz",
+                "-DLIBDVDREAD_URL=build/download/libdvdread.tar.gz",
+                "-DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz",
                 "-DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk10/bin/java"
             ],
             "cleanup": [
@@ -82,26 +82,29 @@
                     "type": "file",
                     "url": "http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz",
                     "sha256": "3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10",
-                    "dest": "build/download/"
+                    "dest": "build/download/",
+                    "dest-filename": "crossguid.tar.gz"
                 },
                 {
                     "type": "file",
                     "url": "https://github.com/xbmc/libdvdcss/archive/1.4.1-Leia-Beta-3.tar.gz",
                     "sha256": "579aa102ac14ff4a21aa4081fe47f8cb3941002a37ee96286d3737afd79e80d9",
-                    "dest": "build/download/"
+                    "dest": "build/download/",
+                    "dest-filename": "libdvdcss.tar.gz"
                 },
                 {
                     "type": "file",
                     "url": "https://github.com/xbmc/libdvdread/archive/6.0.0-Leia-Alpha-3.tar.gz",
                     "sha256": "a30b6aa0aad0f2c505bc77948af2d5531a80b6e68112addb4c123fca24d5d3bf",
-                    "dest": "build/download/"
+                    "dest": "build/download/",
+                    "dest-filename": "libdvdread.tar.gz"
                 },
                 {
                     "type": "file",
                     "url": "https://github.com/xbmc/libdvdnav/archive/6.0.0-Leia-Alpha-3.tar.gz",
                     "sha256": "071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a",
                     "dest": "build/download/",
-                    "dest-filename": "libdvdnav-6.0.0-Leia-Alpha-3.tar.gz"
+                    "dest-filename": "libdvdnav.tar.gz"
                 }
             ]
         },
