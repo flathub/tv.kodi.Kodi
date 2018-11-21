@@ -71,8 +71,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/xbmc/xbmc/archive/18.0b5-Leia.tar.gz",
-                    "sha256": "7735bd346d3f1d62f8bd7a37cc5ad25b1fa16404c133e10e12995ac9d23d0161"
+                    "url": "https://github.com/xbmc/xbmc/archive/18.0rc1-Leia.tar.gz",
+                    "sha256": "1d4e954b053478d4fc0e3cb370abd946bb24363e87eb446e292ce56665d48df7"
                 },
                 {
                     "type": "patch",
