@@ -12,8 +12,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/fmtlib/fmt/archive/5.2.0.tar.gz",
-            "sha256": "b0e8c71a8fb906123966686f788e83cd95ae499afe9c25ff6284f624488435ac"
+            "url": "https://github.com/fmtlib/fmt/archive/5.2.1.tar.gz",
+            "sha256": "3c812a18e9f72a88631ab4732a97ce9ef5bcbefb3235e9fd465f059ba204359b"
         }
     ]
 }
