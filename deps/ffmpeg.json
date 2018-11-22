@@ -3,8 +3,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/xbmc/FFmpeg/archive/4.0.2-Leia-Alpha3.tar.gz",
-            "sha256": "0e4980abac7b886e0eb5f4157941947be3c10d616a19bd311dc2f9fd2eb6a631"
+            "url": "https://github.com/xbmc/FFmpeg/archive/4.0.3-Leia-Beta5.tar.gz",
+            "sha256": "f25559d4b803321483b28ac9b513671200bdc8e3531c02f0affdd622846a9c5e"
         }
     ],
     "config-opts": [
