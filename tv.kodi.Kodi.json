@@ -54,6 +54,7 @@
         "deps/libcec.json",
         "deps/libmariadbclient.json",
         "deps/libbluray.json",
+        "deps/waylandpp.json",
         {
             "name": "kodi",
             "buildsystem": "cmake-ninja",
