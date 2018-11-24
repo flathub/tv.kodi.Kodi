@@ -1,19 +1,34 @@
-# Flathub
 
-Flathub is the central place for building and hosting Flatpak builds.
+## Kodi flatpak build notes.
 
-Using the Flathub repository
-----------------------------
+The following binary plugins do not compile, and are excluded:
 
-To install applications that are hosted on Flathub, use the following:
-```
-flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.gnome.Recipes
-```
+ * `audiodecoder.2sf`:
+   - i386 compile issues
+ * `audiodecoder.usf`:
+   - i386 compile issues
+ * `audiodecoder.sidplay`:
+   - sidplay-libs does not compile. Is code from 2006 - bitrot.
+ * `pvr.iptvsimple`:
+   - requires rapidxml, which is only headers
 
-For more information and more applications see https://flathub.org
-
-Contributing to Flathub
------------------------
-
-For information on creating packages or reporting issues please see the [contributing page](/CONTRIBUTING.md).
+Others need try/testing:
+ - `game.libretro.2048`
+ - `game.libretro.mrboom`
+ - `imagedecoder.mpo`
+ - `imagedecoder.raw`
+ - `pvr.dvblink`
+ - `pvr.hdhomerun`
+ - `screensaver.asterwave`
+ - `screensaver.cpblobs`
+ - `screensaver.matrixtrails`
+ - `screensaver.shadertoy`
+ - `screensavers.rsxs`
+ - `vfs.libarchive`
+ - `vfs.sftp`
+ - `vfs.smb2`
+ - `visualization.goom`
+ - `visualization.milkdrop2`
+ - `visualization.milkdrop`
+ - `visualization.projectm`
+ - `visualization.vortex`
