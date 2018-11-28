@@ -1,0 +1,215 @@
+app-id: tv.kodi.Kodi
+runtime: org.freedesktop.Platform
+runtime-version: '18.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk10
+finish-args:
+  - --device=all
+  - --filesystem=xdg-music
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-videos
+  - --filesystem=/mnt
+  - --filesystem=/media
+  - --filesystem=/run/media
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --system-talk-name=org.bluez
+  - --system-talk-name=org.freedesktop.Avahi
+  - --system-talk-name=org.freedesktop.UDisks2
+  - --system-talk-name=org.freedesktop.UPower
+command: kodi
+rename-desktop-file: kodi.desktop
+rename-icon: kodi
+modules:
+  - shared-modules/udev/udev-175.json
+  - shared-modules/python2.7/python-2.7.15.json
+  - shared-modules/glu/glu-9.0.0.json
+  - deps/avahi.json
+  - deps/libical.json
+  - deps/bluez.json
+  - deps/fmt.json
+  - deps/fribidi.json
+  - deps/fstrcmp.json
+  - deps/libass.json
+  - deps/libcdio.json
+  - deps/lzo2.json
+  - deps/samba.json
+  - deps/swig.json
+  - deps/taglib.json
+  - deps/tinyxml.json
+  - deps/ffmpeg.json
+  - deps/flatbuffers.json
+  - deps/libnfs.json
+  - deps/sndio.json
+  - deps/microhttpd.json
+  - deps/rapidjson.json
+  - deps/p8-platform.json
+  - deps/libcec.json
+  - deps/libmariadbclient.json
+  - deps/libbluray.json
+  - deps/waylandpp.json
+
+  - name: kodi-x11
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DVERBOSE=1
+      - -DCROSSGUID_URL=build/download/crossguid.tar.gz
+      - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
+      - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
+      - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk10/bin/java
+      - -DCORE_PLATFORM_NAME=x11
+    cleanup:
+      - /include
+      - /share/doc
+    sources:
+      - type: archive
+        url: https://github.com/xbmc/xbmc/archive/18.0rc1-Leia.tar.gz
+        sha256: 1d4e954b053478d4fc0e3cb370abd946bb24363e87eb446e292ce56665d48df7
+      - type: patch
+        path: kodi-sh-in.patch
+      - type: file
+        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
+        sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
+        dest: build/download/
+        dest-filename: crossguid.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdcss/archive/1.4.2-Leia-Beta-5.tar.gz
+        sha256: 38816f8373e243bc5950449b4f3b18938c4e1c59348e3411e23f31db4072e40d
+        dest: build/download/
+        dest-filename: libdvdcss.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdread/archive/6.0.0-Leia-Alpha-3.tar.gz
+        sha256: a30b6aa0aad0f2c505bc77948af2d5531a80b6e68112addb4c123fca24d5d3bf
+        dest: build/download/
+        dest-filename: libdvdread.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdnav/archive/6.0.0-Leia-Alpha-3.tar.gz
+        sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
+        dest: build/download/
+        dest-filename: libdvdnav.tar.gz
+
+  - name: kodi-wayland
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DVERBOSE=1
+      - -DCROSSGUID_URL=build/download/crossguid.tar.gz
+      - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
+      - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
+      - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk10/bin/java
+      - -DCORE_PLATFORM_NAME=wayland
+      - -DWAYLAND_RENDER_SYSTEM=gl
+    cleanup:
+      - /include
+      - /share/doc
+    sources:
+      - type: archive
+        url: https://github.com/xbmc/xbmc/archive/18.0rc1-Leia.tar.gz
+        sha256: 1d4e954b053478d4fc0e3cb370abd946bb24363e87eb446e292ce56665d48df7
+      - type: patch
+        path: kodi-sh-in.patch
+      - type: file
+        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
+        sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
+        dest: build/download/
+        dest-filename: crossguid.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdcss/archive/1.4.2-Leia-Beta-5.tar.gz
+        sha256: 38816f8373e243bc5950449b4f3b18938c4e1c59348e3411e23f31db4072e40d
+        dest: build/download/
+        dest-filename: libdvdcss.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdread/archive/6.0.0-Leia-Alpha-3.tar.gz
+        sha256: a30b6aa0aad0f2c505bc77948af2d5531a80b6e68112addb4c123fca24d5d3bf
+        dest: build/download/
+        dest-filename: libdvdread.tar.gz
+      - type: file
+        url: https://github.com/xbmc/libdvdnav/archive/6.0.0-Leia-Alpha-3.tar.gz
+        sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
+        dest: build/download/
+        dest-filename: libdvdnav.tar.gz
+
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 tv.kodi.Kodi.appdata.xml /app/share/appdata/tv.kodi.Kodi.appdata.xml
+    sources:
+      - type: file
+        path: tv.kodi.Kodi.appdata.xml
+
+  - name: kodiplatform
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/xbmc/kodi-platform
+        commit: e8574b883ffa2131f2eeb96ff3724d60b21130f7
+
+  - deps/fluidsynth.json
+  - deps/libmodplug.json
+  - deps/jsoncpp.json
+  - deps/libopenmpt.json
+  - deps/rtmpdump.json
+  - addons/audiodecoder.asap.json
+  - addons/audiodecoder.dumb.json
+  - addons/audiodecoder.fluidsynth.json
+  - addons/audiodecoder.gme.json
+  - addons/audiodecoder.gsf.json
+  - addons/audiodecoder.modplug.json
+  - addons/audiodecoder.ncsf.json
+  - addons/audiodecoder.nosefart.json
+  - addons/audiodecoder.organya.json
+  - addons/audiodecoder.qsf.json
+  - addons/audiodecoder.snesapu.json
+  - addons/audiodecoder.ssf.json
+  - addons/audiodecoder.stsound.json
+  - addons/audiodecoder.timidity.json
+  - addons/audiodecoder.upse.json
+  - addons/audiodecoder.vgmstream.json
+  - addons/audiodecoder.wsr.json
+  - addons/audioencoder.flac.json
+  - addons/audioencoder.lame.json
+  - addons/audioencoder.vorbis.json
+  - addons/audioencoder.wav.json
+  - addons/game.libretro.json
+  - addons/inputstream.adaptive.json
+  - addons/peripheral.joystick.json
+  - addons/peripheral.xarcade.json
+  - addons/pvr.argustv.json
+  - addons/pvr.demo.json
+  - addons/pvr.dvbviewer.json
+  - addons/pvr.filmon.json
+  - addons/pvr.hts.json
+  - addons/pvr.mediaportal.tvserver.json
+  - addons/pvr.mythtv.json
+  - addons/pvr.nextpvr.json
+  - addons/pvr.njoy.json
+  - addons/pvr.octonet.json
+  - addons/pvr.pctv.json
+  - addons/pvr.sledovanitv.cz.json
+  - addons/pvr.stalker.json
+  - addons/pvr.teleboy.json
+  - addons/pvr.vbox.json
+  - addons/pvr.vdr.vnsi.json
+  - addons/pvr.vuplus.json
+  - addons/pvr.wmc.json
+  - addons/pvr.zattoo.json
+  - addons/screensaver.asteroids.json
+  - addons/screensaver.biogenesis.json
+  - addons/screensaver.greynetic.json
+  - addons/screensaver.pingpong.json
+  - addons/screensaver.pyro.json
+  - addons/screensaver.stars.json
+  - addons/vfs.nfs.json
+  - addons/vfs.rar.json
+  - addons/vfs.sacd.json
+  - addons/visualization.fishbmc.json
+  - addons/visualization.shadertoy.json
+  - addons/visualization.spectrum.json
+  - addons/visualization.waveform.json
+  - addons/audiodecoder.openmpt.json
+  - addons/inputstream.rtmp.json
