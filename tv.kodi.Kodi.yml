@@ -19,6 +19,7 @@ finish-args:
   - --socket=wayland
   - --system-talk-name=org.bluez
   - --system-talk-name=org.freedesktop.Avahi
+  - --system-talk-name=org.freedesktop.login1
   - --system-talk-name=org.freedesktop.UDisks2
   - --system-talk-name=org.freedesktop.UPower
 command: kodi
