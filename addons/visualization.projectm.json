@@ -4,8 +4,8 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/notspiff/visualization.projectm",
-            "commit": "b5be54b5a65e6ca66e37a66b647cb8621797104a"
+            "url": "https://github.com/xbmc/visualization.projectm",
+            "commit": "e6c5ab35f09c634d71252f333f450095ac5e6ca2"
         }
     ]
 }
