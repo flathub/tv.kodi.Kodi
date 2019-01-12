@@ -69,8 +69,8 @@ modules:
       - /share/doc
     sources: &kodi-sources
       - type: archive
-        url: https://github.com/xbmc/xbmc/archive/18.0rc4-Leia.tar.gz
-        sha256: 90f7a8c32e571654d2503a4e97e438b597ff19ae7876e926aaa06b8de516b72b
+        url: https://github.com/xbmc/xbmc/archive/18.0rc5-Leia.tar.gz
+        sha256: b4ade8c266666e53b700739a15f3cab3f79c386763aa8fe14cb8f5c7413c562b
       - type: patch
         path: kodi-sh-in.patch
       - type: file
