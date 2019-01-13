@@ -11,6 +11,7 @@
         "--enable-vaapi",
         "--enable-vdpau",
         "--enable-postproc",
+        "--enable-gnutls",
         "--enable-gpl"
     ],
     "cleanup": [
