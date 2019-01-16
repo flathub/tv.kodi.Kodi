@@ -17,8 +17,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://download.samba.org/pub/samba/stable/samba-4.7.11.tar.gz",
-            "sha256": "bc22daf52d88c92b5dbf2befb6ae6548724bcd9c2eeaf03de2a8ca5085036eb6"
+            "url": "https://download.samba.org/pub/samba/stable/samba-4.7.12.tar.gz",
+            "sha256": "0e9c386bc32983452c5dcafdee561f37e43a411ac1919c864404e6177b1aaf4a"
         },
         {
             "type": "patch",
