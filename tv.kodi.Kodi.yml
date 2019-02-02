@@ -129,6 +129,7 @@ modules:
   - deps/libopenmpt.json
   - deps/rtmpdump.json
   - deps/pycryptodome.json
+  - deps/python-pillow.json
   - addons/audiodecoder.asap.json
   - addons/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth.json
