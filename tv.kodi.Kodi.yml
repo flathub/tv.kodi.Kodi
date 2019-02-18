@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '18.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.openjdk10
+  - org.freedesktop.Sdk.Extension.openjdk11
 finish-args:
   - --device=all
   - --filesystem=xdg-music
