@@ -17,6 +17,7 @@ finish-args:
   - --socket=pulseaudio
   - --socket=fallback-x11
   - --socket=wayland
+  - --talk-name=org.freedesktop.ScreenSaver
   - --system-talk-name=org.bluez
   - --system-talk-name=org.freedesktop.Avahi
   - --system-talk-name=org.freedesktop.login1
