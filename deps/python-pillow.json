@@ -2,7 +2,7 @@
     "name": "python-pillow",
     "buildsystem" : "simple",
     "build-commands" : [
-        "pip install . --prefix=/app"
+        "python3 setup.py install --prefix=/app --root=/"
     ],
     "sources": [
         {
