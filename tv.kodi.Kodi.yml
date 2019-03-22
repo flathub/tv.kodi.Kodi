@@ -140,6 +140,7 @@ modules:
   - addons/audiodecoder.modplug.json
   - addons/audiodecoder.ncsf.json
   - addons/audiodecoder.nosefart.json
+  - addons/audiodecoder.openmpt.json
   - addons/audiodecoder.organya.json
   - addons/audiodecoder.qsf.json
   - addons/audiodecoder.snesapu.json
@@ -155,6 +156,7 @@ modules:
   - addons/audioencoder.wav.json
   - addons/game.libretro.json
   - addons/inputstream.adaptive.json
+  - addons/inputstream.rtmp.json
   - addons/peripheral.joystick.json
   - addons/peripheral.xarcade.json
   - addons/pvr.argustv.json
@@ -189,5 +191,3 @@ modules:
   - addons/visualization.shadertoy.json
   - addons/visualization.spectrum.json
   - addons/visualization.waveform.json
-  - addons/audiodecoder.openmpt.json
-  - addons/inputstream.rtmp.json
