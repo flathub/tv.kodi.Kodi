@@ -1,7 +1,7 @@
 {
     "name": "pycryptodome",
-    "buildsystem" : "simple",
-    "build-commands" : [
+    "buildsystem": "simple",
+    "build-commands": [
         "touch .separate_namespace",
         "pip install . --prefix=/app"
     ],
@@ -9,7 +9,7 @@
         {
             "type": "archive",
             "url": "https://files.pythonhosted.org/packages/c7/ff/1ca71a40eb69c89778396a30d399639d41473b09c36aff2b700d80dd94b9/pycryptodome-3.7.3.tar.gz",
-            "sha256" : "1a222250e43f3c659b4ebd5df3e11c2f112aab6aef58e38af55ef5678b9f0636"
+            "sha256": "1a222250e43f3c659b4ebd5df3e11c2f112aab6aef58e38af55ef5678b9f0636"
         }
     ]
 }
