@@ -131,6 +131,7 @@ modules:
   - deps/rtmpdump.json
   - deps/pycryptodome.json
   - deps/python-pillow.json
+  - deps/rapidxml.json
   - deps/simplejson.json
   - addons/audiodecoder.asap.json
   - addons/audiodecoder.dumb.json
@@ -164,6 +165,7 @@ modules:
   - addons/pvr.dvbviewer.json
   - addons/pvr.filmon.json
   - addons/pvr.hts.json
+  - addons/pvr.iptvsimple.json
   - addons/pvr.mediaportal.tvserver.json
   - addons/pvr.mythtv.json
   - addons/pvr.nextpvr.json
