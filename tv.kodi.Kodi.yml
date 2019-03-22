@@ -131,6 +131,7 @@ modules:
   - deps/rtmpdump.json
   - deps/pycryptodome.json
   - deps/python-pillow.json
+  - deps/rapidxml.json
   - deps/simplejson.json
   - addons/audiodecoder.asap.json
   - addons/audiodecoder.dumb.json
@@ -140,6 +141,7 @@ modules:
   - addons/audiodecoder.modplug.json
   - addons/audiodecoder.ncsf.json
   - addons/audiodecoder.nosefart.json
+  - addons/audiodecoder.openmpt.json
   - addons/audiodecoder.organya.json
   - addons/audiodecoder.qsf.json
   - addons/audiodecoder.snesapu.json
@@ -155,6 +157,7 @@ modules:
   - addons/audioencoder.wav.json
   - addons/game.libretro.json
   - addons/inputstream.adaptive.json
+  - addons/inputstream.rtmp.json
   - addons/peripheral.joystick.json
   - addons/peripheral.xarcade.json
   - addons/pvr.argustv.json
@@ -162,6 +165,7 @@ modules:
   - addons/pvr.dvbviewer.json
   - addons/pvr.filmon.json
   - addons/pvr.hts.json
+  - addons/pvr.iptvsimple.json
   - addons/pvr.mediaportal.tvserver.json
   - addons/pvr.mythtv.json
   - addons/pvr.nextpvr.json
@@ -189,5 +193,3 @@ modules:
   - addons/visualization.shadertoy.json
   - addons/visualization.spectrum.json
   - addons/visualization.waveform.json
-  - addons/audiodecoder.openmpt.json
-  - addons/inputstream.rtmp.json
