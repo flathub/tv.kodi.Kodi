@@ -28,7 +28,7 @@ rename-desktop-file: kodi.desktop
 rename-icon: kodi
 modules:
   - shared-modules/udev/udev-175.json
-  - shared-modules/python2.7/python-2.7.15.json
+  - shared-modules/python2.7/python-2.7.json
   - shared-modules/glu/glu-9.0.0.json
   - deps/avahi.json
   - deps/libical.json
