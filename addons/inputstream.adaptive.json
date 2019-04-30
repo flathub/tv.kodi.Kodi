@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/peak3d/inputstream.adaptive",
-            "commit": "0987a13693b159afeddd5af52531a0788ab1a8ee"
+            "tag": "2.3.17",
+            "commit": "1a7dafde4da114dc5858f6234ea847693efb0674"
         }
     ]
 }

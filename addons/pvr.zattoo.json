@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "tag": "18.0.58-Leia",
-            "commit": "4688f458525d752074cf1441facf4da8bdd8d0ee"
+            "tag": "18.0.59-Leia",
+            "commit": "ef6279f2c70eeb8e32a772ec2c81b9a36e30ff70"
         }
     ]
 }

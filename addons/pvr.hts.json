@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hts",
-            "tag": "4.4.13-Leia",
-            "commit": "e394c7939c0459dee80d9c65be6f29f79ce1a061"
+            "tag": "4.4.17-Leia",
+            "commit": "3993a8a98f55cbab2673fb6a52f785e6759398d0"
         }
     ]
 }

@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/janbar/pvr.mythtv",
-            "commit": "3c104f7261717b2b4c66816a06e0931ecb99841c"
+            "tag": "5.10.7-Leia",
+            "commit": "179b6ea5ad6a394a7e59be25ae72bc5033c9cb35"
         }
     ]
 }

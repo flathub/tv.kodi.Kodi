@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.rar",
-            "tag": "2.0.6-Leia",
-            "commit": "45a0cec35c99a3fce0586b92d9ecdedd30a11be9"
+            "tag": "2.0.7-Leia",
+            "commit": "796ea9be97db7747bebe5513f4204699b8b02ec4"
         }
     ]
 }

@@ -4,8 +4,9 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/notspiff/screensaver.asterwave",
-            "commit": "6acee9c199049854bf511043c88da821e2b19459"
+            "url": "https://github.com/xbmc/screensaver.asterwave",
+            "tag": "3.0.3-Leia",
+            "commit": "a91fcb6ccb001ee92afa8b3e3cd3ef46227ae3d8"
         }
     ]
 }

@@ -4,7 +4,7 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/notspiff/screensavers.rsxs",
+            "url": "https://github.com/xbmc/screensavers.rsxs",
             "commit": "be03db6e9652a465b521cb7768b692e52ed2f1e3"
         }
     ]
