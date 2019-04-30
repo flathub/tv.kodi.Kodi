@@ -186,9 +186,7 @@ modules:
   - addons/screensaver.pingpong.json
   - addons/screensaver.pyro.json
   - addons/screensaver.stars.json
-  - addons/vfs.nfs.json
   - addons/vfs.rar.json
-  - addons/vfs.sacd.json
   - addons/visualization.fishbmc.json
   - addons/visualization.shadertoy.json
   - addons/visualization.spectrum.json
