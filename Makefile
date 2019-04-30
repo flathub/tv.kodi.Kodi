@@ -21,5 +21,5 @@ format:
 addons:
 	@mkdir -p addons
 	@rm -rf repo-binary-addons
-	@git clone https://github.com/xbmc/repo-binary-addons
+	@git clone --branch Leia https://github.com/xbmc/repo-binary-addons
 	python3 binary-addons.py repo-binary-addons addons
