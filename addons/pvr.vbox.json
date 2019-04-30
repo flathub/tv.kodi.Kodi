@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
+            "tag": "4.4.8-Leia",
             "commit": "ea20464ea7ea36b4c6163c8d74e589604023d01d"
         }
     ]

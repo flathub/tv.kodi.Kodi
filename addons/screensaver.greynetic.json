@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.greynetic",
+            "tag": "2.1.0-Leia",
             "commit": "29693bdc474d09a1fe7ac846ad6f62b8841851fd"
         }
     ]

@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.lame",
+            "tag": "v2.0.1",
             "commit": "476f4b2e70f527a1db18bd8022c045ba16957deb"
         }
     ]

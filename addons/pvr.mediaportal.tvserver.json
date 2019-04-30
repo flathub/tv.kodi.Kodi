@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.mediaportal.tvserver",
+            "tag": "3.5.17-Leia",
             "commit": "931afab54115f29fbfe013ebb6c48adb2ce6f859"
         }
     ]

@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asteroids",
+            "tag": "2.2.1-Leia",
             "commit": "cfe11ef793ca641b3273057971428db873c71b21"
         }
     ]

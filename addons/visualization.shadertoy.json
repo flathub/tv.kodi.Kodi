@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.shadertoy",
+            "tag": "1.1.9-Leia",
             "commit": "039af915812c9d4657dee9da93336598cf083cc0"
         }
     ]
