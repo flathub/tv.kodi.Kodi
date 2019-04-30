@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.teleboy",
+            "tag": "18.0.24-Leia",
             "commit": "1956113e4ec824ab930bd237ca8a6e662b18c19a"
         }
     ]

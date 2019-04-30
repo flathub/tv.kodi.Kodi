@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.stars",
+            "tag": "2.1.1-Leia",
             "commit": "e1cd718a192dedade03a9ef856efb3e3c5cdbc75"
         }
     ]

@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.timidity",
+            "tag": "2.0.1-Leia",
             "commit": "4f5d719ab2a79493fc9e39ed553e028e83f99252"
         }
     ]

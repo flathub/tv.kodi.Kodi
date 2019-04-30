@@ -5,6 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.biogenesis",
+            "tag": "2.1.0-Leia",
             "commit": "ee3641ac59496e1d1c9901f3a4253b883303fada"
         }
     ]
