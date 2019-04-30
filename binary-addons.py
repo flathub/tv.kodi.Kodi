@@ -14,14 +14,22 @@ ADDON_SRC_PREFIX = 'src'
 def addon_manifest(def_dir, addon):
     with open(os.path.join(def_dir, addon + '.txt'), 'r') as f:
         a, r, v = f.read().strip().split(' ')
-        ls_remote = subprocess.check_output(['git', 'ls-remote', '-q', r, v])
-        c = ls_remote.decode().split('\t')[0]
+        if not os.path.exists(addon):
+            subprocess.check_output(['git', 'clone', '--branch={}'.format(v), '--single-branch', r])
+        else:
+            subprocess.check_output(['git', 'config', 'remote.origin.fetch', '+refs/heads/{v}:refs/remotes/origin/{v}'.format(v=v)], cwd=a)
+        subprocess.check_output(['git', 'fetch', '--all', '-p'], cwd=a)
+        t = subprocess.check_output(['git', 'describe', '--abbrev=0', '--tags', 'origin/{}'.format(v)], cwd=a)
+        t = t.decode().strip()
+        c = subprocess.check_output(['git', 'rev-parse', t], cwd=a)
+        c = c.decode().strip()
         mf = {
             'name': addon,
             'buildsystem': 'cmake-ninja',
             'sources': [{
                 'type': 'git',
                 'url': r,
+                'tag': t,
                 'commit': c,
             }]
         }
