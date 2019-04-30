@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "commit": "2a9956059faacc7b2b969498138ad80341ad639a"
+            "tag": "v2.0.4-Leia",
+            "commit": "77519bc728bd8c56172e4c8f762f07b95204331d"
         }
     ]
 }

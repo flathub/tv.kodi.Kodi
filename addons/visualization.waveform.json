@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
-            "commit": "0cf358a5fda80815089a52b44191ecc26dfdc7f3"
+            "tag": "2.0.1-Leia",
+            "commit": "918dbdde7cb38c7a1c6bd1fe66bdc404e625fda6"
         }
     ]
 }

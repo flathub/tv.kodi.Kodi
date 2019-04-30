@@ -4,8 +4,9 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/FernetMenta/pvr.vdr.vnsi",
-            "commit": "cbb75abb75218afba3b7ff30728bba279b661fe4"
+            "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
+            "tag": "3.6.3-Leia",
+            "commit": "9e4d93afdc2673850e93d5945f2f7f98ef023dbd"
         }
     ]
 }

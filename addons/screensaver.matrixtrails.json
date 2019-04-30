@@ -4,9 +4,9 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/notspiff/screensaver.matrixtrails",
-            "tag": "v2.2.0-Leia",
-            "commit": "b652e74ad8b2fac66c548393dfc016ee89693318"
+            "url": "https://github.com/xbmc/screensaver.matrixtrails",
+            "tag": "v2.2.1-Leia",
+            "commit": "8d73bcf5bff287c835dd8da63f429c4595cbbd2d"
         }
     ]
 }

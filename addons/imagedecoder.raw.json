@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "commit": "7846d49f62893c2320ae3711768af9b8019b33ea"
+            "tag": "2.0.1-Leia",
+            "commit": "41a370dbfeb57b647e9e3e78c19d1385bcfa584e"
         }
     ]
 }

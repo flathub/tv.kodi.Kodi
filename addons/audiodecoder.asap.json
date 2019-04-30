@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.asap",
-            "commit": "73c556857e31ae441e4ae797761c88614158a855"
+            "tag": "2.0.0-Leia",
+            "commit": "974976bfb29d5349b2da947a73f77c6010af0636"
         }
     ]
 }

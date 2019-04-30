@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvblink",
-            "tag": "4.7.1-Leia",
-            "commit": "d0bd868fbe4226dfe56df39c290daa5f61b3140c"
+            "tag": "4.7.2-Leia",
+            "commit": "ecc9cfdd5e32b37205804f757ea8d6a77ee2d768"
         }
     ]
 }

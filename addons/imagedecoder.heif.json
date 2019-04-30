@@ -1,0 +1,12 @@
+{
+    "name": "imagedecoder.heif",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/imagedecoder.heif",
+            "tag": "1.0.1-Leia",
+            "commit": "ae612e69e9aed1984620ae8abba77d27e6d53d32"
+        }
+    ]
+}
