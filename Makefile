@@ -15,7 +15,7 @@ run:
 clean:
 	rm -rf .flatpak-builder/cache
 format:
-	for n in *json deps/*json; do python -m json.tool < $$n > a && mv a $$n || echo $$n ; done
+	for n in *json addons/*.json deps/*json; do python -m json.tool < $$n > a && mv a $$n || echo $$n ; done
 
 .PHONY: addons
 addons:
