@@ -48,6 +48,7 @@ def create_manifest(repo_path, target_path):
         addon_dict = addon_manifest(addon_dir, os.path.basename(addon_dir))
         with open(os.path.join(target_path, "%s.json" % os.path.basename(addon_dir)), 'w') as t:
             json.dump(addon_dict, t, indent=4)
+            t.write('\n')
 
 
 if __name__ == '__main__':
