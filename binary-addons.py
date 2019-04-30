@@ -5,6 +5,7 @@ import os
 from glob import glob
 import json
 import subprocess
+import threading
 
 
 ADDON_SRC_PREFIX = 'src'
@@ -27,7 +28,15 @@ def addon_manifest(def_dir, addon):
         return mf
 
 
+def write_manifest(addon_dir, target_path):
+    addon_dict = addon_manifest(addon_dir, os.path.basename(addon_dir))
+    with open(os.path.join(target_path, "%s.json" % os.path.basename(addon_dir)), 'w') as t:
+        json.dump(addon_dict, t, indent=4)
+        t.write('\n')
+
+
 def create_manifest(repo_path, target_path):
+    threads = []
     for p in glob(os.path.join(repo_path, '*', 'platforms.txt')):
 
         addon_dir = os.path.abspath(os.path.join(p, os.pardir))
@@ -45,10 +54,11 @@ def create_manifest(repo_path, target_path):
         # print some progress
         print(os.path.basename(addon_dir))
 
-        addon_dict = addon_manifest(addon_dir, os.path.basename(addon_dir))
-        with open(os.path.join(target_path, "%s.json" % os.path.basename(addon_dir)), 'w') as t:
-            json.dump(addon_dict, t, indent=4)
-            t.write('\n')
+        t = threading.Thread(target=write_manifest, args=(addon_dir, target_path))
+        t.start()
+        threads.append(t)
+
+    [t.join() for t in threads]
 
 
 if __name__ == '__main__':
