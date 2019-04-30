@@ -19,6 +19,7 @@ format:
 
 .PHONY: addons
 addons:
+	@rm -rf addons
 	@mkdir -p addons
 	@rm -rf repo-binary-addons
 	@git clone --branch Leia https://github.com/xbmc/repo-binary-addons

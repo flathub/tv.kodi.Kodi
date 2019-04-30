@@ -31,9 +31,21 @@ def create_manifest(repo_path, target_path):
     for p in glob(os.path.join(repo_path, '*', 'platforms.txt')):
 
         addon_dir = os.path.abspath(os.path.join(p, os.pardir))
-        addon_dict = addon_manifest(addon_dir, os.path.basename(addon_dir))
+        with open(p) as platforms_file:
+            platforms = platforms_file.read().strip()
+            platforms = platforms.split(" ")
+
+            if set(platforms).intersection(["!linux"]):
+                print("{} skipped ({})".format(os.path.basename(addon_dir), ', '.join(platforms)))
+                continue
+            elif not set(platforms).intersection(["all", "linux"]) and not all([p.startswith("!") for p in platforms]):
+                print("{} skipped ({})".format(os.path.basename(addon_dir), ', '.join(platforms)))
+                continue
+
         # print some progress
         print(os.path.basename(addon_dir))
+
+        addon_dict = addon_manifest(addon_dir, os.path.basename(addon_dir))
         with open(os.path.join(target_path, "%s.json" % os.path.basename(addon_dir)), 'w') as t:
             json.dump(addon_dict, t, indent=4)
 
