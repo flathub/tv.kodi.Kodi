@@ -1,8 +1,12 @@
 {
     "name": "libopenmpt",
+    "cleanup": [
+        "/include"
+    ],
     "config-opts": [
         "--without-portaudio",
-        "--without-portaudiocpp"
+        "--without-portaudiocpp",
+        "--enable-static=no"
     ],
     "sources": [
         {
