@@ -8,8 +8,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "http://ftp.osuosl.org/pub/mariadb/connector-c-3.0.7/mariadb-connector-c-3.0.7-src.tar.gz",
-            "sha256": "f63883c9360675d111646fba5c97feb0d08e0def5873dd189d78bafbb75fa004"
+            "url": "https://downloads.mariadb.com/Connectors/c/connector-c-3.0.10/mariadb-connector-c-3.0.10-src.tar.gz",
+            "sha256": "bd9aa1f137ead3dc68ed3165adc53541712076d08949800b6ccebd33da6d0ae8"
         }
     ]
 }
