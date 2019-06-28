@@ -63,7 +63,7 @@ modules:
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk10/bin/java
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
       - -DCORE_PLATFORM_NAME=x11
     cleanup: &kodi-cleanup
       - /include
@@ -103,7 +103,7 @@ modules:
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk10/bin/java
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
       - -DCORE_PLATFORM_NAME=wayland
       - -DWAYLAND_RENDER_SYSTEM=gl
     cleanup: *kodi-cleanup
