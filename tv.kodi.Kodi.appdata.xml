@@ -38,6 +38,7 @@
         <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/skin.bello__0.jpg</screenshot>
     </screenshots>
     <releases>
+        <release date="2019-06-27" version="18.3-Leia"/>
         <release date="2019-04-22" version="18.2-Leia"/>
         <release date="2019-02-17" version="18.1-Leia"/>
     </releases>
