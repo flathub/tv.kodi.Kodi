@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.usf",
-            "commit": "37369f4c048e71f1561d77042fbd7dd1e413b1d8"
+            "tag": "2.0.0-Leia",
+            "commit": "65d29829baa913f7b5b64d3fbe521cb16a9df69c"
         }
     ]
 }
