@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
-            "commit": "4467cacf819d7312482635ac45ddd52cd61ab6e0"
+            "tag": "3.4.2-Leia",
+            "commit": "56052966e7e74b6c491955aecb62bde561f7135b"
         }
     ]
 }
