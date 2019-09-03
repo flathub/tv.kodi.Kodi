@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensavers.rsxs",
-            "commit": "be03db6e9652a465b521cb7768b692e52ed2f1e3"
+            "tag": "v1.4.0",
+            "commit": "b68a652450c3baeb7b6c235cff05ac0b6b444644"
         }
     ]
 }
