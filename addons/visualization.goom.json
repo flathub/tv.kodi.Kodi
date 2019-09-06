@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/notspiff/visualization.goom",
-            "commit": "7c91a206769534adc8a583feaed81cdb8659f64f"
+            "tag": "v1.1.0",
+            "commit": "a23f4ad67359f7998c2984ded032568ffb1b86a7"
         }
     ]
 }

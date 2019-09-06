@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.vorbis",
-            "tag": "v2.0.1",
-            "commit": "acd7c796109971fa05bf33f620d7b737e5dbd0bb"
+            "tag": "v2.0.2-Leia",
+            "commit": "78c456d6a3f682327279fe81be78c4a4f6cd0e3b"
         }
     ]
 }

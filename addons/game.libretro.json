@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "4f4b1ecb912a46811ea0709571e12b79342bc39a"
+            "tag": "1.1.0-Leia",
+            "commit": "af15fa7327017edd12c96af5c76ab7ddb5bd02f5"
         }
     ]
 }

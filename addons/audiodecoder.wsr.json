@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.wsr",
-            "tag": "2.0.0-Leia",
-            "commit": "5463f4f68ef39d3424ced144609addd1d37dedc0"
+            "tag": "2.0.1-Leia",
+            "commit": "979eb467c903f6d2a03ce0e0c5d5915c2127e1ed"
         }
     ]
 }

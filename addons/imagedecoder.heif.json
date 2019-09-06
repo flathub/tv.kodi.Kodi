@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "tag": "1.0.1-Leia",
-            "commit": "ae612e69e9aed1984620ae8abba77d27e6d53d32"
+            "tag": "1.0.3-Leia",
+            "commit": "cfe1fdf465becaf507a5e5dde3405a14c1832070"
         }
     ]
 }
