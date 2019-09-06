@@ -11,8 +11,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.2+release.autotools.tar.gz",
-            "sha256": "d7120b8298e7693ab80631341b82ade6e07e7355ac516ac99513ceec6fb910c2"
+            "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.6+release.autotools.tar.gz",
+            "sha256": "fa8f2ff5d9b74c00b3fed5edad2aefdfb79a6cd370bf5ec9894b2121f49fb67e"
         }
     ]
 }
