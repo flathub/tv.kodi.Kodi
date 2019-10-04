@@ -7,7 +7,8 @@
         "--disable-client",
         "--disable-mesh",
         "--disable-tools",
-        "--disable-monitor"
+        "--disable-monitor",
+        "--disable-udev"
     ],
     "cleanup": [
         "/include",
