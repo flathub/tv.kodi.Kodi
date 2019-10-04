@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk11
@@ -27,14 +27,12 @@ command: kodi
 rename-desktop-file: kodi.desktop
 rename-icon: kodi
 modules:
-  - shared-modules/udev/udev-175.json
   - shared-modules/python2.7/python-2.7.json
-  - shared-modules/glu/glu-9.0.0.json
+  - shared-modules/glu/glu-9.json
   - deps/avahi.json
   - deps/libical.json
   - deps/bluez.json
   - deps/fmt.json
-  - deps/fribidi.json
   - deps/fstrcmp.json
   - deps/libass.json
   - deps/libcdio.json
