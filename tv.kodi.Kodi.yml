@@ -38,6 +38,7 @@ modules:
   - deps/libass.json
   - deps/libcdio.json
   - deps/lzo2.json
+  - deps/libtirpc.json
   - deps/samba.json
   - deps/swig.json
   - deps/taglib.json
