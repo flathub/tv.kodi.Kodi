@@ -27,6 +27,7 @@ command: kodi
 rename-desktop-file: kodi.desktop
 rename-icon: kodi
 modules:
+  - shared-modules/intltool/intltool-0.51.json
   - shared-modules/python2.7/python-2.7.json
   - shared-modules/glu/glu-9.json
   - deps/avahi.json
