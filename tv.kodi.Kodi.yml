@@ -191,3 +191,18 @@ modules:
   - addons/visualization.shadertoy.json
   - addons/visualization.spectrum.json
   - addons/visualization.waveform.json
+
+cleanup:
+  - "*.a"
+  - "*.pyc"
+  - "*.pyo"
+  - /.ref
+  - /etc
+  - /lib/cmake
+  - /lib/pkgconfig
+  - /lib64/pkgconfig
+  - /man
+  - /private
+  - /share/doc
+  - /share/man
+  - /var
