@@ -5,7 +5,8 @@
         "/bin",
         "*.a",
         "*.la",
-        "/lib/*.so"
+        "/lib/*.so",
+        "/share/runtime/locale"
     ],
     "config-opts": [
         "--with-distro=none",
