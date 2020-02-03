@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "tag": "2.0.5-Leia",
-            "commit": "6065923d5131b7db606b5ace250da3e6b0d61a9d"
+            "tag": "2.0.8-Leia",
+            "commit": "b45f6753e823e119c08451bf0828c558d174d039"
         }
     ]
 }

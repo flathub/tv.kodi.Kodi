@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.stsound",
-            "tag": "2.0.0-Leia",
-            "commit": "ea89e6bfbf47c970cdbcf511f297b6eeb42bfb8f"
+            "tag": "2.0.1-Leia",
+            "commit": "53966a33b859dd456363f50cbde012ae3cede998"
         }
     ]
 }

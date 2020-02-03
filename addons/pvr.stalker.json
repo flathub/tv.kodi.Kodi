@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.stalker",
-            "tag": "3.4.9-Leia",
-            "commit": "d0170c5b3fc496d8a51fe894661babcd5d7b4347"
+            "tag": "3.4.10-Leia",
+            "commit": "db9623335fcfa66c0df4a0bc6f88d976c701a49d"
         }
     ]
 }
