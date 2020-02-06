@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sidplay",
-            "tag": "1.2.1-Leia",
-            "commit": "ed76cdb702ffda12f9c02cfd10b4985182cfbc98"
+            "tag": "1.2.2-Leia",
+            "commit": "c14d6f2ba0433ad54c87747cb8f0a56e7adfb8bd"
         }
     ]
 }
