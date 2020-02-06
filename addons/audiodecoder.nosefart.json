@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.nosefart",
-            "tag": "2.0.1-Leia",
-            "commit": "a26ae3d2c3763614c5386c8de3d36a72db2d6e19"
+            "tag": "2.0.2-Leia",
+            "commit": "de4fca0cecd99bcff6aee33bcb50a9508671f6b9"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "tag": "2.0.3-Leia",
-            "commit": "368540df801f744f536c4b073f38a6b75667aa92"
+            "tag": "2.0.4-Leia",
+            "commit": "aa312dc3a857dad3ecc8f1962d4154231d47c6fb"
         }
     ]
 }
