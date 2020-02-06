@@ -135,6 +135,7 @@ modules:
   - deps/python-pillow.json
   - deps/rapidxml.json
   - deps/simplejson.json
+  - deps/tinyxml2.json
   - addons/audiodecoder.2sf.json
   - addons/audiodecoder.asap.json
   - addons/audiodecoder.dumb.json
