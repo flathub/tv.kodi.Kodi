@@ -129,6 +129,7 @@ modules:
   - deps/libmodplug.json
   - deps/jsoncpp.json
   - deps/libopenmpt.json
+  - deps/nlohmann-json.json
   - deps/rtmpdump.json
   - deps/pycryptodome.json
   - deps/python-pillow.json
