@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
-            "tag": "2.0.5-Leia",
-            "commit": "e8205217727e70153e56ca18bacbd6b1c68c1466"
+            "tag": "2.0.6-Leia",
+            "commit": "61a68bbe67748a88ea0eaeff77293cef9f1eede1"
         }
     ]
 }
