@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.wav",
-            "tag": "v2.0.1",
-            "commit": "096b3625aa4089450996f6401f1bf9df939c003c"
+            "tag": "2.0.2-Leia",
+            "commit": "408723ee0b579596af120dd5d96fcce9c85c9988"
         }
     ]
 }

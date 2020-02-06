@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.snesapu",
-            "tag": "2.0.0-Leia",
-            "commit": "32bed39a2e9bbd7df8ce2cef5fd2681579d5ec30"
+            "tag": "2.0.1-Leia",
+            "commit": "84e6fdc271a7b894b0a16df8d8307ce1f18dc926"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
-            "tag": "2.0.1-Leia",
-            "commit": "2aee0cf2bd8fb6d82fb32dae71f9372e0345d695"
+            "tag": "2.0.2-Leia",
+            "commit": "4517db46029413c9c0f85d0c335148cb869d1802"
         }
     ]
 }

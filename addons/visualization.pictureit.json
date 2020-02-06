@@ -1,0 +1,12 @@
+{
+    "name": "visualization.pictureit",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/linuxwhatelse/visualization.pictureit",
+            "tag": "v0.1.6",
+            "commit": "ea11faae05879b5c3ab8a8541dc96dd2a756cbb3"
+        }
+    ]
+}

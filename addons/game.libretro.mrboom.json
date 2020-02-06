@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "tag": "4.8.0.109-Leia",
-            "commit": "a91f8b75a801c112633223eecfe60a9db467e48d"
+            "tag": "4.9.0.111-Leia",
+            "commit": "9a39759ec5b94683e88a541994e81f347d5d2385"
         }
     ]
 }

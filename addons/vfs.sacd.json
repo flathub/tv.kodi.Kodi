@@ -1,0 +1,12 @@
+{
+    "name": "vfs.sacd",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/vfs.sacd",
+            "tag": "1.0.3-Leia",
+            "commit": "d070e45549d5b7d87fbb2cfe8969b32c16d4199b"
+        }
+    ]
+}

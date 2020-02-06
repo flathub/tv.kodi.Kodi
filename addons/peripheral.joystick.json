@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
-            "tag": "1.4.8-Leia",
-            "commit": "7611722a4921b66674a41c3f5322ff0a54246b71"
+            "tag": "1.4.9-Leia",
+            "commit": "27d788f51b7257a8437253633e87c1d7db9ffecf"
         }
     ]
 }

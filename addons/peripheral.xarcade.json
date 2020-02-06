@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "tag": "v1.0.0",
-            "commit": "51c01b7077a6d1c2b83744c15cc6b46cf678494c"
+            "tag": "1.1.0-Leia",
+            "commit": "85a137b3a945c02b877e093391a8e1177442b11b"
         }
     ]
 }
