@@ -1,6 +1,7 @@
 {
     "name": "imagedecoder.mpo",
     "buildsystem": "cmake-ninja",
+    "builddir": true,
     "sources": [
         {
             "type": "git",

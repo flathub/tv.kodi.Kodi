@@ -125,14 +125,18 @@ modules:
         commit: e8574b883ffa2131f2eeb96ff3724d60b21130f7
 
   - deps/fluidsynth.json
+  - deps/glm.json
   - deps/libmodplug.json
   - deps/jsoncpp.json
   - deps/libopenmpt.json
+  - deps/nlohmann-json.json
   - deps/rtmpdump.json
   - deps/pycryptodome.json
   - deps/python-pillow.json
   - deps/rapidxml.json
   - deps/simplejson.json
+  - deps/tinyxml2.json
+  - addons/audiodecoder.2sf.json
   - addons/audiodecoder.asap.json
   - addons/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth.json
@@ -149,6 +153,7 @@ modules:
   - addons/audiodecoder.stsound.json
   - addons/audiodecoder.timidity.json
   - addons/audiodecoder.upse.json
+  - addons/audiodecoder.usf.json
   - addons/audiodecoder.vgmstream.json
   - addons/audiodecoder.wsr.json
   - addons/audioencoder.flac.json
@@ -156,12 +161,14 @@ modules:
   - addons/audioencoder.vorbis.json
   - addons/audioencoder.wav.json
   - addons/game.libretro.json
+  - addons/imagedecoder.mpo.json
   - addons/inputstream.adaptive.json
   - addons/inputstream.rtmp.json
   - addons/peripheral.joystick.json
   - addons/peripheral.xarcade.json
   - addons/pvr.argustv.json
   - addons/pvr.demo.json
+  - addons/pvr.dvblink.json
   - addons/pvr.dvbviewer.json
   - addons/pvr.filmon.json
   - addons/pvr.hts.json
@@ -181,15 +188,20 @@ modules:
   - addons/pvr.wmc.json
   - addons/pvr.zattoo.json
   - addons/screensaver.asteroids.json
+  - addons/screensaver.asterwave.json
   - addons/screensaver.biogenesis.json
   - addons/screensaver.greynetic.json
+  - addons/screensaver.matrixtrails.json
   - addons/screensaver.pingpong.json
   - addons/screensaver.pyro.json
   - addons/screensaver.stars.json
   - addons/vfs.rar.json
+  - addons/vfs.sacd.json
   - addons/visualization.fishbmc.json
+  - addons/visualization.goom.json
   - addons/visualization.shadertoy.json
   - addons/visualization.spectrum.json
+  - addons/visualization.starburst.json
   - addons/visualization.waveform.json
 
 cleanup:

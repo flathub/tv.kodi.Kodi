@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vuplus",
-            "tag": "3.15.4-Leia",
-            "commit": "ec29899c002373c1220c90728b0f1bd40280f48f"
+            "tag": "3.28.9-Leia",
+            "commit": "e530acae22bbb6fa84e782da727eca5a72039b31"
         }
     ]
 }
