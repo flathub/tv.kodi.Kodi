@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/palinek/pvr.sledovanitv.cz",
-            "tag": "1.5.1-Leia",
-            "commit": "ad4a9dc2a3a52a46977dec310b92ef8d07e8cb96"
+            "tag": "1.7.0-Leia",
+            "commit": "7bbd0f9b6b6e85c16093125203b218eb5a14d17e"
         }
     ]
 }

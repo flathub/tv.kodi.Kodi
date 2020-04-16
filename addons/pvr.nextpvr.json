@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.nextpvr",
-            "tag": "3.3.18-Leia",
-            "commit": "fac4f704b83bff5f266b405a4693eef602f63e6e"
+            "tag": "3.3.19-Leia",
+            "commit": "b4d0ebaafceded99b09da56b3dee906923045dab"
         }
     ]
 }
