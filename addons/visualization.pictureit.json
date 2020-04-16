@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/linuxwhatelse/visualization.pictureit",
-            "tag": "v0.1.6",
-            "commit": "ea11faae05879b5c3ab8a8541dc96dd2a756cbb3"
+            "tag": "3.0.1-Leia",
+            "commit": "d246c1493d5c4e21236449bf7d15d62fcb7a8bf8"
         }
     ]
 }

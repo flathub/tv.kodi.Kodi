@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "tag": "2.3.4-Leia",
-            "commit": "20dad448c0c4e854a19345b23b820e59adfbe49f"
+            "tag": "2.3.5-Leia",
+            "commit": "0ee9e565f3b3b8c1d4c65235813f7475dcd39897"
         }
     ]
 }

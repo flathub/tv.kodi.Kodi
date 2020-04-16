@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "tag": "v1.1.0",
-            "commit": "04c1938ee218dc1f5b991c55ba5a2dc32212d03e"
+            "tag": "3.0.4-Leia",
+            "commit": "2b6ed7e82c0d1830944ed1ad2280bd6c930a8855"
         }
     ]
 }
