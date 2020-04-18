@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ncsf",
-            "tag": "2.0.2-Leia",
-            "commit": "c7e497eca6262a2c7650290a60e63a34e664bd38"
+            "tag": "2.0.3-Leia",
+            "commit": "e901a56c91488464b26c2e6a051c49b80a46dd33"
         }
     ]
 }
