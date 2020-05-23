@@ -208,10 +208,12 @@ cleanup:
   - "*.a"
   - "*.pyc"
   - "*.pyo"
+  - "*.cmake"
   - /.ref
   - /etc
   - /include
   - /lib/cmake
+  - /lib64/cmake
   - /lib/pkgconfig
   - /lib64/pkgconfig
   - /man
