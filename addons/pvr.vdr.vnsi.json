@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
-            "tag": "3.6.4-Leia",
-            "commit": "379b83043a66702f830195bda4893b92ec779c7b"
+            "tag": "8.1.0-Matrix",
+            "commit": "8c2abe14b49faf15ffd58c5a68f072069a8e045c"
         }
     ]
 }

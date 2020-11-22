@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "tag": "2.1.1-Leia",
-            "commit": "0fddf6ff28eca78c3dd4680285c8cca3aa923409"
+            "tag": "3.0.0-Matrix",
+            "commit": "7f554b9ecd4c6af11cb737119bf7201944b68c76"
         }
     ]
 }

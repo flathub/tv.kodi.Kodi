@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.organya",
-            "tag": "1.2.1-Leia",
-            "commit": "6893ca2ef50a4adb4f1dc1358f8e1593af4531c3"
+            "tag": "3.0.0-Matrix",
+            "commit": "3bfef618c9f2f3e54cfc40774924126e947845f3"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "tag": "2.0.2-Leia",
-            "commit": "f89cbe460729c5287b341cd4e71643b659a5dbef"
+            "tag": "3.0.0-Matrix",
+            "commit": "b816659d4fc44819880be0e1efb8a3ea93c5ba3d"
         }
     ]
 }

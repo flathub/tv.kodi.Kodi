@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
-            "tag": "3.4.2-Leia",
-            "commit": "56052966e7e74b6c491955aecb62bde561f7135b"
+            "tag": "7.0.0-Matrix",
+            "commit": "b4ec9bd031581e7ca60fda6fa4a19315dc539bea"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.demo",
-            "tag": "3.6.1-Leia",
-            "commit": "998d890a87d1eb5e0f08fc8c103b20a08bb7f67c"
+            "tag": "7.0.0-Matrix",
+            "commit": "10f7c941250fc65c6e4dd011bde0759ea295d890"
         }
     ]
 }

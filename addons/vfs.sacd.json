@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sacd",
-            "tag": "1.0.4-Leia",
-            "commit": "bea925fd493a0ebd94e9ff1ee3338ccd01ba2c4e"
+            "tag": "2.0.0-Matrix",
+            "commit": "8823281cec81e24dac36897072c804a7e32d9174"
         }
     ]
 }

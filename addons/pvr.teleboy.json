@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.teleboy",
-            "tag": "18.2.2-Leia",
-            "commit": "5c289be18eb98fcd2949b54e1e886b25a03b4db9"
+            "tag": "19.7.1-Matrix",
+            "commit": "42df6647078c9497769e6bfe9dcf34a2fa9dec4c"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.lame",
-            "tag": "2.0.4-Leia",
-            "commit": "bfc28d4deba8ee247e550cfc6f3bd7865d0dc666"
+            "tag": "3.0.1-Matrix",
+            "commit": "0f1d5b35da66ada0021ecd8ad5f591383fa1269b"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "tag": "2.0.2-Leia",
-            "commit": "426061169a0e1296638ae922c6a13eaef760bda3"
+            "tag": "3.0.0-Matrix",
+            "commit": "d434a646485362f782c96521ad5d593f4e7daa29"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.fishbmc",
-            "tag": "5.1.2-Leia",
-            "commit": "1d4ee873ef820ea45967a59e68e8b1d2e0158014"
+            "tag": "6.3.0-Matrix",
+            "commit": "e737f3e336df3df7c39e0b150341d17a27c63609"
         }
     ]
 }

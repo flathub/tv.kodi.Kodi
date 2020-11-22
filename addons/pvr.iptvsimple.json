@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
-            "tag": "3.9.8-Leia",
-            "commit": "d170f47ad9bbd2f7c1b96f82a3ab3974fcaef054"
+            "tag": "7.0.0-Matrix",
+            "commit": "be9f72b5cf8e302cf18d65824e80c55f88cd1207"
         }
     ]
 }

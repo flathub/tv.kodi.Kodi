@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
-            "tag": "3.5.0-Leia",
-            "commit": "a9d730977ec2d529262cd19d81f0230e1def136b"
+            "tag": "7.0.0-Matrix",
+            "commit": "689386eae7c4a30dd4475e7788d91501a445dc1e"
         }
     ]
 }

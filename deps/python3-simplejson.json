@@ -1,0 +1,14 @@
+{
+    "name": "python3-simplejson",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"simplejson\""
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/49/45/a16db4f0fa383aaf0676fb7e3c660304fe390415c243f41a77c7f917d59b/simplejson-3.17.2.tar.gz",
+            "sha256": "75ecc79f26d99222a084fbdd1ce5aad3ac3a8bd535cd9059528452da38b68841"
+        }
+    ]
+}

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.vgmstream",
-            "tag": "1.1.5-Leia",
-            "commit": "98aeab5532a1f47124b1503cd8b4925fc3646645"
+            "tag": "3.0.0-Matrix",
+            "commit": "fc278f10f3670661860009868fd236dc61f3676c"
         }
     ]
 }

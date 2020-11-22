@@ -28,7 +28,6 @@ rename-desktop-file: kodi.desktop
 rename-icon: kodi
 modules:
   - shared-modules/intltool/intltool-0.51.json
-  - shared-modules/python2.7/python-2.7.json
   - shared-modules/glu/glu-9.json
   - deps/avahi.json
   - deps/libical.json
@@ -39,6 +38,7 @@ modules:
   - deps/libcdio.json
   - deps/lzo2.json
   - deps/libtirpc.json
+  - deps/rpcsvc-proto.json
   - deps/samba.json
   - deps/swig.json
   - deps/taglib.json
@@ -47,13 +47,16 @@ modules:
   - deps/flatbuffers.json
   - deps/libnfs.json
   - deps/sndio.json
+  - deps/spdlog.json
   - deps/microhttpd.json
   - deps/rapidjson.json
   - deps/p8-platform.json
   - deps/libcec.json
   - deps/libmariadbclient.json
   - deps/libbluray.json
+  - deps/pugixml.json
   - deps/waylandpp.json
+  - deps/gtest.json
 
   - name: kodi-x11
     buildsystem: &kodi-buildsystem cmake-ninja
@@ -65,13 +68,14 @@ modules:
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
       - -DCORE_PLATFORM_NAME=x11
+      - -DAPP_RENDER_SYSTEM=gl
     cleanup: &kodi-cleanup
       - /include
       - /share/doc
     sources: &kodi-sources
       - type: archive
-        url: https://github.com/xbmc/xbmc/archive/18.8-Leia.tar.gz
-        sha256: 6deb28f725880b1ab6c5920b55ef1190a79b0684ffb30b6e13b199d23a0af296
+        url: https://github.com/xbmc/xbmc/archive/19.0b1-Matrix.tar.gz
+        sha256: 9bc8c94aa60eb4012b8f18dd8fd8eed20fd9a9e8c655fcc922998d7df654c8b5
       - type: patch
         path: kodi-sh-in.patch
       - type: file
@@ -106,6 +110,7 @@ modules:
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
       - -DCORE_PLATFORM_NAME=wayland
       - -DWAYLAND_RENDER_SYSTEM=gl
+      - -DAPP_RENDER_SYSTEM=gl
     cleanup: *kodi-cleanup
     sources: *kodi-sources
 
@@ -131,14 +136,15 @@ modules:
   - deps/libopenmpt.json
   - deps/nlohmann-json.json
   - deps/rtmpdump.json
-  - deps/pycryptodome.json
-  - deps/python-pillow.json
+  - deps/python3-pillow.json
+  - deps/python3-pycryptodome.json
+  - deps/python3-simplejson.json
   - deps/rapidxml.json
-  - deps/simplejson.json
   - deps/tinyxml2.json
   - addons/audiodecoder.2sf.json
   - addons/audiodecoder.asap.json
-  - addons/audiodecoder.dumb.json
+  # This addon fails to build, wait for a new upstream relase?
+  # - addons/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme.json
   - addons/audiodecoder.gsf.json

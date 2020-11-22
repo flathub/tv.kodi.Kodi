@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/peak3d/inputstream.adaptive",
-            "tag": "2.4.4-Leia",
-            "commit": "41bae36071486260a0d76bb864a014d8b61c067a"
+            "tag": "2.6.4-Matrix",
+            "commit": "b622af9283c074ed11107d01cfeca1fdf09ab918"
         }
     ]
 }

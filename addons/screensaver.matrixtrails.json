@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.matrixtrails",
-            "tag": "2.2.3-Leia",
-            "commit": "0fca59700b53e3f7ab5fcfb6c8b395a286e40db7"
+            "tag": "2.6.0-Matrix",
+            "commit": "7086e41153e8cea826fb374641a56b571cc71441"
         }
     ]
 }

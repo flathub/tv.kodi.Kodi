@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.filmon",
-            "tag": "2.4.4-Leia",
-            "commit": "e8506330fcb1c9027a01a26f4487df997c7c2523"
+            "tag": "6.0.0-Matrix",
+            "commit": "c20d5f37c2fe6a3af0797c3a6777817ac0c945e8"
         }
     ]
 }

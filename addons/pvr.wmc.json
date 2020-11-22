@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.wmc",
-            "tag": "2.4.5-Leia",
-            "commit": "b73b50f628f8516f53ec49450a54cd0b6d4fa9f3"
+            "tag": "6.0.0-Matrix",
+            "commit": "24dd15e5c33ce335def360a8f73dfb3deb1c81da"
         }
     ]
 }

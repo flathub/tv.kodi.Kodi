@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asterwave",
-            "tag": "3.0.4-Leia",
-            "commit": "415cbb4ce30514e39d9801701dd4848f4d58d51b"
+            "tag": "3.3.0-Matrix",
+            "commit": "667ef3c7319fa37f1b7304ef2080a9cbff7d01c4"
         }
     ]
 }

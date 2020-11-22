@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ssf",
-            "tag": "2.0.2-Leia",
-            "commit": "909d097357ea1810c7c7316466c9a113d09208ff"
+            "tag": "3.0.0-Matrix",
+            "commit": "cb8d7a8ef2dda1f23f1b0c561c306a44fcd8fa06"
         }
     ]
 }

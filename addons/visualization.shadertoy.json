@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.shadertoy",
-            "tag": "1.2.3-Leia",
-            "commit": "d01ce99b92f4ee4ade53341d6c65bb3fb639daaf"
+            "tag": "2.3.0-Matrix",
+            "commit": "b78ac51fdbdeb3215b9a4e5e229c51ce5fe9037c"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "tag": "18.1.16-Leia",
-            "commit": "b81a30364cf4203eb0fbb1f85c1db557f8440e62"
+            "tag": "19.5.1-Matrix",
+            "commit": "aa07008b3f2d3038717c32bb3f55045ca4c7f15c"
         }
     ]
 }

@@ -3,14 +3,15 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/xbmc/FFmpeg/archive/4.0.4-Leia-18.4.tar.gz",
-            "sha256": "e11e7594af35f36ab2711252c3d6bb106908f26605498aef4a9be2d7bc001db2"
+            "url": "https://github.com/xbmc/FFmpeg/archive/4.3.1-Matrix-Alpha1-2.tar.gz",
+            "sha256": "a28ec40eb2457a4c3607757ec1e912c0f0f9a804f9cbef76a4b36ba57b5ecae3"
         }
     ],
     "config-opts": [
         "--enable-vaapi",
         "--enable-vdpau",
         "--enable-postproc",
+        "--enable-pthreads",
         "--enable-gnutls",
         "--enable-gpl"
     ],

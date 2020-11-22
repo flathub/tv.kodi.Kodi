@@ -6,8 +6,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
-            "tag": "1.1.0-Leia",
-            "commit": "f9a0c08dfbd7fd22bdcbc49f5efeaadff805f3c1"
+            "tag": "2.0.1-Matrix",
+            "commit": "6875a47cf8a9a1849f9cbaed634bb693e6c2bf96"
         }
     ]
 }

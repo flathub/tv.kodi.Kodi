@@ -4,8 +4,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/NilsBrause/waylandpp/archive/0.2.4.tar.gz",
-            "sha256": "392e5f06c0d6a0ad3f0743d8c3ea9067beb68f575ae4d3e9b41971bcd1eb318d"
+            "url": "https://github.com/NilsBrause/waylandpp/archive/0.2.8.tar.gz",
+            "sha256": "e7f486165d3568c3558b5c7099133aea4a285b82820eeafad329fc10271c654d"
         }
     ]
 }

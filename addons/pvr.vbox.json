@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
-            "tag": "4.7.0-Leia",
-            "commit": "3dacd89f0a44463b444c72f8adedbe18f3e48d43"
+            "tag": "8.0.0-Matrix",
+            "commit": "6776aa989f3ada4b7b8ddfc58ac7a0e11bb92037"
         }
     ]
 }

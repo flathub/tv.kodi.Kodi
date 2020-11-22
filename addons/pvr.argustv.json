@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.argustv",
-            "tag": "3.5.4-Leia",
-            "commit": "83aa1e9c588b80cdef9b2bc062e554b7ba2e609d"
+            "tag": "7.0.0-Matrix",
+            "commit": "6102bb84f2732c34173297da3734f4b39ebf1cf7"
         }
     ]
 }

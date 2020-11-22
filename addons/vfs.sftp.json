@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "tag": "1.0.6-Leia",
-            "commit": "2eb89fc6b476de670a6607f20f8474d6d991d860"
+            "tag": "2.0.0-Matrix",
+            "commit": "3a40cdaaffbfb000506f5d329104bd6e83e94d0c"
         }
     ]
 }

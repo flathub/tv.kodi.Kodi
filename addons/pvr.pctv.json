@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.pctv",
-            "tag": "2.4.5-Leia",
-            "commit": "b60b971029d71e2169fecaccaa46a66624788d82"
+            "tag": "6.0.0-Matrix",
+            "commit": "614f0f35ab96d5e7d6b86bf8bb8a17643612259f"
         }
     ]
 }
