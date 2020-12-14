@@ -1,0 +1,27 @@
+name: libinput
+buildsystem: meson
+config-opts:
+  - -Dtests=false
+  - -Ddocumentation=false
+  - -Dlibwacom=false
+  - -Ddebug-gui=false
+  - --libexec=lib
+sources:
+  - type: archive
+    url: https://freedesktop.org/software/libinput/libinput-1.16.4.tar.xz
+    sha256: 65923a06d5a8970e4a999c4668797b9b689614b62b1d44432ab1c87b65e39e29
+modules:
+  - name: mtdev
+    config-opts:
+      - --disable-static
+    sources:
+      - type: archive
+        url: https://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
+        sha256: 15d7b28da8ac71d8bc8c9287c2045fd174267bc740bec10cfda332dc1204e0e0
+  - name: libevdev
+    config-opts:
+      - --disable-static
+    sources:
+      - type: archive
+        url: https://freedesktop.org/software/libevdev/libevdev-1.10.0.tar.xz
+        sha256: 3522c26e2c148be0ad68ce26fbced408a4185dea90bfe8079dc82b8ace962d4a
