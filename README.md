@@ -1,29 +1,31 @@
+# Kodi Flatpak
 
-## Kodi flatpak build notes.
+Kodi is an award-winning free and open source software media player and
+entertainment hub for digital media. Available as a native application for
+Android, Linux, BSD, macOS, iOS, tvOS and Windows operating systems, Kodi runs
+on most common processor architectures. This repository packages it through
+Flatpak.
 
-The following binary plugins do not compile, and are excluded:
+---
 
- * `audiodecoder.2sf`:
-   - i386 compile issues
- * `audiodecoder.usf`:
-   - i386 compile issues
- * `audiodecoder.sidplay`:
-   - sidplay-libs does not compile. Is code from 2006 - bitrot.
- * `pvr.iptvsimple`:
-   - requires rapidxml, which is only headers
+## Build notes
 
-Others need try/testing:
- - `game.libretro.2048`
- - `game.libretro.mrboom`
- - `imagedecoder.mpo`
- - `imagedecoder.raw`
- - `pvr.dvblink`
- - `pvr.hdhomerun`
- - `screensaver.asterwave`
- - `screensaver.cpblobs`
- - `screensaver.matrixtrails`
- - `screensavers.rsxs`
- - `vfs.libarchive`
- - `vfs.sftp`
- - `visualization.goom`
- - `visualization.projectm`
+The following binary addons do not compile, and are excluded:
+ * `audiodecoder.dumb`
+ * `audiodecoder.sidplay`
+ * `game.libretro.2048`
+ * `game.libretro.mrboom`
+ * `pvr.teleboy`
+ * `pvr.zattoo`
+ * `vfs.smb2`
+ * `visualization.milkdrop`
+ * `visualization.milkdrop2`
+
+## Contributing
+
+The list of binary addons in each branch of Kodi may be found
+[here](https://github.com/xbmc/repo-binary-addons/), and dependencies
+[here](https://github.com/xbmc/xbmc/tree/master/tools/depends/target). Kodi
+releases are found [here](https://github.com/xbmc/xbmc/releases).
+
+You can contribute by updating addons, modules and the Kodi version.
