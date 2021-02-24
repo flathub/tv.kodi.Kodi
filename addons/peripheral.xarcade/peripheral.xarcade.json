@@ -1,0 +1,12 @@
+{
+    "name": "peripheral.xarcade",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/peripheral.xarcade",
+            "tag": "1.2.0-Matrix",
+            "commit": "a6405ea74ba66341592a32129e63d3bd4ae7c5bf"
+        }
+    ]
+}

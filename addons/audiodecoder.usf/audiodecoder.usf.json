@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.usf",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.usf",
+            "tag": "4.0.0-Matrix",
+            "commit": "7ab39b1a5fa4f163b680e7ca42828a82cb524834"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.organya",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.organya",
+            "tag": "3.0.0-Matrix",
+            "commit": "3bfef618c9f2f3e54cfc40774924126e947845f3"
+        }
+    ]
+}

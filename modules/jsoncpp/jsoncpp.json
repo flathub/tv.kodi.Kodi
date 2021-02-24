@@ -1,0 +1,16 @@
+{
+    "name": "jsoncpp",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DJSONCPP_WITH_TESTS=OFF",
+        "-DBUILD_STATIC_LIBS=OFF",
+        "-DBUILD_OBJECT_LIBS=OFF"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz",
+            "sha256": "e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999"
+        }
+    ]
+}

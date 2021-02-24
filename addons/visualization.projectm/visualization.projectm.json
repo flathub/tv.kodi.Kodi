@@ -1,0 +1,24 @@
+{
+    "name": "visualization.projectm",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.projectm",
+            "tag": "3.3.0-Matrix",
+            "commit": "ff026b9e97fd38f4b766a7ecf5262540615d418a"
+        }
+    ],
+    "modules": [
+        {
+            "name": "projectm",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/projectM-visualizer/projectm/archive/v3.1.12.tar.gz",
+                    "sha256": "62b5b1b543b25cb8ad392d879378cfdc5c129165cf4d4f33fb159e364d42f135"
+                }
+            ]
+        }
+    ]
+}

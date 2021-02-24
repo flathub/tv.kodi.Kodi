@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.gsf",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.gsf",
+            "tag": "3.0.0-Matrix",
+            "commit": "250218e960a94ab279d5a70f39c192f8302525e3"
+        }
+    ]
+}

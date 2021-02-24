@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.asap",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.asap",
+            "tag": "3.0.1-Matrix",
+            "commit": "0bdca8a02609c77676b3a5ef5aea384007170f52"
+        }
+    ]
+}

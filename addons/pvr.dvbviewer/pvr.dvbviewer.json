@@ -1,0 +1,12 @@
+{
+    "name": "pvr.dvbviewer",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.dvbviewer",
+            "tag": "7.2.0-Matrix",
+            "commit": "ab60f2c3edb1dc7ccbcddea1766d80e3b0853cbb"
+        }
+    ]
+}

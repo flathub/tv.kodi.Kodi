@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.stsound",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.stsound",
+            "tag": "3.0.0-Matrix",
+            "commit": "4abcbe3eef5fe96b0b1e85300e4452d900e8e676"
+        }
+    ]
+}

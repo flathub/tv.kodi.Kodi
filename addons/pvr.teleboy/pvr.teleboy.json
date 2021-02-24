@@ -1,0 +1,12 @@
+{
+    "name": "pvr.teleboy",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/rbuehlma/pvr.teleboy",
+            "tag": "19.2.2-Matrix",
+            "commit": "f04e06e1992b5928012b93996a1a185bebea790a"
+        }
+    ]
+}

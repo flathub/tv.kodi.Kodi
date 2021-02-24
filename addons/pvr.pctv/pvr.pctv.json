@@ -1,0 +1,12 @@
+{
+    "name": "pvr.pctv",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.pctv",
+            "tag": "6.1.0-Matrix",
+            "commit": "f2dc4cfaf90263e1edaa3ed0cb851a84259ad4c5"
+        }
+    ]
+}

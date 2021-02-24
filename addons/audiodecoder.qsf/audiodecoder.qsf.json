@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.qsf",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.qsf",
+            "tag": "3.0.0-Matrix",
+            "commit": "be5216464cb265983b5a0ec03ada8eef1721c0ba"
+        }
+    ]
+}

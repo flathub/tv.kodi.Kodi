@@ -1,0 +1,16 @@
+{
+    "name": "libass",
+    "cleanup": [
+        "/include",
+        "*.a",
+        "*.la",
+        "/lib/*.so"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.gz",
+            "sha256": "9cbddee5e8c87e43a5fe627a19cd2aa4c36552156eb4edcf6c5a30bd4934fe58"
+        }
+    ]
+}

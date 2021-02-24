@@ -1,0 +1,12 @@
+{
+    "name": "pvr.zattoo",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/rbuehlma/pvr.zattoo",
+            "tag": "19.2.0-Matrix",
+            "commit": "ec85eda2c9e88cd66f22d29728232e6e6365c433"
+        }
+    ]
+}

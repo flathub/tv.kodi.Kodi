@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.dumb",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.dumb",
+            "tag": "3.0.1-Matrix",
+            "commit": "24c000c77b31220d8cc3a23796e882b6f64e37bf"
+        }
+    ]
+}

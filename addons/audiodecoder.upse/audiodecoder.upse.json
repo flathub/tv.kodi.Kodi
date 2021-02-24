@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.upse",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.upse",
+            "tag": "3.0.0-Matrix",
+            "commit": "b816659d4fc44819880be0e1efb8a3ea93c5ba3d"
+        }
+    ]
+}

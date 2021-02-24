@@ -1,0 +1,12 @@
+{
+    "name": "visualization.fishbmc",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.fishbmc",
+            "tag": "6.3.0-Matrix",
+            "commit": "e737f3e336df3df7c39e0b150341d17a27c63609"
+        }
+    ]
+}

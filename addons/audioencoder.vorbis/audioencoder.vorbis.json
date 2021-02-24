@@ -1,0 +1,12 @@
+{
+    "name": "audioencoder.vorbis",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audioencoder.vorbis",
+            "tag": "3.0.1-Matrix",
+            "commit": "a6b31fabba407f9c574b3217c6652e3912e5f0c5"
+        }
+    ]
+}

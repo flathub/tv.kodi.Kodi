@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.asteroids",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.asteroids",
+            "tag": "2.6.0-Matrix",
+            "commit": "e8934868ef2927bd63baaa28508f2f68f17bbf16"
+        }
+    ]
+}

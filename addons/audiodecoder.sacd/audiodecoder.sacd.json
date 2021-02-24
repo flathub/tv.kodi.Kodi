@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.sacd",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.sacd",
+            "tag": "0.1.2-Matrix",
+            "commit": "a44de76c528ab90cd5bceeede2301b000d6da587"
+        }
+    ]
+}

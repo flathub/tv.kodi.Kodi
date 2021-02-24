@@ -1,0 +1,12 @@
+{
+    "name": "pvr.vdr.vnsi",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
+            "tag": "8.2.2-Matrix",
+            "commit": "c040951f1ceda8a9d3169cff3f80319962a10bdc"
+        }
+    ]
+}

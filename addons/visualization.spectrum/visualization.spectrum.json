@@ -1,0 +1,12 @@
+{
+    "name": "visualization.spectrum",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.spectrum",
+            "tag": "3.4.0-Matrix",
+            "commit": "f3dceca07b243294377d660c5a9e7dcc238122b0"
+        }
+    ]
+}

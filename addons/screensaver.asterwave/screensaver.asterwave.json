@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.asterwave",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.asterwave",
+            "tag": "3.3.0-Matrix",
+            "commit": "667ef3c7319fa37f1b7304ef2080a9cbff7d01c4"
+        }
+    ]
+}
