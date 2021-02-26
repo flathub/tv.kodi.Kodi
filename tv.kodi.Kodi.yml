@@ -85,6 +85,8 @@ modules:
       - type: archive
         url: https://github.com/xbmc/xbmc/archive/19.0-Matrix.tar.gz
         sha256: f7ef8a6f45862ae3b7ebfce4950d74f534be3cb4a0e67ce640963746b3f668f2
+      - type: patch
+        path: kodi.sh.in.patch
       - type: file
         url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
         sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
