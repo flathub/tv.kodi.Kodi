@@ -1,9 +1,10 @@
 {
     "name": "ffmpeg",
     "config-opts": [
+        "--enable-gpl",
+        "--enable-gnutls",
         "--enable-vaapi",
-        "--enable-vdpau",
-        "--enable-gpl"
+        "--enable-vdpau"
     ],
     "cleanup": [
         "/include",
