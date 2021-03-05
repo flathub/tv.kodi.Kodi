@@ -1,0 +1,12 @@
+{
+    "name": "inputstream.ffmpegdirect",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
+            "tag": "1.19.2-Matrix",
+            "commit": "c3df9ce6d01847113f3f084c81fe5710683b9526"
+        }
+    ]
+}

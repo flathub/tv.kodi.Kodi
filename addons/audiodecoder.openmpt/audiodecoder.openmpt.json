@@ -1,0 +1,32 @@
+{
+    "name": "audiodecoder.openmpt",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.openmpt",
+            "tag": "3.0.0-Matrix",
+            "commit": "92e1a25e7c697edda05d714e6c59f18e47f53b8f"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libopenmpt",
+            "config-opts": [
+                "--disable-openmpt123",
+                "--disable-examples",
+                "--disable-tests"
+            ],
+            "cleanup": [
+                "/include"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz",
+                    "sha256": "f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b"
+                }
+            ]
+        }
+    ]
+}

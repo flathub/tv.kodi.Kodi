@@ -1,0 +1,12 @@
+{
+    "name": "visualization.shadertoy",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.shadertoy",
+            "tag": "2.3.0-Matrix",
+            "commit": "b78ac51fdbdeb3215b9a4e5e229c51ce5fe9037c"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.cpblobs",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.cpblobs",
+            "tag": "3.4.0-Matrix",
+            "commit": "4a151645d6ceb00d55ebd29a8db4b759f9db9414"
+        }
+    ]
+}

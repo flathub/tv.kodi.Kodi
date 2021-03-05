@@ -1,0 +1,12 @@
+{
+    "name": "pvr.argustv",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.argustv",
+            "tag": "7.1.0-Matrix",
+            "commit": "dabd791c7c1401c6c2f31e235ed213832d84655e"
+        }
+    ]
+}

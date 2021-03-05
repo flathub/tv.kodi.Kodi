@@ -1,0 +1,12 @@
+{
+    "name": "audiodecoder.sidplay",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.sidplay",
+            "tag": "3.0.0-Matrix",
+            "commit": "f4640935dc35beafcd3a010f287e14f818e62186"
+        }
+    ]
+}

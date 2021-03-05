@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.stars",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.stars",
+            "tag": "2.4.0-Matrix",
+            "commit": "c3f5ea6db1666de076e28fa944aa1809c12f8826"
+        }
+    ]
+}

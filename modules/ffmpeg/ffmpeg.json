@@ -1,0 +1,22 @@
+{
+    "name": "ffmpeg",
+    "config-opts": [
+        "--enable-gpl",
+        "--enable-gnutls",
+        "--enable-vaapi",
+        "--enable-vdpau"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib",
+        "/bin",
+        "/share/doc"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/FFmpeg/FFmpeg/archive/n4.3.1.tar.gz",
+            "sha256": "1b9ce69f51d96f89760dbd31e38848d9592a7ffc189ad3675d6d33826d1d7ba9"
+        }
+    ]
+}

@@ -1,11 +1,16 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '19.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.openjdk11
+  - org.freedesktop.Sdk.Extension.openjdk
+command: kodi
+rename-icon: kodi
+rename-desktop-file: kodi.desktop
+
 finish-args:
   - --device=all
+  - --allow=bluetooth
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
@@ -17,63 +22,71 @@ finish-args:
   - --socket=pulseaudio
   - --socket=fallback-x11
   - --socket=wayland
-  - --talk-name=org.freedesktop.ScreenSaver
-  - --system-talk-name=org.bluez
   - --system-talk-name=org.freedesktop.Avahi
   - --system-talk-name=org.freedesktop.login1
   - --system-talk-name=org.freedesktop.UDisks2
   - --system-talk-name=org.freedesktop.UPower
-command: kodi
-rename-desktop-file: kodi.desktop
-rename-icon: kodi
-modules:
-  - shared-modules/intltool/intltool-0.51.json
-  - shared-modules/python2.7/python-2.7.json
-  - shared-modules/glu/glu-9.json
-  - deps/avahi.json
-  - deps/libical.json
-  - deps/bluez.json
-  - deps/fmt.json
-  - deps/fstrcmp.json
-  - deps/libass.json
-  - deps/libcdio.json
-  - deps/lzo2.json
-  - deps/libtirpc.json
-  - deps/samba.json
-  - deps/swig.json
-  - deps/taglib.json
-  - deps/tinyxml.json
-  - deps/ffmpeg.json
-  - deps/flatbuffers.json
-  - deps/libnfs.json
-  - deps/sndio.json
-  - deps/microhttpd.json
-  - deps/rapidjson.json
-  - deps/p8-platform.json
-  - deps/libcec.json
-  - deps/libmariadbclient.json
-  - deps/libbluray.json
-  - deps/waylandpp.json
+  - --talk-name=org.freedesktop.ScreenSaver
 
-  - name: kodi-x11
-    buildsystem: &kodi-buildsystem cmake-ninja
+cleanup:
+  - "*.a"
+  - "*.pyc"
+  - "*.pyo"
+  - "*.cmake"
+  - /.ref
+  - /etc
+  - /include
+  - /lib/cmake
+  - /lib64/cmake
+  - /lib/pkgconfig
+  - /lib64/pkgconfig
+  - /man
+  - /private
+  - /share/doc
+  - /share/man
+  - /var
+
+modules:
+  - shared-modules/glu/glu-9.json
+  - modules/ffmpeg/ffmpeg.json
+  - modules/flatbuffers/flatbuffers.json
+  - modules/fmt/fmt.json
+  - modules/fstrcmp/fstrcmp.json
+  - modules/glm/glm.json
+  - modules/json/json.json
+  - modules/jsoncpp/jsoncpp.json
+  - modules/libass/libass.json
+  - modules/libcdio/libcdio.json
+  - modules/libinput/libinput.json
+  - modules/lzo/lzo.json
+  - modules/p8-platform/p8-platform.json
+  - modules/rapidjson/rapidjson.json
+  - modules/spdlog/spdlog.json
+  - modules/swig/swig.json
+  - modules/taglib/taglib.json
+  - modules/tinyxml/tinyxml.json
+  - modules/tinyxml2/tinyxml2.json
+  - modules/waylandpp/waylandpp.json
+
+  - name: kodi
+    buildsystem: cmake-ninja
+    build-commands:
+      - install -Dm644 tv.kodi.Kodi.metainfo.xml /app/share/metainfo/tv.kodi.Kodi.metainfo.xml
     config-opts:
       - -DVERBOSE=1
+      - -DENABLE_TESTING=OFF
+      - -DAPP_RENDER_SYSTEM=gl
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
-      - -DCORE_PLATFORM_NAME=x11
-    cleanup: &kodi-cleanup
-      - /include
-      - /share/doc
-    sources: &kodi-sources
+    sources:
       - type: archive
-        url: https://github.com/xbmc/xbmc/archive/18.8-Leia.tar.gz
-        sha256: 6deb28f725880b1ab6c5920b55ef1190a79b0684ffb30b6e13b199d23a0af296
+        url: https://github.com/xbmc/xbmc/archive/19.0-Matrix.tar.gz
+        sha256: f7ef8a6f45862ae3b7ebfce4950d74f534be3cb4a0e67ce640963746b3f668f2
       - type: patch
-        path: kodi-sh-in.patch
+        path: kodi.sh.in.patch
       - type: file
         url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
         sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
@@ -94,130 +107,97 @@ modules:
         sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
-
-  - name: kodi-wayland
-    buildsystem: *kodi-buildsystem
-    config-opts:
-      - -DVERBOSE=1
-      - -DCROSSGUID_URL=build/download/crossguid.tar.gz
-      - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
-      - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
-      - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk11/bin/java
-      - -DCORE_PLATFORM_NAME=wayland
-      - -DWAYLAND_RENDER_SYSTEM=gl
-    cleanup: *kodi-cleanup
-    sources: *kodi-sources
-
-  - name: appdata
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 tv.kodi.Kodi.appdata.xml /app/share/appdata/tv.kodi.Kodi.appdata.xml
-    sources:
       - type: file
-        path: tv.kodi.Kodi.appdata.xml
+        path: tv.kodi.Kodi.metainfo.xml
 
-  - name: kodiplatform
+  - name: kodi-platform
     buildsystem: cmake-ninja
     sources:
-      - type: git
-        url: https://github.com/xbmc/kodi-platform
-        commit: e8574b883ffa2131f2eeb96ff3724d60b21130f7
+      - type: archive
+        url: https://github.com/xbmc/kodi-platform/archive/kodiplatform-20180302.tar.gz
+        sha256: 1d8ddbe444bd42f4b6f2babb9f78d6c1e152d828eff90b07308febf883c05b38
 
-  - deps/fluidsynth.json
-  - deps/glm.json
-  - deps/libmodplug.json
-  - deps/jsoncpp.json
-  - deps/libopenmpt.json
-  - deps/nlohmann-json.json
-  - deps/rtmpdump.json
-  - deps/pycryptodome.json
-  - deps/python-pillow.json
-  - deps/rapidxml.json
-  - deps/simplejson.json
-  - deps/tinyxml2.json
-  - addons/audiodecoder.2sf.json
-  - addons/audiodecoder.asap.json
-  - addons/audiodecoder.dumb.json
-  - addons/audiodecoder.fluidsynth.json
-  - addons/audiodecoder.gme.json
-  - addons/audiodecoder.gsf.json
-  - addons/audiodecoder.modplug.json
-  - addons/audiodecoder.ncsf.json
-  - addons/audiodecoder.nosefart.json
-  - addons/audiodecoder.openmpt.json
-  - addons/audiodecoder.organya.json
-  - addons/audiodecoder.qsf.json
-  - addons/audiodecoder.snesapu.json
-  - addons/audiodecoder.ssf.json
-  - addons/audiodecoder.stsound.json
-  - addons/audiodecoder.timidity.json
-  - addons/audiodecoder.upse.json
-  - addons/audiodecoder.usf.json
-  - addons/audiodecoder.vgmstream.json
-  - addons/audiodecoder.wsr.json
-  - addons/audioencoder.flac.json
-  - addons/audioencoder.lame.json
-  - addons/audioencoder.vorbis.json
-  - addons/audioencoder.wav.json
-  - addons/game.libretro.json
-  - addons/imagedecoder.mpo.json
-  - addons/inputstream.adaptive.json
-  - addons/inputstream.rtmp.json
-  - addons/peripheral.joystick.json
-  - addons/peripheral.xarcade.json
-  - addons/pvr.argustv.json
-  - addons/pvr.demo.json
-  - addons/pvr.dvblink.json
-  - addons/pvr.dvbviewer.json
-  - addons/pvr.filmon.json
-  - addons/pvr.hts.json
-  - addons/pvr.iptvsimple.json
-  - addons/pvr.mediaportal.tvserver.json
-  - addons/pvr.mythtv.json
-  - addons/pvr.nextpvr.json
-  - addons/pvr.njoy.json
-  - addons/pvr.octonet.json
-  - addons/pvr.pctv.json
-  - addons/pvr.sledovanitv.cz.json
-  - addons/pvr.stalker.json
-  - addons/pvr.teleboy.json
-  - addons/pvr.vbox.json
-  - addons/pvr.vdr.vnsi.json
-  - addons/pvr.vuplus.json
-  - addons/pvr.wmc.json
-  - addons/pvr.zattoo.json
-  - addons/screensaver.asteroids.json
-  - addons/screensaver.asterwave.json
-  - addons/screensaver.biogenesis.json
-  - addons/screensaver.greynetic.json
-  - addons/screensaver.matrixtrails.json
-  - addons/screensaver.pingpong.json
-  - addons/screensaver.pyro.json
-  - addons/screensaver.stars.json
-  - addons/vfs.rar.json
-  - addons/vfs.sacd.json
-  - addons/visualization.fishbmc.json
-  - addons/visualization.goom.json
-  - addons/visualization.shadertoy.json
-  - addons/visualization.spectrum.json
-  - addons/visualization.starburst.json
-  - addons/visualization.waveform.json
-
-cleanup:
-  - "*.a"
-  - "*.pyc"
-  - "*.pyo"
-  - "*.cmake"
-  - /.ref
-  - /etc
-  - /include
-  - /lib/cmake
-  - /lib64/cmake
-  - /lib/pkgconfig
-  - /lib64/pkgconfig
-  - /man
-  - /private
-  - /share/doc
-  - /share/man
-  - /var
+  - addons/audiodecoder.2sf/audiodecoder.2sf.json
+  - addons/audiodecoder.asap/audiodecoder.asap.json
+  # - addons/audiodecoder.dumb/audiodecoder.dumb.json
+  - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
+  - addons/audiodecoder.gme/audiodecoder.gme.json
+  - addons/audiodecoder.gsf/audiodecoder.gsf.json
+  - addons/audiodecoder.modplug/audiodecoder.modplug.json
+  - addons/audiodecoder.ncsf/audiodecoder.ncsf.json
+  - addons/audiodecoder.nosefart/audiodecoder.nosefart.json
+  - addons/audiodecoder.openmpt/audiodecoder.openmpt.json
+  - addons/audiodecoder.organya/audiodecoder.organya.json
+  - addons/audiodecoder.qsf/audiodecoder.qsf.json
+  - addons/audiodecoder.sacd/audiodecoder.sacd.json
+  # - addons/audiodecoder.sidplay/audiodecoder.sidplay.json
+  - addons/audiodecoder.snesapu/audiodecoder.snesapu.json
+  - addons/audiodecoder.ssf/audiodecoder.ssf.json
+  - addons/audiodecoder.stsound/audiodecoder.stsound.json
+  - addons/audiodecoder.timidity/audiodecoder.timidity.json
+  - addons/audiodecoder.upse/audiodecoder.upse.json
+  - addons/audiodecoder.usf/audiodecoder.usf.json
+  - addons/audiodecoder.vgmstream/audiodecoder.vgmstream.json
+  - addons/audiodecoder.wsr/audiodecoder.wsr.json
+  - addons/audioencoder.flac/audioencoder.flac.json
+  - addons/audioencoder.lame/audioencoder.lame.json
+  - addons/audioencoder.vorbis/audioencoder.vorbis.json
+  - addons/audioencoder.wav/audioencoder.wav.json
+  - addons/game.libretro/game.libretro.json
+  # - addons/game.libretro.2048/game.libretro.2048.json
+  # - addons/game.libretro.mrboom/game.libretro.mrboom.json
+  - addons/imagedecoder.heif/imagedecoder.heif.json
+  - addons/imagedecoder.mpo/imagedecoder.mpo.json
+  - addons/imagedecoder.raw/imagedecoder.raw.json
+  - addons/inputstream.adaptive/inputstream.adaptive.json
+  - addons/inputstream.ffmpegdirect/inputstream.ffmpegdirect.json
+  - addons/inputstream.rtmp/inputstream.rtmp.json
+  - addons/peripheral.joystick/peripheral.joystick.json
+  - addons/peripheral.xarcade/peripheral.xarcade.json
+  - addons/pvr.argustv/pvr.argustv.json
+  - addons/pvr.demo/pvr.demo.json
+  - addons/pvr.dvblink/pvr.dvblink.json
+  - addons/pvr.dvbviewer/pvr.dvbviewer.json
+  - addons/pvr.filmon/pvr.filmon.json
+  - addons/pvr.freebox/pvr.freebox.json
+  - addons/pvr.hdhomerun/pvr.hdhomerun.json
+  - addons/pvr.hts/pvr.hts.json
+  - addons/pvr.iptvsimple/pvr.iptvsimple.json
+  - addons/pvr.mediaportal.tvserver/pvr.mediaportal.tvserver.json
+  - addons/pvr.mythtv/pvr.mythtv.json
+  - addons/pvr.nextpvr/pvr.nextpvr.json
+  - addons/pvr.njoy/pvr.njoy.json
+  - addons/pvr.octonet/pvr.octonet.json
+  - addons/pvr.pctv/pvr.pctv.json
+  - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
+  - addons/pvr.stalker/pvr.stalker.json
+  # - addons/pvr.teleboy/pvr.teleboy.json
+  - addons/pvr.vbox/pvr.vbox.json
+  - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
+  - addons/pvr.vuplus/pvr.vuplus.json
+  - addons/pvr.wmc/pvr.wmc.json
+  # - addons/pvr.zattoo/pvr.zattoo.json
+  - addons/screensaver.asteroids/screensaver.asteroids.json
+  - addons/screensaver.asterwave/screensaver.asterwave.json
+  - addons/screensaver.biogenesis/screensaver.biogenesis.json
+  - addons/screensaver.cpblobs/screensaver.cpblobs.json
+  - addons/screensaver.greynetic/screensaver.greynetic.json
+  - addons/screensaver.matrixtrails/screensaver.matrixtrails.json
+  - addons/screensaver.pingpong/screensaver.pingpong.json
+  - addons/screensaver.pyro/screensaver.pyro.json
+  - addons/screensaver.shadertoy/screensaver.shadertoy.json
+  - addons/screensaver.stars/screensaver.stars.json
+  - addons/vfs.libarchive/vfs.libarchive.json
+  - addons/vfs.rar/vfs.rar.json
+  - addons/vfs.sftp/vfs.sftp.json
+  # - addons/vfs.smb2/vfs.smb2.json
+  - addons/visualization.fishbmc/visualization.fishbmc.json
+  - addons/visualization.goom/visualization.goom.json
+  # - addons/visualization.milkdrop/visualization.milkdrop.json
+  # - addons/visualization.milkdrop2/visualization.milkdrop2.json
+  - addons/visualization.pictureit/visualization.pictureit.json
+  - addons/visualization.projectm/visualization.projectm.json
+  - addons/visualization.shadertoy/visualization.shadertoy.json
+  - addons/visualization.spectrum/visualization.spectrum.json
+  - addons/visualization.starburst/visualization.starburst.json
+  - addons/visualization.waveform/visualization.waveform.json

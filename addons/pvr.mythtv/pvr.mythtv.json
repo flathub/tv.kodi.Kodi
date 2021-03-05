@@ -1,0 +1,12 @@
+{
+    "name": "pvr.mythtv",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/janbar/pvr.mythtv",
+            "tag": "7.3.0-Matrix",
+            "commit": "f23b5d2915d68de139ebbc7cea8ec58670ff8a99"
+        }
+    ]
+}

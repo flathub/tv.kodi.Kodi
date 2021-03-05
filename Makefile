@@ -1,5 +1,6 @@
-
 PROJECT ?= tv.kodi.Kodi
+
+.PHONY: build build-i386 flatpak install run clean
 
 build:
 	flatpak-builder build-dir $(PROJECT).yml --repo=repo --force-clean --ccache 2>&1 | tee -a build.log
@@ -14,13 +15,3 @@ run:
 	flatpak run $(PROJECT)
 clean:
 	rm -rf .flatpak-builder/cache
-format:
-	for n in *json addons/*.json deps/*json; do python -m json.tool < $$n > a && mv a $$n || echo $$n ; done
-
-.PHONY: addons
-addons:
-	@rm -rf addons
-	@mkdir -p addons
-	@rm -rf repo-binary-addons
-	@git clone --branch Leia https://github.com/xbmc/repo-binary-addons
-	python3 binary-addons.py repo-binary-addons addons

@@ -1,0 +1,12 @@
+{
+    "name": "pvr.freebox",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/aassif/pvr.freebox",
+            "tag": "6.1.2b-Matrix",
+            "commit": "100371d25b12b4a2154844ac878f72b3685bd43c"
+        }
+    ]
+}

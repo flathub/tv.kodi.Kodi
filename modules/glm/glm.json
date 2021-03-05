@@ -1,0 +1,16 @@
+{
+    "name": "glm",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DBUILD_STATIC_LIBS=OFF",
+        "-DGLM_TEST_ENABLE_CXX_11=ON",
+        "-DGLM_TEST_ENABLE=OFF"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/g-truc/glm/archive/0.9.9.5.tar.gz",
+            "sha256": "5e33b6131cea6a904339734b015110d4342b7dc02d995164fdb86332d28a5aa4"
+        }
+    ]
+}

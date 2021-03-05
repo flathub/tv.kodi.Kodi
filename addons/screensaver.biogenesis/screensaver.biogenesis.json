@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.biogenesis",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.biogenesis",
+            "tag": "2.5.0-Matrix",
+            "commit": "cc4dd9eb31cfffc679bc59d38b89cd1d021defb6"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "name": "pvr.nextpvr",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.nextpvr",
+            "tag": "8.2.1-Matrix",
+            "commit": "2e58d29937bd24379c4fea7f522b9a322d41d426"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "name": "inputstream.rtmp",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/inputstream.rtmp",
+            "tag": "3.4.0-Matrix",
+            "commit": "8505b6a7335f623d17d4c2866fa5a11fe2ca02b7"
+        }
+    ],
+    "modules": [
+        {
+            "name": "rtmpdump",
+            "buildsystem": "simple",
+            "build-commands": [
+                "sed -e 's/^CRYPTO=OPENSSL/CRYPTO=GNUTLS/' -i librtmp/Makefile",
+                "sed -e 's|usr/local|app|' -i librtmp/Makefile",
+                "make -C librtmp",
+                "make -C librtmp install PREFIX=/app"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://git.ffmpeg.org/gitweb/rtmpdump.git/snapshot/c5f04a58fc2aeea6296ca7c44ee4734c18401aa3.tar.gz",
+                    "sha256": "fd8c21263d93fbde8bee8aa6c5f6a657789674bb0f9e74f050651504d5f43b46"
+                }
+            ]
+        }
+    ]
+}

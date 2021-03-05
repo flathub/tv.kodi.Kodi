@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.shadertoy",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.shadertoy",
+            "tag": "3.2.0-Matrix",
+            "commit": "b19f6310c271a82c49910ccfe626afe5c79d34c6"
+        }
+    ]
+}

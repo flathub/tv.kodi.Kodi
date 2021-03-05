@@ -1,0 +1,12 @@
+{
+    "name": "pvr.vuplus",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.vuplus",
+            "tag": "7.3.3-Matrix",
+            "commit": "00bc9606b9b146cca13bd7f63ef3239a98776be9"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "spdlog",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DSPDLOG_BUILD_SHARED=ON"
+    ],
+    "cleanup": [
+        "/include",
+        "*.a"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/gabime/spdlog/archive/v1.8.2.tar.gz",
+            "sha256": "e20e6bd8f57e866eaf25a5417f0a38a116e537f1a77ac7b5409ca2b180cec0d5"
+        }
+    ]
+}

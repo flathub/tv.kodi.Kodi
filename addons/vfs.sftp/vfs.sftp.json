@@ -1,0 +1,30 @@
+{
+    "name": "vfs.sftp",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/vfs.sftp",
+            "tag": "2.0.0-Matrix",
+            "commit": "3a40cdaaffbfb000506f5d329104bd6e83e94d0c"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libssh",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DWITH_GSSAPI=OFF",
+                "-DWITH_EXAMPLES=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://www.libssh.org/files/0.9/libssh-0.9.5.tar.xz",
+                    "sha256": "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718"
+                }
+            ]
+        }
+    ]
+}

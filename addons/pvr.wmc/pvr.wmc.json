@@ -1,0 +1,12 @@
+{
+    "name": "pvr.wmc",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-pvr/pvr.wmc",
+            "tag": "6.1.1-Matrix",
+            "commit": "9ab308cfe181070a3a68d18c240ca6ff0a04b03e"
+        }
+    ]
+}

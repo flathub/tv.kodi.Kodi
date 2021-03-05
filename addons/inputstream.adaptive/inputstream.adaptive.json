@@ -1,0 +1,12 @@
+{
+    "name": "inputstream.adaptive",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/peak3d/inputstream.adaptive",
+            "tag": "2.6.7-Matrix",
+            "commit": "58c54c7b641f69a862ed2fa5a640b5fa2db9c711"
+        }
+    ]
+}

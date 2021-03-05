@@ -1,0 +1,12 @@
+{
+    "name": "visualization.milkdrop2",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.milkdrop2",
+            "tag": "2.4.1-Matrix",
+            "commit": "b855e68d3e8771fef8c8634f635aa4579dda8e32"
+        }
+    ]
+}

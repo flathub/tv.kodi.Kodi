@@ -1,0 +1,12 @@
+{
+    "name": "screensaver.pingpong",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/screensaver.pingpong",
+            "tag": "2.4.0-Matrix",
+            "commit": "64cce800bad43dd0bff951476b09f5de39c6cdbe"
+        }
+    ]
+}
