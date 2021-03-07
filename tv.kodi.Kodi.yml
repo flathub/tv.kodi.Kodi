@@ -62,6 +62,7 @@ modules:
   - modules/mariadb-connector/mariadb-connector.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
+  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/p8-platform/p8-platform.json
   - modules/rapidjson/rapidjson.json
@@ -99,7 +100,7 @@ modules:
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
-      - -DENABLE_LIRCCLIENT=ON
+      # - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
