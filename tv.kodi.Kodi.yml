@@ -57,15 +57,17 @@ modules:
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
   - modules/libass/libass.json
+  - modules/libbluray/libbluray.json
   - modules/libcdio/libcdio.json
+  - modules/libcec/libcec.json
   - modules/libinput/libinput.json
-  - modules/mariadb-connector/mariadb-connector.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
   # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
-  - modules/p8-platform/p8-platform.json
+  - modules/mariadb-connector/mariadb-connector.json
   - modules/rapidjson/rapidjson.json
+  - modules/samba/samba.json
   - modules/spdlog/spdlog.json
   - modules/swig/swig.json
   - modules/taglib/taglib.json
@@ -90,7 +92,7 @@ modules:
       - -DENABLE_EGL=ON
       - -DENABLE_EVENTCLIENTS=ON
       - -DENABLE_MICROHTTPD=ON
-      - -DENABLE_MYSQLCLIENT=ON
+      - -DENABLE_MARIADBCLIENT=ON
       - -DENABLE_NFS=ON
       - -DENABLE_OPTICAL=ON
       - -DENABLE_PULSEAUDIO=ON
