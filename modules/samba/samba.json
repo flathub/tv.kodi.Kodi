@@ -2,7 +2,7 @@
     "name": "samba",
     "buildsystem": "simple",
     "build-commands": [
-        "./buildtools/bin/waf configure --prefix=/app --disable-python --without-ads --without-ldap --without-pam --without-acl-support --without-systemd --without-ad-dc",
+        "./buildtools/bin/waf configure --prefix=/app --disable-python --without-ads --without-ldap --without-pam --without-acl-support --without-systemd --without-ad-dc --without-json",
         "./buildtools/bin/waf build -j $FLATPAK_BUILDER_N_JOBS",
         "./buildtools/bin/waf install"
     ],
@@ -23,25 +23,34 @@
     "modules": [
         {
             "name": "perl",
-            "buildsystem": "simple",
-            "build-commands": [
-                "./Configure -de -Dprefix=/app/perl",
-                "make",
-                "make install"
+            "no-autogen": true,
+            "config-opts": [
+                "-des"
             ],
+           "post-install": [
+               /* Somehow these are installed without write permissions, breaking stripping */
+               "find $FLATPAK_DEST/lib/perl5/5.32.1/x86_64-linux/auto/ -name \\*.so -exec chmod u+w {} +"
+           ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
                     "sha256": "03b693901cd8ae807231b1787798cf1f2e0b8a56218d07b7da44f784a7caeb2c"
-                }
+                },
+               {
+                   "type": "script",
+                   "dest-filename": "configure",
+                   "commands": [
+                       "exec ./configure.gnu $@"
+                   ]
+               }
             ]
         },
         {
             "name": "parse-yapp",
             "buildsystem": "simple",
             "build-commands": [
-                "perl Makefile.PL INSTALL_BASE=/app",
+                "perl Makefile.PL",
                 "make",
                 "make install"
             ],
@@ -50,6 +59,16 @@
                     "type": "archive",
                     "url": "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz",
                     "sha256": "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
+                }
+            ]
+        },
+        {
+            "name": "rpcsvc-proto",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.2/rpcsvc-proto-1.4.2.tar.xz",
+                    "sha256": "678851b9f7ddf4410d2859c12016b65a6dd1a0728d478f18aeb54d165352f17c"
                 }
             ]
         }
