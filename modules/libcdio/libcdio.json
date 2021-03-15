@@ -1,6 +1,7 @@
 {
     "name": "libcdio",
     "config-opts": [
+        "--enable-cxx",
         "--without-cd-drive",
         "--without-cd-info",
         "--without-cdda-player",

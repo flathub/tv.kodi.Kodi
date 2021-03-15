@@ -1,0 +1,10 @@
+{
+    "name": "lirc",
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://downloads.sourceforge.net/project/lirc/LIRC/0.10.1/lirc-0.10.1.tar.bz2",
+            "sha256": "8b753c60df2a7f5dcda2db72c38e448ca300c3b4f6000c1501fcb0bd5df414f2"
+        }
+    ]
+}

@@ -48,6 +48,7 @@ cleanup:
 
 modules:
   - shared-modules/glu/glu-9.json
+  - modules/avahi/avahi.json
   - modules/ffmpeg/ffmpeg.json
   - modules/flatbuffers/flatbuffers.json
   - modules/fmt/fmt.json
@@ -56,11 +57,17 @@ modules:
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
   - modules/libass/libass.json
+  - modules/libbluray/libbluray.json
   - modules/libcdio/libcdio.json
+  - modules/libcec/libcec.json
   - modules/libinput/libinput.json
+  - modules/libmicrohttpd/libmicrohttpd.json
+  - modules/libnfs/libnfs.json
+  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
-  - modules/p8-platform/p8-platform.json
+  - modules/mariadb-connector/mariadb-connector.json
   - modules/rapidjson/rapidjson.json
+  - modules/samba/samba.json
   - modules/spdlog/spdlog.json
   - modules/swig/swig.json
   - modules/taglib/taglib.json
@@ -75,6 +82,27 @@ modules:
     config-opts:
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
+      - -DENABLE_AIRTUNES=ON
+      - -DENABLE_ALSA=ON
+      - -DENABLE_AVAHI=ON
+      - -DENABLE_BLURAY=ON
+      - -DENABLE_CEC=ON
+      - -DENABLE_DBUS=ON
+      - -DENABLE_DVDCSS=ON
+      - -DENABLE_EGL=ON
+      - -DENABLE_EVENTCLIENTS=ON
+      - -DENABLE_MICROHTTPD=ON
+      - -DENABLE_MARIADBCLIENT=ON
+      - -DENABLE_NFS=ON
+      - -DENABLE_OPTICAL=ON
+      - -DENABLE_PULSEAUDIO=ON
+      - -DENABLE_SMBCLIENT=ON
+      - -DENABLE_UDEV=ON
+      - -DENABLE_UPNP=ON
+      - -DENABLE_VAAPI=ON
+      - -DENABLE_VDPAU=ON
+      - -DENABLE_XSLT=ON
+      # - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
