@@ -28,8 +28,8 @@
                 "-des"
             ],
            "post-install": [
-               /* Somehow these are installed without write permissions, breaking stripping */
-               "find $FLATPAK_DEST/lib/perl5/5.32.1/x86_64-linux/auto/ -name \\*.so -exec chmod u+w {} +"
+               /* Somehow these are installed without write permissions, breaking stripping hint 774 */
+               "find $FLATPAK_DEST/lib/perl5/5.32.1/x86_64-linux/auto/ -name \\*.so -exec chmod u+rw {} +"
            ],
             "sources": [
                 {
