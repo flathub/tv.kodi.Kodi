@@ -66,6 +66,8 @@ modules:
   # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
+  - modules/pycryptodome/pycryptodome.json
+  - modules/python-pillow/python-pillow.json
   - modules/rapidjson/rapidjson.json
   - modules/samba/samba.json
   - modules/spdlog/spdlog.json
