@@ -1,0 +1,15 @@
+{
+    "name": "pycryptodome",
+    "buildsystem": "simple",
+    "build-commands": [
+        "touch .separate_namespace",
+        "python3 setup.py install --prefix=/app --root=/"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz",
+            "sha256": "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
+        }
+    ]
+}

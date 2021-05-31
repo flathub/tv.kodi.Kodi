@@ -32,14 +32,10 @@
     </description>
     <launchable type="desktop-id">tv.kodi.Kodi.desktop</launchable>
     <screenshots>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/2017-02-16_00-38-09.png</screenshot>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/about--movies-list.jpg</screenshot>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/2017-02-16_00-46-13.jpg</screenshot>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/2017-02-16_00-34-04.png</screenshot>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/about--pvr.jpg</screenshot>
-        <screenshot type="default">https://kodi.tv/sites/default/files/styles/hero_16_9/public/feature/field_image/2017-02-16_00-54-04.png</screenshot>
+        <screenshot type="default">https://cdn.dday.it/system/uploads/news/main_image/22334/main_a1.jpg</screenshot>
     </screenshots>
     <releases>
+        <release date="2021-05-09" version="19.1-Matrix"/>
         <release date="2021-02-19" version="19.0-Matrix"/>
         <release date="2020-10-24" version="18.9-Leia"/>
         <release date="2020-07-28" version="18.8-Leia"/>
