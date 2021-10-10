@@ -113,8 +113,8 @@ modules:
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
     sources:
       - type: archive
-        url: https://github.com/xbmc/xbmc/archive/19.1-Matrix.tar.gz
-        sha256: 195a916a32057e259e6f42b49ba8f07cc6253460018851a52deb058ae938c58c
+        url: https://github.com/xbmc/xbmc/archive/19.2-Matrix.tar.gz
+        sha256: e8f5e50767ddd1b8f0399016dcf5ba762315c16c0568cb06e659c493376f99d5
       - type: patch
         path: kodi.sh.in.patch
       - type: file
