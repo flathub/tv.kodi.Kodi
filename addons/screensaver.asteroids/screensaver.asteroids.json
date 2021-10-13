@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asteroids",
-            "tag": "2.6.0-Matrix",
-            "commit": "e8934868ef2927bd63baaa28508f2f68f17bbf16"
+            "tag": "19.0.0-Matrix",
+            "commit": "6088a67ba0a300b6d1031c54b8f3f00516d52715"
         }
     ]
 }

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/afedchin/vfs.smb2",
-            "commit": "1bdea3e5deed0a4bc21cae8e6bed74cf661bf9b9"
+            "commit": "a30b4927a94448b98fc57f36a0c8c82c841fabdf"
         }
     ],
     "modules": [

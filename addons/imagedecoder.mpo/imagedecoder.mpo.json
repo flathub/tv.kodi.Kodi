@@ -6,8 +6,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
-            "tag": "2.0.1-Matrix",
-            "commit": "6875a47cf8a9a1849f9cbaed634bb693e6c2bf96"
+            "tag": "19.0.0-Matrix",
+            "commit": "eb2fa08bbf17155929df61eb34091d196ef43afc"
         }
     ]
 }

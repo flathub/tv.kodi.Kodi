@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvbviewer",
-            "tag": "7.2.0-Matrix",
-            "commit": "ab60f2c3edb1dc7ccbcddea1766d80e3b0853cbb"
+            "tag": "19.0.1-Matrix",
+            "commit": "71ca0d16ecccbb657e03ec9fdc30e6afef20d8e7"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.timidity",
-            "tag": "3.0.0-Matrix",
-            "commit": "31a21616590c8d0b9c2af3aa6aae9daf6558325f"
+            "tag": "19.0.0-Matrix",
+            "commit": "90f30bf393883a2fc120d02a78a0e2fcfbd7f30a"
         }
     ]
 }

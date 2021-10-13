@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ssf",
-            "tag": "3.0.0-Matrix",
-            "commit": "cb8d7a8ef2dda1f23f1b0c561c306a44fcd8fa06"
+            "tag": "19.0.0-Matrix",
+            "commit": "641089765ad882824801b480232b1e16ff8ce61b"
         }
     ]
 }

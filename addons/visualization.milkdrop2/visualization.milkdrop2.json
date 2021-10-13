@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.milkdrop2",
-            "tag": "2.4.1-Matrix",
-            "commit": "b855e68d3e8771fef8c8634f635aa4579dda8e32"
+            "tag": "19.0.0-Matrix",
+            "commit": "c49024520a4553ee3ba200931e8d484706ac5fee"
         }
     ]
 }

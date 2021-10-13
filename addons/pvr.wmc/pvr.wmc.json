@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.wmc",
-            "tag": "6.1.1-Matrix",
-            "commit": "9ab308cfe181070a3a68d18c240ca6ff0a04b03e"
+            "tag": "19.0.0-Matrix",
+            "commit": "1f33aa308571c8ff4cc114acc2888e56e6e6dd91"
         }
     ]
 }

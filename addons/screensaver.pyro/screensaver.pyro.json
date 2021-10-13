@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pyro",
-            "tag": "3.3.0-Matrix",
-            "commit": "144d32eed13080abffeedfbe81bd3d59228a61fe"
+            "tag": "19.0.0-Matrix",
+            "commit": "e0f35674308399bec0701fd163c4316aadfdbec3"
         }
     ]
 }

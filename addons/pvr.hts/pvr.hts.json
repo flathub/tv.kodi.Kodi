@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hts",
-            "tag": "8.2.2-Matrix",
-            "commit": "6a4a3a8139d6e921a2b36e2bc43a747d2eeea6aa"
+            "tag": "19.0.0-Matrix",
+            "commit": "758b867b120e396f1f3bd2b4b460186ddd1ae1cc"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sacd",
-            "tag": "0.1.2-Matrix",
-            "commit": "a44de76c528ab90cd5bceeede2301b000d6da587"
+            "tag": "19.0.0-Matrix",
+            "commit": "025ada41ee62d0398fa3399a0e134dab1375697e"
         }
     ]
 }

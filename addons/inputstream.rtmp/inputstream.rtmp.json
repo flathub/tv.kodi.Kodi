@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "tag": "3.4.0-Matrix",
-            "commit": "8505b6a7335f623d17d4c2866fa5a11fe2ca02b7"
+            "tag": "19.0.0-Matrix",
+            "commit": "9e548998b3a31dd7ff7d55adf80d8a3fa1609c1d"
         }
     ],
     "modules": [
@@ -22,8 +22,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://git.ffmpeg.org/gitweb/rtmpdump.git/snapshot/c5f04a58fc2aeea6296ca7c44ee4734c18401aa3.tar.gz",
-                    "sha256": "fd8c21263d93fbde8bee8aa6c5f6a657789674bb0f9e74f050651504d5f43b46"
+                    "url": "https://git.ffmpeg.org/gitweb/rtmpdump.git/snapshot/f1b83c10d8beb43fcc70a6e88cf4325499f25857.tar.gz",
+                    "sha256": "c68e05989a93c002e3ba8df3baef0021c17099aa2123a9c096a5cc8e029caf95"
                 }
             ]
         }

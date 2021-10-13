@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
-            "tag": "6.1.2b-Matrix",
-            "commit": "100371d25b12b4a2154844ac878f72b3685bd43c"
+            "tag": "19.0.0-Matrix",
+            "commit": "86c3710a4abfc6c4f71401572af1e3e78fe855f8"
         }
     ]
 }

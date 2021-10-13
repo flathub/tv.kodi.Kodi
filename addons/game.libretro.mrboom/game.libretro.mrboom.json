@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "tag": "5.2.0.122-Matrix",
-            "commit": "b9b040e3a77f1a65e28fe0e61a1ff4dffe684dea"
+            "tag": "5.2.0.134-Matrix",
+            "commit": "d2f0059618763e3aef49b2867466b6a8187886ac"
         }
     ]
 }

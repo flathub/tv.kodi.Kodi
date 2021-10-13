@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ncsf",
-            "tag": "3.0.0-Matrix",
-            "commit": "b2d52886bcc4ad934cdf0f86cd33d7a8539c731e"
+            "tag": "19.0.0-Matrix",
+            "commit": "21ee90d4f80099277805bc3946ad4aea10b12029"
         }
     ]
 }

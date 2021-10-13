@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.pctv",
-            "tag": "6.1.0-Matrix",
-            "commit": "f2dc4cfaf90263e1edaa3ed0cb851a84259ad4c5"
+            "tag": "19.0.0-Matrix",
+            "commit": "0c7895db4ff98312aae15d3f5f21f8631bf302c4"
         }
     ]
 }

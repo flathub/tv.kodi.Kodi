@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/linuxwhatelse/visualization.pictureit",
-            "tag": "3.4.0-Matrix",
-            "commit": "0506dce152519febde0e1bc9ecff3127e4d49efa"
+            "tag": "19.0.0-Matrix",
+            "commit": "dcbc0c96383350c2d4106df971caf1ec3caadec4"
         }
     ]
 }

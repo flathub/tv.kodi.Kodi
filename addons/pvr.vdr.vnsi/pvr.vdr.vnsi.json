@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
-            "tag": "8.2.2-Matrix",
-            "commit": "c040951f1ceda8a9d3169cff3f80319962a10bdc"
+            "tag": "19.0.0-Matrix",
+            "commit": "814ca178de390bec8367eae2a3cae021fa1a35bb"
         }
     ]
 }
