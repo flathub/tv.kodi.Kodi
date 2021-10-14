@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvblink",
-            "tag": "9.1.0-Matrix",
-            "commit": "a8f2d78319325f21eeb7165c4b900eb7512b7063"
+            "tag": "19.0.0-Matrix",
+            "commit": "3c5e09aa046bcd340af2a65ae5bf72585743e348"
         }
     ]
 }

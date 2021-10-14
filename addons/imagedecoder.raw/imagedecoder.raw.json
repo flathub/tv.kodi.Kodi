@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "tag": "3.0.1-Matrix",
-            "commit": "000bcfe26cbfcf397d28388969d376e5d3670f5b"
+            "tag": "19.0.0-Matrix",
+            "commit": "ba987fa9e1a8707deb046b0b2ec95144522a2c06"
         }
     ],
     "modules": [
@@ -15,8 +15,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/LibRaw/LibRaw/archive/0.20.0.tar.gz",
-                    "sha256": "f38cd2620d5adc32d2c9f51cd0dc66d72c75671f1c81dfd13d30c45c6be80d40"
+                    "url": "https://github.com/LibRaw/LibRaw/archive/0.20.2.tar.gz",
+                    "sha256": "02df7d403b34602b769bb38e5bf7d4258e075eeefbe980b6832e6e1491989d60"
                 },
                 {
                     "type": "script",

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.2048",
-            "tag": "1.0.0.117-Matrix",
-            "commit": "0cc920eae65a5325d84e2e20a9b14d2ece42625f"
+            "tag": "1.0.0.123-Matrix",
+            "commit": "38ab928885e146e23247703109f4690354db6ec1"
         }
     ]
 }

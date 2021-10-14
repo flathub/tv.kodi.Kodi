@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "tag": "3.0.0-Matrix",
-            "commit": "92e1a25e7c697edda05d714e6c59f18e47f53b8f"
+            "tag": "19.0.0-Matrix",
+            "commit": "7b0f600c97b868f8d7e73476d4133020a0da4c5b"
         }
     ],
     "modules": [
@@ -23,8 +23,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz",
-                    "sha256": "f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b"
+                    "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.12+release.autotools.tar.gz",
+                    "sha256": "892aea7a599b5d21842bebf463b5aafdad5711be7008dd84401920c6234820af"
                 }
             ]
         }

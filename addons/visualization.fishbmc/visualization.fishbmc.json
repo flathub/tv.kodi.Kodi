@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.fishbmc",
-            "tag": "6.3.0-Matrix",
-            "commit": "e737f3e336df3df7c39e0b150341d17a27c63609"
+            "tag": "19.0.0-Matrix",
+            "commit": "93589479a9571bb2a2a8d19e6cced6e191db8458"
         }
     ]
 }

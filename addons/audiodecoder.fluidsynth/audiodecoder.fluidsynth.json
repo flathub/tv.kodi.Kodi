@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "tag": "3.0.0-Matrix",
-            "commit": "7f554b9ecd4c6af11cb737119bf7201944b68c76"
+            "tag": "19.0.1-Matrix",
+            "commit": "54e579bbe1b63ed3a351667e7f7267a42fdd981a"
         }
     ],
     "modules": [
@@ -16,8 +16,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/FluidSynth/fluidsynth/archive/v2.1.7.tar.gz",
-                    "sha256": "365a1c0982efcaff724a7b05d26ce1db76bc7435aa4c239df61cbc87f04b6c90"
+                    "url": "https://github.com/FluidSynth/fluidsynth/archive/v2.2.3.tar.gz",
+                    "sha256": "b31807cb0f88e97f3096e2b378c9815a6acfdc20b0b14f97936d905b536965c4"
                 }
             ]
         }

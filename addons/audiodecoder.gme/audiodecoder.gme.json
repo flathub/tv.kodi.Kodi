@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.gme",
-            "tag": "3.0.0-Matrix",
-            "commit": "801e865f8a71cf53a7683d16083f4fcd0c59aabe"
+            "tag": "19.0.0-Matrix",
+            "commit": "c0e3883c65c27cd27b5fc566ec7b0760d44c66ab"
         }
     ]
 }
