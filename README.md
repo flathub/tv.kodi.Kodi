@@ -21,6 +21,12 @@ The following binary addons do not compile, and are excluded:
  * `visualization.milkdrop`
  * `visualization.milkdrop2`
 
+Before building you need to fetch [shared-modules](https://github.com/flathub/shared-modules) first:
+
+```
+git submodule update --init --recursive
+```
+
 ## Contributing
 
 The list of binary addons in each branch of Kodi may be found
