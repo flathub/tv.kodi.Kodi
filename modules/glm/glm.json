@@ -2,7 +2,7 @@
     "name": "glm",
     "buildsystem": "cmake-ninja",
     "config-opts": [
-        "-DBUILD_STATIC_LIBS=OFF",
+        "-DBUILD_STATIC_LIBS=ON",
         "-DGLM_TEST_ENABLE_CXX_11=ON",
         "-DGLM_TEST_ENABLE=OFF"
     ],
@@ -11,6 +11,18 @@
             "type": "archive",
             "url": "https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz",
             "sha256": "7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592"
+        },
+        {
+            "type": "shell",
+            "commands": [
+                "echo 'install(FILES ${ROOT_HEADER} ${ROOT_INLINE} DESTINATION include/glm)' >> glm/CMakeLists.txt",
+                "echo 'install(FILES ${CORE_HEADER} ${CORE_INLINE} DESTINATION include/glm/detail)' >> glm/CMakeLists.txt",
+                "echo 'install(FILES ${EXT_HEADER} ${EXT_INLINE} DESTINATION include/glm/ext)' >> glm/CMakeLists.txt",
+                "echo 'install(FILES ${GTC_HEADER} ${GTC_INLINE} DESTINATION include/glm/gtc)' >> glm/CMakeLists.txt",
+                "echo 'install(FILES ${GTX_HEADER} ${GTX_INLINE} DESTINATION include/glm/gtx)' >> glm/CMakeLists.txt",
+                "echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION include/glm/simd)' >> glm/CMakeLists.txt",
+                "echo 'install(TARGETS glm_static)' >> glm/CMakeLists.txt"
+            ]
         }
     ]
 }

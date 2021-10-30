@@ -10,8 +10,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "http://mirrors.kodi.tv/build-deps/sources/tinyxml-3.0.0.tar.gz",
-            "sha256": "128aa1553e88403833e0cccf1b651f45ce87bc207871f53fdcc8e7f9ec795747"
+            "url": "http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz",
+            "sha256": "8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c"
         },
         {
             "type": "script",
