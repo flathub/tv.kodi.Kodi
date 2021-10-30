@@ -1,6 +1,10 @@
 {
     "name": "tinyxml2",
     "buildsystem": "cmake-ninja",
+    "build-options": {
+        "cflags": "-fPIC",
+        "cxxflags": "-fPIC"
+    },
     "sources": [
         {
             "type": "archive",
