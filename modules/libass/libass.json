@@ -9,8 +9,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/libass/libass/releases/download/0.15.0/libass-0.15.0.tar.gz",
-            "sha256": "9cbddee5e8c87e43a5fe627a19cd2aa4c36552156eb4edcf6c5a30bd4934fe58"
+            "url": "https://github.com/libass/libass/archive/refs/tags/0.15.2.tar.gz",
+            "sha256": "f96b7ce35f2b0bf430eb71c4c9dd5d8f0abf52499e08490d346608c837c98299"
         }
     ]
 }

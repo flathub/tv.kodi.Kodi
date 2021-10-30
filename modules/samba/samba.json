@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://download.samba.org/pub/samba/stable/samba-4.13.4.tar.gz",
-            "sha256": "a1b34c63f7100cc8626902d80f335c7cb0b45d4707dd3c4b010f7a28ed615c78"
+            "url": "https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz",
+            "sha256": "a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00"
         }
     ],
     "modules": [
@@ -34,8 +34,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.cpan.org/src/5.0/perl-5.32.1.tar.gz",
-                    "sha256": "03b693901cd8ae807231b1787798cf1f2e0b8a56218d07b7da44f784a7caeb2c"
+                    "url": "https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz",
+                    "sha256": "82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded"
                 },
                {
                    "type": "script",
