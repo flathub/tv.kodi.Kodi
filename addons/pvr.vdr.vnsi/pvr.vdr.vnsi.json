@@ -7,6 +7,10 @@
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
             "tag": "19.0.0-Matrix",
             "commit": "814ca178de390bec8367eae2a3cae021fa1a35bb"
+        },
+        {
+            "type": "patch",
+            "path": "pvr.vdr.vnsi-fix.patch"
         }
     ]
 }
