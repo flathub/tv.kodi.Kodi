@@ -79,9 +79,8 @@ modules:
 
   - name: kodi
     buildsystem: cmake-ninja
-    build-commands:
-      - install -Dm644 tv.kodi.Kodi.metainfo.xml /app/share/metainfo/tv.kodi.Kodi.metainfo.xml
     config-opts:
+      - -DAPP_PACKAGE=tv.kodi.Kodi
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
       - -DENABLE_AIRTUNES=ON
@@ -137,8 +136,6 @@ modules:
         sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
-      - type: file
-        path: tv.kodi.Kodi.metainfo.xml
 
   - name: kodi-platform
     buildsystem: cmake-ninja
