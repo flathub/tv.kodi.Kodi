@@ -13,6 +13,13 @@
         {
             "name": "libheif",
             "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DWITH_EXAMPLES=0",
+                "-DWITH_X265=0",
+                "-DWITH_RAV1E=0",
+                "-DWITH_AOM=0",
+                "-DWITH_DAV1D=0"
+            ],
             "sources": [
                 {
                     "type": "archive",
