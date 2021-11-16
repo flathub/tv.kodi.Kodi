@@ -49,6 +49,7 @@ cleanup:
 modules:
   - shared-modules/glu/glu-9.json
   - modules/avahi/avahi.json
+  - modules/dav1d/dav1d.json
   - modules/ffmpeg/ffmpeg.json
   - modules/flatbuffers/flatbuffers.json
   - modules/fmt/fmt.json
