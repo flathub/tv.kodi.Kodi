@@ -1,6 +1,7 @@
 {
     "name": "ffmpeg",
     "config-opts": [
+        "--enable-libdav1d",
         "--enable-gpl",
         "--enable-gnutls",
         "--enable-vaapi",
