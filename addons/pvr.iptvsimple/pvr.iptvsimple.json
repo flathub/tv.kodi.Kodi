@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
-            "tag": "19.0.0-Matrix",
-            "commit": "9bb6a62a4397aa9203208d5d0d23ef1ebac6e318"
+            "tag": "20.1.2-Nexus",
+            "commit": "fb5df8cff8e6826f5b2e7a1b9ab34dc21e100011"
         }
     ]
 }

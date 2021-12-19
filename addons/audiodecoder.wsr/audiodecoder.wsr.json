@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.wsr",
-            "tag": "19.0.0-Matrix",
-            "commit": "a1f102a60275c24eed67c24549e20653dd56eedf"
+            "tag": "20.1.0-Nexus",
+            "commit": "7efd87c74fd511513b6e8a38262f0ec271c5ccd7"
         }
     ]
 }

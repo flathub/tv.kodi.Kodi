@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "tag": "19.0.0-Matrix",
-            "commit": "978b4c1d60967b8ec9273e653aa8ee1007064af8"
+            "tag": "20.1.0-Nexus",
+            "commit": "7c9fdb494d50ac69ee32cdbe7d47f1259c8fd509"
         }
     ]
 }

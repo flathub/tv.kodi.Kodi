@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "tag": "19.7.10-Matrix",
-            "commit": "5ae26f91a545ed5381b038f152897d1899596a89"
+            "tag": "20.1.0-Nexus",
+            "commit": "30744a562365924d2d36f84b8460893a28d21e4d"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pingpong",
-            "tag": "19.0.0-Matrix",
-            "commit": "4443c8ecb2b678ab52a35517f6c86816802ddd6f"
+            "tag": "20.0.0-Nexus",
+            "commit": "9963fc67e0f2a79ae9bb67f123c32b795fd36893"
         }
     ]
 }

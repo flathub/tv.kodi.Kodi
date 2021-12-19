@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.qsf",
-            "tag": "19.0.0-Matrix",
-            "commit": "5b549f28ece5c9c12084e926a5e0ad38ccd36860"
+            "tag": "20.1.0-Nexus",
+            "commit": "81a73e99ee9ba633728647a57bc545cb82a32294"
         }
     ]
 }
