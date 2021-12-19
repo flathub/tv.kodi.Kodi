@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.nextpvr",
-            "tag": "19.0.0-Matrix",
-            "commit": "537aad7cab16c9d419886ea0e488ce513967c57c"
+            "tag": "20.1.3-Nexus",
+            "commit": "f03c1ff4ed344a2732bcdd8f1e81eba7fad0af9c"
         }
     ]
 }

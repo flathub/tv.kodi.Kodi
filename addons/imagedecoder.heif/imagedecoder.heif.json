@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "tag": "19.0.0-Matrix",
-            "commit": "af72c1fb987b8178f0f70407b6312dc40ed5ccd6"
+            "tag": "20.0.0-Nexus",
+            "commit": "6942534b2266ec2ae4c9fb6629ac0663324506c6"
         }
     ],
     "modules": [
@@ -23,8 +23,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.12.0.tar.gz",
-                    "sha256": "086145b0d990182a033b0011caadb1b642da84f39ab83aa66d005610650b3c65"
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
+                    "sha256": "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
                 }
             ]
         },
@@ -34,8 +34,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/archive/v1.0.8.tar.gz",
-                    "sha256": "c5ab61185f283f46388c700c43dc08606b0e260cd53f06b967ec0ad7a809ff11"
+                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.8/libde265-1.0.8.tar.gz",
+                    "sha256": "24c791dd334fa521762320ff54f0febfd3c09fc978880a8c5fbc40a88f21d905"
                 }
             ]
         }

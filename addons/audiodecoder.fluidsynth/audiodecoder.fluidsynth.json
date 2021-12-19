@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "tag": "19.0.1-Matrix",
-            "commit": "54e579bbe1b63ed3a351667e7f7267a42fdd981a"
+            "tag": "20.1.0-Nexus",
+            "commit": "52cc10a27af3d4d1dfa47ff146909f8815dea2d7"
         }
     ],
     "modules": [

@@ -12,14 +12,8 @@ Flatpak.
 
 The following binary addons do not compile, and are excluded:
  * `audiodecoder.dumb`
- * `audiodecoder.sidplay`
  * `game.libretro.2048`
  * `game.libretro.mrboom`
- * `pvr.teleboy`
- * `pvr.zattoo`
- * `vfs.smb2`
- * `visualization.milkdrop`
- * `visualization.milkdrop2`
 
 ## Contributing
 

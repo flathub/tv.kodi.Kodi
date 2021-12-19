@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "tag": "19.0.0-Matrix",
-            "commit": "27430c5ec74bb1173551a75c9ea416a8d63b4d54"
+            "tag": "20.0.0-Nexus",
+            "commit": "4f9c4e8a5b015b213f9339e52f72712d92e167bd"
         }
     ]
 }

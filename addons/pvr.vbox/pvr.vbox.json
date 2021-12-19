@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
-            "tag": "19.0.0-Matrix",
-            "commit": "0e8fd2f5e3fe5b8bed5da1c6f78d93b2a09c84be"
+            "tag": "20.1.0-Nexus",
+            "commit": "fc895759ff632c07edfa39dd3e0fa6b03ef20dc4"
         }
     ]
 }

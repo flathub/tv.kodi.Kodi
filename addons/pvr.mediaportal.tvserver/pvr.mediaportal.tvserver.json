@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.mediaportal.tvserver",
-            "tag": "19.0.0-Matrix",
-            "commit": "4de2d4ab205ba14033a6ab3fed3d6a393b9d14df"
+            "tag": "20.1.1-Nexus",
+            "commit": "dcdd6eb492b38878c2ee08447cee335e588077e4"
         }
     ]
 }

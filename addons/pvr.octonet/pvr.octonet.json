@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/DigitalDevices/pvr.octonet",
-            "tag": "19.0.0-Matrix",
-            "commit": "80ea2539ecac260b9e5f10f65876fe18456953fd"
+            "tag": "20.1.0-Nexus",
+            "commit": "fb17e25ef60a23471f7adc30fb688a351e7367d3"
         }
     ]
 }

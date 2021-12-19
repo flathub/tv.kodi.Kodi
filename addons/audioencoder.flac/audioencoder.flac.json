@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
-            "tag": "19.0.0-Matrix",
-            "commit": "6fbbd42c8f3d3f195d1a0f5f7ed4513c94cda5f1"
+            "tag": "20.1.0-Nexus",
+            "commit": "c00b948a3ec5b0b86c86dec84313d74b1ab40ab0"
         }
     ]
 }
