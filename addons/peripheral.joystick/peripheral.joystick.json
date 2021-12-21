@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
-            "tag": "19.0.0-Matrix",
-            "commit": "4994a2f26f2207498938d43b7715925b12387adc"
+            "tag": "20.0.0-Nexus",
+            "commit": "9d8b391801532c77b80f1a261faa189cf393f3ac"
         }
     ]
 }

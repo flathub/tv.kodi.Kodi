@@ -1,12 +1,57 @@
 {
-    "name": "audiodecoder.sidplay",
-    "buildsystem": "cmake-ninja",
-    "sources": [
+  "name": "audiodecoder.sidplay",
+  "buildsystem": "cmake-ninja",
+  "sources": [
+    {
+      "type": "git",
+      "url": "https://github.com/xbmc/audiodecoder.sidplay",
+      "tag": "20.1.0-Nexus",
+      "commit": "5f90a5043fee2e23c4462ffb0c4865170d780456"
+    }
+  ],
+  "modules": [
+    {
+      "name": "sidplay2",
+      "buildsystem": "autotools",
+      "sources": [
         {
-            "type": "git",
-            "url": "https://github.com/xbmc/audiodecoder.sidplay",
-            "tag": "19.0.0-Matrix",
-            "commit": "b6e9a5e0ec4f7f12db1ea252ba172b78d1af3408"
+          "type": "archive",
+          "url": "http://mirrors.kodi.tv/build-deps/sources/sidplay-libs-2.1.1.tar.gz",
+          "sha256": "e9a24ada48215a46d2c232a70c5601bc9505e997f120e8f2ba3713e09e28d1f9"
+        },
+        {
+          "type": "patch",
+          "path": "01-m4-tests.patch"
+        },
+        {
+          "type": "patch",
+          "path": "02-inherited.patch"
+        },
+        {
+          "type": "patch",
+          "path": "03-operator.patch"
+        },
+        {
+          "type": "patch",
+          "path": "04-includes.patch"
+        },
+        {
+          "type": "patch",
+          "path": "05-enable-pic.patch"
+        },
+        {
+          "type": "patch",
+          "path": "06-include-macros.patch"
+        },
+        {
+          "type": "patch",
+          "path": "07-replace-linux-header.patch"
+        },
+        {
+          "type": "patch",
+          "path": "08-c++11-narrowing.patch"
         }
-    ]
+      ]
+    }
+  ]
 }

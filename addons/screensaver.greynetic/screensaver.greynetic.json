@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.greynetic",
-            "tag": "19.0.0-Matrix",
-            "commit": "d83dc68565f74f96f696bab817469bd74e860379"
+            "tag": "20.0.0-Nexus",
+            "commit": "1e9854a31c6a0e7445246e262fdc8e9679e4e21f"
         }
     ]
 }

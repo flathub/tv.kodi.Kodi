@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "tag": "19.0.0-Matrix",
-            "commit": "717552dc0626fe7e57d343c0bae52c144f2b05d8"
+            "tag": "20.0.0-Nexus",
+            "commit": "92cc56f9e4e4da78d124596711d8fcf73cbdb148"
         }
     ]
 }

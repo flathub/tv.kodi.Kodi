@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.stsound",
-            "tag": "19.0.0-Matrix",
-            "commit": "d3972d7e8c9f06e1a948d9630eb1aed85b65177d"
+            "tag": "20.1.0-Nexus",
+            "commit": "baea6af0b937bd2c85703127cdcbcd7d3fbda1ea"
         }
     ]
 }

@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.goom",
-            "tag": "19.0.0-Matrix",
-            "commit": "069eb2a0d19e35b021bf2c16bc5e0798d4d33419"
+            "tag": "20.0.0-Nexus",
+            "commit": "5c81f03e1e2e94b367f8df712b4c4df589ef1053"
         }
     ]
 }

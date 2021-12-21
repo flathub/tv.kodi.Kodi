@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "tag": "19.0.0-Matrix",
-            "commit": "ccf8fa3629a214dd9717554bb9ead2f2adc6bb12"
+            "tag": "20.1.0-Nexus",
+            "commit": "296b086b6d5be43f66af17ecbdb8febec3fc51f8"
         }
     ]
 }

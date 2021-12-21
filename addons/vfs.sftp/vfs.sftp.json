@@ -5,8 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "tag": "19.0.0-Matrix",
-            "commit": "2a2ee0138022f7640dee1956ed3b9b490fccd201"
+            "tag": "20.0.0-Nexus",
+            "commit": "b5fb83e83cf477e0b20e3069f133521bd5e3ec02"
         }
     ],
     "modules": [
