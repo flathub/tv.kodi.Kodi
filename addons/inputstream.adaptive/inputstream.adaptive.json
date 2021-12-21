@@ -1,12 +1,13 @@
 {
     "name": "inputstream.adaptive",
     "buildsystem": "cmake-ninja",
+    "config-opts": ["-DBUILD_TESTING=OFF"],
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/peak3d/inputstream.adaptive",
-            "tag": "2.6.7-Matrix",
-            "commit": "58c54c7b641f69a862ed2fa5a640b5fa2db9c711"
+            "url": "https://github.com/xbmc/inputstream.adaptive",
+            "tag": "19.0.1-Matrix",
+            "commit": "ea598cf9fab5961af507bdf87575d18e15d17b24"
         }
     ]
 }
