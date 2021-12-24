@@ -54,9 +54,6 @@ modules:
   - modules/flatbuffers/flatbuffers.json
   - modules/fmt/fmt.json
   - modules/fstrcmp/fstrcmp.json
-  - modules/glm/glm.json
-  - modules/json/json.json
-  - modules/jsoncpp/jsoncpp.json
   - modules/libass/libass.json
   - modules/libbluray/libbluray.json
   - modules/libcdio/libcdio.json
@@ -64,7 +61,6 @@ modules:
   - modules/libinput/libinput.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
-  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
   - modules/pycryptodome/pycryptodome.json
@@ -75,7 +71,6 @@ modules:
   - modules/swig/swig.json
   - modules/taglib/taglib.json
   - modules/tinyxml/tinyxml.json
-  - modules/tinyxml2/tinyxml2.json
   - modules/waylandpp/waylandpp.json
 
   - name: kodi
