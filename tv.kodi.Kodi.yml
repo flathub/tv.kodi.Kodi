@@ -220,6 +220,7 @@ modules:
   - addons/vfs.sftp/vfs.sftp.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
   - addons/visualization.goom/visualization.goom.json
+  - addons/visualization.matrix/visualization.matrix.json
   - addons/visualization.pictureit/visualization.pictureit.json
   - addons/visualization.projectm/visualization.projectm.json
   - addons/visualization.shadertoy/visualization.shadertoy.json

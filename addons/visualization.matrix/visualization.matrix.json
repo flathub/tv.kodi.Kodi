@@ -1,0 +1,11 @@
+{
+    "name": "visualization.matrix",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/visualization.matrix",
+            "branch": "Nexus"
+        }
+    ]
+}
