@@ -197,6 +197,7 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
+  - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
   - addons/pvr.teleboy/pvr.teleboy.json
