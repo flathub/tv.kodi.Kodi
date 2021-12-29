@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "tag": "20.0.0-Nexus",
-            "commit": "8c384a6a9eb9c44169bdc5ae8eff34fb0ab82c68"
+            "branch": "Nexus"
         }
     ],
     "modules": [

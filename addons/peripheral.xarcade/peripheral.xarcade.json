@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "tag": "20.0.1-Nexus",
-            "commit": "0d7e47022c2edaaff5e9b7999199ed687bbc90b7"
+            "branch": "Nexus"
         }
     ]
 }

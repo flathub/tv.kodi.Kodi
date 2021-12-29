@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.stalker",
-            "tag": "20.1.0-Nexus",
-            "commit": "6362331f97828babc6b57485a3c2c4cab2a98d7e"
+            "branch": "Nexus"
         }
     ]
 }

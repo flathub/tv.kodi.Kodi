@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.asap",
-            "tag": "20.1.0-Nexus",
-            "commit": "9c91b4320358e242064bf985c7305362c3a095e8"
+            "branch": "Nexus"
         }
     ]
 }

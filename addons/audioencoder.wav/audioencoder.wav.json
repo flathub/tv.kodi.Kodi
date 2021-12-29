@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.wav",
-            "tag": "20.1.0-Nexus",
-            "commit": "6cf6570d060693581caf55204d2a0343f7991ad7"
+            "branch": "Nexus"
         }
     ]
 }

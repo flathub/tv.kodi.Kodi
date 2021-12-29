@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
-            "tag": "20.1.0-Nexus",
-            "commit": "fd6ac046092cceaaf79a16ecb238cedcfa37768e"
+            "branch": "Nexus"
         }
     ],
     "modules": [

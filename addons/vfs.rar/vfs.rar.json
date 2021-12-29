@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.rar",
-            "tag": "20.0.0-Nexus",
-            "commit": "9d4188e483ee9cb9b478be9b3d74d788239ee152"
+            "branch": "Nexus"
         }
     ]
 }

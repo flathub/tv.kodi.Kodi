@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
-            "tag": "20.1.0-Nexus",
-            "commit": "7edf4161b3ded5c1fd017cf20003b4279996897b"
+            "branch": "Nexus"
         }
     ],
     "modules": [

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ssf",
-            "tag": "20.1.0-Nexus",
-            "commit": "8ba4847002868d2ea4f67d39a9e06fb68e54c98d"
+            "branch": "Nexus"
         }
     ]
 }

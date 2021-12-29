@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.pictureit",
-            "tag": "20.0.0-Nexus",
-            "commit": "d4361f228ae098ce1ab9ab5acdc5cb0e4c0ea13a"
+            "branch": "Nexus"
         }
     ]
 }

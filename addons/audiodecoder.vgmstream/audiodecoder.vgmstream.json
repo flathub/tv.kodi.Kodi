@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.vgmstream",
-            "tag": "20.1.0-Nexus",
-            "commit": "372fb204a4091f7cbd8fecc9fa0d316ab5e04724"
+            "branch": "Nexus"
         }
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "tag": "20.0.1-Nexus",
-            "commit": "5fdc5278cb133ed98ae082a859261bf72445373c"
+            "branch": "Nexus"
         }
     ],
     "modules": [

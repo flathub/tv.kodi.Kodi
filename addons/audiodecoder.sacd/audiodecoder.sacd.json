@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sacd",
-            "tag": "20.1.0-Nexus",
-            "commit": "b826dc6090d7046420e8a3e422b4eee8268307c8"
+            "branch": "Nexus"
         }
     ]
 }

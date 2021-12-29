@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "tag": "20.0.0-Nexus",
-            "commit": "936c371a6f2390e49279fdcbdd587dd9d87dd0ed"
+            "branch": "Nexus"
         }
     ],
     "modules": [

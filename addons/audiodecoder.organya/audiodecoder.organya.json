@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.organya",
-            "tag": "20.1.0-Nexus",
-            "commit": "4931b7c6774444f47595ccf396f9e12b21c60c95"
+            "branch": "Nexus"
         }
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/janbar/pvr.mythtv",
-            "tag": "20.1.0-Nexus",
-            "commit": "0a40fcb52ce86de21e55310bbb5ae81b5731efff"
+            "branch": "Nexus"
         }
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "tag": "20.0.0-Nexus",
-            "commit": "399a206df12ef130c5e43d8271353e405c8dcbc3"
+            "branch": "Nexus"
         }
     ]
 }

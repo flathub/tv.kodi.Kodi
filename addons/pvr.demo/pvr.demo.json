@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.demo",
-            "tag": "20.3.1-Nexus",
-            "commit": "afc348575a7180dcb502a0db16bcea7c9175bd7d"
+            "branch": "Nexus"
         }
     ]
 }

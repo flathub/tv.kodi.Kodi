@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "tag": "20.0.0-Nexus",
-            "commit": "6942534b2266ec2ae4c9fb6629ac0663324506c6"
+            "branch": "Nexus"
         }
     ],
     "modules": [

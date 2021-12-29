@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
-            "tag": "20.1.0-Nexus",
-            "commit": "c00b948a3ec5b0b86c86dec84313d74b1ab40ab0"
+            "branch": "Nexus"
         }
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.argustv",
-            "tag": "20.1.0-Nexus",
-            "commit": "7960df916236aff397ee7da806e1626d4ad91a09"
+            "branch": "Nexus"
         }
     ]
 }

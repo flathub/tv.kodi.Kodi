@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
-            "tag": "20.1.2-Nexus",
-            "commit": "fb5df8cff8e6826f5b2e7a1b9ab34dc21e100011"
+            "branch": "Nexus"
         }
     ]
 }

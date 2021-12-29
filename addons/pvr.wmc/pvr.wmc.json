@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.wmc",
-            "tag": "20.1.1-Nexus",
-            "commit": "401ce5e541957d1e14a11cc9f1272821df9591aa"
+            "branch": "Nexus"
         }
     ]
 }

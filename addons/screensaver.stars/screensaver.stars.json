@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.stars",
-            "tag": "20.0.0-Nexus",
-            "commit": "1593563a53d97d1447e72c0ef55a3b24ac5e458a"
+            "branch": "Nexus"
         }
     ]
 }
