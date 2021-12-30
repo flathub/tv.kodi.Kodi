@@ -4,7 +4,8 @@
     "config-opts": [
         "-DBUILD_TESTING=OFF",
         "-DENABLE_INTERNAL_BENTO4=ON",
-        "-DBENTO4_URL=bento4_src"
+        "-DBENTO4_URL=bento4_src",
+        "-DCMAKE_BUILD_TYPE=Release"
     ],
     "sources": [
         {
@@ -19,5 +20,10 @@
             "dest": "bento4_src",
             "dest-filename": "bento4.tar.gz"
         }
-    ]
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    }
 }
