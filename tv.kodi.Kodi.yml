@@ -151,6 +151,7 @@ modules:
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
+  - addons/audiodecoder.hvl/audiodecoder.hvl.json
   - addons/audiodecoder.modplug/audiodecoder.modplug.json
   - addons/audiodecoder.ncsf/audiodecoder.ncsf.json
   - addons/audiodecoder.nosefart/audiodecoder.nosefart.json

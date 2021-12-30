@@ -1,0 +1,11 @@
+{
+    "name": "audiodecoder.hvl",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/audiodecoder.hvl",
+            "branch": "Nexus"
+        }
+    ]
+}
