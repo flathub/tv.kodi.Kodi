@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "tag": "19.0.0-Matrix",
-            "commit": "7b0f600c97b868f8d7e73476d4133020a0da4c5b"
+            "branch": "Matrix"
         }
     ],
     "modules": [
@@ -17,6 +16,11 @@
                 "--disable-examples",
                 "--disable-tests"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "cleanup": [
                 "/include"
             ],
@@ -28,5 +32,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

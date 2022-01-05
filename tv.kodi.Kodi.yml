@@ -147,7 +147,7 @@ modules:
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
-  # - addons/audiodecoder.dumb/audiodecoder.dumb.json
+  - addons/audiodecoder.dumb/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
@@ -158,7 +158,7 @@ modules:
   - addons/audiodecoder.organya/audiodecoder.organya.json
   - addons/audiodecoder.qsf/audiodecoder.qsf.json
   - addons/audiodecoder.sacd/audiodecoder.sacd.json
-  # - addons/audiodecoder.sidplay/audiodecoder.sidplay.json
+  - addons/audiodecoder.sidplay/audiodecoder.sidplay.json
   - addons/audiodecoder.snesapu/audiodecoder.snesapu.json
   - addons/audiodecoder.ssf/audiodecoder.ssf.json
   - addons/audiodecoder.stsound/audiodecoder.stsound.json
@@ -199,12 +199,12 @@ modules:
   - addons/pvr.pctv/pvr.pctv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
-  # - addons/pvr.teleboy/pvr.teleboy.json
+  - addons/pvr.teleboy/pvr.teleboy.json
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
   - addons/pvr.wmc/pvr.wmc.json
-  # - addons/pvr.zattoo/pvr.zattoo.json
+  - addons/pvr.zattoo/pvr.zattoo.json
   - addons/screensaver.asteroids/screensaver.asteroids.json
   - addons/screensaver.asterwave/screensaver.asterwave.json
   - addons/screensaver.biogenesis/screensaver.biogenesis.json
@@ -218,11 +218,8 @@ modules:
   - addons/vfs.libarchive/vfs.libarchive.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
-  # - addons/vfs.smb2/vfs.smb2.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
   - addons/visualization.goom/visualization.goom.json
-  # - addons/visualization.milkdrop/visualization.milkdrop.json
-  # - addons/visualization.milkdrop2/visualization.milkdrop2.json
   - addons/visualization.pictureit/visualization.pictureit.json
   - addons/visualization.projectm/visualization.projectm.json
   - addons/visualization.shadertoy/visualization.shadertoy.json

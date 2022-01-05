@@ -5,17 +5,21 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "tag": "19.0.0-Matrix",
-            "commit": "ba987fa9e1a8707deb046b0b2ec95144522a2c06"
+            "branch": "Matrix"
         }
     ],
     "modules": [
         {
             "name": "libraw",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/LibRaw/LibRaw/archive/0.20.2.tar.gz",
+                    "url": "https://github.com/LibRaw/LibRaw/archive/refs/tags/0.20.2.tar.gz",
                     "sha256": "02df7d403b34602b769bb38e5bf7d4258e075eeefbe980b6832e6e1491989d60"
                 },
                 {
@@ -27,5 +31,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "tag": "19.0.0-Matrix",
-            "commit": "2a2ee0138022f7640dee1956ed3b9b490fccd201"
+            "branch": "Matrix"
         }
     ],
     "modules": [
@@ -16,8 +15,14 @@
             "builddir": true,
             "config-opts": [
                 "-DWITH_GSSAPI=OFF",
-                "-DWITH_EXAMPLES=OFF"
+                "-DWITH_EXAMPLES=OFF",
+                "-DCMAKE_BUILD_TYPE=Release"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
@@ -26,5 +31,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

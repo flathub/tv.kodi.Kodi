@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pyro",
-            "tag": "19.0.0-Matrix",
-            "commit": "e0f35674308399bec0701fd163c4316aadfdbec3"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/palinek/pvr.sledovanitv.cz",
-            "tag": "4.5.0-Matrix",
-            "commit": "60bf60fcd96d0788323f99e4ffb0d5f8f4af7908"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

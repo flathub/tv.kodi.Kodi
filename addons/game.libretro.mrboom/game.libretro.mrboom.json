@@ -5,8 +5,27 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "tag": "5.2.0.134-Matrix",
-            "commit": "d2f0059618763e3aef49b2867466b6a8187886ac"
+            "branch": "master"
         }
+    ],
+    "modules": [
+        {
+            "name": "mrboom",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Javanaise/mrboom-libretro/releases/download/5.2/MrBoom-src-5.2.454d614.tar.gz",
+                    "sha256": "50e4fe4bc74b23ac441499c756c4575dfe9faab9e787a3ab942a856ac63cf10d"
+                }
+            ]
+        }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

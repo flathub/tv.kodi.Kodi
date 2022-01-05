@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
-            "tag": "19.0.1-Matrix",
-            "commit": "fb0882c52ac8c16c9fdfa3cd5de10b7402b18c55"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

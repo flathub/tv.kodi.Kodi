@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "tag": "19.0.0-Matrix",
-            "commit": "ccf8fa3629a214dd9717554bb9ead2f2adc6bb12"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0 -fPIC",
+        "cxxflags": "-g0 -fPIC"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

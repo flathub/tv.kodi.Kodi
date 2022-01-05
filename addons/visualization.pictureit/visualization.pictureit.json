@@ -4,9 +4,16 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/linuxwhatelse/visualization.pictureit",
-            "tag": "19.0.0-Matrix",
-            "commit": "dcbc0c96383350c2d4106df971caf1ec3caadec4"
+            "url": "https://github.com/xbmc/visualization.pictureit",
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

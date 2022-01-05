@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvbviewer",
-            "tag": "19.0.1-Matrix",
-            "commit": "71ca0d16ecccbb657e03ec9fdc30e6afef20d8e7"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }
