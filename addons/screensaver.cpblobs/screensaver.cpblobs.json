@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "tag": "20.0.0-Nexus",
-            "commit": "92cc56f9e4e4da78d124596711d8fcf73cbdb148"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
-            "tag": "20.0.1-Nexus",
-            "commit": "471a793f2996dcdae9687fc8c9b1f62953f3b829"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -2,6 +2,8 @@ PROJECT ?= tv.kodi.Kodi
 
 .PHONY: build build-i386 flatpak install run clean
 
+update-addons:
+	cd tools && python3 addon_updater.py -r
 build:
 	flatpak-builder build-dir $(PROJECT).yml --repo=repo --force-clean --ccache 2>&1 | tee -a build.log
 build-i386:

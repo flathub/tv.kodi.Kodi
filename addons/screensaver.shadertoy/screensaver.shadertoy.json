@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.shadertoy",
-            "tag": "20.0.0-Nexus",
-            "commit": "f4e0562a73e7b1373bbde03c9c1d22cd42c9c7d1"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.goom",
-            "tag": "20.0.0-Nexus",
-            "commit": "5c81f03e1e2e94b367f8df712b4c4df589ef1053"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

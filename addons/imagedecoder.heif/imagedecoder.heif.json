@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "tag": "20.0.0-Nexus",
-            "commit": "6942534b2266ec2ae4c9fb6629ac0663324506c6"
+            "branch": "Nexus"
         }
     ],
     "modules": [
@@ -14,12 +13,18 @@
             "name": "libheif",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DWITH_EXAMPLES=0",
                 "-DWITH_X265=0",
                 "-DWITH_RAV1E=0",
                 "-DWITH_AOM=0",
                 "-DWITH_DAV1D=0"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
@@ -31,6 +36,11 @@
         {
             "name": "libde265",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
@@ -39,5 +49,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

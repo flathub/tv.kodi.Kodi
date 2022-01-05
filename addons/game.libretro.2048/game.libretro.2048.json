@@ -1,24 +1,31 @@
 {
-  "name": "game.libretro.2048",
-  "buildsystem": "cmake-ninja",
-  "sources": [
-    {
-      "type": "git",
-      "url": "https://github.com/kodi-game/game.libretro.2048",
-      "tag": "1.0.0.122-Nexus",
-      "commit": "f563cd71a06f6a0ce6b4e19a6a5ae57d13834bf0"
-    }
-  ],
-  "modules": [
-    {
-      "name": "2048",
-      "sources": [
+    "name": "game.libretro.2048",
+    "buildsystem": "cmake-ninja",
+    "sources": [
         {
-          "type": "archive",
-          "url": "https://github.com/libretro/libretro-2048/archive/20051e140346fb56376b59f41f28ef40f8ad7fb8.tar.gz",
-          "sha256": "6cccc6ddefcd065b13aa01881ad82966eb5377657a97757c172c4e82f955780f"
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.2048",
+            "branch": "master"
         }
-      ]
-    }
-  ]
+    ],
+    "modules": [
+        {
+            "name": "2048",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-2048/archive/20051e140346fb56376b59f41f28ef40f8ad7fb8.tar.gz",
+                    "sha256": "6cccc6ddefcd065b13aa01881ad82966eb5377657a97757c172c4e82f955780f"
+                }
+            ]
+        }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ]
 }

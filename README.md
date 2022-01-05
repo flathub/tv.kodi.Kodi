@@ -22,4 +22,6 @@ The list of binary addons in each branch of Kodi may be found
 [here](https://github.com/xbmc/xbmc/tree/master/tools/depends/target). Kodi
 releases are found [here](https://github.com/xbmc/xbmc/releases).
 
+`make update-addons` can help updating existing addons and also list missing ones
+
 You can contribute by updating addons, modules and the Kodi version.

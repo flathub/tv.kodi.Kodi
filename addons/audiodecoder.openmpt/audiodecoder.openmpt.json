@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "tag": "20.1.0-Nexus",
-            "commit": "ff025d2c2994d38e383afce3afa56b3be6be9ee1"
+            "branch": "Nexus"
         }
     ],
     "modules": [
@@ -17,6 +16,11 @@
                 "--disable-examples",
                 "--disable-tests"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "cleanup": [
                 "/include"
             ],
@@ -28,5 +32,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

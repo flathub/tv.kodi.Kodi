@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "tag": "20.0.0-Nexus",
-            "commit": "4f9c4e8a5b015b213f9339e52f72712d92e167bd"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -1,10 +1,10 @@
 {
-    "name": "game.libretro",
+    "name": "visualization.matrix",
     "buildsystem": "cmake-ninja",
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro",
+            "url": "https://github.com/xbmc/visualization.matrix",
             "branch": "Nexus"
         }
     ],

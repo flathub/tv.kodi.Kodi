@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "tag": "20.0.0-Nexus",
-            "commit": "b5fb83e83cf477e0b20e3069f133521bd5e3ec02"
+            "branch": "Nexus"
         }
     ],
     "modules": [
@@ -16,8 +15,14 @@
             "builddir": true,
             "config-opts": [
                 "-DWITH_GSSAPI=OFF",
-                "-DWITH_EXAMPLES=OFF"
+                "-DWITH_EXAMPLES=OFF",
+                "-DCMAKE_BUILD_TYPE=Release"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
@@ -26,5 +31,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -4,9 +4,16 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/xbmc/visualization.pictureit",
-            "tag": "20.0.0-Nexus",
-            "commit": "d4361f228ae098ce1ab9ab5acdc5cb0e4c0ea13a"
+            "url": "https://github.com/linuxwhatelse/visualization.pictureit",
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -1,10 +1,10 @@
 {
-    "name": "game.libretro",
+    "name": "pvr.plutotv",
     "buildsystem": "cmake-ninja",
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro",
+            "url": "https://github.com/kodi-pvr/pvr.plutotv",
             "branch": "Nexus"
         }
     ],

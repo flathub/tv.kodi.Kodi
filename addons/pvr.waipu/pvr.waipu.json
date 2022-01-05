@@ -1,10 +1,10 @@
 {
-    "name": "game.libretro",
+    "name": "pvr.waipu",
     "buildsystem": "cmake-ninja",
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro",
+            "url": "https://github.com/flubshi/pvr.waipu",
             "branch": "Nexus"
         }
     ],

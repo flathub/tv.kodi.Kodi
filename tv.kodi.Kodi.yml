@@ -114,7 +114,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 1b1e86a672b0e502506f29e7fb31a7aaadbc4dbe
+        commit: 918ff46a659fc12502e42cd7db62eaf250e07493
       - type: patch
         path: kodi.sh.in.patch
       - type: file
@@ -151,6 +151,7 @@ modules:
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
+  - addons/audiodecoder.hvl/audiodecoder.hvl.json
   - addons/audiodecoder.modplug/audiodecoder.modplug.json
   - addons/audiodecoder.ncsf/audiodecoder.ncsf.json
   - addons/audiodecoder.nosefart/audiodecoder.nosefart.json
@@ -197,12 +198,14 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
+  - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
   - addons/pvr.teleboy/pvr.teleboy.json
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
+  - addons/pvr.waipu/pvr.waipu.json
   - addons/pvr.wmc/pvr.wmc.json
   - addons/pvr.zattoo/pvr.zattoo.json
   - addons/screensaver.asteroids/screensaver.asteroids.json
@@ -220,6 +223,7 @@ modules:
   - addons/vfs.sftp/vfs.sftp.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
   - addons/visualization.goom/visualization.goom.json
+  - addons/visualization.matrix/visualization.matrix.json
   - addons/visualization.pictureit/visualization.pictureit.json
   - addons/visualization.projectm/visualization.projectm.json
   - addons/visualization.shadertoy/visualization.shadertoy.json

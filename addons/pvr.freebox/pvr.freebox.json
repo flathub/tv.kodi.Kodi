@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
-            "tag": "20.1.0-Nexus",
-            "commit": "eed099ce8222e96924b41b4e7857c29a40f13a56"
+            "branch": "Nexus"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

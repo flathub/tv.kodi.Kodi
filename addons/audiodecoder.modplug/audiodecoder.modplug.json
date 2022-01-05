@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
-            "tag": "20.1.0-Nexus",
-            "commit": "fd6ac046092cceaaf79a16ecb238cedcfa37768e"
+            "branch": "Nexus"
         }
     ],
     "modules": [
@@ -14,8 +13,14 @@
             "name": "libmodplug",
             "buildsystem": "cmake-ninja",
             "config-opts": [
-                "-DBUILD_SHARED_LIBS=ON"
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DCMAKE_BUILD_TYPE=Release"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
@@ -24,5 +29,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }
