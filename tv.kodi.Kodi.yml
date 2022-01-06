@@ -117,6 +117,8 @@ modules:
         sha256: 440f47e475dd8a48e0a6d41349e83b74890f3fbe8275d3e401d3c50f5b9ea09b
       - type: patch
         path: kodi.sh.in.patch
+      - type: patch
+        path: addon-manifest.xml.patch
       - type: file
         url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
         sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
