@@ -11,9 +11,9 @@ Flatpak.
 ## Build notes
 
 The following binary addons do not compile, and are excluded:
- * `audiodecoder.dumb`
- * `game.libretro.2048`
- * `game.libretro.mrboom`
+
+- `audiodecoder.dumb`
+- `game.libretro.2048`
 
 ## Contributing
 

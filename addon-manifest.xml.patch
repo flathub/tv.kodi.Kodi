@@ -1,6 +1,6 @@
 --- a/system/addon-manifest.xml
 +++ b/system/addon-manifest.xml
-@@ -58,4 +58,83 @@
+@@ -58,4 +58,84 @@
    <addon>xbmc.webinterface</addon>
    <addon optional="true">peripheral.joystick</addon>
    <addon optional="true">inputstream.adaptive</addon>
@@ -30,6 +30,7 @@
 +  <addon optional="true">audioencoder.vorbis</addon>
 +  <addon optional="true">audioencoder.wav</addon>
 +  <addon optional="true">game.libretro</addon>
++  <addon optional="true">game.libretro.mrboom</addon>
 +  <addon optional="true">imagedecoder.heif</addon>
 +  <addon optional="true">imagedecoder.mpo</addon>
 +  <addon optional="true">imagedecoder.raw</addon>
