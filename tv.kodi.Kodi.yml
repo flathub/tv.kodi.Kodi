@@ -176,7 +176,7 @@ modules:
   - addons/audioencoder.wav/audioencoder.wav.json
   - addons/game.libretro/game.libretro.json
   # - addons/game.libretro.2048/game.libretro.2048.json
-  # - addons/game.libretro.mrboom/game.libretro.mrboom.json
+  - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json
   - addons/imagedecoder.raw/imagedecoder.raw.json
