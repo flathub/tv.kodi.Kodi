@@ -5,14 +5,21 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
-            "tag": "19.0.0-Matrix",
-            "commit": "7a5355fc2a0f2fe5e0e91f982ca8bd72cd64fca5"
+            "branch": "Matrix"
         }
     ],
     "modules": [
         {
             "name": "libhdhomerun",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release"
+            ],
             "sources": [
                 {
                     "type": "archive",
@@ -25,5 +32,13 @@
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

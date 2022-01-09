@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.wav",
-            "tag": "19.0.0-Matrix",
-            "commit": "d08954285dac84b12a4aac774d53043abea7f0aa"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

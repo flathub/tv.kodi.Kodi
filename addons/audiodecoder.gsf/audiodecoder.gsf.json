@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.gsf",
-            "tag": "19.0.0-Matrix",
-            "commit": "f68327fd503c6937df4a64f7c2529f88db978b83"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "tag": "19.0.0-Matrix",
-            "commit": "af72c1fb987b8178f0f70407b6312dc40ed5ccd6"
+            "branch": "Matrix"
         }
     ],
     "modules": [
@@ -14,30 +13,49 @@
             "name": "libheif",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DWITH_EXAMPLES=0",
                 "-DWITH_X265=0",
                 "-DWITH_RAV1E=0",
                 "-DWITH_AOM=0",
                 "-DWITH_DAV1D=0"
             ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.12.0.tar.gz",
-                    "sha256": "086145b0d990182a033b0011caadb1b642da84f39ab83aa66d005610650b3c65"
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.12.0/libheif-1.12.0.tar.gz",
+                    "sha256": "e1ac2abb354fdc8ccdca71363ebad7503ad731c84022cf460837f0839e171718"
                 }
             ]
         },
         {
             "name": "libde265",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/archive/v1.0.8.tar.gz",
-                    "sha256": "c5ab61185f283f46388c700c43dc08606b0e260cd53f06b967ec0ad7a809ff11"
+                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.8/libde265-1.0.8.tar.gz",
+                    "sha256": "24c791dd334fa521762320ff54f0febfd3c09fc978880a8c5fbc40a88f21d905"
                 }
             ]
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

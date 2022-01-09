@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvblink",
-            "tag": "19.0.0-Matrix",
-            "commit": "3c5e09aa046bcd340af2a65ae5bf72585743e348"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

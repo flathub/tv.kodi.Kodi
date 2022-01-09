@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "tag": "19.0.0-Matrix",
-            "commit": "978b4c1d60967b8ec9273e653aa8ee1007064af8"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

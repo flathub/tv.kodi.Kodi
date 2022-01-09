@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.wsr",
-            "tag": "19.0.0-Matrix",
-            "commit": "a1f102a60275c24eed67c24549e20653dd56eedf"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
-            "tag": "19.0.0-Matrix",
-            "commit": "dff396d1366c4016bf70de2ce8754e3d12c5dab1"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

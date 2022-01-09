@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
-            "tag": "19.0.0-Matrix",
-            "commit": "4994a2f26f2207498938d43b7715925b12387adc"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

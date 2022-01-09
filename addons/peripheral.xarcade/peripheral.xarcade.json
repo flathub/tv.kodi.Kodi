@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "tag": "19.0.0-Matrix",
-            "commit": "23e1b587857f4b650387ab4579514a03de9e4191"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

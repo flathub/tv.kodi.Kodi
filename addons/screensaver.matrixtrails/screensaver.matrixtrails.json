@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.matrixtrails",
-            "tag": "19.0.0-Matrix",
-            "commit": "f4b338f1bda3664fab41a05add1f9805db0da91d"
+            "branch": "Matrix"
         }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
     ]
 }

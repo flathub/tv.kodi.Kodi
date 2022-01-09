@@ -1,15 +1,48 @@
 {
     "name": "audiodecoder.fluidsynth",
     "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+         "-DCMAKE_BUILD_TYPE=Release"
+    ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "tag": "19.0.1-Matrix",
-            "commit": "54e579bbe1b63ed3a351667e7f7267a42fdd981a"
+            "branch": "Matrix"
         }
     ],
     "modules": [
-        "../../shared-modules/linux-audio/fluidsynth2.json"
+        {
+            "name": "fluidsynth",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DLIB_SUFFIX="
+            ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share/man",
+                "*.so"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/FluidSynth/fluidsynth/archive/v2.2.3.tar.gz",
+                    "sha256": "b31807cb0f88e97f3096e2b378c9815a6acfdc20b0b14f97936d905b536965c4"
+                }
+            ]
+        }
     ]
 }

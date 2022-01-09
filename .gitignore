@@ -2,4 +2,6 @@
 *.flatpak
 build-dir/
 build.log
-repo/
+repo
+repo-binary-addons/
+tools/binary_addons_repo_tmp
