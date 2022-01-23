@@ -1,6 +1,6 @@
 --- a/system/addon-manifest.xml
 +++ b/system/addon-manifest.xml
-@@ -58,4 +58,86 @@
+@@ -58,4 +58,61 @@
    <addon>xbmc.webinterface</addon>
    <addon optional="true">peripheral.joystick</addon>
    <addon optional="true">inputstream.adaptive</addon>
@@ -38,31 +38,6 @@
 +  <addon optional="true">inputstream.ffmpegdirect</addon>
 +  <addon optional="true">inputstream.rtmp</addon>
 +  <addon optional="true">peripheral.xarcade</addon>
-+  <addon optional="true">pvr.argustv</addon>
-+  <addon optional="true">pvr.demo</addon>
-+  <addon optional="true">pvr.dvblink</addon>
-+  <addon optional="true">pvr.dvbviewer</addon>
-+  <addon optional="true">pvr.filmon</addon>
-+  <addon optional="true">pvr.freebox</addon>
-+  <addon optional="true">pvr.hdhomerun</addon>
-+  <addon optional="true">pvr.hts</addon>
-+  <addon optional="true">pvr.iptvsimple</addon>
-+  <addon optional="true">pvr.mediaportal.tvserver</addon>
-+  <addon optional="true">pvr.mythtv</addon>
-+  <addon optional="true">pvr.nextpvr</addon>
-+  <addon optional="true">pvr.njoy</addon>
-+  <addon optional="true">pvr.octonet</addon>
-+  <addon optional="true">pvr.pctv</addon>
-+  <addon optional="true">pvr.plutotv</addon>
-+  <addon optional="true">pvr.sledovanitv.cz</addon>
-+  <addon optional="true">pvr.stalker</addon>
-+  <addon optional="true">pvr.teleboy</addon>
-+  <addon optional="true">pvr.vbox</addon>
-+  <addon optional="true">pvr.vdr.vnsi</addon>
-+  <addon optional="true">pvr.vuplus</addon>
-+  <addon optional="true">pvr.wmc</addon>
-+  <addon optional="true">pvr.waipu</addon>
-+  <addon optional="true">pvr.zattoo</addon>
 +  <addon optional="true">screensaver.asteroids</addon>
 +  <addon optional="true">screensaver.asterwave</addon>
 +  <addon optional="true">screensaver.biogenesis</addon>
