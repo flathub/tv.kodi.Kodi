@@ -1,6 +1,6 @@
---- a/system/addon-manifest.xml
-+++ b/system/addon-manifest.xml
-@@ -58,4 +58,61 @@
+--- a/system/addon-manifest.xml	2022-02-09 10:45:22.021191333 +0100
++++ b/system/addon-manifest.xml	2022-02-09 10:49:21.409904174 +0100
+@@ -58,4 +58,60 @@
    <addon>xbmc.webinterface</addon>
    <addon optional="true">peripheral.joystick</addon>
    <addon optional="true">inputstream.adaptive</addon>
