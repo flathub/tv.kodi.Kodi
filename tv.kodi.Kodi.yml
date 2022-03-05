@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk
@@ -113,8 +113,8 @@ modules:
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
     sources:
       - type: archive
-        url: https://github.com/xbmc/xbmc/archive/19.3-Matrix.tar.gz
-        sha256: 440f47e475dd8a48e0a6d41349e83b74890f3fbe8275d3e401d3c50f5b9ea09b
+        url: https://github.com/xbmc/xbmc/archive/19.4-Matrix.tar.gz
+        sha256: cc026f59fd6e37ae90f3449df50810f1cefa37da9444e1188302d910518710da
       - type: patch
         path: kodi.sh.in.patch
       - type: patch
