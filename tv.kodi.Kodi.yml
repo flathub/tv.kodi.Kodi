@@ -118,8 +118,16 @@ modules:
         commit: e47331c6308b7f7f9760c8813c4f70fc150d4df1
       - type: patch
         path: kodi.sh.in.patch
-      - type: patch
-        path: addon-manifest.xml.patch
+      - type: file
+        path: addon-list.txt
+        dest: build/download/
+        dest-filename: addon-list.txt
+      - type: file
+        path: tools/patch-addon-manifest.sh
+        dest: build/download/
+      - type: shell
+        commands:
+          - build/download/patch-addon-manifest.sh build/download/addon-list.txt
       - type: patch
         path: addons-no-startupenable.patch
       - type: file
