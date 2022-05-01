@@ -6,6 +6,22 @@
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
             "branch": "Nexus"
+        },
+        {
+            "name": "libretro-common",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-common/archive/50c15a88eb741cbe675743a282d8cc4c89421e3f.tar.gz",
+                    "sha256": "042986fad22dc37188df7a186d17a258edfe8e552353f9b509a47418e8dfa623"
+                }
+            ]
         }
     ],
     "build-options": {
