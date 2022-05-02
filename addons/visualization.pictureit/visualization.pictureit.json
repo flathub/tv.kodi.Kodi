@@ -4,7 +4,7 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/linuxwhatelse/visualization.pictureit",
+            "url": "https://github.com/xbmc/visualization.pictureit",
             "branch": "Nexus"
         }
     ],

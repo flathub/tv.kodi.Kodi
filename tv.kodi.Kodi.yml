@@ -105,6 +105,7 @@ modules:
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
+      - -DENABLE_INTERNAL_RapidJSON=OFF
       # - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk/bin/java
@@ -115,7 +116,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: e47331c6308b7f7f9760c8813c4f70fc150d4df1
+        commit: 8cea05c45d1369d6e0cd8cba0e31e58534a494ce
       - type: patch
         path: kodi.sh.in.patch
       - type: file
@@ -131,8 +132,8 @@ modules:
       - type: patch
         path: addons-no-startupenable.patch
       - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
-        sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
+        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
+        sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
         dest: build/download/
         dest-filename: crossguid.tar.gz
       - type: file

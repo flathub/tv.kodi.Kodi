@@ -1,12 +1,13 @@
 diff --git a/xbmc/platform/linux/PlatformLinux.h b/xbmc/platform/linux/PlatformLinux.h
-index a7ea4ac..097b033 100644
+index c9f6faa404..e265a72727 100644
 --- a/xbmc/platform/linux/PlatformLinux.h
 +++ b/xbmc/platform/linux/PlatformLinux.h
-@@ -21,7 +21,6 @@ public:
-   ~CPlatformLinux() override = default;
- 
+@@ -23,8 +23,6 @@ public:
    bool InitStageOne() override;
+   void DeinitStageOne() override;
+
 -  bool IsConfigureAddonsAtStartupEnabled() override { return true; }
- 
+-
  private:
    std::unique_ptr<OPTIONALS::CLircContainer, OPTIONALS::delete_CLircContainer> m_lirc;
+ };
