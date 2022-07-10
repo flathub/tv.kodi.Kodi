@@ -48,13 +48,14 @@ cleanup:
   - /var
 
 modules:
-  - shared-modules/glu/glu-9.json
+  # - shared-modules/glu/glu-9.json
   - modules/avahi/avahi.json
   - modules/dav1d/dav1d.json
   - modules/ffmpeg/ffmpeg.json
   - modules/flatbuffers/flatbuffers.json
   - modules/fmt/fmt.json
   - modules/fstrcmp/fstrcmp.json
+  - modules/glu/glu-9.json
   - modules/glm/glm.json
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
@@ -83,6 +84,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DAPP_PACKAGE=tv.kodi.Kodi
+      - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
       - -DENABLE_AIRTUNES=ON
@@ -116,39 +118,41 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 59d6be57497667de7d40aacf066be7875a6a94b4
+        commit: 5d18c0baab1c7ecec354d92eadcabbb4b3ea280c
       - type: patch
         path: kodi.sh.in.patch
+      - type: patch
+        path: metainfo.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
-        dest-filename: addon-list.txt
       - type: file
         path: tools/patch-addon-manifest.sh
         dest: build/download/
       - type: shell
         commands:
           - build/download/patch-addon-manifest.sh build/download/addon-list.txt
-      - type: patch
-        path: addons-no-startupenable.patch
+          - git commit tools/Linux/kodi.sh.in -m "[patch] set userdata dir"
+          - git commit system/addon-manifest.xml -m "[patch] make addons optional"
+          - git commit tools/Linux/kodi.metainfo.xml.in -m "[patch] pick from upstream: Fix wrong closing in xml"
       - type: file
         url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
         sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
         dest: build/download/
         dest-filename: crossguid.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdcss/archive/1.4.2-Leia-Beta-5.tar.gz
-        sha256: 38816f8373e243bc5950449b4f3b18938c4e1c59348e3411e23f31db4072e40d
+        url: https://github.com/xbmc/libdvdcss/archive/1.4.3-Next-Nexus-Alpha2-2.tar.gz
+        sha512: d3be3bfc13c5ea56d8db745c2aab090c99760684fe4c8f62a13d266feb319e9180ceeecf8116bfd2ed90d9accba2c11dbbf93b61ad00f69a40812ebf4eabcdda
         dest: build/download/
         dest-filename: libdvdcss.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdread/archive/6.0.0-Leia-Alpha-3.tar.gz
-        sha256: a30b6aa0aad0f2c505bc77948af2d5531a80b6e68112addb4c123fca24d5d3bf
+        url: https://github.com/xbmc/libdvdread/archive/6.1.3-Next-Nexus-Alpha2-2.tar.gz
+        sha512: 629a41157d07b8ec0ea1fe89ae5ec48f63047472a862782b805c531ae31a0376fc4dc15175f8280c3ef91d7fa977bacebb1b51232640034a34bab2293210fc5e
         dest: build/download/
         dest-filename: libdvdread.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdnav/archive/6.0.0-Leia-Alpha-3.tar.gz
-        sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
+        url: https://github.com/xbmc/libdvdnav/archive/6.1.1-Next-Nexus-Alpha2-2.tar.gz
+        sha512: 51e6fc033121241354a5f0b3fc9a430577ae3ff6bb7f31445aa548ef4893037fb80eea3b2c6774c81e9ebaf9c45e9b490c98c2c65eb38f9f7daba84b236f7e1d
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
 
