@@ -118,11 +118,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 5d18c0baab1c7ecec354d92eadcabbb4b3ea280c
+        commit: f0c49f90ec433c528c0704cc829f451ee8cc2601
       - type: patch
         path: kodi.sh.in.patch
-      - type: patch
-        path: metainfo.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
@@ -132,9 +130,6 @@ modules:
       - type: shell
         commands:
           - build/download/patch-addon-manifest.sh build/download/addon-list.txt
-          - git commit tools/Linux/kodi.sh.in -m "[patch] set userdata dir"
-          - git commit system/addon-manifest.xml -m "[patch] make addons optional"
-          - git commit tools/Linux/kodi.metainfo.xml.in -m "[patch] pick from upstream: Fix wrong closing in xml"
       - type: file
         url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
         sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
@@ -239,7 +234,7 @@ modules:
   - addons/vfs.libarchive/vfs.libarchive.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
-  - addons/visualization.fishbmc/visualization.fishbmc.json
+  # - addons/visualization.fishbmc/visualization.fishbmc.json
   - addons/visualization.goom/visualization.goom.json
   - addons/visualization.matrix/visualization.matrix.json
   - addons/visualization.pictureit/visualization.pictureit.json
