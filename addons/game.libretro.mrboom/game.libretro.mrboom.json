@@ -2,7 +2,6 @@
     "name": "game.libretro.mrboom",
     "buildsystem": "cmake-ninja",
     "build-options": {
-        "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
     },
@@ -22,7 +21,6 @@
             "name": "mrboom",
             "buildsystem": "simple",
             "build-options": {
-                "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },

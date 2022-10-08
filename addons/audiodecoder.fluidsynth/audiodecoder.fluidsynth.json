@@ -2,12 +2,11 @@
     "name": "audiodecoder.fluidsynth",
     "buildsystem": "cmake-ninja",
     "build-options": {
-        "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
     },
     "config-opts": [
-         "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release"
     ],
     "sources": [
         {
@@ -25,7 +24,6 @@
                 "-DLIB_SUFFIX="
             ],
             "build-options": {
-                "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },

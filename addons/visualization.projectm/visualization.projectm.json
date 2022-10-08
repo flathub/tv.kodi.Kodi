@@ -12,7 +12,6 @@
         {
             "name": "projectm",
             "build-options": {
-                "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },
@@ -26,7 +25,6 @@
         }
     ],
     "build-options": {
-        "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
     },

@@ -72,19 +72,20 @@ def set_build_type(a_data):
     if args.release:
         if "-DCMAKE_BUILD_TYPE=Release" not in a_data['config-opts']:
             a_data['config-opts'].append("-DCMAKE_BUILD_TYPE=Release")
-        a_data['build-options']['no-debuginfo'] = True
         a_data['build-options']['cflags'] = '-g0'
         a_data['build-options']['cxxflags'] = '-g0'
     else:
         if "-DCMAKE_BUILD_TYPE=Release" in a_data['config-opts']:
             a_data['config-opts'].remove("-DCMAKE_BUILD_TYPE=Release")
-        a_data['build-options']['no-debuginfo'] = False
         a_data['build-options']['cflags'] = a_data['build-options']['cflags'].replace('-g0', '')
         a_data['build-options']['cxxflags'] = a_data['build-options']['cxxflags'].replace('-g0', '')
         if a_data['build-options']['cflags'].strip() == "":
             del (a_data['build-options']['cflags'])
         if a_data['build-options']['cxxflags'].strip() == "":
             del (a_data['build-options']['cxxflags'])
+
+    if 'no-debuginfo' in a_data['build-options']:
+        del (a_data['build-options']['no-debuginfo'])
 
     return a_data
 

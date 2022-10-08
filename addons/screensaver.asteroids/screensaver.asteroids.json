@@ -9,7 +9,6 @@
         }
     ],
     "build-options": {
-        "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
     },

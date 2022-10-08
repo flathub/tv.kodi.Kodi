@@ -21,7 +21,6 @@
                 "-DWITH_DAV1D=0"
             ],
             "build-options": {
-                "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },
@@ -37,7 +36,6 @@
             "name": "libde265",
             "buildsystem": "cmake-ninja",
             "build-options": {
-                "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },
@@ -51,7 +49,6 @@
         }
     ],
     "build-options": {
-        "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
     },
