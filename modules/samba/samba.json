@@ -7,11 +7,9 @@
         "make install"
     ],
     "cleanup": [
-        "/bin",
         "/libexec",
         "/share",
-        "/include",
-        "/lib/*.so"
+        "/include"
     ],
     "sources": [
         {
