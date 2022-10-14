@@ -2,9 +2,9 @@
     "name": "samba",
     "buildsystem": "simple",
     "build-commands": [
-        "./buildtools/bin/waf configure --prefix=/app --disable-python --without-ads --without-ldap --without-pam --without-acl-support --without-systemd --without-ad-dc --without-json",
-        "./buildtools/bin/waf build -j $FLATPAK_BUILDER_N_JOBS",
-        "./buildtools/bin/waf install"
+        "./configure --prefix=/app --disable-python --without-ads --without-ldap --without-pam --without-acl-support --without-systemd --without-ad-dc --without-json",
+        "make -j $FLATPAK_BUILDER_N_JOBS",
+        "make install"
     ],
     "cleanup": [
         "/bin",
@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz",
-            "sha256": "a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00"
+            "url": "https://download.samba.org/pub/samba/stable/samba-4.17.0.tar.gz",
+            "sha256": "04868ecda82fcbeda7b8bf519a2461a64d55c6e70efc6f6053b2fbba55f1823a"
         }
     ],
     "modules": [
@@ -44,6 +44,22 @@
                        "exec ./configure.gnu $@"
                    ]
                }
+            ]
+        },
+        {
+            "name": "json",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make",
+                "make install"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz",
+                    "sha256": "df8b5143d9a7de99c47b55f1a170bd1f69f711935c186a6dc0ab56dd05758e35"
+                }
             ]
         },
         {
