@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.rar",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "677207e5630accd158e12ad1f8715cff1b764c10"
         }
     ],
     "build-options": {

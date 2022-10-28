@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asterwave",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "c529dd0865e64b5e14bc4a3f734de174d50a35ce"
         }
     ],
     "build-options": {

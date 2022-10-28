@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.lame",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "6daf7e039a600cfa68ae1a2384486cd5dd642765"
         }
     ],
     "build-options": {

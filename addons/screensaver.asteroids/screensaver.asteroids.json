@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asteroids",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "fb950909d4072c80ace1aa446996fd394688fb23"
         }
     ],
     "build-options": {

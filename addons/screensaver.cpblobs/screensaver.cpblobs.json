@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "477af91f7ab52656defc64ad076817c4e72b407d"
         }
     ],
     "build-options": {

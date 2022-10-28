@@ -6,7 +6,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "da467b3cb5afc7173356983d476fb49e1935e898"
         }
     ],
     "build-options": {

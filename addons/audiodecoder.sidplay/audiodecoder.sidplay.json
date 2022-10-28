@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sidplay",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "89686b11176bfe5162670ab8c16fc7314e29e8d5"
         }
     ],
     "modules": [

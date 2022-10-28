@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.starburst",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "deaa07ddbab1edb09560059c882514a63bdce9d5"
         }
     ],
     "build-options": {

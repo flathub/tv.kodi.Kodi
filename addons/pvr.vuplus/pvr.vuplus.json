@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vuplus",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "f8630e9fbaf67a4fc726b45ce840d047de29f8cf"
         }
     ],
     "build-options": {

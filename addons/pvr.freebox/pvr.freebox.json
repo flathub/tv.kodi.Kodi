@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "21f3165cb7a9f3fb533f3befe8a4fdf0f9d70efa"
         }
     ],
     "build-options": {

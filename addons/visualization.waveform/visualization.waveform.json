@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "b4060ba1948268ada01db6f1316c9eb8e8090e51"
         }
     ],
     "build-options": {

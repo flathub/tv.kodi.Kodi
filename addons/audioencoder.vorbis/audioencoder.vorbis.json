@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.vorbis",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "9d5ae731b31e65e90c647be73f81ea47d063ddca"
         }
     ],
     "build-options": {

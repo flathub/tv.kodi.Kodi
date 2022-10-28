@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "9dddd01bf8d8b43ddeea36d351023453acc64c61"
         }
     ],
     "modules": [

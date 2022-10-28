@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "59b4430c8c1a52ac9d5ec2a07fb2bb52996a86e2"
         }
     ],
     "build-options": {
