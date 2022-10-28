@@ -11,10 +11,23 @@ import sys
 import requests
 import tarfile
 
+from dotenv import load_dotenv
+
+from github import Github
+
 addon_repo_base = "https://github.com/xbmc/repo-binary-addons"
 addon_repo_branch = "Nexus"
 addon_repo_dir = "binary_addons_repo_tmp"
 addon_repo_remote = "binary_addons_repo"
+
+load_dotenv()
+
+g = Github(os.environ["GITHUB_TOKEN"])
+
+
+def get_current_github_rev(url, branch):
+    repo = g.get_repo(url.split("/")[-2] + "/" + url.split("/")[-1].replace(".git", ""))
+    return repo.get_branch(branch).commit.sha
 
 
 def check_platform(def_file):
@@ -217,8 +230,7 @@ for f in repo_file_list:
 
         if addon_repo_branch == rev or rev == "master":
             addon_data["sources"][i]["branch"] = rev
-            if "commit" in addon_data["sources"][i]:
-                del addon_data["sources"][i]["commit"]
+            addon_data["sources"][i]["commit"] = get_current_github_rev(url, rev)
         else:
             addon_data["sources"][i]["commit"] = rev
 
