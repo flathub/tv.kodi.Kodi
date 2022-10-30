@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.openjdk
+  - org.freedesktop.Sdk.Extension.openjdk17
 command: kodi
 rename-icon: kodi
 rename-desktop-file: kodi.desktop
