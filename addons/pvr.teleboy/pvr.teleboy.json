@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.teleboy",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "8df5f4aae7abc0e480a126f6b116575f0a1eb807"
         }
     ],
     "build-options": {

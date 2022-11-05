@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/palinek/pvr.sledovanitv.cz",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "a04efbd02fd51e83a2e71580189e4c84b86dff6d"
         }
     ],
     "build-options": {

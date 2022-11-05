@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "df0ddbefd839eb1b1efd9b6d5860342d2473fdd9"
         }
     ],
     "build-options": {

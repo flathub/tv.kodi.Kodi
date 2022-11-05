@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "47cb2400341df021f45844a06ae08ad0b5859224"
         }
     ],
     "build-options": {

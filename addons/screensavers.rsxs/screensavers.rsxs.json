@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensavers.rsxs",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "9033f2631d1cba378c06d116043f1cdc48311747"
         }
     ],
     "build-options": {

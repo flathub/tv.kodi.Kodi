@@ -7,13 +7,14 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-         "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "6977f12d1ceb745659e02d33dbbca9e3a464d8c0"
         }
     ],
     "modules": [

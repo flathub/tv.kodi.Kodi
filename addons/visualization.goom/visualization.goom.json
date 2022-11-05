@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.goom",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "9a9efffe6166048fe26a0598da700b8c3c5bf1f3"
         }
     ],
     "build-options": {

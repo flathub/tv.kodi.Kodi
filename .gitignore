@@ -4,3 +4,4 @@ build-dir/
 build.log
 repo/
 tools/binary_addons_repo_tmp
+.env

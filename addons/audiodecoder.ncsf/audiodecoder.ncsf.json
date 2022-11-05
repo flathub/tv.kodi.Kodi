@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ncsf",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "c02a8b9cac0c1401d8294e2f338f270189e30eba"
         }
     ],
     "build-options": {

@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "d3d4313cb30aa9f22b048029da6370f0a6a98391"
         }
     ],
     "build-options": {

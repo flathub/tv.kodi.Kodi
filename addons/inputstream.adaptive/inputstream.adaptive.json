@@ -1,28 +1,29 @@
 {
-  "name": "inputstream.adaptive",
-  "buildsystem": "cmake-ninja",
-  "config-opts": [
-    "-DBUILD_TESTING=OFF",
-    "-DENABLE_INTERNAL_BENTO4=ON",
-    "-DBENTO4_URL=bento4.tar.gz",
-    "-DCMAKE_BUILD_TYPE=Release"
-  ],
-  "sources": [
-    {
-      "type": "git",
-      "url": "https://github.com/xbmc/inputstream.adaptive",
-      "branch": "Nexus"
-    },
-    {
-      "type": "file",
-      "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-639-2-Nexus.tar.gz",
-      "sha256": "85b0269bd50abafb0d266e620d806d0e6aee837ad1a40b9c5f3a81f28aad1a95",
-      "dest-filename": "bento4.tar.gz"
+    "name": "inputstream.adaptive",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DBUILD_TESTING=OFF",
+        "-DENABLE_INTERNAL_BENTO4=ON",
+        "-DBENTO4_URL=bento4.tar.gz",
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/xbmc/inputstream.adaptive",
+            "branch": "Nexus",
+            "commit": "fa470beeda76a9384f785bd1f7f19297fdaa2a4e"
+        },
+        {
+            "type": "file",
+            "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-639-2-Nexus.tar.gz",
+            "sha256": "85b0269bd50abafb0d266e620d806d0e6aee837ad1a40b9c5f3a81f28aad1a95",
+            "dest-filename": "bento4.tar.gz"
+        }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
     }
-  ],
-  "build-options": {
-    "no-debuginfo": true,
-    "cflags": "-g0",
-    "cxxflags": "-g0"
-  }
 }

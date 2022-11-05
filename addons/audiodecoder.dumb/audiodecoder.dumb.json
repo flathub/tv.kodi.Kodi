@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "branch": "Nexus"
+            "branch": "Nexus",
+            "commit": "eec86e9f29335d130dc0c1fe33b1d311181ebefe"
         }
     ],
     "build-options": {
