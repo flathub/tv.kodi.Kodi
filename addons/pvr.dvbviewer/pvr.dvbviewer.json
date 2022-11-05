@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvbviewer",
-            "branch": "Nexus",
             "commit": "589bd2e9a80f691afce528a354a1c959f2981e30"
         }
     ],

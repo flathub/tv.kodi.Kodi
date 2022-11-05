@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.fishbmc",
-            "branch": "Nexus",
             "commit": "e8a828e71d5b97ffa55feba878984eaeae779661"
         }
     ],

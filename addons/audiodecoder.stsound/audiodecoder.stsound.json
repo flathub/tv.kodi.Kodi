@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.stsound",
-            "branch": "Nexus",
             "commit": "74e8165b86b0e7f788c86cd0364940c96b8e9169"
         }
     ],

@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.mediaportal.tvserver",
-            "branch": "Nexus",
             "commit": "58139e97c470ca04e21860dd02455d34a3e31d23"
         }
     ],

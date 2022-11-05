@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "branch": "Nexus",
             "commit": "61f7ff342b5c60ff5c9d75f6de843fe4b8cd7aa7"
         }
     ],

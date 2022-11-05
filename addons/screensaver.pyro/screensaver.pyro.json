@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pyro",
-            "branch": "Nexus",
             "commit": "e2f92312328651f25c42f90d0e358c914a243b89"
         }
     ],

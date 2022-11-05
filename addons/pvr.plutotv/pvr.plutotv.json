@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.plutotv",
-            "branch": "Nexus",
             "commit": "a93e3d80e08b6eb000b6c874f5b76d6cba7faab8"
         }
     ],

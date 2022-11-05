@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.filmon",
-            "branch": "Nexus",
             "commit": "e869f43fed8c8587388ae30421ce065787dc5ef1"
         }
     ],

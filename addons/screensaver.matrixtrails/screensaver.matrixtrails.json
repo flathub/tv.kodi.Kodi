@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.matrixtrails",
-            "branch": "Nexus",
             "commit": "bf616ae92f9faddc323490a1335c94ea8f603298"
         }
     ],

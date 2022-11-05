@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvblink",
-            "branch": "Nexus",
             "commit": "1590d0bd9c946d36c5843c73792d074611f6676b"
         }
     ],

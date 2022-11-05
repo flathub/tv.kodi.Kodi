@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "branch": "Nexus",
             "commit": "16da190b6109ee960f7054da3bb96a0e7728e078"
         }
     ],

@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.wsr",
-            "branch": "Nexus",
             "commit": "c5b2a39e8f4535d8f2873533bf3b9f2b3ce2af83"
         }
     ],

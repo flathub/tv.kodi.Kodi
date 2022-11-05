@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
-            "branch": "Nexus",
             "commit": "efa8c43a2e6aa09f9083e4cc539044f45b4a2195"
         }
     ],

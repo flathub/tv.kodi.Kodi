@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "branch": "Nexus",
             "commit": "f60ffba9f8ce7404cf790d8e6bff7ebe660cee62"
         }
     ],
