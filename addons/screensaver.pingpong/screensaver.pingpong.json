@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pingpong",
-            "branch": "Nexus",
             "commit": "3f65d64d6f4fdf1afb19aaae6186851452f79d3a"
         }
     ],

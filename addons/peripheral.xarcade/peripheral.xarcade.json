@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "branch": "Nexus",
             "commit": "17050f2210240546f6352fd518e51595bda78122"
         }
     ],

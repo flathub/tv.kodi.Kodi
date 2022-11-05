@@ -229,7 +229,6 @@ for f in repo_file_list:
         addon_data["sources"][i]["type"] = atype
 
         if addon_repo_branch == rev or rev == "master":
-            addon_data["sources"][i]["branch"] = rev
             addon_data["sources"][i]["commit"] = get_current_github_rev(url, rev)
         else:
             addon_data["sources"][i]["commit"] = rev

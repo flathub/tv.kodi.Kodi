@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.pctv",
-            "branch": "Nexus",
             "commit": "0869e901ecb7b8b07569bdbd29acc0e1b7d2d475"
         }
     ],

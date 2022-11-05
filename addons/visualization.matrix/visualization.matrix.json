@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.matrix",
-            "branch": "Nexus",
             "commit": "60d1ea7b1f159b4d6b518bcca4da83c713be2bec"
         }
     ],

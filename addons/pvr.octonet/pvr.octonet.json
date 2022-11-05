@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/DigitalDevices/pvr.octonet",
-            "branch": "Nexus",
             "commit": "c2a3daa691d558129cd9513402357ef039c8d33b"
         }
     ],

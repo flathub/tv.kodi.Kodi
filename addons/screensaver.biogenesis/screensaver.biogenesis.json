@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.biogenesis",
-            "branch": "Nexus",
             "commit": "389226a7c923ba59d41b6cd610eb2dc02b541754"
         }
     ],

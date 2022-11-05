@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.hvl",
-            "branch": "Nexus",
             "commit": "181b03fb11bf868878c42fbb834b7df88ffc19a1"
         }
     ],

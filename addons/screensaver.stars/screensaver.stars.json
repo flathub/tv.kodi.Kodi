@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.stars",
-            "branch": "Nexus",
             "commit": "d4959ca966c31a279809f95946dcb3574d4b8583"
         }
     ],

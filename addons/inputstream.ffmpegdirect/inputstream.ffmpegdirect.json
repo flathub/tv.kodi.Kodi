@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
-            "branch": "Nexus",
             "commit": "156ce0a8d9da24b94865883c029dbeb4cef52559"
         }
     ],

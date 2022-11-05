@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.timidity",
-            "branch": "Nexus",
             "commit": "dd017c23dbd1da5f6ed7df1ee318bbe221392122"
         }
     ],

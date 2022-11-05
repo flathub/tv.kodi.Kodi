@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "branch": "Nexus",
             "commit": "f7d5d016799a5c7f58132c9edb701db7beeb42a7"
         }
     ],

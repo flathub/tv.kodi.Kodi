@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
-            "branch": "Nexus",
             "commit": "9dbe3cae1bf2d201fd4b75d6b28d1998e854c2c3"
         }
     ],

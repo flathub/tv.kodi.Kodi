@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.shadertoy",
-            "branch": "Nexus",
             "commit": "2fc1bd80b398e14d8dd432b6c7cf479bb43d2b82"
         }
     ],

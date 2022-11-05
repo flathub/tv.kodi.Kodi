@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/flubshi/pvr.waipu",
-            "branch": "Nexus",
             "commit": "7691619fcd7b42c8f4b9154f2b1494bccd1698c2"
         }
     ],
