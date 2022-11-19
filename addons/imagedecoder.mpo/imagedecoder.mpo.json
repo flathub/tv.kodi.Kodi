@@ -6,7 +6,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "5f61d7a380e657ab7d8260267065d35bd268b0cd"
         }
     ],
     "build-options": {

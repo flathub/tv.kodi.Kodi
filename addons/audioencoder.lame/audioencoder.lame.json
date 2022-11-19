@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.lame",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "e940f645f48205680bf43cc684ead0599c9bd57b"
         }
     ],
     "build-options": {

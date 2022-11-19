@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.nextpvr",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "6043f9cb2247f6d02f4af7506f1ecc242fbc94ea"
         }
     ],
     "build-options": {

@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.shadertoy",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "5f46119ad047465ce30732b286b7fb5c727e36f3"
         }
     ],
     "build-options": {

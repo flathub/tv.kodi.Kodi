@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.argustv",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "bf50ba908555118881e105b1fbb013cb2b78a25f"
         }
     ],
     "build-options": {

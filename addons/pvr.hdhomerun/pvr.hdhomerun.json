@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "663277de068809110eb54baf805396a5988201c8"
         }
     ],
     "modules": [

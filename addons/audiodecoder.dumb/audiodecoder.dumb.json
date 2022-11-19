@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "db9cef2c93d91075a07aa5b129019fce8432e22f"
         }
     ],
     "build-options": {

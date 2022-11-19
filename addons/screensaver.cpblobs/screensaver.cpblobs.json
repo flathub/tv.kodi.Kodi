@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "7ffc543945b095891f4ae20987a3f17c04687e91"
         }
     ],
     "build-options": {

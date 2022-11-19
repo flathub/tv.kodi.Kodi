@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.pictureit",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "c3cce28ad442ffc2f3cc56e35bba8973cf1a9e2a"
         }
     ],
     "build-options": {

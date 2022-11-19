@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "4417e80cd69a63787e3097e17e0b0a28460cf08d"
         }
     ],
     "build-options": {

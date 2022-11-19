@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "2272c7d74d0231ab1db6291b7ce8d310f3300e3b"
         }
     ],
     "build-options": {

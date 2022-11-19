@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.starburst",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "f14e47d4c8f8e6532e65f6440994dbb8d1cabeab"
         }
     ],
     "build-options": {

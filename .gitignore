@@ -5,3 +5,4 @@ build.log
 repo
 repo-binary-addons/
 tools/binary_addons_repo_tmp
+.env

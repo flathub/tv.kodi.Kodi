@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.rar",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "f1df7e6a6ead618b7615b2e9b26669dadcbc9e7d"
         }
     ],
     "build-options": {

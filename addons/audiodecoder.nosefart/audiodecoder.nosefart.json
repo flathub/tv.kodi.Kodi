@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.nosefart",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "9f34bc6f4744c36b2baba424a5dd5ebb731a5d6b"
         }
     ],
     "build-options": {

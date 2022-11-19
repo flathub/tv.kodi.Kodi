@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.vgmstream",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "35bc1b8a7e952d15fafcb8ec43a0e61d5c6683dd"
         }
     ],
     "build-options": {

@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "3ac57e9c1718da5717e5525aa14e7ec3e999b328"
         }
     ],
     "build-options": {

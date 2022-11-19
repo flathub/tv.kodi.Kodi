@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "01d1adc120215b7f1d01286796c4d0dd5b7661b3"
         }
     ],
     "build-options": {

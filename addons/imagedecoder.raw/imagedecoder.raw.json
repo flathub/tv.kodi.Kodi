@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "958793c16a86ee4284d0ad664c0cf364aa0ed380"
         }
     ],
     "modules": [

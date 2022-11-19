@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "fa81dae2975d0044a7e903f5641d6f91f6b11265"
         }
     ],
     "build-options": {

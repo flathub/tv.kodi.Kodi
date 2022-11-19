@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.vorbis",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "e0d861fb39ffb7e534fa0e824918ef1387613c17"
         }
     ],
     "build-options": {
