@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.gsf",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "243e33026101df6ed023eb83bdcb2bce87a4e85a"
         }
     ],
     "build-options": {

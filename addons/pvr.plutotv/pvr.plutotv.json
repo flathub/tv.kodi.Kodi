@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.plutotv",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "f18e831c3e7eb3be6ace4132178873ff996f01b4"
         }
     ],
     "build-options": {

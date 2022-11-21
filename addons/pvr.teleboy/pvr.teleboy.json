@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.teleboy",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "b7d06d59d6ec0fe7b7164d917c43a8f9446aef51"
         }
     ],
     "build-options": {

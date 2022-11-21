@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensavers.rsxs",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "d9e600f79da061192cf651d1df85fd6f59aeca29"
         }
     ],
     "build-options": {

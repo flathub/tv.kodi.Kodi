@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/DigitalDevices/pvr.octonet",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "80ea2539ecac260b9e5f10f65876fe18456953fd"
         }
     ],
     "build-options": {

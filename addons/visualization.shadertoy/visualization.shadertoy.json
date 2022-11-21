@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.shadertoy",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "59912e4b4b02afe4cb949ec372f9d9c3cda26c75"
         }
     ],
     "build-options": {

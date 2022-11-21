@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "80cb9ae20b64052ccc232fc578bfd63d4a972cba"
         }
     ],
     "build-options": {

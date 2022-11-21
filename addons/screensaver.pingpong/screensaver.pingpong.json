@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pingpong",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "f8183d2b25edcc8681a867ac8e46be76db1b266b"
         }
     ],
     "build-options": {

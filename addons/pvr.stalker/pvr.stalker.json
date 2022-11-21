@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.stalker",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "6a19b99c1f6f2386ff1227e34fb620b6dfcc5961"
         }
     ],
     "build-options": {

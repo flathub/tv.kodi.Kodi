@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.asap",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "3d90fb01a01ec2942fd8341ebf878e27830a1f2c"
         }
     ],
     "build-options": {

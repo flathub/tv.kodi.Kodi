@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.filmon",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "5fab8d5e3229a59e07aa96d54f49e02a4a0616f5"
         }
     ],
     "build-options": {

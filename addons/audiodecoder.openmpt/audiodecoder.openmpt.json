@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "47d5bae2849fe89063f214374afca65b3475a676"
         }
     ],
     "modules": [

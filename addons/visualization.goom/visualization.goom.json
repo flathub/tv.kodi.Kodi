@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.goom",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "5740565769f9d552ba9548faef16f21de6d1e33d"
         }
     ],
     "build-options": {

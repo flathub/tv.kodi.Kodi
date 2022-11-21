@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/flubshi/pvr.waipu",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "0b478bc4f28a3b9c9bfc3301d828f47d59291c47"
         }
     ],
     "build-options": {

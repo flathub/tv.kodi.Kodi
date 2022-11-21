@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "9d77ee2e9956ec7c352eca45f84a22814a65585c"
         }
     ],
     "build-options": {

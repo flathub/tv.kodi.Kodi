@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "e19cc95f851722657a40f82f4b1f2edee3acac21"
         }
     ],
     "build-options": {

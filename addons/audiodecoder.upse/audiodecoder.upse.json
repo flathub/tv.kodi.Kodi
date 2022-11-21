@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "b5236421505b8b9852dd6c8c87be0afe01115d80"
         }
     ],
     "build-options": {

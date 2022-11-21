@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.hvl",
-            "branch": "Matrix"
+            "branch": "Matrix",
+            "commit": "1c5b8f8b01e6d570319dfedf29a002e13e9ab8f4"
         }
     ],
     "build-options": {
