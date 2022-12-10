@@ -77,6 +77,7 @@ modules:
   - modules/tinyxml/tinyxml.json
   - modules/tinyxml2/tinyxml2.json
   - modules/waylandpp/waylandpp.json
+  - modules/python3/python3.json
 
   - name: kodi
     buildsystem: cmake-ninja
