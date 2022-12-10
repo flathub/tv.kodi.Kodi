@@ -6,7 +6,7 @@
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
             "branch": "Matrix",
-            "commit": "d41669481b038aede8a9b86ef4a5f22d7b90359e"
+            "commit": "0ded2ebfd5784fb9e4167c833996858a56a8ca7e"
         }
     ],
     "build-options": {

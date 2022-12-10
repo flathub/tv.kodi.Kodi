@@ -6,7 +6,7 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.stsound",
             "branch": "Matrix",
-            "commit": "52ad5832a80ae8b891bfef48d632b8057f75ade1"
+            "commit": "d7220f2b73a5e1350b1f789502125b451f3d2bb7"
         }
     ],
     "build-options": {
