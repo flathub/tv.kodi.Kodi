@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.fishbmc",
-            "commit": "e8a828e71d5b97ffa55feba878984eaeae779661"
+            "commit": "a44ec497a56928233d52cc5440d3568e4491ada4"
         }
     ],
     "build-options": {
