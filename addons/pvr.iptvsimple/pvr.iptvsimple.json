@@ -6,7 +6,7 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
             "branch": "Matrix",
-            "commit": "a91cff04e221d7460c719ea7c5dc5559110f50bc"
+            "commit": "8381c866946a8a109e0c450aa0a029c3267f09c8"
         }
     ],
     "build-options": {

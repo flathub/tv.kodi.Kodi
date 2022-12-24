@@ -6,7 +6,7 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.2sf",
             "branch": "Matrix",
-            "commit": "d353bca2c410ac4dc8f997ec4d019e302bc5cd7e"
+            "commit": "d02e10c3554c76cef6f08b1dac508ebda22f23b8"
         }
     ],
     "build-options": {
