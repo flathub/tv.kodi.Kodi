@@ -12,7 +12,7 @@
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
             "branch": "Matrix",
-            "commit": "b616459387bfaa1b9999c437d23f96abe18248a3"
+            "commit": "1ab359a61c65879690d1ffe9391e60b685fe9d64"
         },
         {
             "type": "archive",

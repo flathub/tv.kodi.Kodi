@@ -6,7 +6,7 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
             "branch": "Matrix",
-            "commit": "a543ce26be84597b9c60f385cc56687a5832440b"
+            "commit": "8924fa6aa8eeb89b32f1354696f87a2418223f63"
         }
     ],
     "modules": [
