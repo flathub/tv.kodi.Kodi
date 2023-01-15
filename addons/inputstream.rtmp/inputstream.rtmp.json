@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "branch": "Matrix",
-            "commit": "07a529ffb805ec31c7b0e6a2e830577db8e8fc08"
+            "commit": "61f7ff342b5c60ff5c9d75f6de843fe4b8cd7aa7"
         }
     ],
     "modules": [

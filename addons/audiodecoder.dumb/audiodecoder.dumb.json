@@ -5,14 +5,13 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "branch": "Matrix",
-            "commit": "0e93a6c37bbe352fae4e516c4f68b796584edab4"
+            "commit": "eec86e9f29335d130dc0c1fe33b1d311181ebefe"
         }
     ],
     "build-options": {
         "no-debuginfo": true,
-        "cflags": "-g0 -fPIC",
-        "cxxflags": "-g0 -fPIC"
+        "cflags": "-g0",
+        "cxxflags": "-g0"
     },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release"

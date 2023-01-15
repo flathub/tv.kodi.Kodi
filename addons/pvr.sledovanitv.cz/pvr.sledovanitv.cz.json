@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/palinek/pvr.sledovanitv.cz",
-            "branch": "Matrix",
-            "commit": "14e4821782c012407f3f9e43dc2aecd476be150c"
+            "commit": "94c2025deff57c6fb7557f559a9beb7c9251630d"
         }
     ],
     "build-options": {

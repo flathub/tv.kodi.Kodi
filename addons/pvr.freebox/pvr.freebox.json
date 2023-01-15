@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
-            "branch": "Matrix",
-            "commit": "86c3710a4abfc6c4f71401572af1e3e78fe855f8"
+            "commit": "21f3165cb7a9f3fb533f3befe8a4fdf0f9d70efa"
         }
     ],
     "build-options": {

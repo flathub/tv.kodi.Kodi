@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/janbar/pvr.mythtv",
-            "branch": "Matrix",
-            "commit": "68162dae1a0dfb5f25aeb2ace390d9cc7ee86070"
+            "commit": "e32e237d226481dd2ed907e56490dfb8f1724a38"
         }
     ],
     "build-options": {

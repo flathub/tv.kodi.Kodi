@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hts",
-            "branch": "Matrix",
-            "commit": "9b78e4a46363033595f844743d002043b60d4664"
+            "commit": "c8e933b4ee26dc905caf5f520eb32289210b34cb"
         }
     ],
     "build-options": {

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.libarchive",
-            "branch": "Matrix",
-            "commit": "68a44d2cb9985335ed58f0b46fd7f0ab339a4745"
+            "commit": "3c37e4594d80498d9138bf0b80fe7bcb91fbe800"
         }
     ],
     "build-options": {

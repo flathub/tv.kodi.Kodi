@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.biogenesis",
-            "branch": "Matrix",
-            "commit": "c0cf8dab613d0cc08135a5013cbfda7d738f333e"
+            "commit": "389226a7c923ba59d41b6cd610eb2dc02b541754"
         }
     ],
     "build-options": {

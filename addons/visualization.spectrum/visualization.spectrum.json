@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "branch": "Matrix",
-            "commit": "2f1c51054b5b1ff854b5e135895041ddba4e59b8"
+            "commit": "07600ae3ac11ea73276b5748f3fd9f9bb269ca14"
         }
     ],
     "build-options": {
