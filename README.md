@@ -6,9 +6,13 @@ Android, Linux, BSD, macOS, iOS, tvOS and Windows operating systems, Kodi runs
 on most common processor architectures. This repository packages it through
 Flatpak.
 
----
+## Kodi flatpak build notes.
 
-## Build notes
+Before building you need to fetch [shared-modules](https://github.com/flathub/shared-modules) first:
+
+```
+git submodule update --init --recursive
+```
 
 The following binary addons do not compile, and are excluded:
 
