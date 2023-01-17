@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.greynetic",
-            "branch": "Matrix",
-            "commit": "acc272d8e9149ce6d94fbc2eda19854bbd143e10"
+            "commit": "98da969c1c22031443bde60c9e7c28273f09c9d7"
         }
     ],
     "build-options": {

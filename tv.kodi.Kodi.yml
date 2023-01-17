@@ -47,13 +47,14 @@ cleanup:
   - /var
 
 modules:
-  - shared-modules/glu/glu-9.json
+  # - shared-modules/glu/glu-9.json
   - modules/avahi/avahi.json
   - modules/dav1d/dav1d.json
   - modules/ffmpeg/ffmpeg.json
   - modules/flatbuffers/flatbuffers.json
   - modules/fmt/fmt.json
   - modules/fstrcmp/fstrcmp.json
+  - modules/glu/glu-9.json
   - modules/glm/glm.json
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
@@ -82,6 +83,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DAPP_PACKAGE=tv.kodi.Kodi
+      - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
       - -DENABLE_AIRTUNES=ON
@@ -104,6 +106,7 @@ modules:
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
+      - -DENABLE_INTERNAL_RapidJSON=OFF
       # - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
@@ -112,33 +115,40 @@ modules:
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
     sources:
-      - type: archive
-        url: https://github.com/xbmc/xbmc/archive/refs/tags/19.5-Matrix.tar.gz
-        sha256: 56e0074f27f08496b2a21af5704a15378a2f0979ae3e9fa9a50a2630d0313d19
+      - type: git
+        url: https://github.com/xbmc/xbmc.git
+        commit: 389e701cb96e5543c303c4004811b51684d67dd4
       - type: patch
         path: kodi.sh.in.patch
       - type: patch
-        path: addon-manifest.xml.patch
-      - type: patch
-        path: addons-no-startupenable.patch
+        path: kodi.metainfo.xml.in.patch
       - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-8f399e8bd4.tar.gz
-        sha256: 3d77d09a5df0de510aeeb940df4cb534787ddff3bb1828779753f5dfa1229d10
+        path: addon-list.txt
+        dest: build/download/
+      - type: file
+        path: tools/patch-addon-manifest.sh
+        dest: build/download/
+      - type: shell
+        commands:
+          - build/download/patch-addon-manifest.sh build/download/addon-list.txt
+      - type: file
+        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
+        sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
         dest: build/download/
         dest-filename: crossguid.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdcss/archive/1.4.2-Leia-Beta-5.tar.gz
-        sha256: 38816f8373e243bc5950449b4f3b18938c4e1c59348e3411e23f31db4072e40d
+        url: https://github.com/xbmc/libdvdcss/archive/1.4.3-Next-Nexus-Alpha2-2.tar.gz
+        sha512: d3be3bfc13c5ea56d8db745c2aab090c99760684fe4c8f62a13d266feb319e9180ceeecf8116bfd2ed90d9accba2c11dbbf93b61ad00f69a40812ebf4eabcdda
         dest: build/download/
         dest-filename: libdvdcss.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdread/archive/6.0.0-Leia-Alpha-3.tar.gz
-        sha256: a30b6aa0aad0f2c505bc77948af2d5531a80b6e68112addb4c123fca24d5d3bf
+        url: https://github.com/xbmc/libdvdread/archive/6.1.3-Next-Nexus-Alpha2-2.tar.gz
+        sha512: 629a41157d07b8ec0ea1fe89ae5ec48f63047472a862782b805c531ae31a0376fc4dc15175f8280c3ef91d7fa977bacebb1b51232640034a34bab2293210fc5e
         dest: build/download/
         dest-filename: libdvdread.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdnav/archive/6.0.0-Leia-Alpha-3.tar.gz
-        sha256: 071e414e61b795f2ff9015b21a85fc009dde967f27780d23092643916538a57a
+        url: https://github.com/xbmc/libdvdnav/archive/6.1.1-Next-Nexus-Alpha2-2.tar.gz
+        sha512: 51e6fc033121241354a5f0b3fc9a430577ae3ff6bb7f31445aa548ef4893037fb80eea3b2c6774c81e9ebaf9c45e9b490c98c2c65eb38f9f7daba84b236f7e1d
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
 
@@ -151,10 +161,11 @@ modules:
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
-  - addons/audiodecoder.dumb/audiodecoder.dumb.json
+  # - addons/audiodecoder.dumb/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
+  - addons/audiodecoder.hvl/audiodecoder.hvl.json
   - addons/audiodecoder.modplug/audiodecoder.modplug.json
   - addons/audiodecoder.ncsf/audiodecoder.ncsf.json
   - addons/audiodecoder.nosefart/audiodecoder.nosefart.json
@@ -177,7 +188,7 @@ modules:
   - addons/audioencoder.wav/audioencoder.wav.json
   - addons/game.libretro/game.libretro.json
   # - addons/game.libretro.2048/game.libretro.2048.json
-  # - addons/game.libretro.mrboom/game.libretro.mrboom.json
+  - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json
   - addons/imagedecoder.raw/imagedecoder.raw.json
@@ -201,12 +212,14 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
+  - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
   - addons/pvr.teleboy/pvr.teleboy.json
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
+  - addons/pvr.waipu/pvr.waipu.json
   - addons/pvr.wmc/pvr.wmc.json
   - addons/pvr.zattoo/pvr.zattoo.json
   - addons/screensaver.asteroids/screensaver.asteroids.json
@@ -224,6 +237,7 @@ modules:
   - addons/vfs.sftp/vfs.sftp.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
   - addons/visualization.goom/visualization.goom.json
+  - addons/visualization.matrix/visualization.matrix.json
   - addons/visualization.pictureit/visualization.pictureit.json
   - addons/visualization.projectm/visualization.projectm.json
   - addons/visualization.shadertoy/visualization.shadertoy.json

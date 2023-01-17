@@ -13,8 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "branch": "Matrix",
-            "commit": "aea01456c94b5b8e78621337e0419c988eb457e4"
+            "commit": "6977f12d1ceb745659e02d33dbbca9e3a464d8c0"
         }
     ],
     "modules": [

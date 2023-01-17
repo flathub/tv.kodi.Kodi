@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/xbmc/FFmpeg/archive/refs/tags/4.3.2-Matrix-19.2.tar.gz",
-            "sha256": "58fe3a3ba38d2b30cd8bfe40e1b3bf82296b258627d0740c284af29f0c8a6655"
+            "url": "https://github.com/xbmc/FFmpeg/archive/refs/tags/4.4-N-Alpha1.tar.gz",
+            "sha256": "eb396f46ef7c5ac01b67818d0f2c0516fd4ab32aa9065a9ffa71eebede67ff20"
         }
     ]
 }

@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "branch": "Matrix",
-            "commit": "c89c870d2176543ce018b7442dbf20e8a90718b8"
+            "commit": "16da190b6109ee960f7054da3bb96a0e7728e078"
         }
     ],
     "modules": [

@@ -14,10 +14,10 @@ Before building you need to fetch [shared-modules](https://github.com/flathub/sh
 git submodule update --init --recursive
 ```
 
-The following binary plugins do not compile, and are excluded:
+The following binary addons do not compile, and are excluded:
 
+- `audiodecoder.dumb`
 - `game.libretro.2048`
-- `game.libretro.mrboom`
 
 ## Contributing
 

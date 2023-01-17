@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.wav",
-            "branch": "Matrix",
-            "commit": "2e649a82eab1a6fd8dadeae422f93e4d63559c6f"
+            "commit": "ccb81b84a5d32e0ed604f953885af98f8a984ca0"
         }
     ],
     "build-options": {

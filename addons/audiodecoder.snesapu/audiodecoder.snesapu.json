@@ -5,8 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.snesapu",
-            "branch": "Matrix",
-            "commit": "ad8555c59865a62d43982828cd88a6d71150d15b"
+            "commit": "707f02e1e700f3650538b1e883229fa7e078b23b"
         }
     ],
     "build-options": {
