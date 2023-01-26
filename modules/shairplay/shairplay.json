@@ -1,0 +1,26 @@
+{
+    "name": "shairplay",
+    "cleanup": [
+        "/include",
+        "/bin",
+        "*.a",
+        "*.la",
+        "/lib/*.so",
+        "/share/runtime/locale"
+    ],
+    "build-options": {
+        "env": {
+            "C_INCLUDE_PATH": "/app/include/avahi-compat-libdns_sd:/app/include"
+        }
+    },
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/juhovh/shairplay/",
+            "commit": "096b61ad14c90169f438e690d096e3fcf87e504e"
+        }
+    ],
+    "modules": [
+        "../avahi/avahi.json"
+    ]
+}
