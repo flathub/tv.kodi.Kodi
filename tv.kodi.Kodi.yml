@@ -65,6 +65,7 @@ modules:
   - modules/libinput/libinput.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
+  - modules/libplist/libplist.json
   # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
@@ -72,6 +73,7 @@ modules:
   - modules/python-pillow/python-pillow.json
   - modules/rapidjson/rapidjson.json
   - modules/samba/samba.json
+  - modules/shairplay/shairplay.json
   - modules/spdlog/spdlog.json
   - modules/swig/swig.json
   - modules/taglib/taglib.json
