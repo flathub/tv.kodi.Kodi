@@ -16,8 +16,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://github.com/xbmc/FFmpeg/archive/refs/tags/4.4-N-Alpha1.tar.gz",
-            "sha256": "eb396f46ef7c5ac01b67818d0f2c0516fd4ab32aa9065a9ffa71eebede67ff20"
+            "url": "https://github.com/xbmc/FFmpeg/archive/refs/tags/5.1.2-Nexus-Alpha3.tar.gz",
+            "sha256": "ad9a38cf4c7c7576d6fe6a3af6a5254c2b6ca22937ab04c692caa43c7e5dee50"
         }
     ]
 }
