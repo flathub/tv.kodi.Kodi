@@ -8,7 +8,6 @@
     ],
     "cleanup": [
         "/include",
-        "/lib",
         "/bin",
         "/share/doc"
     ],
