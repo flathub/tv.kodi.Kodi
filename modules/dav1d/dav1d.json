@@ -4,7 +4,8 @@
     "config-opts": [
         "-Denable_asm=true",
         "-Denable_tools=false",
-        "-Denable_examples=false"
+        "-Denable_examples=false",
+        "-Denable_tests=false"
     ],
     "cleanup": [
         "/include",
@@ -14,8 +15,8 @@
     "sources": [
         {
             "type": "archive",
-            "url": "https://code.videolan.org/videolan/dav1d/-/archive/0.8.2/dav1d-0.8.2.tar.bz2",
-            "sha256": "78ec7a1714d98a8f4ecbc4255e83e6c4c944cdd881871ea234ce40153fd3df04"
+            "url": "https://code.videolan.org/videolan/dav1d/-/archive/1.0.0/dav1d-1.0.0.tar.bz2",
+            "sha512": "86c6481e787fb6b8c28521e1efb1876d1be99f5fa5332cddab1111059b44775e05203cfc5c80a1b404ee00f35a1f5e1099e21b1f0851d77fb0101567e8b1a892"
         }
     ]
 }
