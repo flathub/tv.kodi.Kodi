@@ -119,7 +119,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
+        tag: 20.1-Nexus
         commit: 289ec664e379d16a045490ba227dcf90b494628e
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)-\w+$
       - type: patch
         path: kodi.sh.in.patch
       - type: file
