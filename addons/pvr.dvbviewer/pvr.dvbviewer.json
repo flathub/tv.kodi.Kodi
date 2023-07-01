@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvbviewer",
-            "commit": "e5388bb91f2682690d50a987ffbc6e00561e8b16"
+            "commit": "70f54fca7557860611ce0af96f7f5cad00e26ddc"
         }
     ],
     "build-options": {

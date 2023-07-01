@@ -26,6 +26,12 @@ The list of binary addons in each branch of Kodi may be found
 [here](https://github.com/xbmc/xbmc/tree/master/tools/depends/target). Kodi
 releases are found [here](https://github.com/xbmc/xbmc/releases).
 
+You need to have the `PyGithub` Python module installed, to run the update script:
+
+```sh
+pip install PyGithub
+```
+
 `make update-addons` can help updating existing addons and also list missing ones. It will need a `GITHUB_TOKEN` environment variable set to a valid GitHub token. You can do this via an `.env` file in the root of the repository or by exporting the variable in your shell.
 
 You can contribute by updating addons, modules and the Kodi version.
