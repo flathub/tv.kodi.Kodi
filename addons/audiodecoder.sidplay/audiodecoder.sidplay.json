@@ -11,7 +11,6 @@
     "modules": [
         {
             "name": "sidplay2",
-            "buildsystem": "autotools",
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",
@@ -54,6 +53,12 @@
                 {
                     "type": "patch",
                     "path": "08-c++11-narrowing.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "for path in . libsidplay libsidutils resid builders/resid-builder builders/hardsid-builder; do pushd $path && autoreconf -ivf && popd; done"
+                    ]
                 }
             ]
         }
