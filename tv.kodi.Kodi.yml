@@ -14,9 +14,9 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
-  - --filesystem=/mnt
-  - --filesystem=/media
-  - --filesystem=/run/media
+  - --filesystem=/mnt:ro
+  - --filesystem=/media:ro
+  - --filesystem=/run/media:ro
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
