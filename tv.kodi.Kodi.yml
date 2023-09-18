@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -29,10 +29,10 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
 
 cleanup:
-  - '*.a'
-  - '*.pyc'
-  - '*.pyo'
-  - '*.cmake'
+  - "*.a"
+  - "*.pyc"
+  - "*.pyo"
+  - "*.cmake"
   - /.ref
   - /etc
   - /include
@@ -66,11 +66,12 @@ modules:
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
   - modules/libplist/libplist.json
-  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
   - modules/pycryptodome/pycryptodome.json
   - modules/python-pillow/python-pillow.json
+  - modules/python3-yaml/python3-yaml.json
+  - modules/lirc/lirc.json
   - modules/rapidjson/rapidjson.json
   - modules/samba/samba.json
   - modules/shairplay/shairplay.json
@@ -109,7 +110,7 @@ modules:
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
       - -DENABLE_INTERNAL_RapidJSON=OFF
-      # - -DENABLE_LIRCCLIENT=ON
+      - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
