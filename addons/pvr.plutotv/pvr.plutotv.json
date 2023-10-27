@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.plutotv",
-            "commit": "b00c642f86bd72b48bcaeff1c8be40d8d6d9185a"
+            "commit": "3b61ed113f45117621b6c106328f1a83a51b46d8"
         }
     ],
     "build-options": {

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.asap",
-            "commit": "f6db1d19ae4535014b02893a94cef0a86cc5e739"
+            "commit": "f0e3ca17eeeba0f979659c6e4f8c62ec410a0f91"
         }
     ],
     "build-options": {

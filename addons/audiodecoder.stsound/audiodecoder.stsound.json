@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.stsound",
-            "commit": "541e0e9ec62003ef19012780ec5f3d2eda5a85d5"
+            "commit": "c221ed86ab03451a7bdfa89731de780746007aba"
         }
     ],
     "build-options": {

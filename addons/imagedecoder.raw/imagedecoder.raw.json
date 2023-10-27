@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "commit": "8030a54a2ab1d97c3b795e85a0e36b8478e9647c"
+            "commit": "884439545bde0d773a438c71229cabc60c019df2"
         }
     ],
     "modules": [

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "commit": "4a85e06b2b28a7a97b8b091b301b46a73ebbd7d7"
+            "commit": "13e777d9bef15bddaa5d0e2bad416bb305dc0d54"
         }
     ],
     "build-options": {

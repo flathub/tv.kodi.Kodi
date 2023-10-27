@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.wmc",
-            "commit": "e04770acdf34884dda317d2834ed48e4a0a62f30"
+            "commit": "0ef2c21eb18502b53e28e1fc6db5580dfe805a8e"
         }
     ],
     "build-options": {
