@@ -5,13 +5,12 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sidplay",
-            "commit": "89686b11176bfe5162670ab8c16fc7314e29e8d5"
+            "commit": "2c5460b6061f7638a8cdc7f1cb07c35c51533d27"
         }
     ],
     "modules": [
         {
             "name": "sidplay2",
-            "buildsystem": "autotools",
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",
@@ -54,6 +53,12 @@
                 {
                     "type": "patch",
                     "path": "08-c++11-narrowing.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "for path in . libsidplay libsidutils resid builders/resid-builder builders/hardsid-builder; do pushd $path && autoreconf -ivf && popd; done"
+                    ]
                 }
             ]
         }

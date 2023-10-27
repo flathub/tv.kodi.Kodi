@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asterwave",
-            "commit": "c529dd0865e64b5e14bc4a3f734de174d50a35ce"
+            "commit": "2ca1d7b2b956d9982f988c04f7ed5f5d038d1746"
         }
     ],
     "build-options": {

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/janbar/pvr.mythtv",
-            "commit": "e32e237d226481dd2ed907e56490dfb8f1724a38"
+            "commit": "bf22a02022163d880559b9351a0cd29ccfaa7b2f"
         }
     ],
     "build-options": {

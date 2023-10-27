@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.pctv",
-            "commit": "0869e901ecb7b8b07569bdbd29acc0e1b7d2d475"
+            "commit": "ac8bbe6ce142a8190ec59c792fe8d73510323185"
         }
     ],
     "build-options": {

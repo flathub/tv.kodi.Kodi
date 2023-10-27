@@ -120,11 +120,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 389e701cb96e5543c303c4004811b51684d67dd4
+        tag: 20.2-Nexus
+        commit: 5f418d0b133535c6675154688ac7144e34f4d436
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)-\w+$
       - type: patch
         path: kodi.sh.in.patch
-      - type: patch
-        path: kodi.metainfo.xml.in.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
