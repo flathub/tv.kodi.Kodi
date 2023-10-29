@@ -57,6 +57,7 @@ modules:
   - modules/fstrcmp/fstrcmp.json
   - modules/glu/glu-9.json
   - modules/glm/glm.json
+  - modules/hwdata/hwdata.json
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
   - modules/libass/libass.json
