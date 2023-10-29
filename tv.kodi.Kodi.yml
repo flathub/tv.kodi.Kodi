@@ -63,6 +63,7 @@ modules:
   - modules/libbluray/libbluray.json
   - modules/libcdio/libcdio.json
   - modules/libcec/libcec.json
+  - modules/libdisplay-info/libdisplay-info.json
   - modules/libinput/libinput.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
