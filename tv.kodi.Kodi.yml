@@ -69,6 +69,7 @@ modules:
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
   - modules/libplist/libplist.json
+  - modules/libudfread/libudfread.json
   # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
