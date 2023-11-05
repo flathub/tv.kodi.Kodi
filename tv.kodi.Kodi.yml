@@ -127,7 +127,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 64d1844655563c6f29f52b4b7308bd3455960ef6
+        commit: 757bd86acc632add94dd5a5ac169a99d62c5bcdd
       - type: patch
         path: kodi.sh.in.patch
       - type: file
