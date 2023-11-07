@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hts",
-            "commit": "c8e933b4ee26dc905caf5f520eb32289210b34cb"
+            "commit": "8af27c66ce7dee4de146fd0ab051b6e6e3e1b276"
         }
     ],
     "build-options": {

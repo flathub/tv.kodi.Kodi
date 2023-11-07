@@ -29,7 +29,7 @@
             ],
            "post-install": [
                /* Somehow these are installed without write permissions, breaking stripping */
-               "find $FLATPAK_DEST/lib/perl5/5.34.0/x86_64-linux/auto/ -name \\*.so -exec chmod u+w {} +"
+               "find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/ -name \\*.so -exec chmod u+w {} +"
            ],
             "sources": [
                 {

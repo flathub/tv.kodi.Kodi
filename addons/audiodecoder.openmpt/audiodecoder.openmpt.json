@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.openmpt",
-            "commit": "9dddd01bf8d8b43ddeea36d351023453acc64c61"
+            "commit": "5110220142076c91c6104fb60775c4e590c057a5"
         }
     ],
     "modules": [

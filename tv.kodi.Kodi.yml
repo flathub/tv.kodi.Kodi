@@ -57,16 +57,19 @@ modules:
   - modules/fstrcmp/fstrcmp.json
   - modules/glu/glu-9.json
   - modules/glm/glm.json
+  - modules/hwdata/hwdata.json
   - modules/json/json.json
   - modules/jsoncpp/jsoncpp.json
   - modules/libass/libass.json
   - modules/libbluray/libbluray.json
   - modules/libcdio/libcdio.json
   - modules/libcec/libcec.json
+  - modules/libdisplay-info/libdisplay-info.json
   - modules/libinput/libinput.json
   - modules/libmicrohttpd/libmicrohttpd.json
   - modules/libnfs/libnfs.json
   - modules/libplist/libplist.json
+  - modules/libudfread/libudfread.json
   # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
@@ -110,6 +113,10 @@ modules:
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
       - -DENABLE_INTERNAL_RapidJSON=OFF
+      - -DENABLE_INTERNAL_FLATBUFFERS=OFF
+      - -DENABLE_INTERNAL_FMT=OFF
+      - -DENABLE_INTERNAL_NFS=OFF
+      - -DENABLE_INTERNAL_FFMPEG=OFF
       # - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
@@ -120,11 +127,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 389e701cb96e5543c303c4004811b51684d67dd4
+        commit: 757bd86acc632add94dd5a5ac169a99d62c5bcdd
       - type: patch
         path: kodi.sh.in.patch
-      - type: patch
-        path: kodi.metainfo.xml.in.patch
       - type: file
         path: addon-list.txt
         dest: build/download/

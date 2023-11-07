@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.cpblobs",
-            "commit": "477af91f7ab52656defc64ad076817c4e72b407d"
+            "commit": "69665ec9e21052e2b626e1c954c19dba9eb7e7d9"
         }
     ],
     "build-options": {
