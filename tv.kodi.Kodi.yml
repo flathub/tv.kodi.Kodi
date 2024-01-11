@@ -119,8 +119,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 20.2-Nexus
-        commit: 5f418d0b133535c6675154688ac7144e34f4d436
+        tag: 20.3-Nexus
+        commit: 6fb2bfc7ff210748a116d5b7018ee8ae222bf580
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
