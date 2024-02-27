@@ -17,6 +17,7 @@ finish-args:
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
+  - --filesystem=/run/lirc
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
