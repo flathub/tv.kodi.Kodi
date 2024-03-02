@@ -6,6 +6,10 @@
             "type": "archive",
             "url": "https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz",
             "sha256": "b20b45917382c6b87e9380130c9a1a1c563da2f498de5830df12fbce326dd9f5"
+        },
+        {
+            "type": "patch",
+            "path": "waylandpp-gcc13.patch"
         }
     ],
     "modules": [
