@@ -69,6 +69,7 @@ modules:
   - modules/libplist/libplist.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
+  - modules/pcre/pcre.json
   - modules/pycryptodome/pycryptodome.json
   - modules/python-pillow/python-pillow.json
   - modules/python3-yaml/python3-yaml.json
