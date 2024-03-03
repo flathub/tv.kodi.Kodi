@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -69,6 +69,7 @@ modules:
   - modules/libplist/libplist.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
+  - modules/pcre/pcre.json
   - modules/pycryptodome/pycryptodome.json
   - modules/python-pillow/python-pillow.json
   - modules/python3-yaml/python3-yaml.json
@@ -162,8 +163,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/xbmc/kodi-platform/archive/kodiplatform-20180302.tar.gz
-        sha256: 1d8ddbe444bd42f4b6f2babb9f78d6c1e152d828eff90b07308febf883c05b38
+        url: https://github.com/xbmc/kodi-platform/archive/809c5e9d711e378561440a896fcb7dbcd009eb3d.tar.gz
+        sha256: 159165ae641da5eb273885ce53b8a4b84e62a595c4974f9d12c1b5d1428ef25c
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
