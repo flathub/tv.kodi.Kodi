@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
-            "commit": "0978cfe96573ff6e5d87c06eec7c6770270e40db"
+            "commit": "00f8bb52a7278a0721a990d1124e4cd11d711df7"
         }
     ],
     "build-options": {

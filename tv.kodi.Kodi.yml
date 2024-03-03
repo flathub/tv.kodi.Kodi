@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: "22.08"
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -30,10 +30,10 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
 
 cleanup:
-  - "*.a"
-  - "*.pyc"
-  - "*.pyo"
-  - "*.cmake"
+  - '*.a'
+  - '*.pyc'
+  - '*.pyo'
+  - '*.cmake'
   - /.ref
   - /etc
   - /include
@@ -121,8 +121,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 20.4-Nexus
-        commit: 4868e9c709bf9ccaa6e301b18acb9c5b7adaa1d9
+        tag: 20.5-Nexus
+        commit: 4b95737efaddf7c869736e539318f18433413ff1
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
