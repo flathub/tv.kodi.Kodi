@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
-            "commit": "80ff9c6e6858858490762325408dee1420ee059c"
+            "commit": "1142c32b6f9a9f6f87272e3cc4ab039b84d19345"
         }
     ],
     "build-options": {
