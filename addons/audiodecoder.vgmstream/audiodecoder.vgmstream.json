@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.vgmstream",
-            "commit": "028a33bd95902c0f7faf0f7e803301aecb29fd59"
+            "commit": "587a6329e1d9cdcd3c7cfe53e1f6d0a28457dc75"
         }
     ],
     "build-options": {
