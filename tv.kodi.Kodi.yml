@@ -18,6 +18,7 @@ finish-args:
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
+  - --filesystem=/run/lirc
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
@@ -70,11 +71,12 @@ modules:
   - modules/libnfs/libnfs.json
   - modules/libplist/libplist.json
   - modules/libudfread/libudfread.json
-  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
   - modules/pycryptodome/pycryptodome.json
   - modules/python-pillow/python-pillow.json
+  - modules/python3-yaml/python3-yaml.json
+  - modules/lirc/lirc.json
   - modules/rapidjson/rapidjson.json
   - modules/samba/samba.json
   - modules/shairplay/shairplay.json
@@ -117,7 +119,7 @@ modules:
       - -DENABLE_INTERNAL_FMT=OFF
       - -DENABLE_INTERNAL_NFS=OFF
       - -DENABLE_INTERNAL_FFMPEG=OFF
-      # - -DENABLE_LIRCCLIENT=ON
+      - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
