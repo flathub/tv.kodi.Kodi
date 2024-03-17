@@ -13,5 +13,64 @@
             "url": "http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz",
             "sha256": "d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc"
         }
+    ],
+    "modules": [
+        {
+            "name": "groovy",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p ${FLATPAK_DEST}/groovy",
+                "cp -r groovy/* ${FLATPAK_DEST}/groovy"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://mirrors.kodi.tv/build-deps/sources/apache-groovy-binary-4.0.16.zip",
+                    "sha512": "743698979c801f3cfb36545888b5303e1e25dae5692bb45cab7ebbe102a6eda31f09abc6978349ad90ecaf630416fc87eacba7781244855e7e771a3c44041fa0",
+                    "dest": "groovy"
+                }
+            ],
+            "cleanup": [
+                "/groovy"
+            ]
+        },
+        {
+            "name": "commons-lang3",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p ${FLATPAK_DEST}/commons-lang3",
+                "cp -r commons-lang3/* ${FLATPAK_DEST}/commons-lang3"
+            ],
+            "cleanup": [
+                "/commons-lang3"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://mirrors.kodi.tv/build-deps/sources/commons-lang3-3.14.0-bin.tar.gz",
+                    "sha512": "8e7e62418a49ba810512c13a640a8bf35f878fcd54af32fdaab1111e37817f58b21b475980ba663fba4887e45ef8d88af8ff17796f20d202e929e8e2574546dc",
+                    "dest": "commons-lang3"
+                }
+            ]
+        },
+        {
+            "name": "commons-text",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p ${FLATPAK_DEST}/commons-text",
+                "cp -r commons-text/* ${FLATPAK_DEST}/commons-text"
+            ],
+            "cleanup": [
+                "/commons-text"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://mirrors.kodi.tv/build-deps/sources/commons-text-1.11.0-bin.tar.gz",
+                    "sha512": "2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f",
+                    "dest": "commons-text"
+                }
+            ]
+        }
     ]
 }
