@@ -18,6 +18,7 @@ finish-args:
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
+  - --filesystem=/run/lirc
   - --share=ipc
   - --share=network
   - --socket=pulseaudio
@@ -48,7 +49,6 @@ cleanup:
   - /var
 
 modules:
-  # - shared-modules/glu/glu-9.json
   - modules/avahi/avahi.json
   - modules/dav1d/dav1d.json
   - modules/ffmpeg/ffmpeg.json
@@ -70,11 +70,12 @@ modules:
   - modules/libnfs/libnfs.json
   - modules/libplist/libplist.json
   - modules/libudfread/libudfread.json
-  # - modules/lirc/lirc.json
   - modules/lzo/lzo.json
   - modules/mariadb-connector/mariadb-connector.json
   - modules/pycryptodome/pycryptodome.json
   - modules/python-pillow/python-pillow.json
+  - modules/python3-yaml/python3-yaml.json
+  - modules/lirc/lirc.json
   - modules/rapidjson/rapidjson.json
   - modules/samba/samba.json
   - modules/shairplay/shairplay.json
@@ -117,17 +118,20 @@ modules:
       - -DENABLE_INTERNAL_FMT=OFF
       - -DENABLE_INTERNAL_NFS=OFF
       - -DENABLE_INTERNAL_FFMPEG=OFF
-      # - -DENABLE_LIRCCLIENT=ON
+      - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
+      - -DFETCHCONTENT_SOURCE_DIR_GROOVY=/app/groovy
+      - -DFETCHCONTENT_SOURCE_DIR_APACHE-COMMONS-LANG=/app/commons-lang3
+      - -DFETCHCONTENT_SOURCE_DIR_APACHE-COMMONS-TEXT=/app/commons-text
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 979dbf5fe5d0b42daf633434afc3986651c8646a
+        commit: c976aa91cd739ac580510bf22d49269eeab9893f
       - type: patch
         path: kodi.sh.in.patch
       - type: file

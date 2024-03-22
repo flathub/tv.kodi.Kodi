@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
-            "commit": "3d900e49fcf7bf0d48402c3135a760a1b65b0839"
+            "commit": "e697156054ea3eb5974fb9727e046287220985e5"
         }
     ],
     "modules": [

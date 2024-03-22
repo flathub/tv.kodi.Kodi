@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.nosefart",
-            "commit": "4d9e9eb34ed81f37840b418d8e0622854fe2467d"
+            "commit": "92c6daeb278b02cd63fee724c96051421c9149f3"
         }
     ],
     "build-options": {

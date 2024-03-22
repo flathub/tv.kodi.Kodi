@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.ncsf",
-            "commit": "8295f4314b57a5f88ba10ebb6c434bb5b2086cbc"
+            "commit": "24904b106f885f9d63d7e1191487a2c785f349bd"
         }
     ],
     "build-options": {
