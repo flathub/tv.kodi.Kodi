@@ -50,41 +50,6 @@ cleanup:
 
 modules:
   - {
-      "name": "avahi",
-      "cleanup":
-        [
-          "/include",
-          "/bin",
-          "*.a",
-          "*.la",
-          "/lib/*.so",
-          "/share/runtime/locale",
-        ],
-      "config-opts":
-        [
-          "--with-distro=none",
-          "--disable-libdaemon",
-          "--disable-core-docs",
-          "--disable-manpages",
-          "--disable-mono",
-          "--disable-libevent",
-          "--disable-qt4",
-          "--disable-qt5",
-          "--disable-python",
-          "--disable-gtk",
-          "--disable-gtk3",
-          "--enable-compat-libdns_sd",
-        ],
-      "sources":
-        [
-          {
-            "type": "archive",
-            "url": "https://github.com/lathiat/avahi/archive/v0.8.tar.gz",
-            "sha256": "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f",
-          },
-        ],
-    }
-  - {
       "name": "dav1d",
       "buildsystem": "meson",
       "config-opts":
@@ -695,7 +660,44 @@ modules:
             "commit": "096b61ad14c90169f438e690d096e3fcf87e504e",
           },
         ],
-      "modules": ["../avahi/avahi.json"],
+      "modules":
+        [
+          {
+            "name": "avahi",
+            "cleanup":
+              [
+                "/include",
+                "/bin",
+                "*.a",
+                "*.la",
+                "/lib/*.so",
+                "/share/runtime/locale",
+              ],
+            "config-opts":
+              [
+                "--with-distro=none",
+                "--disable-libdaemon",
+                "--disable-core-docs",
+                "--disable-manpages",
+                "--disable-mono",
+                "--disable-libevent",
+                "--disable-qt4",
+                "--disable-qt5",
+                "--disable-python",
+                "--disable-gtk",
+                "--disable-gtk3",
+                "--enable-compat-libdns_sd",
+              ],
+            "sources":
+              [
+                {
+                  "type": "archive",
+                  "url": "https://github.com/lathiat/avahi/archive/v0.8.tar.gz",
+                  "sha256": "c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f",
+                },
+              ],
+          },
+        ],
     }
   - {
       "name": "spdlog",
