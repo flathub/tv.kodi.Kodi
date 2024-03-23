@@ -536,7 +536,7 @@ modules:
           {
             "type": "archive",
             "url": "https://downloads.sourceforge.net/project/lirc/LIRC/0.10.2/lirc-0.10.2.tar.bz2",
-            "sha1": "02092890205891b6de5a699294485a1eedba46c5",
+            "sha256": "3d44ec8274881cf262f160805641f0827ffcc20ade0d85e7e6f3b90e0d3d222a",
           },
           {
             "type": "shell",
@@ -581,16 +581,14 @@ modules:
             "sha256": "a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00",
           },
         ],
-      "modules":
-        [
+      "modules": [
           {
             "name": "perl",
             "no-autogen": true,
             "config-opts": ["-des"],
-            /* Somehow these are installed without write permissions,
-            ? breaking stripping */
-              "post-install"
-            : [
+            # Somehow these are installed without write permissions,  breaking stripping
+            "post-install":
+              [
                 "find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/ -name \\*.so -exec chmod u+w {} +",
               ],
             "sources":
