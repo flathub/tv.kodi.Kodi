@@ -1,0 +1,20 @@
+{
+    "name": "hwdata",
+    "config-opts": ["--datarootdir=${FLATPAK_DEST}/lib/"],
+    "sources":
+    [
+        {
+            "type": "archive",
+            "url": "https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.374.tar.gz",
+            "sha256": "2a0988bf5e97e49159d7f02a5e02a719c8976d4ec883a8abb635149d221ceca0",
+            "x-checker-data":
+            {
+                "type": "anitya",
+                "project-id": 13577,
+                "stable-only": true,
+                "url-template": "https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz"
+            },
+            "cleanup": ["/lib/pkgconfig"]
+        }
+    ]
+}
