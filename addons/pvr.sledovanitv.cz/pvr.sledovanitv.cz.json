@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/palinek/pvr.sledovanitv.cz",
-            "commit": "e2ab91a3e16ae6273571261dcfe0239d70c181be"
+            "commit": "662a8e6c598db0acf4012fcc52b45ba1b94088e5"
         }
     ],
     "build-options": {

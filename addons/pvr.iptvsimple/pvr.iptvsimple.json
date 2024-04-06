@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
-            "commit": "de9fc9bf44e8d01bf9fba109bada6068d1f2417f"
+            "commit": "2471a9e451cb8cd0cdb083df5a8c3665d16bab05"
         }
     ],
     "build-options": {

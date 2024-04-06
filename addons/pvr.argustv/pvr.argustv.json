@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.argustv",
-            "commit": "34dc9e60ccce0e3ad03378337b3d333f5a761b27"
+            "commit": "c2c62174e97f4ff2435c123065951e444ed55025"
         }
     ],
     "build-options": {

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
-            "commit": "c3649d3f0b847f40d9c6142a8ebcb2d2b3c0152e"
+            "commit": "4257d3f5b0982d830a900f3a0ca8b6ff8b4b1323"
         }
     ],
     "build-options": {

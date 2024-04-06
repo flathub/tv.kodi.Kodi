@@ -8,13 +8,8 @@ Flatpak.
 
 ## Building
 
-Before building you need to fetch [shared-modules](https://github.com/flathub/shared-modules) first:
-
-```
-git submodule update --init --recursive
-```
-
 Then build via
+
 ```
 flatpak-builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
 ```
@@ -26,7 +21,6 @@ flatpak run tv.kodi.Kodi
 ```
 
 or just search for the installed app on your system
-
 
 The following binary addons do not compile, and are excluded:
 
