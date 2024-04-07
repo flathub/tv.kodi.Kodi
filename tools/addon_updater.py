@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 from github import Github
 
 addon_repo_base = "https://github.com/xbmc/repo-binary-addons"
-addon_repo_branch = "Nexus"
+addon_repo_branch = "Omega"
 addon_repo_dir = "binary_addons_repo_tmp"
 addon_repo_remote = "binary_addons_repo"
 
@@ -25,9 +25,16 @@ load_dotenv()
 g = Github(os.environ["GITHUB_TOKEN"])
 
 
-def get_current_github_rev(url, branch):
+def get_current_github_rev(url, branch) -> str | None:
     repo = g.get_repo(url.split("/")[-2] + "/" + url.split("/")[-1].replace(".git", ""))
-    return repo.get_branch(branch).commit.sha
+
+    try:
+        branch_sha = repo.get_branch(branch).commit.sha
+        return branch_sha
+    except Exception as e:
+        print("Error getting branch sha for {}: {}".format(branch, e))
+
+    return None
 
 
 def check_platform(def_file):
@@ -228,10 +235,12 @@ for f in repo_file_list:
         addon_data["sources"][i]["url"] = url
         addon_data["sources"][i]["type"] = atype
 
-        if addon_repo_branch == rev or rev == "master":
+        if get_current_github_rev(url, rev) and (
+            addon_repo_branch == rev or rev == "master"
+        ):
             addon_data["sources"][i]["commit"] = get_current_github_rev(url, rev)
         else:
-            addon_data["sources"][i]["commit"] = rev
+            addon_data["sources"][i]["commit"] = get_current_github_rev(url, "master")
 
         if "tag" in addon_data["sources"][i]:
             del addon_data["sources"][i]["tag"]

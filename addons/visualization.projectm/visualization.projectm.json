@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "commit": "eae88e47b41d449312123c7d54ac65b7399f5ff5"
+            "commit": "378ed846cb71432bf78fcbed162590912ffda4a9"
         }
     ],
     "modules": [

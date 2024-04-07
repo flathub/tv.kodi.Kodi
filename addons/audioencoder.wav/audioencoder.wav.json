@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.wav",
-            "commit": "c5160404b7fa7902a161c1fb64c4500dd9ae5309"
+            "commit": "d4449bb3f2066893649cdbcc72375a628e610289"
         }
     ],
     "build-options": {

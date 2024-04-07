@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.matrixtrails",
-            "commit": "002983627a444d1fdb62318dc257fd618d48d5bb"
+            "commit": "364b7275fb02edf9a5c03bd56c8010431711b249"
         }
     ],
     "build-options": {
