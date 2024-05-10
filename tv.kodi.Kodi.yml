@@ -14,7 +14,6 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
-  - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
@@ -639,7 +638,6 @@ modules:
       - -DENABLE_NFS=ON
       - -DENABLE_OPTICAL=ON
       - -DENABLE_PULSEAUDIO=ON
-      - -DENABLE_PIPEWIRE=ON
       - -DENABLE_SMBCLIENT=ON
       - -DENABLE_UDEV=ON
       - -DENABLE_UPNP=ON
