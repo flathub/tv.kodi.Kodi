@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: "22.08"
+runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -176,8 +176,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: "https://github.com/nlohmann/json/archive/refs/tags/v3.10.4.tar.gz"
-        sha256: 1155fd1a83049767360e9a120c43c578145db3204d2b309eba49fbbedd0f4ed3
+        url: "https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz"
+        sha256: 0d8ef5af7f9794e3263480193c491549b2ba6cc74bb018906202ada498a79406
   - name: jsoncpp
     buildsystem: cmake-ninja
     config-opts:
@@ -606,8 +606,10 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: "https://github.com/NilsBrause/waylandpp/archive/0.2.8.tar.gz"
-        sha256: e7f486165d3568c3558b5c7099133aea4a285b82820eeafad329fc10271c654d
+        url: "https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz"
+        sha256: b20b45917382c6b87e9380130c9a1a1c563da2f498de5830df12fbce326dd9f5
+      - type: patch
+        path: waylandpp-gcc13.patch
     modules:
       - name: pugixml
         buildsystem: cmake-ninja
@@ -617,6 +619,13 @@ modules:
           - type: archive
             url: "https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz"
             sha256: 017139251c122dbff400a507cddc4cb74120a431a50c6c524f30edcc5b331ade
+      - name: pcre
+        config-opts:
+          - "--enable-unicode-properties"
+        sources:
+          - type: archive
+            url: "http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2"
+            sha256: 4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
@@ -703,8 +712,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/xbmc/kodi-platform/archive/kodiplatform-20180302.tar.gz
-        sha256: 1d8ddbe444bd42f4b6f2babb9f78d6c1e152d828eff90b07308febf883c05b38
+        url: https://github.com/xbmc/kodi-platform/archive/809c5e9d711e378561440a896fcb7dbcd009eb3d.tar.gz
+        sha256: 159165ae641da5eb273885ce53b8a4b84e62a595c4974f9d12c1b5d1428ef25c
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
