@@ -672,9 +672,8 @@ modules:
       - -DFETCHCONTENT_SOURCE_DIR_APACHE-COMMONS-TEXT=/app/commons-text
     sources:
       - type: git
-        url: https://github.com/xbmc/xbmc.git
-        tag: 21.0-Omega
-        commit: 60c450005472e6d38929bb28c07d00589102818d
+        url: https://github.com/neo1973/xbmc.git
+        commit: 7ab57873c742ae07d3f6c428ddfb83f6db51b15d
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
