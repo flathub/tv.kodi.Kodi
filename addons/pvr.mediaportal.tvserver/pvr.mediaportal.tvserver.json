@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.mediaportal.tvserver",
-            "commit": "9f58884dc529485e91aeb6ac75fae3d28855d67c"
+            "commit": "800078da9668264bd67990c9205c537a1710b783"
         }
     ],
     "build-options": {
