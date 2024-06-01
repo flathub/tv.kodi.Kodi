@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
-            "commit": "6de1399feb77d9d1ba03269772927336d5a6d4ac"
+            "commit": "5053b45fa1aaa08dfaed9d64d658e740444140d2"
         }
     ],
     "build-options": {
