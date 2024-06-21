@@ -30,6 +30,12 @@ finish-args:
   - --system-talk-name=org.freedesktop.UPower
   - --talk-name=org.freedesktop.ScreenSaver
 
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+  directory: lib/ffmpeg
+  version: "23.08"
+  add-ld-path: .
+
 cleanup:
   - "*.a"
   - "*.pyc"
@@ -63,26 +69,6 @@ modules:
       - type: archive
         url: https://code.videolan.org/videolan/dav1d/-/archive/1.0.0/dav1d-1.0.0.tar.bz2
         sha512: 86c6481e787fb6b8c28521e1efb1876d1be99f5fa5332cddab1111059b44775e05203cfc5c80a1b404ee00f35a1f5e1099e21b1f0851d77fb0101567e8b1a892
-  - name: ffmpeg
-    config-opts:
-      - "--enable-libdav1d"
-      - "--enable-gpl"
-      - "--enable-gnutls"
-      - "--enable-vaapi"
-      - "--enable-vdpau"
-    cleanup:
-      - /include
-      - /lib
-      - /bin
-      - /share/doc
-    sources:
-      - type: archive
-        url: "https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz"
-        sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
-        x-checker-data:
-          type: html
-          url: "https://ffmpeg.org/releases/"
-          pattern: '>(ffmpeg-([\d.]+)\.tar\.xz)<'
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
