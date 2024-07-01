@@ -401,6 +401,8 @@ modules:
       - type: shell
         commands:
           - sed -i s/Ubuntu/ignoreme/g configure.ac
+      - type: patch
+        path: lirc-dont-build-docs.patch
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
