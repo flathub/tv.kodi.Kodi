@@ -61,8 +61,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.0.0/dav1d-1.0.0.tar.bz2
-        sha512: 86c6481e787fb6b8c28521e1efb1876d1be99f5fa5332cddab1111059b44775e05203cfc5c80a1b404ee00f35a1f5e1099e21b1f0851d77fb0101567e8b1a892
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.4.1/dav1d-1.4.1.tar.bz2
+        sha512: b2dcdeeb3d6c37788b4c697b497b9282738b758927ffbdbe72b05b1b26a61aa967dfba0ce05828b5bd5bcac93eb3394b0eafbb57e325d037867cf720d64ba099
   - name: ffmpeg
     config-opts:
       - "--enable-libdav1d"
@@ -94,8 +94,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/google/flatbuffers/archive/refs/tags/v2.0.0.tar.gz"
-        sha256: 9ddb9031798f4f8754d00fca2f1a68ecf9d0f83dfac7239af1311e4fd9a565c4
+        url: "https://github.com/google/flatbuffers/archive/refs/tags/v23.3.3.tar.gz"
+        sha512: 4066c94f2473c7ea16917d29a613e16f840a329089c88e0bdbdb999aef3442ba00abfd2aa92266fa9c067e399dc88e6f0ccac40dc151378857e665638e78bbf0
       - type: shell
         commands:
           - sed -i 's/-Werror=/-W/g;s/-Werror//g' CMakeLists.txt
@@ -108,8 +108,8 @@ modules:
       - "*.a"
     sources:
       - type: archive
-        url: "https://github.com/fmtlib/fmt/archive/refs/tags/9.1.0.tar.gz"
-        sha512: a18442042722dd48e20714ec034a12fcc0576c9af7be5188586970e2edf47529825bdc99af366b1d5891630c8dbf6f63bfa9f012e77ab3d3ed80d1a118e3b2be
+        url: "https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz"
+        sha512: 27df90c681ec37e55625062a79e3b83589b6d7e94eff37a3b412bb8c1473f757a8adb727603acc9185c3490628269216843b7d7bd5a3cb37f0029da5d1495ffa
   - name: fstrcmp
     buildsystem: cmake-ninja
     cleanup:
@@ -118,7 +118,7 @@ modules:
     sources:
       - type: archive
         url: "http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz"
-        sha256: e4018e850f80700acee8da296e56e15b1eef711ab15157e542e7d7e1237c3476
+        sha512: aaeb0227afd5ada5955cbe6a565254ff88d2028d677d199c00e03b7cb5de1f2c69b18e6e8b032e452350a8eda7081807b01765adbeb8476eaf803d9de6e5509c
       - type: patch
         path: fstrcmp.patch
   - name: glu
@@ -196,8 +196,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/libass/libass/archive/refs/tags/0.15.2.tar.gz"
-        sha256: f96b7ce35f2b0bf430eb71c4c9dd5d8f0abf52499e08490d346608c837c98299
+        url: "https://github.com/libass/libass/archive/refs/tags/0.17.1.tar.gz"
+        sha512: 8bc83347c87c47577cd52230b3698c34301250e9a23f190a565c913defcd47a05695a4f7d9cd2e9a6ad0cfc6341e8ea2d6d779b1d714b2d6144466d2dea53951
   - name: libbluray
     config-opts:
       - "--disable-bdjava-jar"
@@ -209,8 +209,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.3.2/libbluray-1.3.2.tar.bz2
-        sha512: 6f2d3a984809db33a99d2fe3618370a3fda3ef1c417b725d3c2e1f24ff21495f95a6a5f78b30b2b26bab47865f68dd08c08e8a554809d3a5225956da712dc064
+        url: https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2
+        sha512: 94dbf3b68d1c23fe4648c153cc2f0c251886fac0a6b6bbe3a77caabaa5322682f712afe4a7b6b16ca3f06744fbc0e1ca872209a32898dcf0ae182055d335aec1
   - name: libcdio
     config-opts:
       - "--enable-cxx"
@@ -249,13 +249,13 @@ modules:
         sources:
           - type: archive
             url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
-            sha256: 064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0
+            sha512: 76e6f1ac64b61e4def7d99965708d0f05698379e0f3e846317174f0bc12a9654b3341afc84bd8a3a70f101ecab6c692dea96b57d7e000dfabf6cedee2b8dcd8a
   - name: libdisplay-info
     buildsystem: meson
     sources:
       - type: archive
         url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.1.1/libdisplay-info-0.1.1.tar.gz
-        sha256: a5aeef57817916286526292ec816a5338c4d3c0094ce91e584fc82b57070a44f
+        sha512: 8b11c35315f3f16f6853b2ba5daa39c622f2326cfa01d54574beb577efd38d25b8260f7d74c63924473a0487bffdbff727ddc05b12d36e2106b78aadc7d4ff42
         x-checker-data:
           type: anitya
           project-id: 326668
@@ -297,8 +297,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.75.tar.gz"
-        sha512: 4dc62ed191342a61cc2767171bb1ff4050f390db14ef7100299888237b52ea0b04b939c843878fe7f5daec2b35a47b3c1b7e7c11fb32d458184fe6b19986a37c
+        url: "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz"
+        sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
   - name: libnfs
     buildsystem: cmake-ninja
     config-opts:
@@ -323,7 +323,7 @@ modules:
     sources:
       - type: archive
         url: "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
-        sha256: 7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2
+        sha512: 16038a6cca3a25874e6f21b37c9088ffc8021a65e3d09046e01d5a00180e732f7e4043a0e63a60ec7ee7460bc6615daa64fa5db2ae9cea08566d8c1b02698834
   - name: libudfread
     cleanup:
       - /include
@@ -334,7 +334,7 @@ modules:
     sources:
       - type: archive
         url: "http://mirrors.kodi.tv/build-deps/sources/libudfread-1.1.2.tar.gz"
-        sha256: 2bf16726ac98d093156195bb049a663e07d3323e079c26912546f4e05c77bac5
+        sha512: 3069feb5db40288beb5b112b285186162a704f0fdd3cf67a17fd4eeea015f2cfcfbb455b7aa7c3d79d00fd095a3fd11cffc7b121dce94d99c3b06a509a8977d2
       - type: script
         dest-filename: autogen.sh
         commands:
@@ -351,7 +351,7 @@ modules:
     sources:
       - type: archive
         url: "http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz"
-        sha256: c0f892943208266f9b6543b3ae308fab6284c5c90e627931446fb49b4221a072
+        sha512: a3dae5e4a6b93b1f5bf7435e8ab114a9be57252e9efc5dd444947d7a2d031b0819f34bcaeb35f60b5629a01b1238d738735a64db8f672be9690d3c80094511a4
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
@@ -361,8 +361,8 @@ modules:
       - "*.a"
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.2.4.tar.gz
-        sha256: 6da2563a7940457846267989732b97028c350d7de07f89e355f15646641d0ed7
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
+        sha512: c423182156c2b3ba30198898176395f01f8b94c1b2e9537823db50ef0093bd303594575b0b06a9ae2d68918e9ae5d6ce050e8de3704d216ea8db99ec5029d824
   - name: pycryptodome
     buildsystem: simple
     build-commands:
@@ -370,16 +370,16 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/64/ab/f2b4059ddf59bffbdbb4bdb60a6729c6c1de5eea1ef186d5a633ae12db3b/pycryptodome-3.11.0.tar.gz
-        sha256: 428096bbf7a77e207f418dfd4d7c284df8ade81d2dc80f010e92753a3e406ad0
+        url: https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip
+        sha512: bca064a6c544f639c2fef8bab4737db92dd9707c9496e715402a3b51c80e6b887097ef3ba9da12cbe8165d5acb57e9e4f17680e7f93794d2abe42a1339ce5da7
   - name: python-pillow
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/7d/2a/2fc11b54e2742db06297f7fa7f420a0e3069fdcf0e4b57dfec33f0b08622/Pillow-8.4.0.tar.gz
-        sha256: b8e2f83c56e141920c39464b852de3719dfbfb6e3c99a2d8da0edf4fb33176ed
+        url: https://files.pythonhosted.org/packages/80/d7/c4b258c9098b469c4a4e77b0a99b5f4fd21e359c2e486c977d231f52fc71/Pillow-10.1.0.tar.gz
+        sha512: 77eeaee6f2b8b77b33438d6a5f3a2c79ff1154e39bc225f279f066d6471b6991aad4390756575fa53448062f7bf8763462e95a5b2cc8af1414c1d52f27529736
   - name: python3-yaml
     buildsystem: simple
     build-commands:
@@ -389,7 +389,7 @@ modules:
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz
-        sha256: 68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2
+        sha512: b402993073282e7f4202823b051d364b91929362edd5b3aebe93b56833956ec9279c1ba82b97f8bc8a2b82d20e1060e4ec9fc90400a6ed902adce3e4f83a6e0e
   - name: lirc
     no-autogen: true
     config-opts:
@@ -413,7 +413,7 @@ modules:
     sources:
       - type: archive
         url: "https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz"
-        sha256: bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e
+        sha512: 2e82a4bddcd6c4669541f5945c2d240fb1b4fdd6e239200246d3dd50ce98733f0a4f6d3daa56f865d8c88779c036099c52a9ae85d47ad263686b68a88d832dff
   - name: samba
     buildsystem: simple
     build-commands:
@@ -518,8 +518,8 @@ modules:
       - "*.a"
     sources:
       - type: archive
-        url: "https://github.com/gabime/spdlog/archive/refs/tags/v1.10.0.tar.gz"
-        sha512: e82ec0a0c813ed2f1c8a31a0f21dbb733d0a7bd8d05284feae3bd66040bc53ad47a93b26c3e389c7e5623cfdeba1854d690992c842748e072aab3e6e6ecc5666
+        url: "https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz"
+        sha512: d8f36a3d65a43d8c64900e46137827aadb05559948b2f5a389bea16ed1bfac07d113ee11cf47970913298d6c37400355fe6895cda8fa6dcf6abd9da0d8f199e9
   - name: swig
     config-opts:
       - "--without-pcre"
@@ -576,8 +576,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://taglib.org/releases/taglib-1.12.tar.gz"
-        sha256: 7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703
+        url: "https://taglib.org/releases/taglib-1.13.tar.gz"
+        sha512: b6e3253d158b41173073c0da1915f5e4a3de947db918660817cb1c755fba7e3723ea1a335fbbc30b0dcf942348a471b493fe2ce1d52d1a808578edee14e1bfc7
   - name: tinyxml
     cleanup:
       - /include
@@ -588,7 +588,7 @@ modules:
     sources:
       - type: archive
         url: "http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz"
-        sha256: 8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c
+        sha512: 01b5c564c29f151b076ff47211404e3b203d9d12071054c11c0eca84f2bba7c3fe90936d6580f6045ea9c204435f8b19e77e56ad5fae05241d311222b898eacf
       - type: script
         dest-filename: autogen.sh
         commands:
@@ -601,13 +601,13 @@ modules:
     sources:
       - type: archive
         url: "https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"
-        sha256: cc2f1417c308b1f6acc54f88eb70771a0bf65f76282ce5c40e54cfe52952702c
+        sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
   - name: waylandpp
     buildsystem: cmake-ninja
     sources:
       - type: archive
         url: "https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz"
-        sha256: b20b45917382c6b87e9380130c9a1a1c563da2f498de5830df12fbce326dd9f5
+        sha512: 64b59d073a0593ecf442362eb63ec0a9dfeaa1ad1d56b5955cb0c159fd01dc45e012b926811c6ca0dc12d4bb2e640eabc2e778ab7d28de2098eb694d26f01039
       - type: patch
         path: waylandpp-gcc13.patch
     modules:
@@ -625,7 +625,7 @@ modules:
         sources:
           - type: archive
             url: "http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2"
-            sha256: 4dae6fdcd2bb0bb6c37b5f97c33c2be954da743985369cddac3546e3218bffb8
+            sha512: 91bff52eed4a2dfc3f3bfdc9c672b88e7e2ffcf3c4b121540af8a4ae8c1ce05178430aa6b8000658b9bb7b4252239357250890e20ceb84b79cdfcde05154061a
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
