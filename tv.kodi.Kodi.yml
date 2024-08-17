@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: "23.08"
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -31,10 +31,10 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
 
 cleanup:
-  - "*.a"
-  - "*.pyc"
-  - "*.pyo"
-  - "*.cmake"
+  - '*.a'
+  - '*.pyc'
+  - '*.pyo'
+  - '*.cmake'
   - /.ref
   - /etc
   - /include
@@ -51,10 +51,10 @@ modules:
   - name: dav1d
     buildsystem: meson
     config-opts:
-      - "-Denable_asm=true"
-      - "-Denable_tools=false"
-      - "-Denable_examples=false"
-      - "-Denable_tests=false"
+      - -Denable_asm=true
+      - -Denable_tools=false
+      - -Denable_examples=false
+      - -Denable_tests=false
     cleanup:
       - /include
       - /bin
@@ -65,11 +65,11 @@ modules:
         sha512: b2dcdeeb3d6c37788b4c697b497b9282738b758927ffbdbe72b05b1b26a61aa967dfba0ce05828b5bd5bcac93eb3394b0eafbb57e325d037867cf720d64ba099
   - name: ffmpeg
     config-opts:
-      - "--enable-libdav1d"
-      - "--enable-gpl"
-      - "--enable-gnutls"
-      - "--enable-vaapi"
-      - "--enable-vdpau"
+      - --enable-libdav1d
+      - --enable-gpl
+      - --enable-gnutls
+      - --enable-vaapi
+      - --enable-vdpau
     cleanup:
       - /include
       - /lib
@@ -77,24 +77,24 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: "https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz"
-        sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+        url: https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz
+        sha256: 8646515b638a3ad303e23af6a3587734447cb8fc0a0c064ecdb8e95c4fd8b389
         x-checker-data:
           type: html
-          url: "https://ffmpeg.org/releases/"
+          url: https://ffmpeg.org/releases/
           pattern: '>(ffmpeg-([\d.]+)\.tar\.xz)<'
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
-      - "-DFLATBUFFERS_BUILD_FLATLIB=OFF"
-      - "-DFLATBUFFERS_BUILD_SHAREDLIB=ON"
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DFLATBUFFERS_BUILD_FLATLIB=OFF
+      - -DFLATBUFFERS_BUILD_SHAREDLIB=ON
     cleanup:
       - /include
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/google/flatbuffers/archive/refs/tags/v23.3.3.tar.gz"
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v23.3.3.tar.gz
         sha512: 4066c94f2473c7ea16917d29a613e16f840a329089c88e0bdbdb999aef3442ba00abfd2aa92266fa9c067e399dc88e6f0ccac40dc151378857e665638e78bbf0
       - type: shell
         commands:
@@ -102,31 +102,31 @@ modules:
   - name: fmt
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
-        url: "https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz"
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz
         sha512: 27df90c681ec37e55625062a79e3b83589b6d7e94eff37a3b412bb8c1473f757a8adb727603acc9185c3490628269216843b7d7bd5a3cb37f0029da5d1495ffa
   - name: fstrcmp
     buildsystem: cmake-ninja
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
-        url: "http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz"
+        url: http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz
         sha512: aaeb0227afd5ada5955cbe6a565254ff88d2028d677d199c00e03b7cb5de1f2c69b18e6e8b032e452350a8eda7081807b01765adbeb8476eaf803d9de6e5509c
       - type: patch
         path: fstrcmp.patch
   - name: glu
     config-opts:
-      - "--disable-static"
+      - --disable-static
     sources:
       - type: archive
-        url: "https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.2.tar.xz"
+        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.2.tar.xz
         sha256: 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
     cleanup:
       - /include
@@ -136,35 +136,35 @@ modules:
   - name: glm
     buildsystem: cmake-ninja
     config-opts:
-      - "-DBUILD_STATIC_LIBS=ON"
-      - "-DGLM_TEST_ENABLE_CXX_11=ON"
-      - "-DGLM_TEST_ENABLE=OFF"
+      - -DBUILD_STATIC_LIBS=ON
+      - -DGLM_TEST_ENABLE_CXX_11=ON
+      - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: "https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz"
+        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
         sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
       - type: shell
         commands:
-          - echo 'install(FILES ${ROOT_HEADER} ${ROOT_INLINE} DESTINATION
-            include/glm)' >> glm/CMakeLists.txt
-          - echo 'install(FILES ${CORE_HEADER} ${CORE_INLINE} DESTINATION
-            include/glm/detail)' >> glm/CMakeLists.txt
-          - echo 'install(FILES ${EXT_HEADER} ${EXT_INLINE} DESTINATION
-            include/glm/ext)' >> glm/CMakeLists.txt
-          - echo 'install(FILES ${GTC_HEADER} ${GTC_INLINE} DESTINATION
-            include/glm/gtc)' >> glm/CMakeLists.txt
-          - echo 'install(FILES ${GTX_HEADER} ${GTX_INLINE} DESTINATION
-            include/glm/gtx)' >> glm/CMakeLists.txt
-          - echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION
-            include/glm/simd)' >> glm/CMakeLists.txt
+          - echo 'install(FILES ${ROOT_HEADER} ${ROOT_INLINE} DESTINATION include/glm)'
+            >> glm/CMakeLists.txt
+          - echo 'install(FILES ${CORE_HEADER} ${CORE_INLINE} DESTINATION include/glm/detail)'
+            >> glm/CMakeLists.txt
+          - echo 'install(FILES ${EXT_HEADER} ${EXT_INLINE} DESTINATION include/glm/ext)'
+            >> glm/CMakeLists.txt
+          - echo 'install(FILES ${GTC_HEADER} ${GTC_INLINE} DESTINATION include/glm/gtc)'
+            >> glm/CMakeLists.txt
+          - echo 'install(FILES ${GTX_HEADER} ${GTX_INLINE} DESTINATION include/glm/gtx)'
+            >> glm/CMakeLists.txt
+          - echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION include/glm/simd)'
+            >> glm/CMakeLists.txt
           - echo 'install(TARGETS glm_static)' >> glm/CMakeLists.txt
   - name: hwdata
     config-opts:
-      - "--datarootdir=${FLATPAK_DEST}/lib/"
+      - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: "https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.381.tar.gz"
-        sha256: 53435c73964ddc24ac53fa86e29e8b9244ca1cab0578ffdd82fd280f35863004
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.385.tar.gz
+        sha256: 577219d44d9686e8177f6291adbff7bacdd785ad4e8a8d0c4b2a14dbf850d6ac
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -176,36 +176,36 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: "https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz"
+        url: https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz
         sha256: 0d8ef5af7f9794e3263480193c491549b2ba6cc74bb018906202ada498a79406
   - name: jsoncpp
     buildsystem: cmake-ninja
     config-opts:
-      - "-DJSONCPP_WITH_TESTS=OFF"
-      - "-DBUILD_STATIC_LIBS=OFF"
-      - "-DBUILD_OBJECT_LIBS=OFF"
+      - -DJSONCPP_WITH_TESTS=OFF
+      - -DBUILD_STATIC_LIBS=OFF
+      - -DBUILD_OBJECT_LIBS=OFF
     sources:
       - type: archive
-        url: "https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz"
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz
         sha256: e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999
   - name: libass
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/libass/libass/archive/refs/tags/0.17.1.tar.gz"
+        url: https://github.com/libass/libass/archive/refs/tags/0.17.1.tar.gz
         sha512: 8bc83347c87c47577cd52230b3698c34301250e9a23f190a565c913defcd47a05695a4f7d9cd2e9a6ad0cfc6341e8ea2d6d779b1d714b2d6144466d2dea53951
   - name: libbluray
     config-opts:
-      - "--disable-bdjava-jar"
+      - --disable-bdjava-jar
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
-      - "*.pc"
+      - '*.a'
+      - '*.la'
+      - '*.pc'
       - /lib/*.so
     sources:
       - type: archive
@@ -213,19 +213,19 @@ modules:
         sha512: 94dbf3b68d1c23fe4648c153cc2f0c251886fac0a6b6bbe3a77caabaa5322682f712afe4a7b6b16ca3f06744fbc0e1ca872209a32898dcf0ae182055d335aec1
   - name: libcdio
     config-opts:
-      - "--enable-cxx"
-      - "--without-cd-drive"
-      - "--without-cd-info"
-      - "--without-cdda-player"
-      - "--without-cd-read"
-      - "--without-iso-info"
-      - "--without-iso-read"
-      - "--disable-example-progs"
+      - --enable-cxx
+      - --without-cd-drive
+      - --without-cd-info
+      - --without-cdda-player
+      - --without-cd-read
+      - --without-iso-info
+      - --without-iso-read
+      - --disable-example-progs
     cleanup:
       - /include
       - /share/info
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -238,14 +238,14 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz"
+        url: https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz
         sha256: 090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377
     modules:
       - name: p8-platform
         buildsystem: cmake-ninja
         cleanup:
           - /include
-          - "*.a"
+          - '*.a'
         sources:
           - type: archive
             url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
@@ -254,8 +254,8 @@ modules:
     buildsystem: meson
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.1.1/libdisplay-info-0.1.1.tar.gz
-        sha512: 8b11c35315f3f16f6853b2ba5daa39c622f2326cfa01d54574beb577efd38d25b8260f7d74c63924473a0487bffdbff727ddc05b12d36e2106b78aadc7d4ff42
+        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.2.0/libdisplay-info-0.2.0.tar.gz
+        sha512: ada2f7ff94a5b566475f1acf18356b4bec220673072ad5fb34f8da87156b2180ee9a4fafc9c148d847e8c707c25336dbd832d8c89e505cf97ad2c7cec1459f0b
         x-checker-data:
           type: anitya
           project-id: 326668
@@ -263,28 +263,28 @@ modules:
   - name: libinput
     buildsystem: meson
     config-opts:
-      - "-Dlibwacom=false"
-      - "-Ddebug-gui=false"
-      - "-Dtests=false"
-      - "-Ddocumentation=false"
+      - -Dlibwacom=false
+      - -Ddebug-gui=false
+      - -Dtests=false
+      - -Ddocumentation=false
     sources:
       - type: archive
-        url: "https://www.freedesktop.org/software/libinput/libinput-1.19.2.tar.xz"
+        url: https://www.freedesktop.org/software/libinput/libinput-1.19.2.tar.xz
         sha256: 0fc39f0af3ee1a77c60c34bc45391a4d0879169f7c0f7bbbeb5eef590b98b883
     modules:
       - name: mtdev
         sources:
           - type: archive
-            url: "http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.gz"
+            url: http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.gz
             sha256: 1325f389a2f25cd5f5a8ea4d29aad24aa7c3ec30401d679400dd79eb9c0a8dbb
           - type: shell
             commands:
-              - "cp -p /usr/share/automake-*/config.{sub,guess} config-aux"
+              - cp -p /usr/share/automake-*/config.{sub,guess} config-aux
       - name: libevdev
         buildsystem: meson
         config-opts:
-          - "-Dtests=disabled"
-          - "-Ddocumentation=disabled"
+          - -Dtests=disabled
+          - -Ddocumentation=disabled
         sources:
           - type: archive
             url: https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
@@ -292,48 +292,48 @@ modules:
   - name: libmicrohttpd
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz"
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz
         sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
   - name: libnfs
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_BUILD_TYPE=Release"
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /include
       - /bin
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz"
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz
         sha512: 6dcf4ea8a01b35beb53694625d20fbebd858a88725c2742671878ad6fe7877999f93d262fb58a435b00c283c3e6fb6fa7222d04bb4540bf674b7ce196e9424f5
   - name: libplist
     cleanup:
       - /include
       - /bin
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
       - /share/runtime/locale
     config-opts: []
     sources:
       - type: archive
-        url: "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
+        url: https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz
         sha512: 16038a6cca3a25874e6f21b37c9088ffc8021a65e3d09046e01d5a00180e732f7e4043a0e63a60ec7ee7460bc6615daa64fa5db2ae9cea08566d8c1b02698834
   - name: libudfread
     cleanup:
       - /include
       - /share/doc
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
-        url: "http://mirrors.kodi.tv/build-deps/sources/libudfread-1.1.2.tar.gz"
+        url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.1.2.tar.gz
         sha512: 3069feb5db40288beb5b112b285186162a704f0fdd3cf67a17fd4eeea015f2cfcfbb455b7aa7c3d79d00fd095a3fd11cffc7b121dce94d99c3b06a509a8977d2
       - type: script
         dest-filename: autogen.sh
@@ -341,24 +341,24 @@ modules:
           - autoreconf -vfi
   - name: lzo
     config-opts:
-      - "--enable-shared"
-      - "--disable-static"
+      - --enable-shared
+      - --disable-static
     cleanup:
       - /include
       - /share/doc
-      - "*.la"
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
-        url: "http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz"
+        url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
         sha512: a3dae5e4a6b93b1f5bf7435e8ab114a9be57252e9efc5dd444947d7a2d031b0819f34bcaeb35f60b5629a01b1238d738735a64db8f672be9690d3c80094511a4
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
-      - "-DWITH_UNIT_TESTS=OFF"
+      - -DWITH_UNIT_TESTS=OFF
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
         url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
@@ -393,7 +393,7 @@ modules:
   - name: lirc
     no-autogen: true
     config-opts:
-      - "--with-systemdsystemunitdir=/app/lib/systemd"
+      - --with-systemdsystemunitdir=/app/lib/systemd
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/project/lirc/LIRC/0.10.2/lirc-0.10.2.tar.bz2
@@ -406,15 +406,15 @@ modules:
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
-      - "-DRAPIDJSON_BUILD_DOC=OFF"
-      - "-DRAPIDJSON_BUILD_EXAMPLES=OFF"
-      - "-DRAPIDJSON_BUILD_TESTS=OFF"
+      - -DRAPIDJSON_BUILD_DOC=OFF
+      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
+      - -DRAPIDJSON_BUILD_TESTS=OFF
     cleanup:
       - /include
       - /share/doc
     sources:
       - type: archive
-        url: "https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz"
+        url: https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz
         sha512: 2e82a4bddcd6c4669541f5945c2d240fb1b4fdd6e239200246d3dd50ce98733f0a4f6d3daa56f865d8c88779c036099c52a9ae85d47ad263686b68a88d832dff
   - name: samba
     buildsystem: simple
@@ -433,19 +433,19 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz"
+        url: https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz
         sha256: a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00
     modules:
       - name: perl
         no-autogen: true
         config-opts:
-          - "-des"
+          - -des
         post-install:
-          - find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/
-            -name \*.so -exec chmod u+w {} +
+          - find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/ -name
+            \*.so -exec chmod u+w {} +
         sources:
           - type: archive
-            url: "https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz"
+            url: https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz
             sha256: 82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded
           - type: script
             dest-filename: configure
@@ -470,74 +470,74 @@ modules:
     cleanup:
       - /include
       - /bin
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
       - /share/runtime/locale
     build-options:
       env:
-        C_INCLUDE_PATH: "/app/include/avahi-compat-libdns_sd:/app/include"
+        C_INCLUDE_PATH: /app/include/avahi-compat-libdns_sd:/app/include
     sources:
       - type: git
-        url: "https://github.com/juhovh/shairplay/"
+        url: https://github.com/juhovh/shairplay/
         commit: 096b61ad14c90169f438e690d096e3fcf87e504e
     modules:
       - name: avahi
         cleanup:
           - /include
           - /bin
-          - "*.a"
-          - "*.la"
+          - '*.a'
+          - '*.la'
           - /lib/*.so
           - /share/runtime/locale
         config-opts:
-          - "--with-distro=none"
-          - "--disable-libdaemon"
-          - "--disable-core-docs"
-          - "--disable-manpages"
-          - "--disable-mono"
-          - "--disable-libevent"
-          - "--disable-qt4"
-          - "--disable-qt5"
-          - "--disable-python"
-          - "--disable-gtk"
-          - "--disable-gtk3"
-          - "--enable-compat-libdns_sd"
+          - --with-distro=none
+          - --disable-libdaemon
+          - --disable-core-docs
+          - --disable-manpages
+          - --disable-mono
+          - --disable-libevent
+          - --disable-qt4
+          - --disable-qt5
+          - --disable-python
+          - --disable-gtk
+          - --disable-gtk3
+          - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: "https://github.com/lathiat/avahi/archive/v0.8.tar.gz"
+            url: https://github.com/lathiat/avahi/archive/v0.8.tar.gz
             sha256: c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
-      - "-DSPDLOG_BUILD_EXAMPLE=OFF"
-      - "-DSPDLOG_BUILD_TESTS=OFF"
-      - "-DSPDLOG_BUILD_BENCH=OFF"
-      - "-DSPDLOG_INSTALL=ON"
-      - "-DSPDLOG_FMT_EXTERNAL=ON"
+      - -DSPDLOG_BUILD_EXAMPLE=OFF
+      - -DSPDLOG_BUILD_TESTS=OFF
+      - -DSPDLOG_BUILD_BENCH=OFF
+      - -DSPDLOG_INSTALL=ON
+      - -DSPDLOG_FMT_EXTERNAL=ON
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
-        url: "https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz"
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz
         sha512: d8f36a3d65a43d8c64900e46137827aadb05559948b2f5a389bea16ed1bfac07d113ee11cf47970913298d6c37400355fe6895cda8fa6dcf6abd9da0d8f199e9
   - name: swig
     config-opts:
-      - "--without-pcre"
-      - "--without-alllang"
+      - --without-pcre
+      - --without-alllang
     cleanup:
       - /share/swig
     sources:
       - type: archive
-        url: "http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz"
+        url: http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz
         sha256: d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc
     modules:
       - name: groovy
         buildsystem: simple
         build-commands:
-          - "mkdir -p ${FLATPAK_DEST}/groovy"
-          - "cp -r groovy/* ${FLATPAK_DEST}/groovy"
+          - mkdir -p ${FLATPAK_DEST}/groovy
+          - cp -r groovy/* ${FLATPAK_DEST}/groovy
         sources:
           - type: archive
             url: http://mirrors.kodi.tv/build-deps/sources/apache-groovy-binary-4.0.16.zip
@@ -548,8 +548,8 @@ modules:
       - name: commons-lang3
         buildsystem: simple
         build-commands:
-          - "mkdir -p ${FLATPAK_DEST}/commons-lang3"
-          - "cp -r commons-lang3/* ${FLATPAK_DEST}/commons-lang3"
+          - mkdir -p ${FLATPAK_DEST}/commons-lang3
+          - cp -r commons-lang3/* ${FLATPAK_DEST}/commons-lang3
         cleanup:
           - /commons-lang3
         sources:
@@ -560,8 +560,8 @@ modules:
       - name: commons-text
         buildsystem: simple
         build-commands:
-          - "mkdir -p ${FLATPAK_DEST}/commons-text"
-          - "cp -r commons-text/* ${FLATPAK_DEST}/commons-text"
+          - mkdir -p ${FLATPAK_DEST}/commons-text
+          - cp -r commons-text/* ${FLATPAK_DEST}/commons-text
         cleanup:
           - /commons-text
         sources:
@@ -572,24 +572,24 @@ modules:
   - name: taglib
     buildsystem: cmake-ninja
     config-opts:
-      - "-DBUILD_SHARED_LIBS=ON"
+      - -DBUILD_SHARED_LIBS=ON
     cleanup:
       - /include
       - /lib/*.so
     sources:
       - type: archive
-        url: "https://taglib.org/releases/taglib-1.13.tar.gz"
+        url: https://taglib.org/releases/taglib-1.13.tar.gz
         sha512: b6e3253d158b41173073c0da1915f5e4a3de947db918660817cb1c755fba7e3723ea1a335fbbc30b0dcf942348a471b493fe2ce1d52d1a808578edee14e1bfc7
   - name: tinyxml
     cleanup:
       - /include
       - /share/doc
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
-        url: "http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz"
+        url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
         sha512: 01b5c564c29f151b076ff47211404e3b203d9d12071054c11c0eca84f2bba7c3fe90936d6580f6045ea9c204435f8b19e77e56ad5fae05241d311222b898eacf
       - type: script
         dest-filename: autogen.sh
@@ -598,17 +598,17 @@ modules:
   - name: tinyxml2
     buildsystem: cmake-ninja
     build-options:
-      cflags: "-fPIC"
-      cxxflags: "-fPIC"
+      cflags: -fPIC
+      cxxflags: -fPIC
     sources:
       - type: archive
-        url: "https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"
+        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
         sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
   - name: waylandpp
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: "https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz"
+        url: https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz
         sha512: 64b59d073a0593ecf442362eb63ec0a9dfeaa1ad1d56b5955cb0c159fd01dc45e012b926811c6ca0dc12d4bb2e640eabc2e778ab7d28de2098eb694d26f01039
       - type: patch
         path: waylandpp-gcc13.patch
@@ -616,17 +616,17 @@ modules:
       - name: pugixml
         buildsystem: cmake-ninja
         config-opts:
-          - "-DBUILD_SHARED_LIBS=ON"
+          - -DBUILD_SHARED_LIBS=ON
         sources:
           - type: archive
-            url: "https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz"
+            url: https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz
             sha256: 017139251c122dbff400a507cddc4cb74120a431a50c6c524f30edcc5b331ade
       - name: pcre
         config-opts:
-          - "--enable-unicode-properties"
+          - --enable-unicode-properties
         sources:
           - type: archive
-            url: "http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2"
+            url: http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2
             sha512: 91bff52eed4a2dfc3f3bfdc9c672b88e7e2ffcf3c4b121540af8a4ae8c1ce05178430aa6b8000658b9bb7b4252239357250890e20ceb84b79cdfcde05154061a
   - name: kodi
     buildsystem: cmake-ninja
