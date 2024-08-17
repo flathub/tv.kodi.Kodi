@@ -671,8 +671,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 21.0-Omega
-        commit: 60c450005472e6d38929bb28c07d00589102818d
+        tag: 21.1-Omega
+        commit: 183eb85f108c3d8b44a578de80f575f27afe9b9a
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$

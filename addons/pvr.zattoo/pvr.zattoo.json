@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.zattoo",
-            "commit": "5402f47b070861569a06d00301b68a61aaa938e2"
+            "commit": "6a0e3f48c82f742a6f9fdc878540a340a41e3ba7"
         }
     ],
     "build-options": {

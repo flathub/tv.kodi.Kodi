@@ -11,7 +11,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "4ae6a4db762a09dd3c1dfe46030acca6162aef05"
+            "commit": "f2cadb0ff6212a70ae38ee864c7e997ec152ed52"
         },
         {
             "type": "file",
