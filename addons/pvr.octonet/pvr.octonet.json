@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/DigitalDevices/pvr.octonet",
-            "commit": "945b74cf56ea5d9e4168f8da10f1b40fbd69f922"
+            "commit": "724dcda04895aaf8918dc5488d3d7e23024f324a"
         }
     ],
     "build-options": {
