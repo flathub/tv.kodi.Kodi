@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.stalker",
-            "commit": "ec0a75f4d09c85e5ef66a359de09bd3116df9557"
+            "commit": "068ca7452c136f6b7d40fb9a67e956e04108d193"
         }
     ],
     "build-options": {

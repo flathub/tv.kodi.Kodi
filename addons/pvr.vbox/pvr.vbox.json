@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vbox",
-            "commit": "3cd7c19d9b8557a977a0ebfbec1fe82227f6340a"
+            "commit": "6e8b63f96361bfbe20d4403998e93b374d621a39"
         }
     ],
     "build-options": {
