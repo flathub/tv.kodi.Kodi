@@ -605,6 +605,33 @@ modules:
       - type: archive
         url: "https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"
         sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
+  - name: exiv2
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+      - "-DBUILD_SHARED_LIBS=OFF"
+      - "-DEXIV2_ENABLE_WEBREADY=OFF"
+      - "-DEXIV2_ENABLE_XMP=OFF"
+      - "-DEXIV2_ENABLE_CURL=OFF"
+      - "-DEXIV2_ENABLE_NLS=OFF"
+      - "-DEXIV2_BUILD_SAMPLES=OFF"
+      - "-DEXIV2_BUILD_UNIT_TESTS=OFF"
+      - "-DEXIV2_ENABLE_VIDEO=OFF"
+      - "-DEXIV2_ENABLE_BMFF=OFF"
+      - "-DEXIV2_ENABLE_BROTLI=OFF"
+      - "-DEXIV2_ENABLE_INIH=OFF"
+      - "-DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF"
+      - "-DEXIV2_BUILD_EXIV2_COMMAND=OFF"
+    sources:
+      - type: archive
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.3.tar.gz
+        sha256: 1315e17d454bf4da3cc0edb857b1d2c143670f3485b537d0f946d9ed31d87b70
+        x-checker-data:
+          type: anitya
+          project-id: 769
+          stable-only: true
+          url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
   - name: waylandpp
     buildsystem: cmake-ninja
     sources:
@@ -665,7 +692,6 @@ modules:
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
-      - -DEXIV2_URL=build/download/exiv2.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
@@ -695,11 +721,6 @@ modules:
         sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
         dest: build/download/
         dest-filename: crossguid.tar.gz
-      - type: file
-        url: https://mirrors.kodi.tv/build-deps/sources/exiv2-0.28.3.tar.gz
-        sha512: c8338a118feefa104d73932890c732247c884ab9ce1d170c43a22ab5884517a0e2a7fd1febde7705b8290fbbbc29e64738610404816e4db2b56a70fc444ca049
-        dest: build/download/
-        dest-filename: exiv2.tar.gz
       - type: file
         url: https://github.com/xbmc/libdvdcss/archive/1.4.3-Next-Nexus-Alpha2-2.tar.gz
         sha512: d3be3bfc13c5ea56d8db745c2aab090c99760684fe4c8f62a13d266feb319e9180ceeecf8116bfd2ed90d9accba2c11dbbf93b61ad00f69a40812ebf4eabcdda
