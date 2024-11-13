@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.biogenesis",
-            "commit": "ffe939121b994b80955e35f93efbc67d8961ce47"
+            "commit": "1b208c82bdd112f68e741f444dc8883ec9437a37"
         }
     ],
     "build-options": {
