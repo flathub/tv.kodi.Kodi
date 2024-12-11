@@ -111,7 +111,9 @@ modules:
         url: "https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz"
         sha512: 27df90c681ec37e55625062a79e3b83589b6d7e94eff37a3b412bb8c1473f757a8adb727603acc9185c3490628269216843b7d7bd5a3cb37f0029da5d1495ffa
   - name: fstrcmp
-    buildsystem: cmake-ninja
+    buildsystem: autotools
+    make-args:
+      - all-bin
     cleanup:
       - /include
       - "*.a"
@@ -120,7 +122,7 @@ modules:
         url: "http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz"
         sha512: aaeb0227afd5ada5955cbe6a565254ff88d2028d677d199c00e03b7cb5de1f2c69b18e6e8b032e452350a8eda7081807b01765adbeb8476eaf803d9de6e5509c
       - type: patch
-        path: fstrcmp.patch
+        path: patches/fstrcmp-make_install.patch
   - name: glu
     config-opts:
       - "--disable-static"

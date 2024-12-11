@@ -1,0 +1,11 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -657,7 +657,7 @@
+ distclean-directories:
+ 	rm -rf bin fstrcmp/.libs lib/.libs lib/ac/.libs test_user/.libs
+ 
+-install: install-bin install-doc install-include install-libdir install-man
++install: install-include install-libdir
+ 
+ install-bin: $(bindir)/fstrcmp$(EXEEXT)
+ 
