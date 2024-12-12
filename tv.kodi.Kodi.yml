@@ -404,7 +404,7 @@ modules:
         commands:
           - sed -i s/Ubuntu/ignoreme/g configure.ac
       - type: patch
-        path: lirc-dont-build-docs.patch
+        path: patches/lirc-dont-build-docs.patch
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
@@ -613,7 +613,7 @@ modules:
         url: "https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz"
         sha512: 64b59d073a0593ecf442362eb63ec0a9dfeaa1ad1d56b5955cb0c159fd01dc45e012b926811c6ca0dc12d4bb2e640eabc2e778ab7d28de2098eb694d26f01039
       - type: patch
-        path: waylandpp-gcc13.patch
+        path: patches/waylandpp-gcc13.patch
     modules:
       - name: pugixml
         buildsystem: cmake-ninja
@@ -681,7 +681,7 @@ modules:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
       - type: patch
-        path: kodi.sh.in.patch
+        path: patches/kodi.sh.in.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
