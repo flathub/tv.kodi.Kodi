@@ -77,8 +77,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
-        sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+        url: https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz
+        sha256: 40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6
         x-checker-data:
           type: html
           url: https://ffmpeg.org/releases/
@@ -166,8 +166,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.390.tar.gz
-        sha256: f10684093d2a7780de8a96d3dd8a2dd544ed6136dd359197750c42bb08ce526f
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.391.tar.gz
+        sha256: 620fe1c22922a3d1bd1062424e9cc6b954acea2f83b72ff0cb45144981cb1975
         x-checker-data:
           type: anitya
           project-id: 13577
