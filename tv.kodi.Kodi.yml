@@ -166,8 +166,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.390.tar.gz
-        sha256: f10684093d2a7780de8a96d3dd8a2dd544ed6136dd359197750c42bb08ce526f
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.391.tar.gz
+        sha256: 620fe1c22922a3d1bd1062424e9cc6b954acea2f83b72ff0cb45144981cb1975
         x-checker-data:
           type: anitya
           project-id: 13577
