@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.gsf",
-            "commit": "5580bf2289beb6f82b3b4abe20574cd36e784d4a"
+            "commit": "8ceb9cf8bb27c793e194b8d59cfa8511a2f77b52"
         }
     ],
     "build-options": {

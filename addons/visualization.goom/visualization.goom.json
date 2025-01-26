@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.goom",
-            "commit": "bb5414c6f6a529b4917aad1cd3a28182a52e609a"
+            "commit": "a6f2a0876f99c6786505c4e17f8a434d5aa9df6d"
         }
     ],
     "build-options": {
