@@ -11,7 +11,7 @@
     "build-options": {
         "no-debuginfo": true,
         "cflags": "-g0",
-        "cxxflags": "-g0"
+        "cxxflags": "-g0 -Wp,-U_GLIBCXX_ASSERTIONS"
     },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release"
