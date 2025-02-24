@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.filmon",
-            "commit": "2ed6a576b74d9600a586743cbe90e0bf8049ea20"
+            "commit": "8ad6a7e283a6afcc7187eac62412b0d942d14726"
         }
     ],
     "build-options": {
