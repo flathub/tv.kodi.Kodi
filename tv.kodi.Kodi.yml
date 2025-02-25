@@ -141,8 +141,7 @@ modules:
           project-id: 7320
           url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
   - name: glu
-    config-opts:
-      - --disable-static
+    buildsystem: meson
     sources:
       - type: archive
         url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.3.tar.xz
@@ -217,8 +216,8 @@ modules:
       - -DBUILD_OBJECT_LIBS=OFF
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.6.tar.gz
-        sha256: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
+        sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
         x-checker-data:
           type: anitya
           project-id: 7483
