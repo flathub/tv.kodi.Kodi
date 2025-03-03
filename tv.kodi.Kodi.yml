@@ -102,7 +102,7 @@ modules:
         sha512: 4066c94f2473c7ea16917d29a613e16f840a329089c88e0bdbdb999aef3442ba00abfd2aa92266fa9c067e399dc88e6f0ccac40dc151378857e665638e78bbf0
         x-checker-data:
           type: anitya
-          project-id: 376938
+          project-id: 16642
           url-template: https://github.com/google/flatbuffers/archive/refs/tags/v$version.tar.gz
       - type: shell
         commands:
@@ -141,12 +141,11 @@ modules:
           project-id: 7320
           url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
   - name: glu
-    config-opts:
-      - --disable-static
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.2.tar.xz
-        sha256: 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
+        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.3.tar.xz
+        sha256: bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f
         x-checker-data:
           type: anitya
           project-id: 13518
@@ -210,19 +209,21 @@ modules:
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: jsoncpp
-    buildsystem: cmake-ninja
+    buildsystem: meson
     config-opts:
-      - -DJSONCPP_WITH_TESTS=OFF
-      - -DBUILD_STATIC_LIBS=OFF
-      - -DBUILD_OBJECT_LIBS=OFF
+      - -Dbuildtype=release
+      - -Dtests=false
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz
-        sha256: e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
+        sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
         x-checker-data:
           type: anitya
           project-id: 7483
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
+    cleanup:
+      - '/lib/*.a'
+      - '/include'
   - name: libass
     cleanup:
       - /include
@@ -231,8 +232,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libass/libass/archive/refs/tags/0.17.1.tar.gz
-        sha512: 8bc83347c87c47577cd52230b3698c34301250e9a23f190a565c913defcd47a05695a4f7d9cd2e9a6ad0cfc6341e8ea2d6d779b1d714b2d6144466d2dea53951
+        url: https://github.com/libass/libass/archive/refs/tags/0.17.3.tar.gz
+        sha512: f58bcb51c993d1725f30e026281fcc9139b6a2207159eac8510a983ba7f85e85b3bb78e24a0d074615f6ec12dbe4b18b1c07f2ba68cd9626470a31a99ff2c714
         x-checker-data:
           type: anitya
           project-id: 1560
