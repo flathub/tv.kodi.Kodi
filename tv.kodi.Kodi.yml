@@ -61,8 +61,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.4.1/dav1d-1.4.1.tar.bz2
-        sha512: b2dcdeeb3d6c37788b4c697b497b9282738b758927ffbdbe72b05b1b26a61aa967dfba0ce05828b5bd5bcac93eb3394b0eafbb57e325d037867cf720d64ba099
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.1/dav1d-1.5.1.tar.bz2
+        sha512: 43319d75c173003337bb3e0b4ffe1b0b544bfe882dd51097d7634168ee94c0d316a1c04e4f101057ff4629117dde8f22362df1a49d6a058ba510c3e648a437a3
         x-checker-data:
           type: anitya
           project-id: 18920
@@ -81,8 +81,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
-        sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+        url: https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz
+        sha256: 733984395e0dbbe5c046abda2dc49a5544e7e0e1e2366bba849222ae9e3a03b1
         x-checker-data:
           type: html
           url: https://ffmpeg.org/releases/
@@ -98,8 +98,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v23.3.3.tar.gz
-        sha512: 4066c94f2473c7ea16917d29a613e16f840a329089c88e0bdbdb999aef3442ba00abfd2aa92266fa9c067e399dc88e6f0ccac40dc151378857e665638e78bbf0
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz
+        sha512: 7e6ae36b37c9fd322456312504156c8241852e07a2a23de6805eb2328b61b9f42b839d04b839f9d97623195721308437a1163a25071ca2af0d00a6417da74822
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -116,8 +116,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz
-        sha512: 27df90c681ec37e55625062a79e3b83589b6d7e94eff37a3b412bb8c1473f757a8adb727603acc9185c3490628269216843b7d7bd5a3cb37f0029da5d1495ffa
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/11.1.4.tar.gz
+        sha512: 573b7de1bd224b7b1b60d44808a843db35d4bc4634f72a9edcb52cf68e99ca66c744fd5d5c97b4336ba70b94abdabac5fc253b245d0d5cd8bbe2a096bf941e39
         x-checker-data:
           type: anitya
           project-id: 11526
@@ -163,8 +163,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.1.tar.gz
+        sha256: 9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -189,8 +189,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.392.tar.gz
-        sha256: 1f472d8f2ec824d4efe6a75480767c4ce240fa5d91b6428d9f8775035da3ba1f
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.393.tar.gz
+        sha256: 322add86944680e99d04468d49de180a7ce0c77fb406f7abde8ab14f2d161051
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -215,15 +215,15 @@ modules:
       - -Dtests=false
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.5.tar.gz
-        sha256: f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.6.tar.gz
+        sha256: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
         x-checker-data:
           type: anitya
           project-id: 7483
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
     cleanup:
-      - '/lib/*.a'
-      - '/include'
+      - /lib/*.a
+      - /include
   - name: libass
     cleanup:
       - /include
@@ -286,8 +286,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz
-        sha256: 090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377
+        url: https://github.com/Pulse-Eight/libcec/archive/libcec-7.0.0.tar.gz
+        sha256: 7f9e57ae9fad37649adb6749b8f1310a71ccf3e92ae8b2d1cc9e8ae2d1da83f8
         x-checker-data:
           type: anitya
           project-id: 21468
@@ -335,8 +335,8 @@ modules:
       - name: mtdev
         sources:
           - type: archive
-            url: http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.gz
-            sha256: 1325f389a2f25cd5f5a8ea4d29aad24aa7c3ec30401d679400dd79eb9c0a8dbb
+            url: http://bitmath.org/code/mtdev/mtdev-1.1.7.tar.gz
+            sha256: a55bd02a9af4dd266c0042ec608744fff3a017577614c057da09f1f4566ea32c
             x-checker-data:
               type: anitya
               project-id: 8868
@@ -351,8 +351,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
-            sha256: 63f4ea1489858a109080e0b40bd43e4e0903a1e12ea888d581db8c495747c2d0
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz
+            sha256: abf1aace86208eebdd5d3550ffded4c8d73bb405b796d51c389c9d0604cbcfbf
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -365,8 +365,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz
-        sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.1.tar.gz
+        sha512: c99b8b93cae5feee8debcc5667ee3ff043412a84b30696fe852e6c138f3c890bb43c8fcd7199f1d2f809d522fef159e83b607c743d6cf3401a57050fbdf9b5c1
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -381,8 +381,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz
-        sha512: 6dcf4ea8a01b35beb53694625d20fbebd858a88725c2742671878ad6fe7877999f93d262fb58a435b00c283c3e6fb6fa7222d04bb4540bf674b7ce196e9424f5
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
+        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -398,8 +398,8 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz
-        sha512: 16038a6cca3a25874e6f21b37c9088ffc8021a65e3d09046e01d5a00180e732f7e4043a0e63a60ec7ee7460bc6615daa64fa5db2ae9cea08566d8c1b02698834
+        url: https://github.com/libimobiledevice/libplist/archive/2.6.0.tar.gz
+        sha512: 8089d1714de0863ddd4e2551e32eeec28a34ef3160c82cf39ca80e97251e3805fdd8d9330978691ca8cfd8ee723ff3b3e5b25f9a9ac2e857de67f5e704137d56
         x-checker-data:
           type: anitya
           project-id: 11675
@@ -449,8 +449,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
-        sha512: c423182156c2b3ba30198898176395f01f8b94c1b2e9537823db50ef0093bd303594575b0b06a9ae2d68918e9ae5d6ce050e8de3704d216ea8db99ec5029d824
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.4.tar.gz
+        sha512: 78dd94a86428dec2e8d38e1c3b29c7eef19c51f3ffd3caa69d15f5cd776b5044d40d1630043b508f0aaaad00485e63ec330f6e680c7fb142ce40726304f52dba
         x-checker-data:
           type: anitya
           project-id: 16939
@@ -629,8 +629,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz
-        sha512: d8f36a3d65a43d8c64900e46137827aadb05559948b2f5a389bea16ed1bfac07d113ee11cf47970913298d6c37400355fe6895cda8fa6dcf6abd9da0d8f199e9
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.tar.gz
+        sha512: d6575b5cd53638345078a1c6a886293892359a07ee6de45e23d0c805bb33f59350f33060bce38824e09ce84525b575acdae7b94fc6e82191f5fd576f6c9252b2
         x-checker-data:
           type: anitya
           project-id: 15599
@@ -643,8 +643,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz
-        sha256: d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc
+        url: http://prdownloads.sourceforge.net/swig/swig-4.3.0.tar.gz
+        sha256: f7203ef796f61af986c70c05816236cbd0d31b7aa9631e5ab53020ab7804aa9e
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -695,8 +695,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-1.13.tar.gz
-        sha512: b6e3253d158b41173073c0da1915f5e4a3de947db918660817cb1c755fba7e3723ea1a335fbbc30b0dcf942348a471b493fe2ce1d52d1a808578edee14e1bfc7
+        url: https://taglib.org/releases/taglib-2.0.2.tar.gz
+        sha512: 79f333dbe8ed44076010e33803e3418410516df4b70203962bbefea81ce0a6989a54a9791022488e64f1876573580cbe93920da4b2a7277d6a3f48c946e518fc
         x-checker-data:
           type: anitya
           project-id: 1982
@@ -723,8 +723,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
-        sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
+        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/10.0.0.tar.gz
+        sha512: a359d33bc12fad455b53d81011dbe12727cae0aabfaa5704f1a25807ca216dd854a571291029886c0beedeca5c3b6393dd49c4718773e18a0e008abbdb3de36a
         x-checker-data:
           type: anitya
           project-id: 4976
@@ -748,8 +748,8 @@ modules:
           - -DBUILD_SHARED_LIBS=ON
         sources:
           - type: archive
-            url: https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz
-            sha256: 017139251c122dbff400a507cddc4cb74120a431a50c6c524f30edcc5b331ade
+            url: https://github.com/zeux/pugixml/archive/v1.15.tar.gz
+            sha256: b39647064d9e28297a34278bfb897092bf33b7c487906ddfc094c9e8868bddcb
             x-checker-data:
               type: anitya
               project-id: 3728
