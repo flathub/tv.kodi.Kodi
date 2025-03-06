@@ -398,12 +398,12 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz
-        sha512: 16038a6cca3a25874e6f21b37c9088ffc8021a65e3d09046e01d5a00180e732f7e4043a0e63a60ec7ee7460bc6615daa64fa5db2ae9cea08566d8c1b02698834
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.6.0/libplist-2.6.0.tar.bz2
+        sha512: 67b9ef7c1cf1edd9e0a13462cc21a42dba6bb1ff4465edd56c5d4251e4063e71eb8839ed9952ffb8cdab9cd69ebb4ef46e5f804d3a2b4e44b4e04f6c571398a4
         x-checker-data:
           type: anitya
           project-id: 11675
-          url-template: https://github.com/libimobiledevice/libplist/archive/$version.tar.gz
+          url-template: https://github.com/libimobiledevice/libplist/releases/download/$version/libplist-$version.tar.bz2
   - name: libudfread
     cleanup:
       - /include
