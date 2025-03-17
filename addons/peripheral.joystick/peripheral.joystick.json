@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
-            "commit": "74748d0edb12f5df45deebb9295a0b287f3e284c"
+            "commit": "e7c490b839ada32f80f5a544c9442dd54fd0b9b2"
         }
     ],
     "build-options": {

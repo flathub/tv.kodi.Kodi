@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.2048",
-            "commit": "343a10ea84fc1ae4f01faa915b0b0ccd72c1137b"
+            "commit": "c92b4d99d4f8bfd4a57768fb0ebc5aee5c300c5e"
         }
     ],
     "modules": [

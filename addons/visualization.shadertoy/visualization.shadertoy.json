@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.shadertoy",
-            "commit": "364132b12b6da78e281b6a1d678155d43aace83f"
+            "commit": "bf53e0aede61a9e7bb9389913e5b5051cbe2de46"
         }
     ],
     "build-options": {

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.starburst",
-            "commit": "7923772cd986849531bdfee0a0bc989842b41996"
+            "commit": "d9f6b0177bb133c8b4a4b2713489e5fba84f1061"
         }
     ],
     "build-options": {
