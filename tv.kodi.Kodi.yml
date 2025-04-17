@@ -81,7 +81,7 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: "https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz"
+        url: 'https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz'
         sha256: 3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38
         x-checker-data:
           type: html
@@ -643,8 +643,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.3.0.tar.gz
-        sha256: f7203ef796f61af986c70c05816236cbd0d31b7aa9631e5ab53020ab7804aa9e
+        url: http://prdownloads.sourceforge.net/swig/swig-4.3.1.tar.gz
+        sha256: 44fc829f70f1e17d635a2b4d69acab38896699ecc24aa023e516e0eabbec61b8
         x-checker-data:
           type: anitya
           project-id: 4919
