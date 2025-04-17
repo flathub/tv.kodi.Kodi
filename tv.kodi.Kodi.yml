@@ -81,7 +81,7 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: "https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz"
+        url: 'https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz'
         sha256: 3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38
         x-checker-data:
           type: html
@@ -351,8 +351,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz
-            sha256: abf1aace86208eebdd5d3550ffded4c8d73bb405b796d51c389c9d0604cbcfbf
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
+            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
             x-checker-data:
               type: anitya
               project-id: 20540
