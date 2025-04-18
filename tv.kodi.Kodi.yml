@@ -81,7 +81,7 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: "https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz"
+        url: 'https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz'
         sha256: 3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38
         x-checker-data:
           type: html
@@ -273,12 +273,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: http://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-2.1.0.tar.gz
+        url: https://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-2.1.0.tar.gz
         sha256: 3ab7973d88405a7d4aad05e547c3316ba196caa19826072174c3bc3c58145c61
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: http://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-$version.tar.gz
+          url-template: https://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-$version.tar.gz
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
