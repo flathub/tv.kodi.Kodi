@@ -534,8 +534,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.21.4.tar.gz
-        sha256: 50acf030db0ce6be1ee8a6c3a7636e54576c60a7f814e64becfa840f7b30eced
+        url: https://samba.org/samba/ftp/stable/samba-4.22.1.tar.gz
+        sha256: 6a1f89f1ab25916e255f1c2c3a4a88235a854af2eca40bb9d9bba7545b684a0a
         x-checker-data:
           type: anitya
           project-id: 4758
