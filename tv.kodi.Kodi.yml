@@ -766,6 +766,11 @@ modules:
               type: anitya
               project-id: 2610
               url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
+  - name: libxslt
+    sources:
+      - type: archive
+        url: https://github.com/GNOME/libxslt/archive/v1.1.43.tar.gz
+        sha256: e491bb8f11bd43c5da323c66f696b6e7b59d767c446053a7cbd8e805256bd9cb
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
