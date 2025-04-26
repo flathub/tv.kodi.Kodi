@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
-            "commit": "6d07e474287a8dcace6f7e3b1bed6cae890a9c1d"
+            "commit": "33635bc6ec64dd087802a32b103d3555cad986a1"
         }
     ],
     "modules": [
