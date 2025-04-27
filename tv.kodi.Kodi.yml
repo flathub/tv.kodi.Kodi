@@ -880,7 +880,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: a1a9b1da0f07ff86e6f27af8214c1f9dca6b2397
+        commit: 55bbf35edc22ca602921f07786453627fab97c73
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
