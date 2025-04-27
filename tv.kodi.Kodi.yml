@@ -806,6 +806,35 @@ modules:
       - type: archive
         url: https://github.com/GNOME/libxslt/archive/v1.1.43.tar.gz
         sha256: e491bb8f11bd43c5da323c66f696b6e7b59d767c446053a7cbd8e805256bd9cb
+  - name: exiv2
+    buildsystem: cmake-ninja
+    builddir: true
+    cleanup:
+      - /bin
+      - /share/man
+    config-opts:
+      - -DBUILD_SHARED_LIBS=OFF
+      - -DEXIV2_ENABLE_WEBREADY=OFF
+      - -DEXIV2_ENABLE_XMP=OFF
+      - -DEXIV2_ENABLE_CURL=OFF
+      - -DEXIV2_ENABLE_NLS=OFF
+      - -DEXIV2_BUILD_SAMPLES=OFF
+      - -DEXIV2_BUILD_UNIT_TESTS=OFF
+      - -DEXIV2_ENABLE_VIDEO=OFF
+      - -DEXIV2_ENABLE_BMFF=ON
+      - -DEXIV2_ENABLE_BROTLI=ON
+      - -DEXIV2_ENABLE_INIH=OFF
+      - -DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF
+      - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
+    sources:
+      - type: archive
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
+        sha256: e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d
+        x-checker-data:
+          - type: anitya
+            project-id: 769
+            stable-only: true
+            url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
@@ -821,7 +850,7 @@ modules:
       - -DENABLE_DBUS=ON
       - -DENABLE_DVDCSS=ON
       - -DENABLE_EGL=ON
-      - -DENABLE_EVENTCLIENTS=OFF
+      - -DENABLE_EVENTCLIENTS=ON
       - -DENABLE_MICROHTTPD=ON
       - -DENABLE_MARIADBCLIENT=ON
       - -DENABLE_NFS=ON
