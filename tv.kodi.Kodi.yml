@@ -321,12 +321,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: http://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-2.1.0.tar.gz
+        url: https://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-2.1.0.tar.gz
         sha256: 3ab7973d88405a7d4aad05e547c3316ba196caa19826072174c3bc3c58145c61
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: http://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-$version.tar.gz
+          url-template: https://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-$version.tar.gz
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
