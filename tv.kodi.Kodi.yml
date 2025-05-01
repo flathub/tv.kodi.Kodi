@@ -801,11 +801,6 @@ modules:
               type: anitya
               project-id: 2610
               url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
-  - name: libxslt
-    sources:
-      - type: archive
-        url: https://github.com/GNOME/libxslt/archive/v1.1.43.tar.gz
-        sha256: e491bb8f11bd43c5da323c66f696b6e7b59d767c446053a7cbd8e805256bd9cb
   - name: exiv2
     buildsystem: cmake-ninja
     builddir: true
@@ -862,7 +857,6 @@ modules:
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
-      - -DENABLE_INTERNAL_RapidJSON=OFF
       - -DENABLE_INTERNAL_FLATBUFFERS=OFF
       - -DENABLE_INTERNAL_FMT=OFF
       - -DENABLE_INTERNAL_NFS=OFF
