@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pingpong",
-            "commit": "a0b8b956002ddc64eb6d433e3230fa09619f2aef"
+            "commit": "f8c0acd3197bd8900d88233d379ad706ac3089d3"
         }
     ],
     "build-options": {

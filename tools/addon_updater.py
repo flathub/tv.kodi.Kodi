@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 from github import Github
 
 addon_repo_base = "https://github.com/xbmc/repo-binary-addons"
-addon_repo_branch = "Omega"
+addon_repo_branch = "Piers"
 addon_repo_dir = "binary_addons_repo_tmp"
 addon_repo_remote = "binary_addons_repo"
 
@@ -98,7 +98,7 @@ def set_build_type(a_data):
             a_data["config-opts"].append("-DCMAKE_BUILD_TYPE=Release")
         a_data["build-options"]["no-debuginfo"] = True
         a_data["build-options"]["cflags"] = "-g0"
-        a_data["build-options"]["cxxflags"] = "-g0"
+        a_data["build-options"]["cxxflags"] = "-g0" if a_data["name"] != "pvr.iptvsimple" else "-g0 -Wp,-U_GLIBCXX_ASSERTIONS"
     else:
         if "-DCMAKE_BUILD_TYPE=Release" in a_data["config-opts"]:
             a_data["config-opts"].remove("-DCMAKE_BUILD_TYPE=Release")

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
-            "commit": "ef5fc6c99902d8d8dd906a57e5a6da94ec044a2e"
+            "commit": "6adb3bff0d0ba4fb35a6d38d598a7e7a9dd3e0da"
         }
     ],
     "build-options": {

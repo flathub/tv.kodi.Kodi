@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.qsf",
-            "commit": "08018ac2fc34cc3f71717133a6d45e594e43e7e7"
+            "commit": "c369536bf2112bd3fad0762c729c285ff3d19cd3"
         }
     ],
     "build-options": {
