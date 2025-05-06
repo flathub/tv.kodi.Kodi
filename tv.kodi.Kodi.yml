@@ -321,12 +321,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-release-$version.tar.gz
+        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
         sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-release-$version.tar.gz
+          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
