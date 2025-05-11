@@ -725,18 +725,34 @@ modules:
             url: http://mirrors.kodi.tv/build-deps/sources/commons-text-1.11.0-bin.tar.gz
             sha512: 2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f
             dest: commons-text
-  - name: taglib
+  - name: taglib2
     buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_TESTING=OFF
+      - -DBUILD_BINDINGS=OFF
       - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
       - /lib/*.so
+    modules:
+      - name: utf8cpp
+        buildsystem: cmake-ninja
+        config-opts:
+          - -DCMAKE_INSTALL_LIBDIR=lib
+        sources:
+          - type: archive
+            url: https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.0.6.tar.gz
+            sha512: 53c59f2e04fe5d36faf98a238b94f774834a34982d481a8170ee144f7f8c2d4ba249a732d90654922944c1075c578690c327091883398c533d604bf49f4a6ecf
+            x-checker-data:
+              type: anitya
+              project-id: 3728
+              url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-1.13.tar.gz
-        sha512: b6e3253d158b41173073c0da1915f5e4a3de947db918660817cb1c755fba7e3723ea1a335fbbc30b0dcf942348a471b493fe2ce1d52d1a808578edee14e1bfc7
+        url: https://taglib.org/releases/taglib-2.0.2.tar.gz
+        sha512: 79f333dbe8ed44076010e33803e3418410516df4b70203962bbefea81ce0a6989a54a9791022488e64f1876573580cbe93920da4b2a7277d6a3f48c946e518fc
         x-checker-data:
           type: anitya
           project-id: 1982
