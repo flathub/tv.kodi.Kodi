@@ -94,6 +94,7 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DFLATBUFFERS_BUILD_FLATLIB=OFF
       - -DFLATBUFFERS_BUILD_SHAREDLIB=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
       - /lib/*.so
@@ -112,6 +113,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
       - "*.a"
@@ -660,6 +662,7 @@ modules:
       - -DSPDLOG_BUILD_BENCH=OFF
       - -DSPDLOG_INSTALL=ON
       - -DSPDLOG_FMT_EXTERNAL=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
       - "*.a"
@@ -726,6 +729,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
       - /lib/*.so
@@ -757,6 +761,8 @@ modules:
     build-options:
       cflags: -fPIC
       cxxflags: -fPIC
+    config-opts:
+      - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
         url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
@@ -767,6 +773,8 @@ modules:
           url-template: https://github.com/leethomason/tinyxml2/archive/refs/tags/$version.tar.gz
   - name: waylandpp
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
         url: https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz
@@ -782,6 +790,7 @@ modules:
         buildsystem: cmake-ninja
         config-opts:
           - -DBUILD_SHARED_LIBS=ON
+          - -DCMAKE_INSTALL_LIBDIR=lib
         sources:
           - type: archive
             url: https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz
