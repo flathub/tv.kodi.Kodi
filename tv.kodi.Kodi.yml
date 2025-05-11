@@ -830,6 +830,7 @@ modules:
       - -DEXIV2_ENABLE_INIH=OFF
       - -DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF
       - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
+      - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
         url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
