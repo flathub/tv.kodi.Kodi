@@ -85,9 +85,10 @@ modules:
         url: "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
         sha512: 42486e485c8fc6f3ec61598a1a7cb40360535762b3fcf28c10d7c6840bc55afe3334434912746e69eef862d3cedf45a02953bde73d38547d2d9a7a38a65e123a
         x-checker-data:
-          type: html
-          url: https://ffmpeg.org/releases/
-          pattern: '>(ffmpeg-([\d.]+)\.tar\.xz)<'
+          type: anitya
+          project-id: 5405
+          versions: {"<": "8.0.0"}
+          url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
@@ -760,7 +761,7 @@ modules:
             sha512: 53c59f2e04fe5d36faf98a238b94f774834a34982d481a8170ee144f7f8c2d4ba249a732d90654922944c1075c578690c327091883398c533d604bf49f4a6ecf
             x-checker-data:
               type: anitya
-              project-id: 3728
+              project-id: 20545
               url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
     sources:
       - type: archive
@@ -865,10 +866,10 @@ modules:
         url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
         sha256: e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d
         x-checker-data:
-          - type: anitya
-            project-id: 769
-            stable-only: true
-            url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
+          type: anitya
+          project-id: 769
+          stable-only: true
+          url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
