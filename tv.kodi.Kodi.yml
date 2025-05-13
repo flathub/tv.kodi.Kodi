@@ -378,7 +378,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 5781
-          url-template: https://www.freedesktop.org/software/libinput/libinput-$version.tar.xz
+          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.gz
     modules:
       - name: mtdev
         sources:
