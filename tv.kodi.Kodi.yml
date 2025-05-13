@@ -85,9 +85,10 @@ modules:
         url: "https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz"
         sha512: 42486e485c8fc6f3ec61598a1a7cb40360535762b3fcf28c10d7c6840bc55afe3334434912746e69eef862d3cedf45a02953bde73d38547d2d9a7a38a65e123a
         x-checker-data:
-          type: html
-          url: https://ffmpeg.org/releases/
-          pattern: '>(ffmpeg-([\d.]+)\.tar\.xz)<'
+          type: anitya
+          project-id: 5405
+          versions: {"<": "8.0.0"}
+          url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
