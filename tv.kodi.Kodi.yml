@@ -339,7 +339,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 21468
-          url-template: https://github.com/Pulse-Eight/libcec/archive/libcec-$version.tar.gz
+          url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
     modules:
       - name: p8-platform
         buildsystem: cmake-ninja
