@@ -747,7 +747,7 @@ modules:
             sha512: 53c59f2e04fe5d36faf98a238b94f774834a34982d481a8170ee144f7f8c2d4ba249a732d90654922944c1075c578690c327091883398c533d604bf49f4a6ecf
             x-checker-data:
               type: anitya
-              project-id: 3728
+              project-id: 20545
               url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
     sources:
       - type: archive
