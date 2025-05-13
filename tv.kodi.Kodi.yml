@@ -339,7 +339,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 21468
-          url-template: https://github.com/Pulse-Eight/libcec/archive/libcec-$version.tar.gz
+          url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
     modules:
       - name: p8-platform
         buildsystem: cmake-ninja
@@ -378,7 +378,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 5781
-          url-template: https://www.freedesktop.org/software/libinput/libinput-$version.tar.xz
+          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.gz
     modules:
       - name: mtdev
         sources:
