@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.dvblink",
-            "commit": "cfdbe89d998db00ba3a5b07f1891a9958cf5c9c3"
+            "commit": "dbd5d5092b4a3207dda2b7d1e6ba9e51523ada1d"
         }
     ],
     "build-options": {

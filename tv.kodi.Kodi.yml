@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -61,8 +61,12 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.4.1/dav1d-1.4.1.tar.bz2
-        sha512: b2dcdeeb3d6c37788b4c697b497b9282738b758927ffbdbe72b05b1b26a61aa967dfba0ce05828b5bd5bcac93eb3394b0eafbb57e325d037867cf720d64ba099
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.1/dav1d-1.5.1.tar.bz2
+        sha512: 43319d75c173003337bb3e0b4ffe1b0b544bfe882dd51097d7634168ee94c0d316a1c04e4f101057ff4629117dde8f22362df1a49d6a058ba510c3e648a437a3
+        x-checker-data:
+          type: anitya
+          project-id: 18920
+          url-template: https://code.videolan.org/videolan/dav1d/-/archive/$version/dav1d-$version.tar.bz2
   - name: ffmpeg
     config-opts:
       - --enable-libdav1d
@@ -77,12 +81,13 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-6.0.1.tar.xz
-        sha256: 9b16b8731d78e596b4be0d720428ca42df642bb2d78342881ff7f5bc29fc9623
+        url: 'https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz'
+        sha256: 3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38
         x-checker-data:
-          type: html
-          url: https://ffmpeg.org/releases/
-          pattern: '>(ffmpeg-([\d.]+)\.tar\.xz)<'
+          type: anitya
+          project-id: 5405
+          versions: { '<': '7.0.0' }
+          url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
@@ -95,8 +100,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v23.3.3.tar.gz
-        sha512: 4066c94f2473c7ea16917d29a613e16f840a329089c88e0bdbdb999aef3442ba00abfd2aa92266fa9c067e399dc88e6f0ccac40dc151378857e665638e78bbf0
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz
+        sha512: 7e6ae36b37c9fd322456312504156c8241852e07a2a23de6805eb2328b61b9f42b839d04b839f9d97623195721308437a1163a25071ca2af0d00a6417da74822
+        x-checker-data:
+          type: anitya
+          project-id: 16642
+          url-template: https://github.com/google/flatbuffers/archive/refs/tags/v$version.tar.gz
       - type: shell
         commands:
           - sed -i 's/-Werror=/-W/g;s/-Werror//g' CMakeLists.txt
@@ -112,6 +121,10 @@ modules:
       - type: archive
         url: https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz
         sha512: 27df90c681ec37e55625062a79e3b83589b6d7e94eff37a3b412bb8c1473f757a8adb727603acc9185c3490628269216843b7d7bd5a3cb37f0029da5d1495ffa
+        x-checker-data:
+          type: anitya
+          project-id: 11526
+          url-template: https://github.com/fmtlib/fmt/archive/refs/tags/$version.tar.gz
   - name: fstrcmp
     buildsystem: autotools
     make-args:
@@ -126,13 +139,20 @@ modules:
       - type: archive
         url: http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz
         sha512: aaeb0227afd5ada5955cbe6a565254ff88d2028d677d199c00e03b7cb5de1f2c69b18e6e8b032e452350a8eda7081807b01765adbeb8476eaf803d9de6e5509c
+        x-checker-data:
+          type: anitya
+          project-id: 7320
+          url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
   - name: glu
-    config-opts:
-      - --disable-static
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.2.tar.xz
-        sha256: 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
+        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.3.tar.xz
+        sha256: bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f
+        x-checker-data:
+          type: anitya
+          project-id: 13518
+          url-template: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-$version.tar.xz
     cleanup:
       - /include
       - /lib/*.a
@@ -148,6 +168,10 @@ modules:
       - type: archive
         url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
         sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        x-checker-data:
+          type: anitya
+          project-id: 1181
+          url-template: https://github.com/g-truc/glm/archive/refs/tags/$version.tar.gz
       - type: shell
         commands:
           - echo 'install(FILES ${ROOT_HEADER} ${ROOT_INLINE} DESTINATION include/glm)'
@@ -168,8 +192,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.390.tar.gz
-        sha256: f10684093d2a7780de8a96d3dd8a2dd544ed6136dd359197750c42bb08ce526f
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.394.tar.gz
+        sha256: b7c3fd7214a3b7c49d2661db127a712dc11cffd1799f793947aa1cb20aaf3298
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -183,16 +207,26 @@ modules:
       - type: archive
         url: https://github.com/nlohmann/json/archive/refs/tags/v3.11.3.tar.gz
         sha256: 0d8ef5af7f9794e3263480193c491549b2ba6cc74bb018906202ada498a79406
+        x-checker-data:
+          type: anitya
+          project-id: 11152
+          url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: jsoncpp
-    buildsystem: cmake-ninja
+    buildsystem: meson
     config-opts:
-      - -DJSONCPP_WITH_TESTS=OFF
-      - -DBUILD_STATIC_LIBS=OFF
-      - -DBUILD_OBJECT_LIBS=OFF
+      - -Dbuildtype=release
+      - -Dtests=false
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz
-        sha256: e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.6.tar.gz
+        sha256: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
+        x-checker-data:
+          type: anitya
+          project-id: 7483
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
+    cleanup:
+      - '/lib/*.a'
+      - '/include'
   - name: libass
     cleanup:
       - /include
@@ -201,10 +235,62 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libass/libass/archive/refs/tags/0.17.1.tar.gz
-        sha512: 8bc83347c87c47577cd52230b3698c34301250e9a23f190a565c913defcd47a05695a4f7d9cd2e9a6ad0cfc6341e8ea2d6d779b1d714b2d6144466d2dea53951
+        url: https://github.com/libass/libass/archive/refs/tags/0.17.3.tar.gz
+        sha512: f58bcb51c993d1725f30e026281fcc9139b6a2207159eac8510a983ba7f85e85b3bb78e24a0d074615f6ec12dbe4b18b1c07f2ba68cd9626470a31a99ff2c714
+        x-checker-data:
+          type: anitya
+          project-id: 1560
+          url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
+    # libgcrypt-1.11.0 build fails with freedeskop 24.08
+  - name: libgcrypt
+    config-opts:
+      - --disable-static
+      - --disable-doc
+    sources:
+      - type: git
+        url: https://dev.gnupg.org/source/libgcrypt.git
+        tag: libgcrypt-1.10.3
+        commit: aa1610866f8e42bdc272584f0a717f32ee050a22
+        # disabled for libgcrypt-1.11 because of build fail
+        #x-checker-data:
+        #  type: anitya
+        #  project-id: 1623
+        #  stable-only: true
+        #  tag-template: libgcrypt-$version
+  - name: libaacs
+    config-opts:
+      - --with-pic
+      - --enable-shared
+      - --disable-static
+    sources:
+      - type: archive
+        url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
+        sha256: a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39
+        x-checker-data:
+          type: anitya
+          project-id: 5562
+          url-template: https://download.videolan.org/videolan/libaacs/$version/libaacs-$version.tar.bz2
+  - name: libbdplus
+    rm-configure: true
+    config-opts:
+      - --with-pic
+      - --enable-shared
+      - --disable-static
+    build-options:
+      append-path: /app/share/vlc/extra/bluray/ant/bin
+    sources:
+      - type: archive
+        url: https://download.videolan.org/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2
+        sha256: b93eea3eaef33d6e9155d2c34b068c505493aa5a4936e63274f4342ab0f40a58
+        x-checker-data:
+          type: anitya
+          project-id: 5563
+          url-template: https://download.videolan.org/videolan/libbdplus/$version/libbdplus-$version.tar.bz2
+      - type: patch
+        path: patches/libbdplus-gpg-error.patch
   - name: libbluray
     config-opts:
+      - --disable-static
       - --disable-bdjava-jar
     cleanup:
       - /include
@@ -216,6 +302,10 @@ modules:
       - type: archive
         url: https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2
         sha512: 94dbf3b68d1c23fe4648c153cc2f0c251886fac0a6b6bbe3a77caabaa5322682f712afe4a7b6b16ca3f06744fbc0e1ca872209a32898dcf0ae182055d335aec1
+        x-checker-data:
+          type: anitya
+          project-id: 1565
+          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.bz2
   - name: libcdio
     config-opts:
       - --enable-cxx
@@ -234,8 +324,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: http://git.savannah.gnu.org/cgit/libcdio.git/snapshot/libcdio-release-2.1.0.tar.gz
-        sha256: 3ab7973d88405a7d4aad05e547c3316ba196caa19826072174c3bc3c58145c61
+        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
+        sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
+        x-checker-data:
+          type: anitya
+          project-id: 1573
+          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
@@ -245,6 +339,10 @@ modules:
       - type: archive
         url: https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz
         sha256: 090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377
+        x-checker-data:
+          type: anitya
+          project-id: 21468
+          url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
     modules:
       - name: p8-platform
         buildsystem: cmake-ninja
@@ -255,6 +353,10 @@ modules:
           - type: archive
             url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
             sha512: 76e6f1ac64b61e4def7d99965708d0f05698379e0f3e846317174f0bc12a9654b3341afc84bd8a3a70f101ecab6c692dea96b57d7e000dfabf6cedee2b8dcd8a
+            x-checker-data:
+              type: anitya
+              project-id: 7322
+              url-template: https://github.com/Pulse-Eight/platform/archive/p8-platform-$version.tar.gz
   - name: libdisplay-info
     buildsystem: meson
     sources:
@@ -276,12 +378,20 @@ modules:
       - type: archive
         url: https://www.freedesktop.org/software/libinput/libinput-1.19.2.tar.xz
         sha256: 0fc39f0af3ee1a77c60c34bc45391a4d0879169f7c0f7bbbeb5eef590b98b883
+        x-checker-data:
+          type: anitya
+          project-id: 5781
+          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.gz
     modules:
       - name: mtdev
         sources:
           - type: archive
-            url: http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.gz
-            sha256: 1325f389a2f25cd5f5a8ea4d29aad24aa7c3ec30401d679400dd79eb9c0a8dbb
+            url: https://bitmath.se/org/code/mtdev/mtdev-1.1.7.tar.gz
+            sha256: a55bd02a9af4dd266c0042ec608744fff3a017577614c057da09f1f4566ea32c
+            x-checker-data:
+              type: anitya
+              project-id: 8868
+              url-template: https://bitmath.se/org/code/mtdev/mtdev-$version.tar.gz
           - type: shell
             commands:
               - cp -p /usr/share/automake-*/config.{sub,guess} config-aux
@@ -292,8 +402,12 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
-            sha256: 63f4ea1489858a109080e0b40bd43e4e0903a1e12ea888d581db8c495747c2d0
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
+            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
+            x-checker-data:
+              type: anitya
+              project-id: 20540
+              url-template: https://www.freedesktop.org/software/libevdev/libevdev-$version.tar.xz
   - name: libmicrohttpd
     cleanup:
       - /include
@@ -304,6 +418,10 @@ modules:
       - type: archive
         url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz
         sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
+        x-checker-data:
+          type: anitya
+          project-id: 1658
+          url-template: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-$version.tar.gz
   - name: libnfs
     buildsystem: cmake-ninja
     config-opts:
@@ -316,6 +434,10 @@ modules:
       - type: archive
         url: https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz
         sha512: 6dcf4ea8a01b35beb53694625d20fbebd858a88725c2742671878ad6fe7877999f93d262fb58a435b00c283c3e6fb6fa7222d04bb4540bf674b7ce196e9424f5
+        x-checker-data:
+          type: anitya
+          project-id: 7325
+          url-template: https://github.com/sahlberg/libnfs/archive/libnfs-$version.tar.gz
   - name: libplist
     cleanup:
       - /include
@@ -327,8 +449,12 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz
-        sha512: 16038a6cca3a25874e6f21b37c9088ffc8021a65e3d09046e01d5a00180e732f7e4043a0e63a60ec7ee7460bc6615daa64fa5db2ae9cea08566d8c1b02698834
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.6.0/libplist-2.6.0.tar.bz2
+        sha512: 67b9ef7c1cf1edd9e0a13462cc21a42dba6bb1ff4465edd56c5d4251e4063e71eb8839ed9952ffb8cdab9cd69ebb4ef46e5f804d3a2b4e44b4e04f6c571398a4
+        x-checker-data:
+          type: anitya
+          project-id: 11675
+          url-template: https://github.com/libimobiledevice/libplist/releases/download/$version/libplist-$version.tar.bz2
   - name: libudfread
     cleanup:
       - /include
@@ -340,6 +466,10 @@ modules:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.1.2.tar.gz
         sha512: 3069feb5db40288beb5b112b285186162a704f0fdd3cf67a17fd4eeea015f2cfcfbb455b7aa7c3d79d00fd095a3fd11cffc7b121dce94d99c3b06a509a8977d2
+        x-checker-data:
+          type: anitya
+          project-id: 89591
+          url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
       - type: script
         dest-filename: autogen.sh
         commands:
@@ -357,6 +487,10 @@ modules:
       - type: archive
         url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
         sha512: a3dae5e4a6b93b1f5bf7435e8ab114a9be57252e9efc5dd444947d7a2d031b0819f34bcaeb35f60b5629a01b1238d738735a64db8f672be9690d3c80094511a4
+        x-checker-data:
+          type: anitya
+          project-id: 1868
+          url-template: http://www.oberhumer.com/opensource/lzo/download/lzo-$version.tar.gz
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
@@ -368,6 +502,10 @@ modules:
       - type: archive
         url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
         sha512: c423182156c2b3ba30198898176395f01f8b94c1b2e9537823db50ef0093bd303594575b0b06a9ae2d68918e9ae5d6ce050e8de3704d216ea8db99ec5029d824
+        x-checker-data:
+          type: anitya
+          project-id: 16939
+          url-template: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v$version.tar.gz
   - name: pycryptodome
     buildsystem: simple
     build-commands:
@@ -393,8 +531,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyyaml" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz
-        sha512: b402993073282e7f4202823b051d364b91929362edd5b3aebe93b56833956ec9279c1ba82b97f8bc8a2b82d20e1060e4ec9fc90400a6ed902adce3e4f83a6e0e
+        url: https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz
+        sha256: d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e
   - name: lirc
     no-autogen: true
     config-opts:
@@ -403,6 +541,10 @@ modules:
       - type: archive
         url: https://downloads.sourceforge.net/project/lirc/LIRC/0.10.2/lirc-0.10.2.tar.bz2
         sha256: 3d44ec8274881cf262f160805641f0827ffcc20ade0d85e7e6f3b90e0d3d222a
+        x-checker-data:
+          type: anitya
+          project-id: 10762
+          url-template: https://downloads.sourceforge.net/project/lirc/LIRC/$version/lirc-$version.tar.bz2
       - type: shell
         commands:
           - sed -i s/Ubuntu/ignoreme/g configure.ac
@@ -418,18 +560,23 @@ modules:
       - /include
       - /share/doc
     sources:
-      - type: archive
-        url: https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz
-        sha512: 2e82a4bddcd6c4669541f5945c2d240fb1b4fdd6e239200246d3dd50ce98733f0a4f6d3daa56f865d8c88779c036099c52a9ae85d47ad263686b68a88d832dff
+      - type: git
+        url: https://github.com/Tencent/rapidjson/
+        commit: 58c6938b73c8685d82905ed55ec5b59e8f163687
   - name: samba
-    buildsystem: simple
-    build-commands:
-      - >-
-        ./buildtools/bin/waf configure --prefix=/app --disable-python
-        --without-ads --without-ldap --without-pam --without-acl-support
-        --without-systemd --without-ad-dc --without-json
-      - ./buildtools/bin/waf build -j $FLATPAK_BUILDER_N_JOBS
-      - ./buildtools/bin/waf install
+    buildsystem: autotools
+    config-opts:
+      - --prefix=/app
+      - --disable-python
+      - --without-ads
+      - --without-ldap
+      - --without-pam
+      - --without-acl-support
+      - --without-systemd
+      - --without-ad-dc
+      - --without-json
+      - --disable-cups
+      - --without-ldb-lmdb
     cleanup:
       - /bin
       - /libexec
@@ -438,8 +585,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.15.1.tar.gz
-        sha256: a1811fbb4110d64969f6c108f8d161e2c3e20ddf475529a3d32bd94bb7459f00
+        url: https://samba.org/samba/ftp/stable/samba-4.22.1.tar.gz
+        sha256: 6a1f89f1ab25916e255f1c2c3a4a88235a854af2eca40bb9d9bba7545b684a0a
+        x-checker-data:
+          type: anitya
+          project-id: 4758
+          url-template: https://samba.org/samba/ftp/stable/samba-$version.tar.gz
     modules:
       - name: perl
         no-autogen: true
@@ -512,6 +663,10 @@ modules:
           - type: archive
             url: https://github.com/lathiat/avahi/archive/v0.8.tar.gz
             sha256: c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f
+            x-checker-data:
+              type: anitya
+              project-id: 147
+              url-template: https://github.com/lathiat/avahi/archive/v$version.tar.gz
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -526,8 +681,12 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz
-        sha512: d8f36a3d65a43d8c64900e46137827aadb05559948b2f5a389bea16ed1bfac07d113ee11cf47970913298d6c37400355fe6895cda8fa6dcf6abd9da0d8f199e9
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.2.tar.gz
+        sha512: 4e86d79dea4f08b9e4755ada7c9395e03246d00cdc11df8951d32b5f5e823fec103091d11154f32b261a29574784b761efb32477ec6385ffdb2069413e2c91a0
+        x-checker-data:
+          type: anitya
+          project-id: 15599
+          url-template: https://github.com/gabime/spdlog/archive/refs/tags/v$version.tar.gz
   - name: swig
     config-opts:
       - --without-pcre
@@ -536,8 +695,12 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz
-        sha256: d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc
+        url: http://prdownloads.sourceforge.net/swig/swig-4.3.1.tar.gz
+        sha256: 44fc829f70f1e17d635a2b4d69acab38896699ecc24aa023e516e0eabbec61b8
+        x-checker-data:
+          type: anitya
+          project-id: 4919
+          url-template: http://prdownloads.sourceforge.net/swig/swig-$version.tar.gz
     modules:
       - name: groovy
         buildsystem: simple
@@ -587,6 +750,10 @@ modules:
       - type: archive
         url: https://taglib.org/releases/taglib-1.13.tar.gz
         sha512: b6e3253d158b41173073c0da1915f5e4a3de947db918660817cb1c755fba7e3723ea1a335fbbc30b0dcf942348a471b493fe2ce1d52d1a808578edee14e1bfc7
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
       - /include
@@ -613,6 +780,10 @@ modules:
       - type: archive
         url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
         sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
+        x-checker-data:
+          type: anitya
+          project-id: 4976
+          url-template: https://github.com/leethomason/tinyxml2/archive/refs/tags/$version.tar.gz
   - name: waylandpp
     buildsystem: cmake-ninja
     config-opts:
@@ -621,6 +792,10 @@ modules:
       - type: archive
         url: https://github.com/NilsBrause/waylandpp/archive/1.0.0.tar.gz
         sha512: 64b59d073a0593ecf442362eb63ec0a9dfeaa1ad1d56b5955cb0c159fd01dc45e012b926811c6ca0dc12d4bb2e640eabc2e778ab7d28de2098eb694d26f01039
+        x-checker-data:
+          type: anitya
+          project-id: 16969
+          url-template: https://github.com/NilsBrause/waylandpp/archive/$version.tar.gz
       - type: patch
         path: patches/waylandpp-gcc13.patch
     modules:
@@ -633,6 +808,10 @@ modules:
           - type: archive
             url: https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz
             sha256: 017139251c122dbff400a507cddc4cb74120a431a50c6c524f30edcc5b331ade
+            x-checker-data:
+              type: anitya
+              project-id: 3728
+              url-template: https://github.com/zeux/pugixml/archive/v$version.tar.gz
       - name: pcre
         config-opts:
           - --enable-unicode-properties
@@ -640,6 +819,10 @@ modules:
           - type: archive
             url: http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2
             sha512: 91bff52eed4a2dfc3f3bfdc9c672b88e7e2ffcf3c4b121540af8a4ae8c1ce05178430aa6b8000658b9bb7b4252239357250890e20ceb84b79cdfcde05154061a
+            x-checker-data:
+              type: anitya
+              project-id: 2610
+              url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
@@ -685,8 +868,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 21.1-Omega
-        commit: 183eb85f108c3d8b44a578de80f575f27afe9b9a
+        tag: 21.2-Omega
+        commit: d1a1d48c3cb3722d39264ffdd8132f755ffecd27
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
