@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.hvl",
-            "commit": "f7df5679921419770c3d0d0edd0c9fbc036bdf3d"
+            "commit": "92a84d72350bb4e4301a95e4ab81258e4da7699b"
         }
     ],
     "build-options": {

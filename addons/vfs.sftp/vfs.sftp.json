@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
-            "commit": "9fe870e71a10a37f2d793b2261bac48b195f2705"
+            "commit": "127417a3fdef171d84bd9da9003fd3e3f9d06569"
         }
     ],
     "modules": [
