@@ -11,12 +11,12 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "0a754a3300ec5e7d939913cbff29ae6e715284f8"
+            "commit": "582bcd11d6eba709ee5a0d8e7449d0e4d00e6b40"
         },
         {
             "type": "file",
-            "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-639-8-Omega.tar.gz",
-            "sha256": "d7fc48e52f0037ce977d7f54c49d4f8936cca0e58447c9ce7c55ab64d268e23d",
+            "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-3-Omega.tar.gz",
+            "sha256": "a9b231b63159b3a4d9e47c5328b476308852bf092ccb9ce98f7cf46a386465ce",
             "dest-filename": "bento4.tar.gz"
         }
     ],
