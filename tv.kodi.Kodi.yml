@@ -1,13 +1,13 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: "24.08"
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
 command: kodi
 rename-icon: kodi
 rename-desktop-file: kodi.desktop
-desktop-file-name-suffix: " (Beta)"
+desktop-file-name-suffix: ' (Beta)'
 
 finish-args:
   - --device=all
@@ -32,10 +32,10 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
 
 cleanup:
-  - "*.a"
-  - "*.pyc"
-  - "*.pyo"
-  - "*.cmake"
+  - '*.a'
+  - '*.pyc'
+  - '*.pyo'
+  - '*.cmake'
   - /.ref
   - /etc
   - /include
@@ -117,7 +117,7 @@ modules:
       - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
         url: https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz
@@ -135,7 +135,7 @@ modules:
       - install-include
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
         url: http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz
@@ -193,8 +193,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.393.tar.gz
-        sha256: 322add86944680e99d04468d49de180a7ce0c77fb406f7abde8ab14f2d161051
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.394.tar.gz
+        sha256: b7c3fd7214a3b7c49d2661db127a712dc11cffd1799f793947aa1cb20aaf3298
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -226,13 +226,13 @@ modules:
           project-id: 7483
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
     cleanup:
-      - "/lib/*.a"
-      - "/include"
+      - '/lib/*.a'
+      - '/include'
   - name: libass
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -295,9 +295,9 @@ modules:
       - --disable-bdjava-jar
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
-      - "*.pc"
+      - '*.a'
+      - '*.la'
+      - '*.pc'
       - /lib/*.so
     sources:
       - type: archive
@@ -320,8 +320,8 @@ modules:
     cleanup:
       - /include
       - /share/info
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -349,7 +349,7 @@ modules:
         buildsystem: cmake-ninja
         cleanup:
           - /include
-          - "*.a"
+          - '*.a'
         sources:
           - type: archive
             url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
@@ -403,8 +403,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.3.tar.xz
-            sha256: abf1aace86208eebdd5d3550ffded4c8d73bb405b796d51c389c9d0604cbcfbf
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
+            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -412,8 +412,8 @@ modules:
   - name: libmicrohttpd
     cleanup:
       - /include
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -443,8 +443,8 @@ modules:
     cleanup:
       - /include
       - /bin
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
       - /share/runtime/locale
     config-opts: []
@@ -460,8 +460,8 @@ modules:
     cleanup:
       - /include
       - /share/doc
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -482,7 +482,7 @@ modules:
     cleanup:
       - /include
       - /share/doc
-      - "*.la"
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive
@@ -498,7 +498,7 @@ modules:
       - -DWITH_UNIT_TESTS=OFF
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
         url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
@@ -554,16 +554,16 @@ modules:
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
-      - "-DRAPIDJSON_BUILD_DOC=OFF"
-      - "-DRAPIDJSON_BUILD_EXAMPLES=OFF"
-      - "-DRAPIDJSON_BUILD_TESTS=OFF"
-      - "-DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF"
+      - -DRAPIDJSON_BUILD_DOC=OFF
+      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
+      - -DRAPIDJSON_BUILD_TESTS=OFF
+      - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
     cleanup:
       - /include
       - /share/doc
     sources:
       - type: archive
-        url: "https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz"
+        url: https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz
         sha512: 2e82a4bddcd6c4669541f5945c2d240fb1b4fdd6e239200246d3dd50ce98733f0a4f6d3daa56f865d8c88779c036099c52a9ae85d47ad263686b68a88d832dff
       - type: patch
         paths:
@@ -590,8 +590,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.21.4.tar.gz
-        sha256: 50acf030db0ce6be1ee8a6c3a7636e54576c60a7f814e64becfa840f7b30eced
+        url: https://samba.org/samba/ftp/stable/samba-4.22.1.tar.gz
+        sha256: 6a1f89f1ab25916e255f1c2c3a4a88235a854af2eca40bb9d9bba7545b684a0a
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -631,8 +631,8 @@ modules:
     cleanup:
       - /include
       - /bin
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
       - /share/runtime/locale
     build-options:
@@ -647,8 +647,8 @@ modules:
         cleanup:
           - /include
           - /bin
-          - "*.a"
-          - "*.la"
+          - '*.a'
+          - '*.la'
           - /lib/*.so
           - /share/runtime/locale
         config-opts:
@@ -683,11 +683,11 @@ modules:
       - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
       - /include
-      - "*.a"
+      - '*.a'
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.tar.gz
-        sha512: d6575b5cd53638345078a1c6a886293892359a07ee6de45e23d0c805bb33f59350f33060bce38824e09ce84525b575acdae7b94fc6e82191f5fd576f6c9252b2
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.2.tar.gz
+        sha512: 4e86d79dea4f08b9e4755ada7c9395e03246d00cdc11df8951d32b5f5e823fec103091d11154f32b261a29574784b761efb32477ec6385ffdb2069413e2c91a0
         x-checker-data:
           type: anitya
           project-id: 15599
@@ -700,8 +700,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.3.0.tar.gz
-        sha256: f7203ef796f61af986c70c05816236cbd0d31b7aa9631e5ab53020ab7804aa9e
+        url: http://prdownloads.sourceforge.net/swig/swig-4.3.1.tar.gz
+        sha256: 44fc829f70f1e17d635a2b4d69acab38896699ecc24aa023e516e0eabbec61b8
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -779,8 +779,8 @@ modules:
     cleanup:
       - /include
       - /share/doc
-      - "*.a"
-      - "*.la"
+      - '*.a'
+      - '*.la'
       - /lib/*.so
     sources:
       - type: archive

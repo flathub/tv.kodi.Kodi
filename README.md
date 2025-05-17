@@ -34,7 +34,9 @@ The list of binary addons in each branch of Kodi may be found
 [here](https://github.com/xbmc/xbmc/tree/master/tools/depends/target). Kodi
 releases are found [here](https://github.com/xbmc/xbmc/releases).
 
-You need to have the `PyGithub` Python module installed, to run the update script:
+Please use `uv` to run the included scripts.
+
+You need to have the `PyGithub` and `dotenv` Python module installed, to run the update script:
 
 ```sh
 uv venv
