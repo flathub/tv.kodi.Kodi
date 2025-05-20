@@ -143,21 +143,7 @@ modules:
           type: anitya
           project-id: 7320
           url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
-  - name: glu
-    buildsystem: meson
-    sources:
-      - type: archive
-        url: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-9.0.3.tar.xz
-        sha256: bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f
-        x-checker-data:
-          type: anitya
-          project-id: 13518
-          url-template: https://ftp.osuosl.org/pub/blfs/conglomeration/glu/glu-$version.tar.xz
-    cleanup:
-      - /include
-      - /lib/*.a
-      - /lib/*.la
-      - /lib/pkgconfig
+  - shared-modules/glu/glu-9.json
   - name: glm
     buildsystem: cmake-ninja
     config-opts:
