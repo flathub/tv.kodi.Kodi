@@ -757,6 +757,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1982
+          versions: { <: 2.0.0 }
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
