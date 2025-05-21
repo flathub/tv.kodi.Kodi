@@ -81,12 +81,12 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: 'https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz'
-        sha256: 3b624649725ecdc565c903ca6643d41f33bd49239922e45c9b1442c63dca4e38
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.2.tar.gz
+        sha256: 9cbefd67b7e4fffde3846699ec03324b7ef789a81c2e9b1059e93719b5b8d189
         x-checker-data:
           type: anitya
           project-id: 5405
-          versions: { '<': '7.0.0' }
+          versions: { <: 7.0.0 }
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
@@ -757,6 +757,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1982
+          versions: { <: 2.0.0 }
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
