@@ -185,8 +185,8 @@ modules:
           project-id: 13577
           stable-only: true
           url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
-        cleanup:
-          - /lib/pkgconfig
+    cleanup:
+      - /lib/pkgconfig
   - name: json
     buildsystem: cmake-ninja
     sources:
