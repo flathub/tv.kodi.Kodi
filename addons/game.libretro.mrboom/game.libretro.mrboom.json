@@ -7,8 +7,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release",
-        "-DOVERRIDE_PATHS=ON"
+        "-DCMAKE_BUILD_TYPE=Release"
     ],
     "sources": [
         {
