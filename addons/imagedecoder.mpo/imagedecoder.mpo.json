@@ -6,7 +6,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
-            "commit": "f3d5d0f548e2741a3b8acd0c667a6d2e18fdfe37"
+            "commit": "4d3ab040db8d741b34fce6397238637e225257ab"
         }
     ],
     "build-options": {

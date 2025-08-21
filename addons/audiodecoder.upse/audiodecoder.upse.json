@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
-            "commit": "7c57b189528a2a22aa09edfd0305b51991600814"
+            "commit": "408798cbe78394d9559918a6eb4098b5f7ac9c5f"
         }
     ],
     "build-options": {

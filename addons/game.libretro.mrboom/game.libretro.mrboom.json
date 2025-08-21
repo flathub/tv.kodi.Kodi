@@ -7,14 +7,13 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release",
-        "-DOVERRIDE_PATHS=ON"
+        "-DCMAKE_BUILD_TYPE=Release"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "94572733a2407b02b06d9e292248847d5e806621"
+            "commit": "c62906e216882603442092b3afeaaeda5ffd0f7f"
         }
     ],
     "modules": [

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.pictureit",
-            "commit": "44965172ff0eb911cfb6893abca445d0555eb9c1"
+            "commit": "fb74c4340c60dc32b73d2c1919e6f9b3296f1337"
         }
     ],
     "build-options": {
