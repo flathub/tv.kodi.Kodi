@@ -11,7 +11,7 @@ Flatpak.
 Then build via
 
 ```
-flatpak-builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
+flatpak run org.flatpak.Builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
 ```
 
 Then you can run it via the command line:

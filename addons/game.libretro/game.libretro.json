@@ -18,7 +18,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "6fe7f3d4715a709c4442586f50674795d47343d6"
+            "commit": "6375f86fca0e995b9f11ef6687e60454882657c8"
         }
     ],
     "modules": [
@@ -57,8 +57,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-common/archive/50c15a88eb741cbe675743a282d8cc4c89421e3f.tar.gz",
-                    "sha256": "042986fad22dc37188df7a186d17a258edfe8e552353f9b509a47418e8dfa623"
+                    "url": "https://github.com/libretro/libretro-common/archive/ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65.tar.gz",
+                    "sha256": "e8261fb72c107351d433f921e6a383df5f1e7fe6936fb53c8c0e439821dbf175"
                 },
                 {
                     "type": "file",
