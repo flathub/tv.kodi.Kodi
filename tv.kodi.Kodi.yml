@@ -787,8 +787,6 @@ modules:
           type: anitya
           project-id: 16969
           url-template: https://github.com/NilsBrause/waylandpp/archive/$version.tar.gz
-      - type: patch
-        path: patches/waylandpp-gcc13.patch
     modules:
       - name: pugixml
         buildsystem: cmake-ninja
