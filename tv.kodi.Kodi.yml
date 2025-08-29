@@ -486,8 +486,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.3.2.tar.gz
-        sha512: c423182156c2b3ba30198898176395f01f8b94c1b2e9537823db50ef0093bd303594575b0b06a9ae2d68918e9ae5d6ce050e8de3704d216ea8db99ec5029d824
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.7.tar.gz
+        sha512: 0e06452539fcea4e21c3922b58b7079aa5d467e2ac704fe586fcd83563f69c4e0536d40e0020170f7670320cc71cd9de2a110f3f4c6ed52233aa329c3e495fd5
         x-checker-data:
           type: anitya
           project-id: 16939
@@ -795,8 +795,8 @@ modules:
           - -DCMAKE_INSTALL_LIBDIR=lib
         sources:
           - type: archive
-            url: https://github.com/zeux/pugixml/archive/v1.11.4.tar.gz
-            sha256: 017139251c122dbff400a507cddc4cb74120a431a50c6c524f30edcc5b331ade
+            url: https://github.com/zeux/pugixml/archive/v1.15.tar.gz
+            sha256: b39647064d9e28297a34278bfb897092bf33b7c487906ddfc094c9e8868bddcb
             x-checker-data:
               type: anitya
               project-id: 3728
