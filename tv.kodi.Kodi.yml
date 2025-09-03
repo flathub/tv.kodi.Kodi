@@ -481,6 +481,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DWITH_UNIT_TESTS=OFF
+      - -DDEFAULT_SSL_VERIFY_SERVER_CERT=OFF
     cleanup:
       - /include
       - '*.a'
