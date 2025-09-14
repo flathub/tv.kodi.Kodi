@@ -86,7 +86,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 5405
-          versions: { <: 7.0.0 }
+          versions: {<: 7.0.0}
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
@@ -152,8 +152,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.1.tar.gz
+        sha256: 9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.398.tar.gz
-        sha256: cd52f7eb5c0f438a3605d1799d9f345a2894ad0f269ab6e8441f55e27e80dd78
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.399.tar.gz
+        sha256: 74872355e14d5ddc48a0f63036227ffb5f7796a3012c6377ac1fc7432ffe2b41
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -211,8 +211,8 @@ modules:
           project-id: 7483
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
     cleanup:
-      - '/lib/*.a'
-      - '/include'
+      - /lib/*.a
+      - /include
   - name: libass
     cleanup:
       - /include
@@ -362,8 +362,8 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.0/libinput-1.29.0.tar.gz
-        sha256: ec71f6ec6632108a62756f49d86e864494108e70cf670e85f8b7579e970e152c
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.1/libinput-1.29.1.tar.gz
+        sha256: 98bb615d98ddc4607bddb13a7b7550d129eb8cd16f86cd5ca090207bc46b488b
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -418,8 +418,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz
-        sha512: 6dcf4ea8a01b35beb53694625d20fbebd858a88725c2742671878ad6fe7877999f93d262fb58a435b00c283c3e6fb6fa7222d04bb4540bf674b7ce196e9424f5
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
+        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -576,8 +576,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.22.4.tar.gz
-        sha256: a41a828848abdf5e942c900ca178597e18aab7b61d3c06a9b5ba43661988010b
+        url: https://samba.org/samba/ftp/stable/samba-4.23.0.tar.gz
+        sha256: b0cb963a63eb1515227f3779a46d3a7f790c1bbfeeb4b31fd43e405eefe7a3af
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -744,7 +744,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1982
-          versions: { <: 2.0.0 }
+          versions: {<: 2.0.0}
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
@@ -770,8 +770,8 @@ modules:
       - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
-        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
-        sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
+        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/11.0.0.tar.gz
+        sha512: 8a6ddd48c96bc4287437d5b5ca62c131c4416c57310b664c9088ca9c1ac9f4d43d16c1bad03f82dc5588d9486752f510d631609a3930f1d4243f12184ad1c5f9
         x-checker-data:
           type: anitya
           project-id: 4976
