@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/rbuehlma/pvr.teleboy",
-            "commit": "fbaa2f1b0eda85a3a5283157cc8853fd0203f59c"
+            "commit": "e5a4ad92b33c29cc391a6c26dc6f3f48910796f0"
         }
     ],
     "build-options": {
