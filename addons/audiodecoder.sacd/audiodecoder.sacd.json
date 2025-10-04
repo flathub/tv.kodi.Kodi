@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sacd",
-            "commit": "29b27613bdae3f1da2da61ff1a18497e4fab454e"
+            "commit": "fe8bf383bf501844da024c5bad7a9f5fb2d149f3"
         }
     ],
     "build-options": {

@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.matrix",
-            "commit": "1d4e465a4c13313408d39160b43e442f30c3e72b"
+            "commit": "827032a2edaa8030b3a1eb2b6084b4716fc72777"
         }
     ],
     "build-options": {

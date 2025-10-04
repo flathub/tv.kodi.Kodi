@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.libarchive",
-            "commit": "089fb08587d534b2b709757eb389560781abd7f6"
+            "commit": "d88a5bb4da67f2b9cb3e1a36c498cb4f04953e8b"
         }
     ],
     "build-options": {

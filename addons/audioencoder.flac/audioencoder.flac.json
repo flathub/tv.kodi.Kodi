@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
-            "commit": "6ce7ad15901ccaecf999d269a2304c816ee83b9f"
+            "commit": "0314966a3dd782dcb46a688d8329443b978e8cc9"
         }
     ],
     "build-options": {
