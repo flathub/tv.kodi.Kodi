@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vdr.vnsi",
-            "commit": "b834f0e78ad7154b3dfde87c092523c7765071bd"
+            "commit": "8361de1266daa65c3bf5025f6b40706e27adb265"
         }
     ],
     "build-options": {
