@@ -86,7 +86,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 5405
-          versions: { <: 7.0.0 }
+          versions: {<: 7.0.0}
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
@@ -100,8 +100,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz
-        sha512: 7e6ae36b37c9fd322456312504156c8241852e07a2a23de6805eb2328b61b9f42b839d04b839f9d97623195721308437a1163a25071ca2af0d00a6417da74822
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.9.23.tar.gz
+        sha512: 259ae6c0b024c19c882d87c93d6ba156c15f14a61b11846170ac1b9e9c051cd3e80ae93cfe20ccb1aa30f2085cdbd4127ffa229b42cabbfed6b035ca4851c127
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -119,8 +119,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/archive/refs/tags/11.2.0.tar.gz
-        sha512: 46974efd36e613477351aa357c451cee434da797c2a505f9f86d73e394dcb35dc2dc0cda66abb98c023e8f24deac9d8e3ee6f9f6c0971cc4c00e37c34aa7f15f
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/12.0.0.tar.gz
+        sha512: c4ab814c20fbad7e3f0ae169125a4988a2795631194703251481dc36b18da65c886c4faa9acd046b0a295005217b3689eb0126108a9ba5aac2ca909aae263c2f
         x-checker-data:
           type: anitya
           project-id: 11526
@@ -152,8 +152,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.2.tar.gz
+        sha256: 19edf2e860297efab1c74950e6076bf4dad9de483826bc95e2e0f2c758a43f65
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.398.tar.gz
-        sha256: cd52f7eb5c0f438a3605d1799d9f345a2894ad0f269ab6e8441f55e27e80dd78
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.400.tar.gz
+        sha256: 05d96821aaae04be4e684eaf9ac22e08efe646321bc64be323b91b66e7e2095c
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -211,8 +211,8 @@ modules:
           project-id: 7483
           url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
     cleanup:
-      - '/lib/*.a'
-      - '/include'
+      - /lib/*.a
+      - /include
   - name: libass
     cleanup:
       - /include
@@ -362,8 +362,8 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.0/libinput-1.29.0.tar.gz
-        sha256: ec71f6ec6632108a62756f49d86e864494108e70cf670e85f8b7579e970e152c
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.1/libinput-1.29.1.tar.gz
+        sha256: 98bb615d98ddc4607bddb13a7b7550d129eb8cd16f86cd5ca090207bc46b488b
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -402,8 +402,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz
-        sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz
+        sha512: 7092f307a00ba04b539be79a7c94ddf9b4b6e43343a66da49c6602fa860f77cf7f9017d7e40f9b7400d85a828a503248eb12dd121413aad68133003a20bb2c4a
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -418,8 +418,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-5.0.2.tar.gz
-        sha512: 6dcf4ea8a01b35beb53694625d20fbebd858a88725c2742671878ad6fe7877999f93d262fb58a435b00c283c3e6fb6fa7222d04bb4540bf674b7ce196e9424f5
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
+        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -576,8 +576,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.22.4.tar.gz
-        sha256: a41a828848abdf5e942c900ca178597e18aab7b61d3c06a9b5ba43661988010b
+        url: https://samba.org/samba/ftp/stable/samba-4.23.2.tar.gz
+        sha256: 2de330647e1486683597e261285d04a9b7514ab5c7da27711736e22c7f2b9c2e
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -672,8 +672,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.15.3.tar.gz
-        sha512: 21c35f4091850ea3a0cd6a24867e06e943df70d76cd5a7ec0b15a33e0e9e0cc3584ed7930e1ac6f347e7e06f0e002d0e759884eaf05310014e24ea0e0419fcc4
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.16.0.tar.gz
+        sha512: 3c330162201fb405a08040327e08bc3f90336f431b8865d250e1cf171e48eb8a07a0245a8f60118022869de1ee38209b14da76bf6bcc2ec3da60f1853adaf958
         x-checker-data:
           type: anitya
           project-id: 15599
@@ -686,8 +686,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.3.1.tar.gz
-        sha256: 44fc829f70f1e17d635a2b4d69acab38896699ecc24aa023e516e0eabbec61b8
+        url: http://prdownloads.sourceforge.net/swig/swig-4.4.0.tar.gz
+        sha256: c3f8e5dcd68c18aa19847b33b0a1bb92f07e904c53ae9cf5ae4ff8727a72927e
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -744,7 +744,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1982
-          versions: { <: 2.0.0 }
+          versions: {<: 2.0.0}
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
@@ -770,8 +770,8 @@ modules:
       - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
-        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz
-        sha512: 9c5ce8131984690df302ca3e32314573b137180ed522c92fd631692979c942372a28f697fdb3d5e56bcf2d3dc596262b724d088153f3e1d721c9536f2a883367
+        url: https://github.com/leethomason/tinyxml2/archive/refs/tags/11.0.0.tar.gz
+        sha512: 8a6ddd48c96bc4287437d5b5ca62c131c4416c57310b664c9088ca9c1ac9f4d43d16c1bad03f82dc5588d9486752f510d631609a3930f1d4243f12184ad1c5f9
         x-checker-data:
           type: anitya
           project-id: 4976
