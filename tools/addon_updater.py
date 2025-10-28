@@ -23,7 +23,7 @@ addon_repo_remote = "binary_addons_repo"
 
 load_dotenv()
 
-auth = Auth.Token("GITHUB_TOKEN")
+auth = Auth.Token(os.environ["GITHUB_TOKEN"])
 g = Github(auth=auth)
 
 
