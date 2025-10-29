@@ -388,8 +388,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.4.tar.xz
-            sha256: f00ab8d42ad8b905296fab67e13b871f1a424839331516642100f82ad88127cd
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.5.tar.xz
+            sha256: 89918ae7b7c13936e6482604a77a2bfbbb74544c5d039fde01c3fa1bdf639987
             x-checker-data:
               type: anitya
               project-id: 20540
