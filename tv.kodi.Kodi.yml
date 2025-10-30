@@ -119,8 +119,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/archive/refs/tags/11.2.0.tar.gz
-        sha512: 46974efd36e613477351aa357c451cee434da797c2a505f9f86d73e394dcb35dc2dc0cda66abb98c023e8f24deac9d8e3ee6f9f6c0971cc4c00e37c34aa7f15f
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/12.0.0.tar.gz
+        sha512: c4ab814c20fbad7e3f0ae169125a4988a2795631194703251481dc36b18da65c886c4faa9acd046b0a295005217b3689eb0126108a9ba5aac2ca909aae263c2f
         x-checker-data:
           type: anitya
           project-id: 11526
