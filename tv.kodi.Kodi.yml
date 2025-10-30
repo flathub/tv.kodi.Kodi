@@ -100,8 +100,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.2.10.tar.gz
-        sha512: 7e6ae36b37c9fd322456312504156c8241852e07a2a23de6805eb2328b61b9f42b839d04b839f9d97623195721308437a1163a25071ca2af0d00a6417da74822
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.9.23.tar.gz
+        sha512: 259ae6c0b024c19c882d87c93d6ba156c15f14a61b11846170ac1b9e9c051cd3e80ae93cfe20ccb1aa30f2085cdbd4127ffa229b42cabbfed6b035ca4851c127
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -119,8 +119,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/fmtlib/fmt/archive/refs/tags/11.2.0.tar.gz
-        sha512: 46974efd36e613477351aa357c451cee434da797c2a505f9f86d73e394dcb35dc2dc0cda66abb98c023e8f24deac9d8e3ee6f9f6c0971cc4c00e37c34aa7f15f
+        url: https://github.com/fmtlib/fmt/archive/refs/tags/12.0.0.tar.gz
+        sha512: c4ab814c20fbad7e3f0ae169125a4988a2795631194703251481dc36b18da65c886c4faa9acd046b0a295005217b3689eb0126108a9ba5aac2ca909aae263c2f
         x-checker-data:
           type: anitya
           project-id: 11526
@@ -362,8 +362,8 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.0/libinput-1.29.0.tar.gz
-        sha256: ec71f6ec6632108a62756f49d86e864494108e70cf670e85f8b7579e970e152c
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.29.2/libinput-1.29.2.tar.gz
+        sha256: 02631a861fc6b9fb9ca6ae51cf863334e0699bf60c91c389ac420f3fa0053bdc
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -402,8 +402,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.77.tar.gz
-        sha512: 001025c023dd94c4a0cf017ed575e65a577b5ce595e7e450346bfb75def77eaa8a4cfbeffb9f4b912e34165c2cfca147c02c895e067a4f6c5a321a12035758a5
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz
+        sha512: 7092f307a00ba04b539be79a7c94ddf9b4b6e43343a66da49c6602fa860f77cf7f9017d7e40f9b7400d85a828a503248eb12dd121413aad68133003a20bb2c4a
         x-checker-data:
           type: anitya
           project-id: 1658
