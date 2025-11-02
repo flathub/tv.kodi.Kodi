@@ -20,7 +20,11 @@ cd
 rm -rf tv.kodi.Kodi
 git clone -b beta --recursive https://github.com/flathub/tv.kodi.Kodi.git
 cd tv.kodi.Kodi
-flatpak run org.flatpak.Builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
+flatpak run org.flatpak.Builder build-dir --user --repo=repo --ccache --force-clean tv.kodi.Kodi.yml
+flatpak build-bundle repo tv.kodi.Kodi.flatpak tv.kodi.Kodi
+flatpak install tv.kodi.Kodi.flatpak
+#flatpak install local tv.kodi.Kodi
+#flatpak run org.flatpak.Builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
 ```
 
 Then you can run it via the command line:
