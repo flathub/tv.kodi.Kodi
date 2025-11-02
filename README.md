@@ -18,7 +18,7 @@ sudo flatpak -y install org.flatpak.Builder/x86_64/stable
 sudo flatpak -y install org.freedesktop.Platform/x86_64/24.08
 cd
 rm -rf tv.kodi.Kodi
-git clone -b beta --recursive https://github.com/flathub/tv.kodi.Kodi.git
+git clone -b beta --recursive https://github.com/andykimpe1/tv.kodi.Kodi.git
 cd tv.kodi.Kodi
 flatpak run org.flatpak.Builder build-dir --repo=repo --ccache --force-clean tv.kodi.Kodi.yml
 flatpak build-bundle repo tv.kodi.Kodi.flatpakref tv.kodi.Kodi
