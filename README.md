@@ -16,6 +16,7 @@ sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-re
 sudo flatpak -y uninstall tv.kodi.Kodi
 sudo flatpak -y install org.flatpak.Builder/x86_64/stable
 sudo flatpak -y install org.freedesktop.Platform/x86_64/24.08
+sudo flatpak -y install org.freedesktop.Sdk/x86_64/24.08
 cd
 rm -rf tv.kodi.Kodi
 git clone -b beta --recursive https://github.com/andykimpe1/tv.kodi.Kodi.git
