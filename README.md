@@ -11,20 +11,18 @@ Flatpak.
 Then build via
 
 ```
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
-flatpak -y uninstall tv.kodi.Kodi
-flatpak -y install org.flatpak.Builder/x86_64/stable
-flatpak -y install org.freedesktop.Platform/x86_64/24.08
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+sudo flatpak -y uninstall tv.kodi.Kodi
+sudo flatpak -y install org.flatpak.Builder/x86_64/stable
+sudo flatpak -y install org.freedesktop.Platform/x86_64/24.08
 cd
 rm -rf tv.kodi.Kodi
 git clone -b beta --recursive https://github.com/flathub/tv.kodi.Kodi.git
 cd tv.kodi.Kodi
-flatpak run org.flatpak.Builder build-dir --user --repo=repo --ccache --force-clean tv.kodi.Kodi.yml
-flatpak build-bundle repo tv.kodi.Kodi.flatpak tv.kodi.Kodi
-flatpak install -y --user tv.kodi.Kodi.flatpak
-#flatpak install local tv.kodi.Kodi
-#flatpak run org.flatpak.Builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
+flatpak run org.flatpak.Builder build-dir --repo=repo --ccache --force-clean tv.kodi.Kodi.yml
+flatpak build-bundle repo tv.kodi.Kodi.flatpakref tv.kodi.Kodi
+sudo flatpak install -y tv.kodi.Kodi.flatpakref
 ```
 
 Then you can run it via the command line:
