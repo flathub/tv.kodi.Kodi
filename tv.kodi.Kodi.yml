@@ -865,6 +865,8 @@ modules:
           tag-pattern: ^([\d.]+)-\w+$
       - type: patch
         path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi.metainfo.xml.in.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
