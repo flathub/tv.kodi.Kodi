@@ -63,7 +63,7 @@
                 {
                     "type": "file",
                     "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/Piers/depends/common/libretro-common/CMakeLists.txt",
-                    "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
+                    "sha256": "fe0698a56bf869f8c6af2cbd0cc3dc9c05c370141009fa4777373538c1a41af1"
                 }
             ]
         },
