@@ -62,8 +62,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.1/dav1d-1.5.1.tar.bz2
-        sha512: 43319d75c173003337bb3e0b4ffe1b0b544bfe882dd51097d7634168ee94c0d316a1c04e4f101057ff4629117dde8f22362df1a49d6a058ba510c3e648a437a3
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.2/dav1d-1.5.2.tar.bz2
+        sha512: 499310a1b8257e115eebc152921903f34e036bad6f5f24446efc0528bad210a66e794e5c467cd0ce7b98f2cec2bba82033e00cbbd51d5d3201e3a19ccab2eef1
         x-checker-data:
           type: anitya
           project-id: 18920
@@ -82,8 +82,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: 'https://ffmpeg.org/releases/ffmpeg-7.1.1.tar.xz'
-        sha512: 42486e485c8fc6f3ec61598a1a7cb40360535762b3fcf28c10d7c6840bc55afe3334434912746e69eef862d3cedf45a02953bde73d38547d2d9a7a38a65e123a
+        url: 'https://ffmpeg.org/releases/ffmpeg-8.0.tar.xz'
+        sha512: 96f01fc3b881e208e8d35d858b2f60627f298b06103195e3e753b1c6429810d7a484d4daeebad6d0810172616383d103dfb5fcadc4512726c3719800d24a3fde
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -919,7 +919,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 01f13dec4f5051e0de16ab312c1d2ddfecb2ba79
+        commit: 99cd5dce61739445e41d77088e1787a3037c1fbc
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$

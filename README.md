@@ -11,7 +11,22 @@ Flatpak.
 Then build via
 
 ```
-flatpak run org.flatpak.Builder build-dir --user --ccache --force-clean --install tv.kodi.Kodi.yml
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+sudo flatpak -y uninstall tv.kodi.Kodi
+sudo flatpak -y install org.flatpak.Builder/x86_64/stable
+sudo flatpak -y install org.freedesktop.Platform/x86_64/24.08
+sudo flatpak -y install org.freedesktop.Sdk/x86_64/24.08
+sudo flatpak -y install org.freedesktop.Sdk.Extension.openjdk17/x86_64/24.08
+cd
+rm -rf tv.kodi.Kodi
+git clone -b beta --recursive https://github.com/andykimpe1/tv.kodi.Kodi.git
+cd tv.kodi.Kodi
+#flatpak run org.flatpak.Builder --repo=repo --ccache --force-clean build-dir tv.kodi.Kodi.yml
+flatpak run org.flatpak.Builder build-dir tv.kodi.Kodi.yml --repo=repo --force-clean --ccache
+flatpak-builder build-dir tv.kodi.Kodi.yml --repo=repo --force-clean --ccache
+flatpak build-bundle repo tv.kodi.Kodi.flatpakref tv.kodi.Kodi
+sudo flatpak install -y tv.kodi.Kodi.flatpakref
 ```
 
 Then you can run it via the command line:
