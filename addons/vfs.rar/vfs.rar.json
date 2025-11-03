@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/vfs.rar",
-            "commit": "af55fdf8d208561b086481751c5e644570babc0e"
+            "commit": "8141976a79016cc6b87b65b4c1bfea24498e90d4"
         }
     ],
     "build-options": {

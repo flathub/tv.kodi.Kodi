@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
-            "commit": "77e3d0be07f1b87de186bedfd8a9fac1b6a7ea4b"
+            "commit": "98147b0ad1bfc398db5efe5ccbb4ca0bf4c444bd"
         }
     ],
     "build-options": {
