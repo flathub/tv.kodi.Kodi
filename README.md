@@ -22,8 +22,9 @@ cd
 rm -rf tv.kodi.Kodi
 git clone -b beta --recursive https://github.com/andykimpe1/tv.kodi.Kodi.git
 cd tv.kodi.Kodi
-flatpak run org.flatpak.Builder --repo=repo --ccache --force-clean build-dir tv.kodi.Kodi.yml
-flatpak-builder --repo=repo --force-clean build-dir tv.kodi.Kodi.yml
+#flatpak run org.flatpak.Builder --repo=repo --ccache --force-clean build-dir tv.kodi.Kodi.yml
+flatpak run org.flatpak.Builder build-dir tv.kodi.Kodi.yml --repo=repo --force-clean --ccache
+flatpak-builder build-dir tv.kodi.Kodi.yml --repo=repo --force-clean --ccache
 flatpak build-bundle repo tv.kodi.Kodi.flatpakref tv.kodi.Kodi
 sudo flatpak install -y tv.kodi.Kodi.flatpakref
 ```
