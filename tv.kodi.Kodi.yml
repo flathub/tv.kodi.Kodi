@@ -858,13 +858,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 21.2-Omega
-        commit: d1a1d48c3cb3722d39264ffdd8132f755ffecd27
+        tag: 21.3-Omega
+        commit: a3a448d26b8d560a65655dab2cd122994dc4e146
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
       - type: patch
         path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi.metainfo.xml.in.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
