@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.greynetic",
-            "commit": "e8ffbe7aa2344ab0697121b4edc215c9249cc080"
+            "commit": "956485bf7268be35e8643c7f90b6b6823cc6779a"
         }
     ],
     "build-options": {
