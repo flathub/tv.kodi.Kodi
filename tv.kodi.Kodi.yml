@@ -152,8 +152,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.2.tar.gz
+        sha256: 19edf2e860297efab1c74950e6076bf4dad9de483826bc95e2e0f2c758a43f65
         x-checker-data:
           type: anitya
           project-id: 1181
