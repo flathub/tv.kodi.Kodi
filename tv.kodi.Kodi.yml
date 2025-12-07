@@ -487,8 +487,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.7.tar.gz
-        sha512: 0e06452539fcea4e21c3922b58b7079aa5d467e2ac704fe586fcd83563f69c4e0536d40e0020170f7670320cc71cd9de2a110f3f4c6ed52233aa329c3e495fd5
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.8.tar.gz
+        sha512: 7283ade71a80fb577558e36405621c51caf268ea96b501c9d98c1bb40c474e037a66fccca61a274b358ee2dbb5133e2458cb12dda3a349a3390ef40eb9f3c4b1
         x-checker-data:
           type: anitya
           project-id: 16939
