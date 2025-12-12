@@ -152,8 +152,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.2.tar.gz
+        sha256: 19edf2e860297efab1c74950e6076bf4dad9de483826bc95e2e0f2c758a43f65
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -362,8 +362,8 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.30.0/libinput-1.30.0.tar.gz
-        sha256: fcce701746b8f5ee57c6724e963496d2223a9639856c6d1b811cff38e6dd4465
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.30.1/libinput-1.30.1.tar.gz
+        sha256: 4339a2b9cc96ede3c120dedaedc61e48ce567808c5229e66587525ea972ef617
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -388,8 +388,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.5.tar.xz
-            sha256: 89918ae7b7c13936e6482604a77a2bfbbb74544c5d039fde01c3fa1bdf639987
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz
+            sha256: 73f215eccbd8233f414737ac06bca2687e67c44b97d2d7576091aa9718551110
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -576,8 +576,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.22.6.tar.gz
-        sha256: 8e6beb0cce87fb3c763af94c2dc21fd47b8fd02d46b3cb1deb2a72df9259c425
+        url: https://samba.org/samba/ftp/stable/samba-4.23.4.tar.gz
+        sha256: af429d078a86f1ce16d0d1ecee35c42a3610790b47b84468f31284a8c4060140
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -686,8 +686,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.4.0.tar.gz
-        sha256: c3f8e5dcd68c18aa19847b33b0a1bb92f07e904c53ae9cf5ae4ff8727a72927e
+        url: http://prdownloads.sourceforge.net/swig/swig-4.4.1.tar.gz
+        sha256: 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -744,7 +744,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1982
-          versions: { <: 2.0.0 }
+          versions: {<: 2.0.0}
           url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
