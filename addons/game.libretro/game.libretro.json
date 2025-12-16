@@ -83,7 +83,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/Omega/depends/common/rcheevos/CMakeLists.txt",
+                    "//": "Update this when updating from Omega",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/3b3aa934198ccbf0c25138e10a579db1db8f4ffe/depends/common/rcheevos/CMakeLists.txt",
                     "sha256": "33662a2bfff8a17d7707c5b8a0239bb00d559302975e7b9b7e0eac1f2e6c10c5"
                 }
             ]
