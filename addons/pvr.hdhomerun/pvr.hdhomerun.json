@@ -28,7 +28,9 @@
                 },
                 {
                     "type": "file",
-                    "path": "CMakeLists.txt"
+                    "//": "Update this when updating from Omega",
+                    "url": "https://raw.githubusercontent.com/kodi-pvr/pvr.hdhomerun/90439d15f6a0e3be8370343b75d7256b16a34c0e/depends/common/hdhomerun/CMakeLists.txt",
+                    "sha256": "e1bb766ac6e9d70fda6f5a2c5991bebef440bcd3ba6bb9be6c93e2d8fbf4bd29"
                 }
             ]
         }
