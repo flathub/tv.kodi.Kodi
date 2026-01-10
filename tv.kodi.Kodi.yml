@@ -61,8 +61,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.2/dav1d-1.5.2.tar.bz2
-        sha512: 499310a1b8257e115eebc152921903f34e036bad6f5f24446efc0528bad210a66e794e5c467cd0ce7b98f2cec2bba82033e00cbbd51d5d3201e3a19ccab2eef1
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.bz2
+        sha512: 208c3dee1037b4487c1846b5b5d78d8a88ee58624e4702583f4475518788cbdbefdf48e8fbcb8a2dbbad5d3a5f51a92c85baf978cf9be0aa451c5c86602f200a
         x-checker-data:
           type: anitya
           project-id: 18920
