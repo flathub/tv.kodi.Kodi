@@ -31,7 +31,7 @@
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 1729,
-                        "url-template": "https://www.libssh.org/files/$version/libssh-$version.tar.xz"
+                        "url-template": "https://www.libssh.org/files/$version0.$version1/libssh-$version.tar.xz"
                     }
                 }
             ]
