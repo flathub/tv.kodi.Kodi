@@ -672,8 +672,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.16.0.tar.gz
-        sha512: 3c330162201fb405a08040327e08bc3f90336f431b8865d250e1cf171e48eb8a07a0245a8f60118022869de1ee38209b14da76bf6bcc2ec3da60f1853adaf958
+        url: https://github.com/gabime/spdlog/archive/refs/tags/v1.17.0.tar.gz
+        sha512: 8df117055d19ff21c9c9951881c7bdf27cc0866ea3a4aa0614b2c3939cedceab94ac9abaa63dc4312b51562b27d708cb2f014c68c603fd1c1051d3ed5c1c3087
         x-checker-data:
           type: anitya
           project-id: 15599
