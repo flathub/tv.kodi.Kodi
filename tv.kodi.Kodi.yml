@@ -227,22 +227,19 @@ modules:
           type: anitya
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
-    # libgcrypt-1.11.0 build fails with freedeskop 24.08
   - name: libgcrypt
     config-opts:
       - --disable-static
       - --disable-doc
     sources:
-      - type: git
-        url: https://dev.gnupg.org/source/libgcrypt.git
-        tag: libgcrypt-1.10.3
-        commit: aa1610866f8e42bdc272584f0a717f32ee050a22
-        # disabled for libgcrypt-1.11 because of build fail
-        #x-checker-data:
-        #  type: anitya
-        #  project-id: 1623
-        #  stable-only: true
-        #  tag-template: libgcrypt-$version
+      - type: archive
+        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.11.2.tar.bz2
+        sha512: b706cea602cc8f0896e57ce979643bf78974b05faec27c1b053b773c57d8b04250e30e95a4ef5899e1df981d01d8d08f0a36e10b5820a5ec4183e74c02e5f1f0
+        x-checker-data:
+         type: anitya
+         project-id: 1623
+         stable-only: true
+         tag-template: libgcrypt-$version
   - name: libaacs
     config-opts:
       - --with-pic
