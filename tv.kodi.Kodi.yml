@@ -241,6 +241,7 @@ modules:
          stable-only: true
          tag-template: libgcrypt-$version
   - name: libaacs
+    rm-configure: true
     config-opts:
       - --with-pic
       - --enable-shared
@@ -253,6 +254,11 @@ modules:
           type: anitya
           project-id: 5562
           url-template: https://download.videolan.org/videolan/libaacs/$version/libaacs-$version.tar.bz2
+      - type: script
+        dest-filename: autogen.sh
+        commands:
+          - rm -fv m4/libgcrypt.m4
+          - autoreconf -vfi
   - name: libbdplus
     rm-configure: true
     config-opts:
