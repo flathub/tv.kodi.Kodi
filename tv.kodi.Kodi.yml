@@ -277,6 +277,8 @@ modules:
           url-template: https://download.videolan.org/videolan/libbdplus/$version/libbdplus-$version.tar.bz2
       - type: patch
         path: patches/libbdplus-gpg-error.patch
+      - type: patch
+        path: patches/libbdplus-fix-libgcrypt.patch
   - name: libbluray
     config-opts:
       - --disable-static
