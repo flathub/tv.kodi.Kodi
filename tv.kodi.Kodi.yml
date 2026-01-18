@@ -854,16 +854,16 @@ modules:
       - -DEXIV2_BUILD_SAMPLES=OFF
       - -DEXIV2_BUILD_UNIT_TESTS=OFF
       - -DEXIV2_ENABLE_VIDEO=OFF
-      - -DEXIV2_ENABLE_BMFF=ON
-      - -DEXIV2_ENABLE_BROTLI=ON
+      - -DEXIV2_ENABLE_BMFF=OFF
+      - -DEXIV2_ENABLE_BROTLI=OFF
       - -DEXIV2_ENABLE_INIH=OFF
       - -DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF
       - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
       - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
-        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.5.tar.gz
-        sha256: e1671f744e379a87ba0c984617406fdf8c0ad0c594e5122f525b2fb7c28d394d
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.7.tar.gz
+        sha256: 5e292b02614dbc0cee40fe1116db2f42f63ef6b2ba430c77b614e17b8d61a638
         x-checker-data:
           type: anitya
           project-id: 769
