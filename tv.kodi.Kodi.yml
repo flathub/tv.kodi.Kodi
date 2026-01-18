@@ -341,13 +341,9 @@ modules:
           - /include
           - '*.a'
         sources:
-          - type: archive
-            url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
-            sha512: 76e6f1ac64b61e4def7d99965708d0f05698379e0f3e846317174f0bc12a9654b3341afc84bd8a3a70f101ecab6c692dea96b57d7e000dfabf6cedee2b8dcd8a
-            x-checker-data:
-              type: anitya
-              project-id: 7322
-              url-template: https://github.com/Pulse-Eight/platform/archive/p8-platform-$version.tar.gz
+          - type: git
+            url: https://github.com/xbmc/platform.git
+            commit: ba6a67e5767457c45f69088b83101d77e4f143e7
   - name: libdisplay-info
     buildsystem: meson
     sources:
