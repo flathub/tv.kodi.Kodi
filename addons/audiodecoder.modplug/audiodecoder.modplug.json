@@ -23,9 +23,13 @@
             },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/Konstanty/libmodplug/archive/d7ba5efd5816696fba668a23194940f796d62b95.tar.gz",
-                    "sha256": "d11d770c485aba977ca682b4fc843a41a1cec7acc22a26a70ef1df46dcaa0ca5"
+                    "type": "git",
+                    "url": "https://github.com/Konstanty/libmodplug.git",
+                    "commit": "d1b97ed0020bc620a059d3675d1854b40bd2608d"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/libmodplug-fix-cmake.patch"
                 }
             ]
         }
