@@ -766,8 +766,8 @@ modules:
               url-template: https://github.com/nemtrif/utfcpp/archive/refs/tags/v$version.tar.gz
     sources:
       - type: archive
-        url: https://taglib.org/releases/taglib-2.0.2.tar.gz
-        sha512: 79f333dbe8ed44076010e33803e3418410516df4b70203962bbefea81ce0a6989a54a9791022488e64f1876573580cbe93920da4b2a7277d6a3f48c946e518fc
+        url: https://taglib.org/releases/taglib-2.1.1.tar.gz
+        sha512: 00ff982cd8e08307b453221e0c7fa471006640e906ac98df5f26abe5e302ffa09e17fd32e583508bda5ea060d6d6c7eae811efe00e5faa2f2570931243433c0b
         x-checker-data:
           type: anitya
           project-id: 1982
