@@ -499,8 +499,8 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip
-        sha512: bca064a6c544f639c2fef8bab4737db92dd9707c9496e715402a3b51c80e6b887097ef3ba9da12cbe8165d5acb57e9e4f17680e7f93794d2abe42a1339ce5da7
+        url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
+        sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
   - name: python-pillow
     buildsystem: simple
     build-commands:
