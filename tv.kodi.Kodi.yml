@@ -599,7 +599,7 @@ modules:
         config-opts:
           - -des
         post-install:
-          - find find ${FLATPAK_DEST}/lib/perl5/5.42.0/${FLATPAK_ARCH}-linux/auto/ -name
+          - find ${FLATPAK_DEST}/lib/perl5/5.42.0/${FLATPAK_ARCH}-linux/auto/ -name
             \*.so -exec chmod u+w {} +
         sources:
           - type: archive
