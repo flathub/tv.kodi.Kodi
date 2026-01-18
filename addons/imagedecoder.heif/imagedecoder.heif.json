@@ -19,9 +19,9 @@
             },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.15/libde265-1.0.15.tar.gz",
-                    "sha256": "00251986c29d34d3af7117ed05874950c875dd9292d016be29d3b3762666511d"
+                    "type": "git",
+                    "url": "https://github.com/strukturag/libde265.git",
+                    "commit": "d9fea9de9355f17795205257248d657512d0288a"
                 }
             ]
         },
@@ -30,11 +30,9 @@
             "buildsystem": "cmake-ninja",
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DWITH_EXAMPLES=0",
-                "-DWITH_X265=0",
-                "-DWITH_RAV1E=0",
-                "-DWITH_AOM=0",
-                "-DWITH_DAV1D=0"
+                "-DWITH_EXAMPLES=OFF",
+                "-DWITH_AOM_DECODER=OFF",
+                "-DWITH_AOM_ENCODER=OFF"
             ],
             "build-options": {
                 "no-debuginfo": true,
@@ -44,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.17.6/libheif-1.17.6.tar.gz",
-                    "sha256": "55bae7858bfd1679923d4a7db08ce1dcf3216667fa8f1da193a0577876b8a904"
+                    "url": "https://github.com/strukturag/libheif/archive/v1.21.2/libheif-1.21.2.tar.gz",
+                    "sha256": "79996de959d28ca82ef070c382304683f5cdaf04cbe2953a74587160a3710a36"
                 }
             ]
         }
