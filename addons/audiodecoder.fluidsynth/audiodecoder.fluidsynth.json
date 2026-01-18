@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "commit": "6977f12d1ceb745659e02d33dbbca9e3a464d8c0"
+            "commit": "7160ac6b7a4db7029b8ec2bae08717c3be0cedd7"
         }
     ],
     "modules": [
@@ -38,9 +38,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/FluidSynth/fluidsynth/archive/v2.2.3.tar.gz",
-                    "sha256": "b31807cb0f88e97f3096e2b378c9815a6acfdc20b0b14f97936d905b536965c4"
+                    "type": "git",
+                    "url": "https://github.com/FluidSynth/fluidsynth.git",
+                    "commit": "2d07b6ba240d5c40c51d42b8a9ccb0373ca9e1e9"
                 }
             ]
         }

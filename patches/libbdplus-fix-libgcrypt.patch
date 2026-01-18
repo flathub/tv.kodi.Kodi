@@ -1,0 +1,25 @@
+Description: libgcrypt does not ship libgcrypt-config anymore,
+ instead use PKG_CHECK_MODULES to detect libgcrypt
+Author: Dylan Aïssi <daissi@debian.org>
+Bug-Debian: https://bugs.debian.org/1071932
+Last-Update: 2024-06-29
+--- a/configure.ac
++++ b/configure.ac
+@@ -119,16 +119,7 @@
+       LIBGCRYPT_CONFIG=$libgcrypt_config_prefix/bin/libgcrypt-config
+    fi
+ fi
+-
+-AC_PATH_PROG(LIBGCRYPT_CONFIG, libgcrypt-config, no)
+-if test x"$LIBGCRYPT_CONFIG" = xno; then
+-  AC_MSG_ERROR([libgcrypt not found on system])
+-else
+-  LIBGCRYPT_CFLAGS=`$LIBGCRYPT_CONFIG --cflags`
+-  LIBGCRYPT_LIBS=`$LIBGCRYPT_CONFIG --libs`
+-  AC_SUBST(LIBGCRYPT_CFLAGS)
+-  AC_SUBST(LIBGCRYPT_LIBS)
+-fi
++PKG_CHECK_MODULES([LIBGCRYPT],libgcrypt,AC_DEFINE(HAVE_LIBGCRYPT_ERROR, 1, [Define to 1 if you have the libgcrypt library]),AC_MSG_ERROR([libgcrypt not found on system]))
+ AC_FUNC_STRERROR_R
+ 
+ dnl use re-entrant version of gcrypt_error() from gpg-error
