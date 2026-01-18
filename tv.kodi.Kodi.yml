@@ -599,12 +599,12 @@ modules:
         config-opts:
           - -des
         post-install:
-          - find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/ -name
+          - find find ${FLATPAK_DEST}/lib/perl5/5.42.0/${FLATPAK_ARCH}-linux/auto/ -name
             \*.so -exec chmod u+w {} +
         sources:
           - type: archive
-            url: https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz
-            sha256: 82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded
+            url: https://www.cpan.org/src/5.0/perl-5.42.0.tar.gz
+            sha256: e093ef184d7f9a1b9797e2465296f55510adb6dab8842b0c3ed53329663096dc
           - type: script
             dest-filename: configure
             commands:
