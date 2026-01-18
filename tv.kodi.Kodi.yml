@@ -915,8 +915,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 22.0a2-Piers
-        commit: 802f5aa51f6490d3ba05ea4f8269ba3eec3cc59f
+        # tag: 22.0a2-Piers
+        commit: 25889fc12341c43ed90fcb8302b09ae8525a0221
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
@@ -956,8 +956,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/xbmc/kodi-platform/archive/809c5e9d711e378561440a896fcb7dbcd009eb3d.tar.gz
-        sha256: 159165ae641da5eb273885ce53b8a4b84e62a595c4974f9d12c1b5d1428ef25c
+        url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
+        sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
