@@ -501,14 +501,24 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
         sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+  - name: python3-pybind11
+    buildsystem: simple
+    build-commands:
+      - >-
+        pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/cd/8a/37362fc2b949d5f733a8b0f2ff51ba423914cabefe69f1d1b6aab710f5fe/pybind11-3.0.1-py3-none-any.whl
+        sha256: aa8f0aa6e0a94d3b64adfc38f560f33f15e589be2175e103c0a33c6bce55ee89
   - name: python-pillow
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=/app --root=/
     sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/80/d7/c4b258c9098b469c4a4e77b0a99b5f4fd21e359c2e486c977d231f52fc71/Pillow-10.1.0.tar.gz
-        sha512: 77eeaee6f2b8b77b33438d6a5f3a2c79ff1154e39bc225f279f066d6471b6991aad4390756575fa53448062f7bf8763462e95a5b2cc8af1414c1d52f27529736
+      - type: git
+        url: https://github.com/python-pillow/Pillow.git
+        commit: 46f45f674d47b5d8bc54230dda8fe9e214598b87
   - name: python3-yaml
     buildsystem: simple
     build-commands:
