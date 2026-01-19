@@ -960,6 +960,23 @@ modules:
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
+  # pvr.plutotv, pvr.teleboy, pvr.waipu & pvr.zattoo still require rapidjson
+  - name: rapidjson
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DRAPIDJSON_BUILD_DOC=OFF
+      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
+      - -DRAPIDJSON_BUILD_TESTS=OFF
+      - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
+    cleanup:
+      - /include
+      - /share/doc
+    sources:
+      # no release since 2016, cmake fixes committed 2024/2025
+      - type: git
+        url: https://github.com/Tencent/rapidjson.git
+        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
+
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
   # - addons/audiodecoder.dumb/audiodecoder.dumb.json
@@ -1013,16 +1030,16 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
-  # - addons/pvr.plutotv/pvr.plutotv.json # https://github.com/kodi-pvr/pvr.plutotv/issues/99
+  - addons/pvr.plutotv/pvr.plutotv.json # https://github.com/kodi-pvr/pvr.plutotv/issues/99
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
-  # - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
+  - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
-  # - addons/pvr.waipu/pvr.waipu.json # https://github.com/flubshi/pvr.waipu/issues/418
+  - addons/pvr.waipu/pvr.waipu.json # https://github.com/flubshi/pvr.waipu/issues/418
   - addons/pvr.wmc/pvr.wmc.json
-  # - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
+  - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
   - addons/screensaver.asteroids/screensaver.asteroids.json
   - addons/screensaver.asterwave/screensaver.asterwave.json
   - addons/screensaver.biogenesis/screensaver.biogenesis.json
