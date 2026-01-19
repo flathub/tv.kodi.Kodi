@@ -518,7 +518,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
+        tag: 12.1.0
         commit: 46f45f674d47b5d8bc54230dda8fe9e214598b87
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: python3-yaml
     buildsystem: simple
     build-commands:
