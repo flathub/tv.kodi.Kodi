@@ -554,20 +554,18 @@ modules:
         dest-filename: autogen.sh
         commands:
           - autoreconf -vfi
-  - name: rapidjson
+  - name: nlohmannjson
     buildsystem: cmake-ninja
     config-opts:
-      - -DRAPIDJSON_BUILD_DOC=OFF
-      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
-      - -DRAPIDJSON_BUILD_TESTS=OFF
-      - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
-    cleanup:
-      - /include
-      - /share/doc
+      - -DJSON_BuildTests=OFF
     sources:
       - type: git
-        url: https://github.com/Tencent/rapidjson.git
-        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
+        url: https://github.com/nlohmann/json.git
+        tag: v3.12.0
+        commit: 55f93686c01528224f448c19128836e7df245f72
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
   - name: samba
     buildsystem: autotools
     config-opts:
