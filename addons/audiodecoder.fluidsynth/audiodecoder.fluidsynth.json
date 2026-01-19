@@ -40,6 +40,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/FluidSynth/fluidsynth.git",
+                    "tag": "v2.5.2",
                     "commit": "2d07b6ba240d5c40c51d42b8a9ccb0373ca9e1e9"
                 }
             ]
