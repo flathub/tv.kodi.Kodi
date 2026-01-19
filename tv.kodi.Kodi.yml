@@ -1014,16 +1014,16 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
-  - addons/pvr.plutotv/pvr.plutotv.json
+  # - addons/pvr.plutotv/pvr.plutotv.json # https://github.com/kodi-pvr/pvr.plutotv/issues/99
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
-  - addons/pvr.teleboy/pvr.teleboy.json
+  # - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
-  - addons/pvr.waipu/pvr.waipu.json
+  # - addons/pvr.waipu/pvr.waipu.json # https://github.com/flubshi/pvr.waipu/issues/418
   - addons/pvr.wmc/pvr.wmc.json
-  - addons/pvr.zattoo/pvr.zattoo.json
+  # - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
   - addons/screensaver.asteroids/screensaver.asteroids.json
   - addons/screensaver.asterwave/screensaver.asterwave.json
   - addons/screensaver.biogenesis/screensaver.biogenesis.json
