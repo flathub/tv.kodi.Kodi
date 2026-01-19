@@ -343,7 +343,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/xbmc/platform.git
-            commit: ba6a67e5767457c45f69088b83101d77e4f143e7
+            commit: 87e2b4ec3af12e8ff07ee1bb437cd17c02101567
   - name: libdisplay-info
     buildsystem: meson
     sources:
