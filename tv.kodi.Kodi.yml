@@ -549,6 +549,7 @@ modules:
       - --without-ad-dc
       - --without-json
       - --disable-cups
+      - --disable-iprint
       - --without-ldb-lmdb
     cleanup:
       - /bin
@@ -563,7 +564,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 4758
-          url-template: https://samba.org/samba/ftp/stable/samba-$version.tar.gz
+          url-template: https://download.samba.org/pub/samba/stable/samba-$version.tar.gz
     modules:
       - name: perl
         no-autogen: true
@@ -590,11 +591,6 @@ modules:
           - type: archive
             url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
             sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
-      - name: rpcsvc-proto
-        sources:
-          - type: archive
-            url: https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.4/rpcsvc-proto-1.4.4.tar.xz
-            sha256: 81c3aa27edb5d8a18ef027081ebb984234d5b5860c65bd99d4ac8f03145a558b
   - name: shairplay
     cleanup:
       - /include
