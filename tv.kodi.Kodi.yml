@@ -442,23 +442,7 @@ modules:
           type: anitya
           project-id: 89591
           url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
-  - name: lzo
-    config-opts:
-      - --enable-shared
-      - --disable-static
-    cleanup:
-      - /include
-      - /share/doc
-      - '*.la'
-      - /lib/*.so
-    sources:
-      - type: archive
-        url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-        sha512: a3dae5e4a6b93b1f5bf7435e8ab114a9be57252e9efc5dd444947d7a2d031b0819f34bcaeb35f60b5629a01b1238d738735a64db8f672be9690d3c80094511a4
-        x-checker-data:
-          type: anitya
-          project-id: 1868
-          url-template: http://www.oberhumer.com/opensource/lzo/download/lzo-$version.tar.gz
+  - shared-modules/lzo/lzo.json
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
