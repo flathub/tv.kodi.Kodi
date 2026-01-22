@@ -506,6 +506,10 @@ modules:
     rm-configure: true
     config-opts:
       - --with-systemdsystemunitdir=/app/lib/systemd
+    cleanup:
+      - /bin
+      - /sbin
+      - /share
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/project/lirc/LIRC/0.10.2/lirc-0.10.2.tar.bz2
