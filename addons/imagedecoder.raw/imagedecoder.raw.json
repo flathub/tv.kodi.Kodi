@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "commit": "efc53c66da84490ef427bbc7a310844d8efe3c79"
+            "commit": "7349812be6a0a7c817339d2c5c0f27562f039e73"
         }
     ],
     "modules": [
@@ -19,8 +19,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/LibRaw/LibRaw/archive/refs/tags/0.20.2.tar.gz",
-                    "sha256": "02df7d403b34602b769bb38e5bf7d4258e075eeefbe980b6832e6e1491989d60"
+                    "url": "https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.0.tar.gz",
+                    "sha256": "5a11327a9cef2496d6a4335e8da30a1604460b6c545a30fe7588cf4c00a0fcae"
                 },
                 {
                     "type": "script",
