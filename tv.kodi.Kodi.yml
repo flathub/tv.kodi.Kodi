@@ -698,7 +698,7 @@ modules:
         sources:
           - type: archive
             url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
-	    sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
+            sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
             dest: commons-lang3
       - name: commons-text
         buildsystem: simple
