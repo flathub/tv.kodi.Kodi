@@ -697,8 +697,8 @@ modules:
           - /commons-lang3
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/commons-lang3-3.17.0-bin.tar.gz
-            sha512: 8927a406a1bd084b548f89cf15fe4bc7567dcaa50ae8abae54e9c883c1574c648fcc8ad6c3abaa381dfbdf1801727ac5e6c4572063203a1dfac293d122282f05
+            url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
+	    sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
             dest: commons-lang3
       - name: commons-text
         buildsystem: simple
