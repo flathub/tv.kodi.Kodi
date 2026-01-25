@@ -5,7 +5,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
-            "commit": "74d1e7654eb19dac9203a6e4e64bf06d5a7250c4"
+            "tag": "22.1.1-Piers",
+            "commit": "df26961e0f4ad466f7d3e63b93f3a0cc7b04092a"
         }
     ],
     "modules": [

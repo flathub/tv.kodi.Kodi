@@ -14,8 +14,11 @@
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "config-opts": [
-                "-DWITH_GSSAPI=OFF",
+                "-DWITH_SERVER=OFF",
+                "-DWITH_GCRYPT=OFF",
                 "-DWITH_EXAMPLES=OFF",
+                "-DWITH_GSSAPI=OFF",
+                "-DWITH_GEX=OFF",
                 "-DCMAKE_BUILD_TYPE=Release"
             ],
             "build-options": {
@@ -26,8 +29,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://www.libssh.org/files/0.9/libssh-0.9.5.tar.xz",
-                    "sha256": "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718"
+                    "url": "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz",
+                    "sha256": "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
                 }
             ]
         }
