@@ -11,7 +11,8 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "194e2ddc9c7e67751c2ffcd65e3afb476792aece"
+            "tag": "22.3.7-Piers",
+            "commit": "195161ad8159905842d9f3c87317917184926cdd"
         },
         {
             "type": "file",
