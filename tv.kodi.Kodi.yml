@@ -709,8 +709,8 @@ modules:
           - /commons-text
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/commons-text-1.11.0-bin.tar.gz
-            sha512: 2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f
+            url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
+            sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
             dest: commons-text
   - name: taglib2
     buildsystem: cmake-ninja
