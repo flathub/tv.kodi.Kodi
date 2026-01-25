@@ -683,8 +683,8 @@ modules:
           - cp -r groovy/* ${FLATPAK_DEST}/groovy
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/apache-groovy-binary-4.0.26.zip
-            sha512: 60d1aea85008a438a9498178dc2137385653f1ea294e7e257959e9e0f94382e160e217e1090047c2a944e328cf46e8ebcfc4b015f7d0cb9f2fcf9d880c6c1344
+            url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
+            sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
             dest: groovy
         cleanup:
           - /groovy
