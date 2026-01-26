@@ -443,7 +443,6 @@ modules:
           type: anitya
           project-id: 89591
           url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
-  - shared-modules/lzo/lzo.json
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
