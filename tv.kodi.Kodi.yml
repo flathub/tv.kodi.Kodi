@@ -172,6 +172,16 @@ modules:
           url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
     cleanup:
       - /lib/pkgconfig
+  - name: json
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz
+        sha256: 4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187
+        x-checker-data:
+          type: anitya
+          project-id: 11152
+          url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: jsoncpp
     buildsystem: meson
     config-opts:
@@ -506,6 +516,18 @@ modules:
         dest-filename: autogen.sh
         commands:
           - autoreconf -vfi
+  - name: nlohmannjson
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DJSON_BuildTests=OFF
+    sources:
+      - type: git
+        url: https://github.com/nlohmann/json.git
+        tag: v3.12.0
+        commit: 55f93686c01528224f448c19128836e7df245f72
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
   - name: samba
     buildsystem: autotools
     config-opts:
