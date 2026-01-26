@@ -22,10 +22,6 @@ flatpak run tv.kodi.Kodi
 
 or just search for the installed app on your system
 
-The following binary addons do not compile, and are excluded:
-
-- `audiodecoder.dumb`
-
 ## Contributing
 
 The list of binary addons in each branch of Kodi may be found
