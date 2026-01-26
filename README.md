@@ -25,7 +25,6 @@ or just search for the installed app on your system
 The following binary addons do not compile, and are excluded:
 
 - `audiodecoder.dumb`
-- `game.libretro.2048`
 
 ## Contributing
 
