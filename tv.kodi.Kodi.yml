@@ -330,7 +330,8 @@ modules:
         sources:
           - type: git
             url: https://github.com/xbmc/platform.git
-            commit: 87e2b4ec3af12e8ff07ee1bb437cd17c02101567
+            tag: p8-platform-20260129
+            commit: c51ddf4787d083b6cf039761a48fb90d0c4f00ff
   - name: libdisplay-info
     buildsystem: meson
     sources:
