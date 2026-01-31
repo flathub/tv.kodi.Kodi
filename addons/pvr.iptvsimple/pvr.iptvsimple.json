@@ -5,13 +5,13 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.iptvsimple",
-            "commit": "084876e470fed21400642aa7b34bf65982286e0f"
+            "commit": "047fcee070816b8f8ebaf9644c5f73c04bbdf3e1"
         }
     ],
     "build-options": {
         "no-debuginfo": true,
-        "cflags": "-g0",
-        "cxxflags": "-g0 -Wp,-U_GLIBCXX_ASSERTIONS"
+        "cxxflags": "-g0 -Wp,-U_GLIBCXX_ASSERTIONS",
+        "cflags": "-g0"
     },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release"
