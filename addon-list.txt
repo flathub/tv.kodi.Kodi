@@ -28,6 +28,7 @@ audioencoder.wav
 game.libretro
 game.libretro.2048
 game.libretro.mrboom
+game.shader.presets
 imagedecoder.heif
 imagedecoder.mpo
 imagedecoder.raw

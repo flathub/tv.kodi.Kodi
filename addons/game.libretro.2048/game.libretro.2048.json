@@ -5,17 +5,30 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.2048",
-            "commit": "3d9437407828ce17e78d4cea377ede060acc758d"
+            "commit": "8ce00ed0365b9c948fe457687e8700ae8ad868df"
         }
     ],
     "modules": [
         {
             "name": "2048",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -f Makefile.libretro PREFIX=/app platform=unix",
+                "install -D -m 755 2048_libretro.so /app/lib/libretro/2048_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-2048/archive/20051e140346fb56376b59f41f28ef40f8ad7fb8.tar.gz",
-                    "sha256": "6cccc6ddefcd065b13aa01881ad82966eb5377657a97757c172c4e82f955780f"
+                    "url": "https://github.com/libretro/libretro-2048/archive/e70c3f82d2b861c64943aaff7fcc29a63013997d.tar.gz",
+                    "sha256": "07d51892d173d85715d0cddd5963c50c2308e2d92401c4e79208544bc95f6f19"
                 }
             ]
         }

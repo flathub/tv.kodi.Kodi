@@ -5,7 +5,6 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
-            "tag": "22.0.3-Piers",
             "commit": "7349812be6a0a7c817339d2c5c0f27562f039e73"
         }
     ],
