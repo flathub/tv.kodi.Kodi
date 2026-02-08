@@ -715,6 +715,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_INSTALL_LIBDIR=lib
+      - -DBUILD_DOCUMENTATION=OFF
     sources:
       - type: archive
         url: https://github.com/NilsBrause/waylandpp/archive/1.0.1.tar.gz
