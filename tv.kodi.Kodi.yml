@@ -302,8 +302,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
-        sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
+        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.gz
+        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
         x-checker-data:
           type: anitya
           project-id: 1573
