@@ -524,6 +524,7 @@ modules:
     config-opts:
       - --prefix=/app
       - --libdir=/app/lib
+      - --disable-rpath
       - --disable-python
       - --without-ads
       - --without-ldap
