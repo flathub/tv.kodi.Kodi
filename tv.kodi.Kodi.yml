@@ -137,8 +137,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.2.tar.gz
-        sha256: 19edf2e860297efab1c74950e6076bf4dad9de483826bc95e2e0f2c758a43f65
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.3.tar.gz
+        sha256: 6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -163,8 +163,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.403.tar.gz
-        sha256: 77d0a69e5558d16d33bbb510a09093deaf11c882baf9ef6ec5f18a8ef96e2c13
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.404.tar.gz
+        sha256: 5c14fc99bf193faad1ccc267ccfff14ee4e4550a582b17a76aec72178539f837
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -220,8 +220,8 @@ modules:
       - --disable-doc
     sources:
       - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.11.2.tar.bz2
-        sha512: b706cea602cc8f0896e57ce979643bf78974b05faec27c1b053b773c57d8b04250e30e95a4ef5899e1df981d01d8d08f0a36e10b5820a5ec4183e74c02e5f1f0
+        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.0.tar.bz2
+        sha512: 9421461297bd79b14f94d1ab275c3ed93b5d433531915c5cc7a718a94d32978a46feccb7a33fe63a60780ff00d465fbe1fe9ada5c250cf6d10a525c246c63d1c
         x-checker-data:
          type: anitya
          project-id: 1623
@@ -267,19 +267,19 @@ modules:
       - type: patch
         path: patches/libbdplus-fix-libgcrypt.patch
   - name: libbluray
+    buildsystem: meson
     config-opts:
-      - --disable-static
-      - --disable-bdjava-jar
-    cleanup:
-      - /include
-      - '*.a'
-      - '*.la'
-      - '*.pc'
-      - /lib/*.so
+      - -Ddefault_library=shared
+      - -Denable_docs=false
+      - -Denable_tools=false
+      - -Denable_devtools=false
+      - -Denable_examples=false
+      - -Dbdj_jar=disabled
+      - -Djava9=false
     sources:
       - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2
-        sha512: 94dbf3b68d1c23fe4648c153cc2f0c251886fac0a6b6bbe3a77caabaa5322682f712afe4a7b6b16ca3f06744fbc0e1ca872209a32898dcf0ae182055d335aec1
+        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
+        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
         x-checker-data:
           type: anitya
           project-id: 1565
@@ -302,12 +302,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
-        sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
+        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
+        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
+          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.bz2
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
@@ -524,6 +524,7 @@ modules:
     config-opts:
       - --prefix=/app
       - --libdir=/app/lib
+      - --disable-rpath
       - --disable-python
       - --without-ads
       - --without-ldap
@@ -638,8 +639,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.4.0.tar.gz
-        sha256: c3f8e5dcd68c18aa19847b33b0a1bb92f07e904c53ae9cf5ae4ff8727a72927e
+        url: http://prdownloads.sourceforge.net/swig/swig-4.4.1.tar.gz
+        sha256: 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -715,6 +716,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_INSTALL_LIBDIR=lib
+      - -DBUILD_DOCUMENTATION=OFF
     sources:
       - type: archive
         url: https://github.com/NilsBrause/waylandpp/archive/1.0.1.tar.gz
@@ -737,17 +739,6 @@ modules:
               type: anitya
               project-id: 3728
               url-template: https://github.com/zeux/pugixml/archive/v$version.tar.gz
-      - name: pcre
-        config-opts:
-          - --enable-unicode-properties
-        sources:
-          - type: archive
-            url: http://prdownloads.sourceforge.net/pcre/pcre-8.45.tar.bz2
-            sha512: 91bff52eed4a2dfc3f3bfdc9c672b88e7e2ffcf3c4b121540af8a4ae8c1ce05178430aa6b8000658b9bb7b4252239357250890e20ceb84b79cdfcde05154061a
-            x-checker-data:
-              type: anitya
-              project-id: 2610
-              url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
   - name: exiv2
     buildsystem: cmake-ninja
     builddir: true
@@ -825,7 +816,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         # tag: 22.0a2-Piers
-        commit: ff04cfb35ae56da7ff0c89f292ff54b8113731f6
+        commit: bdb5c2d2eeffe24a8aa90e6ee82ac2148cf3a570
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
