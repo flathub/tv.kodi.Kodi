@@ -351,12 +351,12 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.30.1/libinput-1.30.1.tar.gz
-        sha256: 4339a2b9cc96ede3c120dedaedc61e48ce567808c5229e66587525ea972ef617
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.bz2
+        sha256: af04645cef8ec4ef9b571664828086ea5a610c6f3e872880055c7fe2c9377de5
         x-checker-data:
           type: anitya
           project-id: 5781
-          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.gz
+          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.bz2
     modules:
       - name: mtdev
         sources:
@@ -489,8 +489,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
-        tag: 12.1.0
-        commit: 46f45f674d47b5d8bc54230dda8fe9e214598b87
+        tag: 12.1.1
+        commit: 5158d98c807e719c5938aa3886913ef0ea6814e9
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -746,7 +746,7 @@ modules:
       - /bin
       - /share/man
     config-opts:
-      - -DBUILD_SHARED_LIBS=OFF
+      - -DBUILD_SHARED_LIBS=ON
       - -DEXIV2_ENABLE_WEBREADY=OFF
       - -DEXIV2_ENABLE_XMP=OFF
       - -DEXIV2_ENABLE_CURL=OFF
@@ -754,8 +754,8 @@ modules:
       - -DEXIV2_BUILD_SAMPLES=OFF
       - -DEXIV2_BUILD_UNIT_TESTS=OFF
       - -DEXIV2_ENABLE_VIDEO=OFF
-      - -DEXIV2_ENABLE_BMFF=OFF
-      - -DEXIV2_ENABLE_BROTLI=OFF
+      - -DEXIV2_ENABLE_BMFF=ON
+      - -DEXIV2_ENABLE_BROTLI=ON
       - -DEXIV2_ENABLE_INIH=OFF
       - -DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF
       - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
@@ -769,6 +769,19 @@ modules:
           project-id: 769
           stable-only: true
           url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
+    modules:
+      - name: brotli
+        buildsystem: cmake-ninja
+        cleanup:
+          - '*.a'
+        sources:
+          - type: git
+            url: https://github.com/google/brotli.git
+            tag: v1.2.0
+            commit: 028fb5a23661f123017c060daa546b55cf4bde29
+            x-checker-data:
+              type: git
+              tag-pattern: ^v([\d.]+)$
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
@@ -816,7 +829,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         # tag: 22.0a2-Piers
-        commit: bdb5c2d2eeffe24a8aa90e6ee82ac2148cf3a570
+        commit: 653d592c9f1709811351d25ebc48949c1e70c834
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
