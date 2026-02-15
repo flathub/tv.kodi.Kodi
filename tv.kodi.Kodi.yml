@@ -746,7 +746,7 @@ modules:
       - /bin
       - /share/man
     config-opts:
-      - -DBUILD_SHARED_LIBS=OFF
+      - -DBUILD_SHARED_LIBS=ON
       - -DEXIV2_ENABLE_WEBREADY=OFF
       - -DEXIV2_ENABLE_XMP=OFF
       - -DEXIV2_ENABLE_CURL=OFF
@@ -754,8 +754,8 @@ modules:
       - -DEXIV2_BUILD_SAMPLES=OFF
       - -DEXIV2_BUILD_UNIT_TESTS=OFF
       - -DEXIV2_ENABLE_VIDEO=OFF
-      - -DEXIV2_ENABLE_BMFF=OFF
-      - -DEXIV2_ENABLE_BROTLI=OFF
+      - -DEXIV2_ENABLE_BMFF=ON
+      - -DEXIV2_ENABLE_BROTLI=ON
       - -DEXIV2_ENABLE_INIH=OFF
       - -DEXIV2_ENABLE_FILESYSTEM_ACCESS=OFF
       - -DEXIV2_BUILD_EXIV2_COMMAND=OFF
@@ -769,6 +769,19 @@ modules:
           project-id: 769
           stable-only: true
           url-template: https://github.com/Exiv2/exiv2/archive/refs/tags/v$version.tar.gz
+    modules:
+      - name: brotli
+        buildsystem: cmake-ninja
+        cleanup:
+          - '*.a'
+        sources:
+          - type: git
+            url: https://github.com/google/brotli.git
+            tag: v1.2.0
+            commit: 028fb5a23661f123017c060daa546b55cf4bde29
+            x-checker-data:
+              type: git
+              tag-pattern: ^v([\d.]+)$
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
