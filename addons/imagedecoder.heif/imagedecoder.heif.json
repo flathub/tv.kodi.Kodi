@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
             "commit": "db87dc42c921a796cd5c7c701e838c3cbd31f8f1"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.imagedecoder.heif.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.imagedecoder.heif.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -54,6 +61,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

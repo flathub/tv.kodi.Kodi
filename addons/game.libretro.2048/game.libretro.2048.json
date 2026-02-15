@@ -5,8 +5,15 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.2048",
-            "commit": "dcc73692044cbf6931c0e278599017256b891213"
+            "commit": "8844f975d7946d720eaf0c9f2486e650b7a8428c"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.game.libretro._2048.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.game.libretro._2048.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -39,6 +46,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

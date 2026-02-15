@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audioencoder.lame</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audioencoder.lame addon</name>
+  <summary>LAME is a high quality MPEG Audio Layer III (MP3)</summary>
+  <description><p>Kodi audioencoder.lame addon: LAME is a high quality MPEG Audio Layer III (MP3)</p></description>
+  <url type="homepage">https://github.com/xbmc/audioencoder.lame</url>
+  <developer id="tv.kodi.Kodi.Addon.audioencoder.lame"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

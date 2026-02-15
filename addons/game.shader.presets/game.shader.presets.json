@@ -7,13 +7,21 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.shader.presets",
-            "commit": "aa37b816b70042da43663a80bfe08421c6044ff8"
+            "commit": "f94f0505014b889f93b5583c74d273dee5795b7b"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.game.shader.presets.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.game.shader.presets.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ]
 }

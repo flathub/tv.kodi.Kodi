@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/visualization.fishbmc",
             "commit": "a5d84d7b150a9cd36cb999ca26a3fd0226757645"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.visualization.fishbmc.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.visualization.fishbmc.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

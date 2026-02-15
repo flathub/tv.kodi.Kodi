@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.visualization.projectm</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi visualization.projectm addon</name>
+  <summary>projectM takes you flying through the soundwaves you are hearing</summary>
+  <description><p>Kodi visualization.projectm addon: projectM takes you flying through the soundwaves you are hearing</p></description>
+  <url type="homepage">https://github.com/xbmc/visualization.projectm</url>
+  <developer id="tv.kodi.Kodi.Addon.visualization.projectm"><name>Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

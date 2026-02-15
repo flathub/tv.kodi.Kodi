@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.raw",
             "commit": "b0ce0ac32d0a35eebbd88176b5704a03404979ed"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.imagedecoder.raw.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.imagedecoder.raw.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -38,6 +45,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

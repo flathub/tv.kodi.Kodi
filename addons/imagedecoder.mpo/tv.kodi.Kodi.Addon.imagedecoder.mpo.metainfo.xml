@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.imagedecoder.mpo</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi imagedecoder.mpo addon</name>
+  <summary>Multi Picture Object (MPO) image decoder</summary>
+  <description><p>Kodi imagedecoder.mpo addon: Multi Picture Object (MPO) image decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/imagedecoder.mpo</url>
+  <developer id="tv.kodi.Kodi.Addon.imagedecoder.mpo"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

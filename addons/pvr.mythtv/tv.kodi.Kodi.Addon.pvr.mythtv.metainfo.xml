@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.mythtv</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.mythtv addon</name>
+  <summary>Kodi frontend for MythTV</summary>
+  <description><p>Kodi pvr.mythtv addon: Kodi frontend for MythTV</p></description>
+  <url type="homepage">https://github.com/janbar/pvr.mythtv</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.mythtv"><name>Christian Fetzer, Jean-Luc Barrière</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

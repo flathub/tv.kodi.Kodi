@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.teleboy</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.teleboy addon</name>
+  <summary>Kodi frontend for Teleboy</summary>
+  <description><p>Kodi pvr.teleboy addon: Kodi frontend for Teleboy</p></description>
+  <url type="homepage">https://github.com/rbuehlma/pvr.teleboy</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.teleboy"><name>rbuehlma</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

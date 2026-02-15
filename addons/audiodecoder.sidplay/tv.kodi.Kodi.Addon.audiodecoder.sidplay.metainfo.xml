@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.sidplay</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.sidplay addon</name>
+  <summary>SID (MOS 6581) Audio Decoder</summary>
+  <description><p>Kodi audiodecoder.sidplay addon: SID (MOS 6581) Audio Decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.sidplay</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.sidplay"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

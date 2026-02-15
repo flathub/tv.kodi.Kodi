@@ -7,7 +7,8 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ],
     "cleanup": [
         "/include",
@@ -18,8 +19,15 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "281547685b1dbc286a59fe971cd03a35c2beb68c"
+            "commit": "c9d3181799b026b105957af0d2299ad97f13f153"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.game.libretro.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.game.libretro.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {

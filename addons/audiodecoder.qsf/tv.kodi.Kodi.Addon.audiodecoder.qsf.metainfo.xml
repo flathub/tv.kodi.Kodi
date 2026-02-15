@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.qsf</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.qsf addon</name>
+  <summary>Capcom QSound QSF Audio Decoder</summary>
+  <description><p>Kodi audiodecoder.qsf addon: Capcom QSound QSF Audio Decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.qsf</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.qsf"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

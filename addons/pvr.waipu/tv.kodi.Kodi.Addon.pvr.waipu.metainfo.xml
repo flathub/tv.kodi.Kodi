@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.waipu</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.waipu addon</name>
+  <summary>waipu.tv PVR Client</summary>
+  <description><p>Kodi pvr.waipu addon: waipu.tv PVR Client</p></description>
+  <url type="homepage">https://github.com/flubshi/pvr.waipu</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.waipu"><name>flubshi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

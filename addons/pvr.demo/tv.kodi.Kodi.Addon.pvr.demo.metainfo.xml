@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.demo</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.demo addon</name>
+  <summary>Demo PVR Client</summary>
+  <description><p>Kodi pvr.demo addon: Demo PVR Client</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.demo</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.demo"><name>Pulse-Eight Ltd., Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

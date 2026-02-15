@@ -5,20 +5,28 @@
         "-DBUILD_TESTING=OFF",
         "-DENABLE_INTERNAL_BENTO4=ON",
         "-DBENTO4_URL=bento4.tar.gz",
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "5e80df44997f350e6319aceda30808799e205486"
+            "commit": "f731fc1e92f5249822d31ecf4d5861c02cdb2ce7"
         },
         {
             "type": "file",
             "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-5-Piers.tar.gz",
             "sha256": "84a930e523553d638de7b2c66176e25c5910c65b906a06fb7211530df8edfc1f",
             "dest-filename": "bento4.tar.gz"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.inputstream.adaptive.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.inputstream.adaptive.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,

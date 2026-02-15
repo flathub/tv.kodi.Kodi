@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.vfs.sftp</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi vfs.sftp addon</name>
+  <summary>SSH File Transfer Protocol support</summary>
+  <description><p>Kodi vfs.sftp addon: SSH File Transfer Protocol support</p></description>
+  <url type="homepage">https://github.com/xbmc/vfs.sftp</url>
+  <developer id="tv.kodi.Kodi.Addon.vfs.sftp"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

@@ -95,6 +95,8 @@ def set_build_type(a_data):
         a_data["build-options"] = {}
     if "config-opts" not in a_data:
         a_data["config-opts"] = []
+    if args.zip and "-DPACKAGE_ZIP=ON" not in a_data["config-opts"]:
+        a_data["config-opts"].append("-DPACKAGE_ZIP=ON")
     if args.release:
         if "-DCMAKE_BUILD_TYPE=Release" not in a_data["config-opts"]:
             a_data["config-opts"].append("-DCMAKE_BUILD_TYPE=Release")
@@ -162,6 +164,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "-r", "--release", help="enable release builds", action="store_true"
+)
+parser.add_argument(
+    "-z", "--zip", help="package each addon into a discrete folder", action="store_true"
 )
 args = parser.parse_args()
 

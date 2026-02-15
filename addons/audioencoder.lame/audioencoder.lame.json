@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.lame",
             "commit": "49afff73fab3bb829e7ddb20737749cf46c897b2"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audioencoder.lame.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audioencoder.lame.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

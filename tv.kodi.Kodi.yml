@@ -83,8 +83,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz
-        sha512: 7af5cd1c7ba04f8d7ea1b54b64b9c235f2a606dc0c18d25cfdf20958bcad4851d3265b4894fc6ba5dd205c2309971c7e7fb890ee1d64e0a41a3faf159f77957f
+        url: https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz
+        sha512: 9deb30b93c27873564ec094693e72ff552f63a09af3175f9118672b88299a4e9495502aa0fb2dfbcd45857ba255f24b829bdd3c3c17d0f1eee75423302a9af8c
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -830,8 +830,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        tag: 22.0a3-Piers
-        commit: bb38e26ea06633fd26f7cf578507d0fb85e23980
+        #tag: 22.0a3-Piers
+        commit: d3aecd58b61ba5aea76556c85625705dd3df4a68
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
@@ -894,7 +894,6 @@ modules:
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
   - addons/audiodecoder.dumb/audiodecoder.dumb.json
-  - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
   - addons/audiodecoder.hvl/audiodecoder.hvl.json
@@ -977,3 +976,781 @@ modules:
   - addons/visualization.spectrum/visualization.spectrum.json
   - addons/visualization.starburst/visualization.starburst.json
   - addons/visualization.waveform/visualization.waveform.json
+add-extensions:
+  tv.kodi.Kodi.Addon.audiodecoder._2sf:
+    directory: "audiodecoder.2sf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.asap:
+    directory: "audiodecoder.asap"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.dumb:
+    directory: "audiodecoder.dumb"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.gme:
+    directory: "audiodecoder.gme"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.gsf:
+    directory: "audiodecoder.gsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.hvl:
+    directory: "audiodecoder.hvl"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.modplug:
+    directory: "audiodecoder.modplug"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.ncsf:
+    directory: "audiodecoder.ncsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.nosefart:
+    directory: "audiodecoder.nosefart"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.openmpt:
+    directory: "audiodecoder.openmpt"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.organya:
+    directory: "audiodecoder.organya"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.qsf:
+    directory: "audiodecoder.qsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.sacd:
+    directory: "audiodecoder.sacd"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.sidplay:
+    directory: "audiodecoder.sidplay"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.snesapu:
+    directory: "audiodecoder.snesapu"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.ssf:
+    directory: "audiodecoder.ssf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.stsound:
+    directory: "audiodecoder.stsound"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.timidity:
+    directory: "audiodecoder.timidity"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.upse:
+    directory: "audiodecoder.upse"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.usf:
+    directory: "audiodecoder.usf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.vgmstream:
+    directory: "audiodecoder.vgmstream"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.wsr:
+    directory: "audiodecoder.wsr"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.flac:
+    directory: "audioencoder.flac"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.lame:
+    directory: "audioencoder.lame"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.vorbis:
+    directory: "audioencoder.vorbis"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.wav:
+    directory: "audioencoder.wav"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro:
+    directory: "game.libretro"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro._2048:
+    directory: "game.libretro.2048"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mrboom:
+    directory: "game.libretro.mrboom"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.shader.presets:
+    directory: "game.shader.presets"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.imagedecoder.heif:
+    directory: "imagedecoder.heif"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.imagedecoder.mpo:
+    directory: "imagedecoder.mpo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.imagedecoder.raw:
+    directory: "imagedecoder.raw"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.adaptive:
+    directory: "inputstream.adaptive"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.ffmpegdirect:
+    directory: "inputstream.ffmpegdirect"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.rtmp:
+    directory: "inputstream.rtmp"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.peripheral.joystick:
+    directory: "peripheral.joystick"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.peripheral.xarcade:
+    directory: "peripheral.xarcade"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.argustv:
+    directory: "pvr.argustv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.demo:
+    directory: "pvr.demo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.dvblink:
+    directory: "pvr.dvblink"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.dvbviewer:
+    directory: "pvr.dvbviewer"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.filmon:
+    directory: "pvr.filmon"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.freebox:
+    directory: "pvr.freebox"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.hdhomerun:
+    directory: "pvr.hdhomerun"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.hts:
+    directory: "pvr.hts"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.iptvsimple:
+    directory: "pvr.iptvsimple"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.mediaportal.tvserver:
+    directory: "pvr.mediaportal.tvserver"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.mythtv:
+    directory: "pvr.mythtv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.nextpvr:
+    directory: "pvr.nextpvr"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.njoy:
+    directory: "pvr.njoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.octonet:
+    directory: "pvr.octonet"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.pctv:
+    directory: "pvr.pctv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.plutotv:
+    directory: "pvr.plutotv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.sledovanitv.cz:
+    directory: "pvr.sledovanitv.cz"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.stalker:
+    directory: "pvr.stalker"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.teleboy:
+    directory: "pvr.teleboy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.vbox:
+    directory: "pvr.vbox"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.vdr.vnsi:
+    directory: "pvr.vdr.vnsi"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.vuplus:
+    directory: "pvr.vuplus"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.waipu:
+    directory: "pvr.waipu"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.wmc:
+    directory: "pvr.wmc"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.pvr.zattoo:
+    directory: "pvr.zattoo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.asteroids:
+    directory: "screensaver.asteroids"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.asterwave:
+    directory: "screensaver.asterwave"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.biogenesis:
+    directory: "screensaver.biogenesis"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.cpblobs:
+    directory: "screensaver.cpblobs"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.greynetic:
+    directory: "screensaver.greynetic"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.matrixtrails:
+    directory: "screensaver.matrixtrails"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.pingpong:
+    directory: "screensaver.pingpong"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.pyro:
+    directory: "screensaver.pyro"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.shadertoy:
+    directory: "screensaver.shadertoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensavers.rsxs:
+    directory: "screensavers.rsxs"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.screensaver.stars:
+    directory: "screensaver.stars"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.vfs.libarchive:
+    directory: "vfs.libarchive"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.rar:
+    directory: "vfs.rar"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.sftp:
+    directory: "vfs.sftp"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.fishbmc:
+    directory: "visualization.fishbmc"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.goom:
+    directory: "visualization.goom"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.matrix:
+    directory: "visualization.matrix"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.pictureit:
+    directory: "visualization.pictureit"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.projectm:
+    directory: "visualization.projectm"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.shadertoy:
+    directory: "visualization.shadertoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.spectrum:
+    directory: "visualization.spectrum"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.starburst:
+    directory: "visualization.starburst"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.visualization.waveform:
+    directory: "visualization.waveform"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+cleanup-commands:
+  - "mkdir -pm755 $FLATPAK_DEST/lib/kodi/addons"
+  - "mkdir -pm755 $FLATPAK_DEST/share/kodi/addons"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.2sf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.2sf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.2sf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.2sf $FLATPAK_DEST/share/kodi/addons/audiodecoder.2sf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.asap"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.asap $FLATPAK_DEST/lib/kodi/addons/audiodecoder.asap"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.asap $FLATPAK_DEST/share/kodi/addons/audiodecoder.asap"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.dumb"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.dumb $FLATPAK_DEST/lib/kodi/addons/audiodecoder.dumb"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.dumb $FLATPAK_DEST/share/kodi/addons/audiodecoder.dumb"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.gme"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.gme $FLATPAK_DEST/lib/kodi/addons/audiodecoder.gme"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.gme $FLATPAK_DEST/share/kodi/addons/audiodecoder.gme"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.gsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.gsf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.gsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.gsf $FLATPAK_DEST/share/kodi/addons/audiodecoder.gsf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.hvl"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.hvl $FLATPAK_DEST/lib/kodi/addons/audiodecoder.hvl"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.hvl $FLATPAK_DEST/share/kodi/addons/audiodecoder.hvl"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.modplug"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.modplug $FLATPAK_DEST/lib/kodi/addons/audiodecoder.modplug"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.modplug $FLATPAK_DEST/share/kodi/addons/audiodecoder.modplug"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.ncsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.ncsf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.ncsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.ncsf $FLATPAK_DEST/share/kodi/addons/audiodecoder.ncsf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.nosefart"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.nosefart $FLATPAK_DEST/lib/kodi/addons/audiodecoder.nosefart"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.nosefart $FLATPAK_DEST/share/kodi/addons/audiodecoder.nosefart"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.openmpt"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.openmpt $FLATPAK_DEST/lib/kodi/addons/audiodecoder.openmpt"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.openmpt $FLATPAK_DEST/share/kodi/addons/audiodecoder.openmpt"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.organya"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.organya $FLATPAK_DEST/lib/kodi/addons/audiodecoder.organya"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.organya $FLATPAK_DEST/share/kodi/addons/audiodecoder.organya"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.qsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.qsf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.qsf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.qsf $FLATPAK_DEST/share/kodi/addons/audiodecoder.qsf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.sacd"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.sacd $FLATPAK_DEST/lib/kodi/addons/audiodecoder.sacd"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.sacd $FLATPAK_DEST/share/kodi/addons/audiodecoder.sacd"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.sidplay"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.sidplay $FLATPAK_DEST/lib/kodi/addons/audiodecoder.sidplay"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.sidplay $FLATPAK_DEST/share/kodi/addons/audiodecoder.sidplay"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.snesapu"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.snesapu $FLATPAK_DEST/lib/kodi/addons/audiodecoder.snesapu"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.snesapu $FLATPAK_DEST/share/kodi/addons/audiodecoder.snesapu"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.ssf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.ssf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.ssf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.ssf $FLATPAK_DEST/share/kodi/addons/audiodecoder.ssf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.stsound"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.stsound $FLATPAK_DEST/lib/kodi/addons/audiodecoder.stsound"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.stsound $FLATPAK_DEST/share/kodi/addons/audiodecoder.stsound"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.timidity"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.timidity $FLATPAK_DEST/lib/kodi/addons/audiodecoder.timidity"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.timidity $FLATPAK_DEST/share/kodi/addons/audiodecoder.timidity"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.upse"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.upse $FLATPAK_DEST/lib/kodi/addons/audiodecoder.upse"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.upse $FLATPAK_DEST/share/kodi/addons/audiodecoder.upse"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.usf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.usf $FLATPAK_DEST/lib/kodi/addons/audiodecoder.usf"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.usf $FLATPAK_DEST/share/kodi/addons/audiodecoder.usf"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.vgmstream"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.vgmstream $FLATPAK_DEST/lib/kodi/addons/audiodecoder.vgmstream"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.vgmstream $FLATPAK_DEST/share/kodi/addons/audiodecoder.vgmstream"
+  - "mkdir -pm755 $FLATPAK_DEST/audiodecoder.wsr"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.wsr $FLATPAK_DEST/lib/kodi/addons/audiodecoder.wsr"
+  - "ln -sf $FLATPAK_DEST/audiodecoder.wsr $FLATPAK_DEST/share/kodi/addons/audiodecoder.wsr"
+  - "mkdir -pm755 $FLATPAK_DEST/audioencoder.flac"
+  - "ln -sf $FLATPAK_DEST/audioencoder.flac $FLATPAK_DEST/lib/kodi/addons/audioencoder.flac"
+  - "ln -sf $FLATPAK_DEST/audioencoder.flac $FLATPAK_DEST/share/kodi/addons/audioencoder.flac"
+  - "mkdir -pm755 $FLATPAK_DEST/audioencoder.lame"
+  - "ln -sf $FLATPAK_DEST/audioencoder.lame $FLATPAK_DEST/lib/kodi/addons/audioencoder.lame"
+  - "ln -sf $FLATPAK_DEST/audioencoder.lame $FLATPAK_DEST/share/kodi/addons/audioencoder.lame"
+  - "mkdir -pm755 $FLATPAK_DEST/audioencoder.vorbis"
+  - "ln -sf $FLATPAK_DEST/audioencoder.vorbis $FLATPAK_DEST/lib/kodi/addons/audioencoder.vorbis"
+  - "ln -sf $FLATPAK_DEST/audioencoder.vorbis $FLATPAK_DEST/share/kodi/addons/audioencoder.vorbis"
+  - "mkdir -pm755 $FLATPAK_DEST/audioencoder.wav"
+  - "ln -sf $FLATPAK_DEST/audioencoder.wav $FLATPAK_DEST/lib/kodi/addons/audioencoder.wav"
+  - "ln -sf $FLATPAK_DEST/audioencoder.wav $FLATPAK_DEST/share/kodi/addons/audioencoder.wav"
+  - "mkdir -pm755 $FLATPAK_DEST/game.libretro"
+  - "ln -sf $FLATPAK_DEST/game.libretro $FLATPAK_DEST/lib/kodi/addons/game.libretro"
+  - "ln -sf $FLATPAK_DEST/game.libretro $FLATPAK_DEST/share/kodi/addons/game.libretro"
+  - "mkdir -pm755 $FLATPAK_DEST/game.libretro.2048"
+  - "ln -sf $FLATPAK_DEST/game.libretro.2048 $FLATPAK_DEST/lib/kodi/addons/game.libretro.2048"
+  - "ln -sf $FLATPAK_DEST/game.libretro.2048 $FLATPAK_DEST/share/kodi/addons/game.libretro.2048"
+  - "mkdir -pm755 $FLATPAK_DEST/game.libretro.mrboom"
+  - "ln -sf $FLATPAK_DEST/game.libretro.mrboom $FLATPAK_DEST/lib/kodi/addons/game.libretro.mrboom"
+  - "ln -sf $FLATPAK_DEST/game.libretro.mrboom $FLATPAK_DEST/share/kodi/addons/game.libretro.mrboom"
+  - "mkdir -pm755 $FLATPAK_DEST/game.shader.presets"
+  - "ln -sf $FLATPAK_DEST/game.shader.presets $FLATPAK_DEST/lib/kodi/addons/game.shader.presets"
+  - "ln -sf $FLATPAK_DEST/game.shader.presets $FLATPAK_DEST/share/kodi/addons/game.shader.presets"
+  - "mkdir -pm755 $FLATPAK_DEST/imagedecoder.heif"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.heif $FLATPAK_DEST/lib/kodi/addons/imagedecoder.heif"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.heif $FLATPAK_DEST/share/kodi/addons/imagedecoder.heif"
+  - "mkdir -pm755 $FLATPAK_DEST/imagedecoder.mpo"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.mpo $FLATPAK_DEST/lib/kodi/addons/imagedecoder.mpo"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.mpo $FLATPAK_DEST/share/kodi/addons/imagedecoder.mpo"
+  - "mkdir -pm755 $FLATPAK_DEST/imagedecoder.raw"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.raw $FLATPAK_DEST/lib/kodi/addons/imagedecoder.raw"
+  - "ln -sf $FLATPAK_DEST/imagedecoder.raw $FLATPAK_DEST/share/kodi/addons/imagedecoder.raw"
+  - "mkdir -pm755 $FLATPAK_DEST/inputstream.adaptive"
+  - "ln -sf $FLATPAK_DEST/inputstream.adaptive $FLATPAK_DEST/lib/kodi/addons/inputstream.adaptive"
+  - "ln -sf $FLATPAK_DEST/inputstream.adaptive $FLATPAK_DEST/share/kodi/addons/inputstream.adaptive"
+  - "mkdir -pm755 $FLATPAK_DEST/inputstream.ffmpegdirect"
+  - "ln -sf $FLATPAK_DEST/inputstream.ffmpegdirect $FLATPAK_DEST/lib/kodi/addons/inputstream.ffmpegdirect"
+  - "ln -sf $FLATPAK_DEST/inputstream.ffmpegdirect $FLATPAK_DEST/share/kodi/addons/inputstream.ffmpegdirect"
+  - "mkdir -pm755 $FLATPAK_DEST/inputstream.rtmp"
+  - "ln -sf $FLATPAK_DEST/inputstream.rtmp $FLATPAK_DEST/lib/kodi/addons/inputstream.rtmp"
+  - "ln -sf $FLATPAK_DEST/inputstream.rtmp $FLATPAK_DEST/share/kodi/addons/inputstream.rtmp"
+  - "mkdir -pm755 $FLATPAK_DEST/peripheral.joystick"
+  - "ln -sf $FLATPAK_DEST/peripheral.joystick $FLATPAK_DEST/lib/kodi/addons/peripheral.joystick"
+  - "ln -sf $FLATPAK_DEST/peripheral.joystick $FLATPAK_DEST/share/kodi/addons/peripheral.joystick"
+  - "mkdir -pm755 $FLATPAK_DEST/peripheral.xarcade"
+  - "ln -sf $FLATPAK_DEST/peripheral.xarcade $FLATPAK_DEST/lib/kodi/addons/peripheral.xarcade"
+  - "ln -sf $FLATPAK_DEST/peripheral.xarcade $FLATPAK_DEST/share/kodi/addons/peripheral.xarcade"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.argustv"
+  - "ln -sf $FLATPAK_DEST/pvr.argustv $FLATPAK_DEST/lib/kodi/addons/pvr.argustv"
+  - "ln -sf $FLATPAK_DEST/pvr.argustv $FLATPAK_DEST/share/kodi/addons/pvr.argustv"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.demo"
+  - "ln -sf $FLATPAK_DEST/pvr.demo $FLATPAK_DEST/lib/kodi/addons/pvr.demo"
+  - "ln -sf $FLATPAK_DEST/pvr.demo $FLATPAK_DEST/share/kodi/addons/pvr.demo"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.dvblink"
+  - "ln -sf $FLATPAK_DEST/pvr.dvblink $FLATPAK_DEST/lib/kodi/addons/pvr.dvblink"
+  - "ln -sf $FLATPAK_DEST/pvr.dvblink $FLATPAK_DEST/share/kodi/addons/pvr.dvblink"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.dvbviewer"
+  - "ln -sf $FLATPAK_DEST/pvr.dvbviewer $FLATPAK_DEST/lib/kodi/addons/pvr.dvbviewer"
+  - "ln -sf $FLATPAK_DEST/pvr.dvbviewer $FLATPAK_DEST/share/kodi/addons/pvr.dvbviewer"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.filmon"
+  - "ln -sf $FLATPAK_DEST/pvr.filmon $FLATPAK_DEST/lib/kodi/addons/pvr.filmon"
+  - "ln -sf $FLATPAK_DEST/pvr.filmon $FLATPAK_DEST/share/kodi/addons/pvr.filmon"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.freebox"
+  - "ln -sf $FLATPAK_DEST/pvr.freebox $FLATPAK_DEST/lib/kodi/addons/pvr.freebox"
+  - "ln -sf $FLATPAK_DEST/pvr.freebox $FLATPAK_DEST/share/kodi/addons/pvr.freebox"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.hdhomerun"
+  - "ln -sf $FLATPAK_DEST/pvr.hdhomerun $FLATPAK_DEST/lib/kodi/addons/pvr.hdhomerun"
+  - "ln -sf $FLATPAK_DEST/pvr.hdhomerun $FLATPAK_DEST/share/kodi/addons/pvr.hdhomerun"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.hts"
+  - "ln -sf $FLATPAK_DEST/pvr.hts $FLATPAK_DEST/lib/kodi/addons/pvr.hts"
+  - "ln -sf $FLATPAK_DEST/pvr.hts $FLATPAK_DEST/share/kodi/addons/pvr.hts"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.iptvsimple"
+  - "ln -sf $FLATPAK_DEST/pvr.iptvsimple $FLATPAK_DEST/lib/kodi/addons/pvr.iptvsimple"
+  - "ln -sf $FLATPAK_DEST/pvr.iptvsimple $FLATPAK_DEST/share/kodi/addons/pvr.iptvsimple"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.mediaportal.tvserver"
+  - "ln -sf $FLATPAK_DEST/pvr.mediaportal.tvserver $FLATPAK_DEST/lib/kodi/addons/pvr.mediaportal.tvserver"
+  - "ln -sf $FLATPAK_DEST/pvr.mediaportal.tvserver $FLATPAK_DEST/share/kodi/addons/pvr.mediaportal.tvserver"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.mythtv"
+  - "ln -sf $FLATPAK_DEST/pvr.mythtv $FLATPAK_DEST/lib/kodi/addons/pvr.mythtv"
+  - "ln -sf $FLATPAK_DEST/pvr.mythtv $FLATPAK_DEST/share/kodi/addons/pvr.mythtv"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.nextpvr"
+  - "ln -sf $FLATPAK_DEST/pvr.nextpvr $FLATPAK_DEST/lib/kodi/addons/pvr.nextpvr"
+  - "ln -sf $FLATPAK_DEST/pvr.nextpvr $FLATPAK_DEST/share/kodi/addons/pvr.nextpvr"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.njoy"
+  - "ln -sf $FLATPAK_DEST/pvr.njoy $FLATPAK_DEST/lib/kodi/addons/pvr.njoy"
+  - "ln -sf $FLATPAK_DEST/pvr.njoy $FLATPAK_DEST/share/kodi/addons/pvr.njoy"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.octonet"
+  - "ln -sf $FLATPAK_DEST/pvr.octonet $FLATPAK_DEST/lib/kodi/addons/pvr.octonet"
+  - "ln -sf $FLATPAK_DEST/pvr.octonet $FLATPAK_DEST/share/kodi/addons/pvr.octonet"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.pctv"
+  - "ln -sf $FLATPAK_DEST/pvr.pctv $FLATPAK_DEST/lib/kodi/addons/pvr.pctv"
+  - "ln -sf $FLATPAK_DEST/pvr.pctv $FLATPAK_DEST/share/kodi/addons/pvr.pctv"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.plutotv"
+  - "ln -sf $FLATPAK_DEST/pvr.plutotv $FLATPAK_DEST/lib/kodi/addons/pvr.plutotv"
+  - "ln -sf $FLATPAK_DEST/pvr.plutotv $FLATPAK_DEST/share/kodi/addons/pvr.plutotv"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.sledovanitv.cz"
+  - "ln -sf $FLATPAK_DEST/pvr.sledovanitv.cz $FLATPAK_DEST/lib/kodi/addons/pvr.sledovanitv.cz"
+  - "ln -sf $FLATPAK_DEST/pvr.sledovanitv.cz $FLATPAK_DEST/share/kodi/addons/pvr.sledovanitv.cz"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.stalker"
+  - "ln -sf $FLATPAK_DEST/pvr.stalker $FLATPAK_DEST/lib/kodi/addons/pvr.stalker"
+  - "ln -sf $FLATPAK_DEST/pvr.stalker $FLATPAK_DEST/share/kodi/addons/pvr.stalker"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.teleboy"
+  - "ln -sf $FLATPAK_DEST/pvr.teleboy $FLATPAK_DEST/lib/kodi/addons/pvr.teleboy"
+  - "ln -sf $FLATPAK_DEST/pvr.teleboy $FLATPAK_DEST/share/kodi/addons/pvr.teleboy"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.vbox"
+  - "ln -sf $FLATPAK_DEST/pvr.vbox $FLATPAK_DEST/lib/kodi/addons/pvr.vbox"
+  - "ln -sf $FLATPAK_DEST/pvr.vbox $FLATPAK_DEST/share/kodi/addons/pvr.vbox"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.vdr.vnsi"
+  - "ln -sf $FLATPAK_DEST/pvr.vdr.vnsi $FLATPAK_DEST/lib/kodi/addons/pvr.vdr.vnsi"
+  - "ln -sf $FLATPAK_DEST/pvr.vdr.vnsi $FLATPAK_DEST/share/kodi/addons/pvr.vdr.vnsi"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.vuplus"
+  - "ln -sf $FLATPAK_DEST/pvr.vuplus $FLATPAK_DEST/lib/kodi/addons/pvr.vuplus"
+  - "ln -sf $FLATPAK_DEST/pvr.vuplus $FLATPAK_DEST/share/kodi/addons/pvr.vuplus"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.waipu"
+  - "ln -sf $FLATPAK_DEST/pvr.waipu $FLATPAK_DEST/lib/kodi/addons/pvr.waipu"
+  - "ln -sf $FLATPAK_DEST/pvr.waipu $FLATPAK_DEST/share/kodi/addons/pvr.waipu"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.wmc"
+  - "ln -sf $FLATPAK_DEST/pvr.wmc $FLATPAK_DEST/lib/kodi/addons/pvr.wmc"
+  - "ln -sf $FLATPAK_DEST/pvr.wmc $FLATPAK_DEST/share/kodi/addons/pvr.wmc"
+  - "mkdir -pm755 $FLATPAK_DEST/pvr.zattoo"
+  - "ln -sf $FLATPAK_DEST/pvr.zattoo $FLATPAK_DEST/lib/kodi/addons/pvr.zattoo"
+  - "ln -sf $FLATPAK_DEST/pvr.zattoo $FLATPAK_DEST/share/kodi/addons/pvr.zattoo"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.asteroids"
+  - "ln -sf $FLATPAK_DEST/screensaver.asteroids $FLATPAK_DEST/lib/kodi/addons/screensaver.asteroids"
+  - "ln -sf $FLATPAK_DEST/screensaver.asteroids $FLATPAK_DEST/share/kodi/addons/screensaver.asteroids"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.asterwave"
+  - "ln -sf $FLATPAK_DEST/screensaver.asterwave $FLATPAK_DEST/lib/kodi/addons/screensaver.asterwave"
+  - "ln -sf $FLATPAK_DEST/screensaver.asterwave $FLATPAK_DEST/share/kodi/addons/screensaver.asterwave"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.biogenesis"
+  - "ln -sf $FLATPAK_DEST/screensaver.biogenesis $FLATPAK_DEST/lib/kodi/addons/screensaver.biogenesis"
+  - "ln -sf $FLATPAK_DEST/screensaver.biogenesis $FLATPAK_DEST/share/kodi/addons/screensaver.biogenesis"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.cpblobs"
+  - "ln -sf $FLATPAK_DEST/screensaver.cpblobs $FLATPAK_DEST/lib/kodi/addons/screensaver.cpblobs"
+  - "ln -sf $FLATPAK_DEST/screensaver.cpblobs $FLATPAK_DEST/share/kodi/addons/screensaver.cpblobs"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.greynetic"
+  - "ln -sf $FLATPAK_DEST/screensaver.greynetic $FLATPAK_DEST/lib/kodi/addons/screensaver.greynetic"
+  - "ln -sf $FLATPAK_DEST/screensaver.greynetic $FLATPAK_DEST/share/kodi/addons/screensaver.greynetic"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.matrixtrails"
+  - "ln -sf $FLATPAK_DEST/screensaver.matrixtrails $FLATPAK_DEST/lib/kodi/addons/screensaver.matrixtrails"
+  - "ln -sf $FLATPAK_DEST/screensaver.matrixtrails $FLATPAK_DEST/share/kodi/addons/screensaver.matrixtrails"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.pingpong"
+  - "ln -sf $FLATPAK_DEST/screensaver.pingpong $FLATPAK_DEST/lib/kodi/addons/screensaver.pingpong"
+  - "ln -sf $FLATPAK_DEST/screensaver.pingpong $FLATPAK_DEST/share/kodi/addons/screensaver.pingpong"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.pyro"
+  - "ln -sf $FLATPAK_DEST/screensaver.pyro $FLATPAK_DEST/lib/kodi/addons/screensaver.pyro"
+  - "ln -sf $FLATPAK_DEST/screensaver.pyro $FLATPAK_DEST/share/kodi/addons/screensaver.pyro"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.shadertoy"
+  - "ln -sf $FLATPAK_DEST/screensaver.shadertoy $FLATPAK_DEST/lib/kodi/addons/screensaver.shadertoy"
+  - "ln -sf $FLATPAK_DEST/screensaver.shadertoy $FLATPAK_DEST/share/kodi/addons/screensaver.shadertoy"
+  - "mkdir -pm755 $FLATPAK_DEST/screensavers.rsxs"
+  - "ln -sf $FLATPAK_DEST/screensavers.rsxs $FLATPAK_DEST/lib/kodi/addons/screensavers.rsxs"
+  - "ln -sf $FLATPAK_DEST/screensavers.rsxs $FLATPAK_DEST/share/kodi/addons/screensavers.rsxs"
+  - "mkdir -pm755 $FLATPAK_DEST/screensaver.stars"
+  - "ln -sf $FLATPAK_DEST/screensaver.stars $FLATPAK_DEST/lib/kodi/addons/screensaver.stars"
+  - "ln -sf $FLATPAK_DEST/screensaver.stars $FLATPAK_DEST/share/kodi/addons/screensaver.stars"
+  - "mkdir -pm755 $FLATPAK_DEST/vfs.libarchive"
+  - "ln -sf $FLATPAK_DEST/vfs.libarchive $FLATPAK_DEST/lib/kodi/addons/vfs.libarchive"
+  - "ln -sf $FLATPAK_DEST/vfs.libarchive $FLATPAK_DEST/share/kodi/addons/vfs.libarchive"
+  - "mkdir -pm755 $FLATPAK_DEST/vfs.rar"
+  - "ln -sf $FLATPAK_DEST/vfs.rar $FLATPAK_DEST/lib/kodi/addons/vfs.rar"
+  - "ln -sf $FLATPAK_DEST/vfs.rar $FLATPAK_DEST/share/kodi/addons/vfs.rar"
+  - "mkdir -pm755 $FLATPAK_DEST/vfs.sftp"
+  - "ln -sf $FLATPAK_DEST/vfs.sftp $FLATPAK_DEST/lib/kodi/addons/vfs.sftp"
+  - "ln -sf $FLATPAK_DEST/vfs.sftp $FLATPAK_DEST/share/kodi/addons/vfs.sftp"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.fishbmc"
+  - "ln -sf $FLATPAK_DEST/visualization.fishbmc $FLATPAK_DEST/lib/kodi/addons/visualization.fishbmc"
+  - "ln -sf $FLATPAK_DEST/visualization.fishbmc $FLATPAK_DEST/share/kodi/addons/visualization.fishbmc"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.goom"
+  - "ln -sf $FLATPAK_DEST/visualization.goom $FLATPAK_DEST/lib/kodi/addons/visualization.goom"
+  - "ln -sf $FLATPAK_DEST/visualization.goom $FLATPAK_DEST/share/kodi/addons/visualization.goom"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.matrix"
+  - "ln -sf $FLATPAK_DEST/visualization.matrix $FLATPAK_DEST/lib/kodi/addons/visualization.matrix"
+  - "ln -sf $FLATPAK_DEST/visualization.matrix $FLATPAK_DEST/share/kodi/addons/visualization.matrix"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.pictureit"
+  - "ln -sf $FLATPAK_DEST/visualization.pictureit $FLATPAK_DEST/lib/kodi/addons/visualization.pictureit"
+  - "ln -sf $FLATPAK_DEST/visualization.pictureit $FLATPAK_DEST/share/kodi/addons/visualization.pictureit"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.projectm"
+  - "ln -sf $FLATPAK_DEST/visualization.projectm $FLATPAK_DEST/lib/kodi/addons/visualization.projectm"
+  - "ln -sf $FLATPAK_DEST/visualization.projectm $FLATPAK_DEST/share/kodi/addons/visualization.projectm"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.shadertoy"
+  - "ln -sf $FLATPAK_DEST/visualization.shadertoy $FLATPAK_DEST/lib/kodi/addons/visualization.shadertoy"
+  - "ln -sf $FLATPAK_DEST/visualization.shadertoy $FLATPAK_DEST/share/kodi/addons/visualization.shadertoy"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.spectrum"
+  - "ln -sf $FLATPAK_DEST/visualization.spectrum $FLATPAK_DEST/lib/kodi/addons/visualization.spectrum"
+  - "ln -sf $FLATPAK_DEST/visualization.spectrum $FLATPAK_DEST/share/kodi/addons/visualization.spectrum"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.starburst"
+  - "ln -sf $FLATPAK_DEST/visualization.starburst $FLATPAK_DEST/lib/kodi/addons/visualization.starburst"
+  - "ln -sf $FLATPAK_DEST/visualization.starburst $FLATPAK_DEST/share/kodi/addons/visualization.starburst"
+  - "mkdir -pm755 $FLATPAK_DEST/visualization.waveform"
+  - "ln -sf $FLATPAK_DEST/visualization.waveform $FLATPAK_DEST/lib/kodi/addons/visualization.waveform"
+  - "ln -sf $FLATPAK_DEST/visualization.waveform $FLATPAK_DEST/share/kodi/addons/visualization.waveform"

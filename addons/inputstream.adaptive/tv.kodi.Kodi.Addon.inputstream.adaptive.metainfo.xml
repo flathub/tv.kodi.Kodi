@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.inputstream.adaptive</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi inputstream.adaptive addon</name>
+  <summary>InputStream client for adaptive streams</summary>
+  <description><p>Kodi inputstream.adaptive addon: InputStream client for adaptive streams</p></description>
+  <url type="homepage">https://github.com/xbmc/inputstream.adaptive</url>
+  <developer id="tv.kodi.Kodi.Addon.inputstream.adaptive"><name>peak3d, Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>
