@@ -220,8 +220,8 @@ modules:
       - --disable-doc
     sources:
       - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.0.tar.bz2
-        sha512: 9421461297bd79b14f94d1ab275c3ed93b5d433531915c5cc7a718a94d32978a46feccb7a33fe63a60780ff00d465fbe1fe9ada5c250cf6d10a525c246c63d1c
+        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
+        sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
         x-checker-data:
          type: anitya
          project-id: 1623
