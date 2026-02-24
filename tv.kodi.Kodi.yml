@@ -220,8 +220,8 @@ modules:
       - --disable-doc
     sources:
       - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.0.tar.bz2
-        sha512: 9421461297bd79b14f94d1ab275c3ed93b5d433531915c5cc7a718a94d32978a46feccb7a33fe63a60780ff00d465fbe1fe9ada5c250cf6d10a525c246c63d1c
+        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
+        sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
         x-checker-data:
          type: anitya
          project-id: 1623
@@ -480,8 +480,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/cd/8a/37362fc2b949d5f733a8b0f2ff51ba423914cabefe69f1d1b6aab710f5fe/pybind11-3.0.1-py3-none-any.whl
-        sha256: aa8f0aa6e0a94d3b64adfc38f560f33f15e589be2175e103c0a33c6bce55ee89
+        url: https://files.pythonhosted.org/packages/88/c5/e98d9c51f3d5300d5e40ad9037dd6b3b60736fd02ab68dcc98c96be7592d/pybind11-3.0.2-py3-none-any.whl
+        sha256: f8a6500548919cc33bcd220d5f984688326f574fa97f1107f2f4fdb4c6fb019f
   - name: python-pillow
     buildsystem: simple
     build-commands:
@@ -829,7 +829,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         # tag: 22.0a2-Piers
-        commit: 653d592c9f1709811351d25ebc48949c1e70c834
+        commit: e2846620e7bdf0af67fffcf1e9f1078bf4c0bb78
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
