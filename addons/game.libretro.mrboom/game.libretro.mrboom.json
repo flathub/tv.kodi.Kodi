@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "16005638a26e0890263675cc720cf6fdb0ca3122"
+            "commit": "fbf1ec21fc37698add4577beb001ac54545dc9db"
         }
     ],
     "modules": [

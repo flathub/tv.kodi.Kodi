@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.sidplay",
-            "commit": "74288f6365672255bb2099fe35734cb532be7101"
+            "commit": "581d33275620f2d533766258f5a5a0d21adbfbf2"
         }
     ],
     "modules": [

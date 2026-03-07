@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.wsr",
-            "commit": "58f14761928150ab81790e41f567f0c4e8f73ff6"
+            "commit": "1f560940d4bb97fc7b395e7b0b92880916572997"
         }
     ],
     "build-options": {

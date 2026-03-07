@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.stars",
-            "commit": "286e542a3b2cef5ae45d7593db04787a7b2934e7"
+            "commit": "ae42ef16913225bbe78ad45a52732f451678436d"
         }
     ],
     "build-options": {
