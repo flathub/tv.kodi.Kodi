@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.vorbis",
-            "commit": "d26769ed973291b3d857d903e6425b979cf0481a"
+            "commit": "362428bdcea11296233436f274c5ba73edb2f4c0"
         }
     ],
     "build-options": {

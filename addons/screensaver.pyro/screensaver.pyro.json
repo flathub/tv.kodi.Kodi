@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pyro",
-            "commit": "ead41d2877e3eba64ca5cff7d4f0de2de6f228e6"
+            "commit": "94c7bc9d25aa5317a0dd91ef377dbdc547f8f32b"
         }
     ],
     "build-options": {
