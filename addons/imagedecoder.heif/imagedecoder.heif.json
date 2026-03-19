@@ -19,9 +19,9 @@
             },
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/strukturag/libde265.git",
-                    "commit": "d9fea9de9355f17795205257248d657512d0288a"
+                    "type": "archive",
+                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.17/libde265-1.0.17.tar.gz",
+                    "sha256": "e919bbe34370fbcfa36c48ecc6efd5c861f7df43b9a58210e68350d43bab71a5"
                 }
             ]
         },
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.21.2/libheif-1.21.2.tar.gz",
-                    "sha256": "79996de959d28ca82ef070c382304683f5cdaf04cbe2953a74587160a3710a36"
+                    "url": "https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz",
+                    "sha256": "75f530b7154bc93e7ecf846edfc0416bf5f490612de8c45983c36385aa742b42"
                 }
             ]
         }
