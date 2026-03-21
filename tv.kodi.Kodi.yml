@@ -831,7 +831,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: d3aecd58b61ba5aea76556c85625705dd3df4a68
+        commit: 4aa1aab8ac987e59f48147020903dd4d6d2ba2d1
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
