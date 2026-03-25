@@ -20,8 +20,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.17/libde265-1.0.17.tar.gz",
-                    "sha256": "e919bbe34370fbcfa36c48ecc6efd5c861f7df43b9a58210e68350d43bab71a5"
+                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.18/libde265-1.0.18.tar.gz",
+                    "sha256": "800478f3bf35f0621b14928ceb317579f3e8b23de4bd2aac29b6cb8be962bbd8"
                 }
             ]
         },
