@@ -857,7 +857,7 @@ modules:
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
-  # pvr.plutotv, pvr.teleboy, pvr.waipu & pvr.zattoo still require rapidjson
+  # pvr.teleboy, pvr.waipu & pvr.zattoo still require rapidjson
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
@@ -943,7 +943,7 @@ modules:
   - addons/pvr.njoy/pvr.njoy.json
   - addons/pvr.octonet/pvr.octonet.json
   - addons/pvr.pctv/pvr.pctv.json
-  - addons/pvr.plutotv/pvr.plutotv.json # https://github.com/kodi-pvr/pvr.plutotv/issues/99
+  - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
   - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
