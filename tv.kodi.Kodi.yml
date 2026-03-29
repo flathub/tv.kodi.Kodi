@@ -183,22 +183,6 @@ modules:
           type: anitya
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
-  - name: jsoncpp
-    buildsystem: meson
-    config-opts:
-      - -Dbuildtype=release
-      - -Dtests=false
-    sources:
-      - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.7.tar.gz
-        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
-        x-checker-data:
-          type: anitya
-          project-id: 7483
-          url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
-    cleanup:
-      - '/lib/*.a'
-      - '/include'
   - name: libass
     cleanup:
       - /include
@@ -830,7 +814,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: 4aa1aab8ac987e59f48147020903dd4d6d2ba2d1
+        commit: a1b08ca16457d2f36e88af29e32a5965975b47ac
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
@@ -889,6 +873,21 @@ modules:
       - type: git
         url: https://github.com/Tencent/rapidjson.git
         commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
+
+  # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
+  - name: jsoncpp
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DJSONCPP_WITH_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
+        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
+        x-checker-data:
+          type: anitya
+          project-id: 7483
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
