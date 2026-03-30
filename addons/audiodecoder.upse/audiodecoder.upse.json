@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.upse",
             "commit": "c00a214c369e90ea5e141b3bd74d08250c939a0e"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audiodecoder.upse.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audiodecoder.upse.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

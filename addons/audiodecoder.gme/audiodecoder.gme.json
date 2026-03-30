@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.gme",
             "commit": "c0da1af1e3b548ac9e2896ba9fec58c4a8e639d7"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audiodecoder.gme.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audiodecoder.gme.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

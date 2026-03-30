@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.iptvsimple</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.iptvsimple addon</name>
+  <summary>Kodi PVR addon for IPTV support</summary>
+  <description><p>Kodi pvr.iptvsimple addon: Kodi PVR addon for IPTV support</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.iptvsimple</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.iptvsimple"><name>nightik and Ross Nicholson</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

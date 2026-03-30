@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.modplug",
             "commit": "4e6f113d70d578f2d15a339966d7d5f9e848abbc"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audiodecoder.modplug.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audiodecoder.modplug.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -40,6 +47,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

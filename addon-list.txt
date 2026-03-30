@@ -1,7 +1,6 @@
 audiodecoder.2sf
 audiodecoder.asap
 audiodecoder.dumb
-audiodecoder.fluidsynth
 audiodecoder.gme
 audiodecoder.gsf
 audiodecoder.hvl

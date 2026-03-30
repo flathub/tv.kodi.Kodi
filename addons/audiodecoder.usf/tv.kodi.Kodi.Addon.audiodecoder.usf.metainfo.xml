@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.usf</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.usf addon</name>
+  <summary>USF - Ultra 64 Sound Format Decoder</summary>
+  <description><p>Kodi audiodecoder.usf addon: USF - Ultra 64 Sound Format Decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.usf</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.usf"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

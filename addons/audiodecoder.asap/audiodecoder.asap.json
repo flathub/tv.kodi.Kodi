@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.asap",
             "commit": "b2f366c9942a7f9a881634770767a71d3d3dc4e7"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audiodecoder.asap.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audiodecoder.asap.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

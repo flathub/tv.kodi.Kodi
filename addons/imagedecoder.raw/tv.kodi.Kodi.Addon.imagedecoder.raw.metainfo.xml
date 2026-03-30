@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.imagedecoder.raw</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi imagedecoder.raw addon</name>
+  <summary>Reading of RAW digicam images</summary>
+  <description><p>Kodi imagedecoder.raw addon: Reading of RAW digicam images</p></description>
+  <url type="homepage">https://github.com/xbmc/imagedecoder.raw</url>
+  <developer id="tv.kodi.Kodi.Addon.imagedecoder.raw"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

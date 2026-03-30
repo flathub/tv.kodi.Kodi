@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.hts</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.hts addon</name>
+  <summary>Kodi frontend for Tvheadend</summary>
+  <description><p>Kodi pvr.hts addon: Kodi frontend for Tvheadend</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.hts</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.hts"><name>Adam Sutton, Sam Stenvall, Lars Op den Kamp, Kai Sommerfeld</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

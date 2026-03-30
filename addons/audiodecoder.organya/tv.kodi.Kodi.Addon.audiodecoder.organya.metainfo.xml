@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.organya</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.organya addon</name>
+  <summary>Organya Audio Decoder</summary>
+  <description><p>Kodi audiodecoder.organya addon: Organya Audio Decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.organya</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.organya"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audioencoder.wav</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audioencoder.wav addon</name>
+  <summary>Waveform Audio File Format Encoder</summary>
+  <description><p>Kodi audioencoder.wav addon: Waveform Audio File Format Encoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audioencoder.wav</url>
+  <developer id="tv.kodi.Kodi.Addon.audioencoder.wav"><name>jmarshall</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

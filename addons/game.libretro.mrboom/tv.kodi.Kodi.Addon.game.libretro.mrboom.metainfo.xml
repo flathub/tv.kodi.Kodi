@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.game.libretro.mrboom</id>
+  <extends>tv.kodi.Kodi</extends>
+  <requires>
+    <id>tv.kodi.Kodi.Addon.game.libretro</id>
+  </requires>
+  <name>Kodi game.libretro.mrboom addon</name>
+  <summary>Mr.Boom (Bomberman)</summary>
+  <description><p>Kodi game.libretro.mrboom addon: Mr.Boom (Bomberman)</p></description>
+  <url type="homepage">https://github.com/kodi-game/game.libretro.mrboom</url>
+  <developer id="tv.kodi.Kodi.Addon.game.libretro.mrboom"><name>Remdy</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>

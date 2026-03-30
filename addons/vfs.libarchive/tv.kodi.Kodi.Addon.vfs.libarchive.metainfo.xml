@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.vfs.libarchive</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi vfs.libarchive addon</name>
+  <summary>Multi-format archive and compression addon</summary>
+  <description><p>Kodi vfs.libarchive addon: Multi-format archive and compression addon</p></description>
+  <url type="homepage">https://github.com/xbmc/vfs.libarchive</url>
+  <developer id="tv.kodi.Kodi.Addon.vfs.libarchive"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

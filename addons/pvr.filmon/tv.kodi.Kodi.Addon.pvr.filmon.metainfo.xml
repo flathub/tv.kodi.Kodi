@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.filmon</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.filmon addon</name>
+  <summary>Filmon PVR Client</summary>
+  <description><p>Kodi pvr.filmon addon: Filmon PVR Client</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.filmon</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.filmon"><name>Stephen Denham</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

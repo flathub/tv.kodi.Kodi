@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.mediaportal.tvserver</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.mediaportal.tvserver addon</name>
+  <summary>Kodi frontend for the MediaPortal TV Server</summary>
+  <description><p>Kodi pvr.mediaportal.tvserver addon: Kodi frontend for the MediaPortal TV Server</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.mediaportal.tvserver</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.mediaportal.tvserver"><name>Marcel Groothuis</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

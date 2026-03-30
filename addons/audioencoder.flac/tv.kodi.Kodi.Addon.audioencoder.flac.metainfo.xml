@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audioencoder.flac</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audioencoder.flac addon</name>
+  <summary>FLAC (Free Lossless Audio Codec) Encoder</summary>
+  <description><p>Kodi audioencoder.flac addon: FLAC (Free Lossless Audio Codec) Encoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audioencoder.flac</url>
+  <developer id="tv.kodi.Kodi.Addon.audioencoder.flac"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>
