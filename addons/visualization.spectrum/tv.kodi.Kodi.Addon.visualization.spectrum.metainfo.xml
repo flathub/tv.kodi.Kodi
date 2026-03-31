@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.visualization.spectrum</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi visualization.spectrum addon</name>
+  <summary>Visualisation showing a rotating 3D Spectrum Analyzer</summary>
+  <description><p>Kodi visualization.spectrum addon: Visualisation showing a rotating 3D Spectrum Analyzer</p></description>
+  <url type="homepage">https://github.com/xbmc/visualization.spectrum</url>
+  <developer id="tv.kodi.Kodi.Addon.visualization.spectrum"><name>Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

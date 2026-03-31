@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.dvblink</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.dvblink addon</name>
+  <summary>PVR Plugin for TVMosaic/DVBLink</summary>
+  <description><p>Kodi pvr.dvblink addon: PVR Plugin for TVMosaic/DVBLink</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.dvblink</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.dvblink"><name>DVBLogic</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

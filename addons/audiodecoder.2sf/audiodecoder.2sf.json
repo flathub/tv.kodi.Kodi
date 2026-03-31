@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.2sf",
             "commit": "bda6f026bc3b485e58ddcf164151b2c3b6e74b88"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audiodecoder._2sf.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audiodecoder._2sf.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

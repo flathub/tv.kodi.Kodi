@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/visualization.pictureit",
             "commit": "f8979847fd53908d59fa42f7b4f2d3fff94ad115"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.visualization.pictureit.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.visualization.pictureit.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

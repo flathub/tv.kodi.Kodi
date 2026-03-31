@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.njoy",
             "commit": "7dc57ba727bdedb9d3f00a1351063064f77163b2"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.pvr.njoy.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.pvr.njoy.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

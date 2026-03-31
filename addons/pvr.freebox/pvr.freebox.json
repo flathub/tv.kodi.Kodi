@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/aassif/pvr.freebox",
             "commit": "196783631b429883102c4ede56f96daf80d5a8b4"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.pvr.freebox.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.pvr.freebox.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

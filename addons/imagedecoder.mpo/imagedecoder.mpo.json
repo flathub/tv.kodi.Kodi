@@ -7,7 +7,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.mpo",
             "commit": "71d559ff83bd9b3b33bc75a34d1c952280408062"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.imagedecoder.mpo.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 ../tv.kodi.Kodi.Addon.imagedecoder.mpo.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -15,6 +22,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

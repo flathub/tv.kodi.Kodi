@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/audioencoder.flac",
             "commit": "75046700f45e13412b8d4defd416e6e9abebe7f5"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.audioencoder.flac.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.audioencoder.flac.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

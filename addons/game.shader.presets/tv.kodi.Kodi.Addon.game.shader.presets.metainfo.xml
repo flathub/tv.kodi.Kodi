@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.game.shader.presets</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi game.shader.presets addon</name>
+  <summary>Shader Preset Support</summary>
+  <description><p>Kodi game.shader.presets addon: Shader Preset Support</p></description>
+  <url type="homepage">https://github.com/kodi-game/game.shader.presets</url>
+  <developer id="tv.kodi.Kodi.Addon.game.shader.presets"><name>Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+</component>

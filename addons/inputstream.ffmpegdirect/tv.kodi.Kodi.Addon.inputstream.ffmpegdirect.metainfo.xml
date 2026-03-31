@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.inputstream.ffmpegdirect</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi inputstream.ffmpegdirect addon</name>
+  <summary>InputStream Client for FFmpeg streams (libavformat)</summary>
+  <description><p>Kodi inputstream.ffmpegdirect addon: InputStream Client for FFmpeg streams (libavformat)</p></description>
+  <url type="homepage">https://github.com/xbmc/inputstream.ffmpegdirect</url>
+  <developer id="tv.kodi.Kodi.Addon.inputstream.ffmpegdirect"><name>Ross Nicholson</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

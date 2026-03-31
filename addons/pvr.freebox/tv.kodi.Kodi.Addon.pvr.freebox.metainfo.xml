@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.freebox</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.freebox addon</name>
+  <summary>Freebox TV PVR</summary>
+  <description><p>Kodi pvr.freebox addon: Freebox TV PVR</p></description>
+  <url type="homepage">https://github.com/aassif/pvr.freebox</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.freebox"><name>aassif</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>MIT</project_license>
+</component>

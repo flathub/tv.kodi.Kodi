@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.visualization.starburst</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi visualization.starburst addon</name>
+  <summary>StarBurst visualizer</summary>
+  <description><p>Kodi visualization.starburst addon: StarBurst visualizer</p></description>
+  <url type="homepage">https://github.com/xbmc/visualization.starburst</url>
+  <developer id="tv.kodi.Kodi.Addon.visualization.starburst"><name>Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

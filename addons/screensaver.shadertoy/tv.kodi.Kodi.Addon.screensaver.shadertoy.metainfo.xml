@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.screensaver.shadertoy</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi screensaver.shadertoy addon</name>
+  <summary>Random screensavers from Shadertoy</summary>
+  <description><p>Kodi screensaver.shadertoy addon: Random screensavers from Shadertoy</p></description>
+  <url type="homepage">https://github.com/xbmc/screensaver.shadertoy</url>
+  <developer id="tv.kodi.Kodi.Addon.screensaver.shadertoy"><name>afedchin</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.pctv</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.pctv addon</name>
+  <summary>PVR Client to connect PCTV Systems Broadway to Kodi</summary>
+  <description><p>Kodi pvr.pctv addon: PVR Client to connect PCTV Systems Broadway to Kodi</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.pctv</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.pctv"><name>PCTV Systems</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>
