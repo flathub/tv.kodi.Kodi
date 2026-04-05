@@ -28,9 +28,10 @@
             },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://www.libssh.org/files/0.12/libssh-0.12.0.tar.xz",
-                    "sha256": "1a6af424d8327e5eedef4e5fe7f5b924226dd617ac9f3de80f217d82a36a7121"
+                    "type": "git",
+                    "url": "https://git.libssh.org/projects/libssh.git/",
+                    "tag": "libssh-0.12.0",
+                    "commit": "50313883f3a077458cde4ea95bf46bfeb0771b34"
                 }
             ]
         }
