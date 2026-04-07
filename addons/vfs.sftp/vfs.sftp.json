@@ -27,7 +27,12 @@
                 {
                     "type": "archive",
                     "url": "https://www.libssh.org/files/0.9/libssh-0.9.5.tar.xz",
-                    "sha256": "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718"
+                    "sha256": "acffef2da98e761fc1fd9c4fddde0f3af60ab44c4f5af05cd1b2d60a3fa08718",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1729,
+                        "url-template": "https://www.libssh.org/files/$version0.$version1/libssh-$version.tar.xz"
+                    }
                 }
             ]
         }
