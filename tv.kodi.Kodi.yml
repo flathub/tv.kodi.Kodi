@@ -630,43 +630,6 @@ modules:
           type: anitya
           project-id: 4919
           url-template: http://prdownloads.sourceforge.net/swig/swig-$version.tar.gz
-    modules:
-      - name: groovy
-        buildsystem: simple
-        build-commands:
-          - mkdir -p ${FLATPAK_DEST}/groovy
-          - cp -r groovy/* ${FLATPAK_DEST}/groovy
-        sources:
-          - type: archive
-            url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
-            sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
-            dest: groovy
-        cleanup:
-          - /groovy
-      - name: commons-lang3
-        buildsystem: simple
-        build-commands:
-          - mkdir -p ${FLATPAK_DEST}/commons-lang3
-          - cp -r commons-lang3/* ${FLATPAK_DEST}/commons-lang3
-        cleanup:
-          - /commons-lang3
-        sources:
-          - type: archive
-            url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
-            sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
-            dest: commons-lang3
-      - name: commons-text
-        buildsystem: simple
-        build-commands:
-          - mkdir -p ${FLATPAK_DEST}/commons-text
-          - cp -r commons-text/* ${FLATPAK_DEST}/commons-text
-        cleanup:
-          - /commons-text
-        sources:
-          - type: archive
-            url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
-            sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
-            dest: commons-text
   - name: tinyxml
     cleanup:
       - /include
@@ -807,14 +770,12 @@ modules:
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
       - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DFETCHCONTENT_SOURCE_DIR_GROOVY=/app/groovy
-      - -DFETCHCONTENT_SOURCE_DIR_APACHE-COMMONS-LANG=/app/commons-lang3
-      - -DFETCHCONTENT_SOURCE_DIR_APACHE-COMMONS-TEXT=/app/commons-text
+      - -DTARBALL_DIR=build/download
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: a1b08ca16457d2f36e88af29e32a5965975b47ac
+        commit: 44856b1a76f1edac24317ff0f7af3672a49925ae
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
@@ -849,6 +810,18 @@ modules:
         sha512: 51e6fc033121241354a5f0b3fc9a430577ae3ff6bb7f31445aa548ef4893037fb80eea3b2c6774c81e9ebaf9c45e9b490c98c2c65eb38f9f7daba84b236f7e1d
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
+      - type: file
+        url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
+        sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
+        dest: build/download/
+      - type: file
+        url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
+        sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
+        dest: build/download/
+      - type: file
+        url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
+        sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
+        dest: build/download/
 
   - name: kodi-platform
     buildsystem: cmake-ninja
