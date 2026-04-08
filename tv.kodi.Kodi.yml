@@ -235,10 +235,24 @@ modules:
         url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
         sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
         x-checker-data:
-         type: anitya
-         project-id: 1623
-         stable-only: true
-         tag-template: libgcrypt-$versio
+          type: anitya
+          project-id: 1623
+          stable-only: true
+          tag-template: libgcrypt-$version
+    modules:
+      - name: libgpg-error
+        config-opts:
+          - --disable-static
+          - --disable-doc
+        sources:
+          - type: archive
+            url: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2
+            sha256: a19bc5087fd97026d93cb4b45d51638d1a25202a5e1fbc3905799f424cfa6134
+            x-checker-data:
+              type: anitya
+              project-id: 1628
+              stable-only: true
+              url-template: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-$version.tar.bz2
   - name: libaacs
     config-opts:
       - --with-pic
