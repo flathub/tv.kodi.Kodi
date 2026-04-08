@@ -143,7 +143,6 @@ modules:
           type: anitya
           project-id: 7320
           url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
-  - shared-modules/glu/glu-9.json
   - name: glm
     buildsystem: cmake-ninja
     config-opts:
