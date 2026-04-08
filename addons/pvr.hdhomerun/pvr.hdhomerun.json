@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.hdhomerun",
             "commit": "55e2a61959526e805536526f8a699a71bc6ec9fd"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.pvr.hdhomerun.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.pvr.hdhomerun.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -39,6 +46,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

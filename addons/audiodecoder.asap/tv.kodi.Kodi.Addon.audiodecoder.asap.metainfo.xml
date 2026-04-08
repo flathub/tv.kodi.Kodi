@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.asap</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.asap addon</name>
+  <summary>ASAP - Another Slight Atari Player</summary>
+  <description><p>Kodi audiodecoder.asap addon: ASAP - Another Slight Atari Player</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.asap</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.asap"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

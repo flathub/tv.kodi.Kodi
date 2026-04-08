@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.sledovanitv.cz</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.sledovanitv.cz addon</name>
+  <summary>Kodi frontend for sledovanitv.cz</summary>
+  <description><p>Kodi pvr.sledovanitv.cz addon: Kodi frontend for sledovanitv.cz</p></description>
+  <url type="homepage">https://github.com/palinek/pvr.sledovanitv.cz</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.sledovanitv.cz"><name>palinek</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.argustv</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.argustv addon</name>
+  <summary>Kodi frontend for the ARGUS TV PVR</summary>
+  <description><p>Kodi pvr.argustv addon: Kodi frontend for the ARGUS TV PVR</p></description>
+  <url type="homepage">https://github.com/kodi-pvr/pvr.argustv</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.argustv"><name>Fred Hoogduin, Marcel Groothuis</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

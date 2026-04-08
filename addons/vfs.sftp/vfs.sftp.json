@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
             "commit": "39131bad0505e14d694bd41f01455326b51287c7"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.vfs.sftp.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.vfs.sftp.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -42,6 +49,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

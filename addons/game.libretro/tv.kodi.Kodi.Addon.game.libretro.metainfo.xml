@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.game.libretro</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi game.libretro addon</name>
+  <summary>Libretro compatibility layer for Kodi</summary>
+  <description><p>Kodi game.libretro addon: Libretro compatibility layer for Kodi</p></description>
+  <url type="homepage">https://github.com/kodi-game/game.libretro</url>
+  <developer id="tv.kodi.Kodi.Addon.game.libretro"><name>Team Kodi</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

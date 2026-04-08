@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/peripheral.joystick",
             "commit": "0ef37bb8ae6a74907b2f844418b20bca72ddefb4"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.peripheral.joystick.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.peripheral.joystick.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

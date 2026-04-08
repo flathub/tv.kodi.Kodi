@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.vfs.rar</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi vfs.rar addon</name>
+  <summary>Unarchiver for .rar files</summary>
+  <description><p>Kodi vfs.rar addon: Unarchiver for .rar files</p></description>
+  <url type="homepage">https://github.com/xbmc/vfs.rar</url>
+  <developer id="tv.kodi.Kodi.Addon.vfs.rar"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

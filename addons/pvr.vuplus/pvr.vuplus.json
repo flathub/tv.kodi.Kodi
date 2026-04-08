@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vuplus",
             "commit": "dfc5fa3078a020f9842ce63a110c5a92d3e137cc"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.pvr.vuplus.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.pvr.vuplus.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

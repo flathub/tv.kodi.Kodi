@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
             "commit": "cd73c9f645d63a46009f15c668904efe499365d6"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.visualization.projectm.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.visualization.projectm.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {
@@ -31,6 +38,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

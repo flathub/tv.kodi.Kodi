@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.pvr.octonet</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi pvr.octonet addon</name>
+  <summary>Kodi PVR Addon for Digital Devices Octopus NET Streams</summary>
+  <description><p>Kodi pvr.octonet addon: Kodi PVR Addon for Digital Devices Octopus NET Streams</p></description>
+  <url type="homepage">https://github.com/DigitalDevices/pvr.octonet</url>
+  <developer id="tv.kodi.Kodi.Addon.pvr.octonet"><name>digitaldevices</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.filmon",
             "commit": "138fa70d822fac5cfae53fefd759ef779315a40d"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.pvr.filmon.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.pvr.filmon.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

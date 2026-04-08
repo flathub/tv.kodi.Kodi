@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder.gsf</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.gsf addon</name>
+  <summary>VIOGSF Audio Decoder</summary>
+  <description><p>Kodi audiodecoder.gsf addon: VIOGSF Audio Decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.gsf</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder.gsf"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

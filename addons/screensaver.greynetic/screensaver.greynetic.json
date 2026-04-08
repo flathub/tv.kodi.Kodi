@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.greynetic",
             "commit": "7a00c8a994fe3f8b7f93331db0ee36ecb5c45bea"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.screensaver.greynetic.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.screensaver.greynetic.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

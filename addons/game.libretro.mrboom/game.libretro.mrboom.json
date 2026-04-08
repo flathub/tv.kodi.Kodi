@@ -7,14 +7,22 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
             "commit": "6c20a884fedd80fe50c24f9c5d97d08b7d302cd0"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.game.libretro.mrboom.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.game.libretro.mrboom.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "modules": [
         {

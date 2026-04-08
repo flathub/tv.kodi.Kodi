@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.audiodecoder._2sf</id>
+  <extends>tv.kodi.Kodi</extends>
+  <name>Kodi audiodecoder.2sf addon</name>
+  <summary>NDS audio file decoder</summary>
+  <description><p>Kodi audiodecoder.2sf addon: NDS audio file decoder</p></description>
+  <url type="homepage">https://github.com/xbmc/audiodecoder.2sf</url>
+  <developer id="tv.kodi.Kodi.Addon.audiodecoder._2sf"><name>spiff</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>

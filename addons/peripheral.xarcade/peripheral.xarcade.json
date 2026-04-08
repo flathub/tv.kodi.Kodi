@@ -6,7 +6,14 @@
             "type": "git",
             "url": "https://github.com/kodi-game/peripheral.xarcade",
             "commit": "3806a1f3386a57999a5818eff2790c9f15434ba1"
+        },
+        {
+            "type": "file",
+            "path": "tv.kodi.Kodi.Addon.peripheral.xarcade.metainfo.xml"
         }
+    ],
+    "post-install": [
+        "install -Dp -m 644 tv.kodi.Kodi.Addon.peripheral.xarcade.metainfo.xml --target-directory=${FLATPAK_DEST}/share/metainfo"
     ],
     "build-options": {
         "no-debuginfo": true,
@@ -14,6 +21,7 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON"
     ]
 }

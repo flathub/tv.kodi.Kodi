@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>tv.kodi.Kodi.Addon.game.libretro._2048</id>
+  <extends>tv.kodi.Kodi</extends>
+  <requires>
+    <id>tv.kodi.Kodi.Addon.game.libretro</id>
+  </requires>
+  <name>Kodi game.libretro.2048 addon</name>
+  <summary>2048</summary>
+  <description><p>Kodi game.libretro.2048 addon: 2048</p></description>
+  <url type="homepage">https://github.com/kodi-game/game.libretro.2048</url>
+  <developer id="tv.kodi.Kodi.Addon.game.libretro._2048"><name>Gabriele Cirulli</name></developer>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+</component>
