@@ -197,19 +197,6 @@ modules:
           type: anitya
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
-  - name: libgcrypt
-    config-opts:
-      - --disable-static
-      - --disable-doc
-    sources:
-      - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
-        sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
-        x-checker-data:
-         type: anitya
-         project-id: 1623
-         stable-only: true
-         tag-template: libgcrypt-$version
   - name: libaacs
     rm-configure: true
     config-opts:
