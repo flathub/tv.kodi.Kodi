@@ -143,7 +143,6 @@ modules:
           type: anitya
           project-id: 7320
           url-template: http://fstrcmp.sourceforge.net/fstrcmp-$version.tar.gz
-  - shared-modules/glu/glu-9.json
   - name: glm
     buildsystem: cmake-ninja
     config-opts:
@@ -152,8 +151,8 @@ modules:
       - -DGLM_TEST_ENABLE=OFF
     sources:
       - type: archive
-        url: https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.tar.gz
-        sha256: 7d508ab72cb5d43227a3711420f06ff99b0a0cb63ee2f93631b162bfe1fe9592
+        url: https://github.com/g-truc/glm/archive/refs/tags/1.0.3.tar.gz
+        sha256: 6775e47231a446fd086d660ecc18bcd076531cfedd912fbd66e576b118607001
         x-checker-data:
           type: anitya
           project-id: 1181
@@ -172,14 +171,14 @@ modules:
             >> glm/CMakeLists.txt
           - echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION include/glm/simd)'
             >> glm/CMakeLists.txt
-          - echo 'install(TARGETS glm_static)' >> glm/CMakeLists.txt
+          - echo 'install(TARGETS glm)' >> glm/CMakeLists.txt
   - name: hwdata
     config-opts:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.403.tar.gz
-        sha256: 77d0a69e5558d16d33bbb510a09093deaf11c882baf9ef6ec5f18a8ef96e2c13
+        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.406.tar.gz
+        sha256: 1ccfd1ca723595b1fe8794f4157ec5635be1ebedb5d13769b4be75d0b75bc199
         x-checker-data:
           type: anitya
           project-id: 13577
@@ -204,8 +203,8 @@ modules:
       - -Dtests=false
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.6.tar.gz
-        sha256: f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2
+        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.7.tar.gz
+        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
         x-checker-data:
           type: anitya
           project-id: 7483
@@ -227,23 +226,35 @@ modules:
           type: anitya
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
-    # libgcrypt-1.11.0 build fails with freedeskop 24.08
   - name: libgcrypt
     config-opts:
       - --disable-static
       - --disable-doc
     sources:
-      - type: git
-        url: https://dev.gnupg.org/source/libgcrypt.git
-        tag: libgcrypt-1.10.3
-        commit: aa1610866f8e42bdc272584f0a717f32ee050a22
-        # disabled for libgcrypt-1.11 because of build fail
-        #x-checker-data:
-        #  type: anitya
-        #  project-id: 1623
-        #  stable-only: true
-        #  tag-template: libgcrypt-$version
+      - type: archive
+        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
+        sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
+        x-checker-data:
+          type: anitya
+          project-id: 1623
+          stable-only: true
+          tag-template: libgcrypt-$version
+    modules:
+      - name: libgpg-error
+        config-opts:
+          - --disable-static
+          - --disable-doc
+        sources:
+          - type: archive
+            url: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2
+            sha256: a19bc5087fd97026d93cb4b45d51638d1a25202a5e1fbc3905799f424cfa6134
+            x-checker-data:
+              type: anitya
+              project-id: 1628
+              stable-only: true
+              url-template: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-$version.tar.bz2
   - name: libaacs
+    rm-configure: true
     config-opts:
       - --with-pic
       - --enable-shared
@@ -256,6 +267,11 @@ modules:
           type: anitya
           project-id: 5562
           url-template: https://download.videolan.org/videolan/libaacs/$version/libaacs-$version.tar.bz2
+      - type: script
+        dest-filename: autogen.sh
+        commands:
+          - rm -fv m4/libgcrypt.m4
+          - autoreconf -vfi
   - name: libbdplus
     rm-configure: true
     config-opts:
@@ -274,6 +290,8 @@ modules:
           url-template: https://download.videolan.org/videolan/libbdplus/$version/libbdplus-$version.tar.bz2
       - type: patch
         path: patches/libbdplus-gpg-error.patch
+      - type: patch
+        path: patches/libbdplus-fix-libgcrypt.patch
   - name: libbluray
     config-opts:
       - --disable-static
@@ -310,12 +328,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.2.0/libcdio-2.2.0.tar.gz
-        sha256: 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
+        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
+        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
         x-checker-data:
           type: anitya
           project-id: 1573
-          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.gz
+          url-template: https://github.com/libcdio/libcdio/releases/download/$version/libcdio-$version.tar.bz2
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
@@ -402,8 +420,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.2.tar.gz
-        sha512: 7092f307a00ba04b539be79a7c94ddf9b4b6e43343a66da49c6602fa860f77cf7f9017d7e40f9b7400d85a828a503248eb12dd121413aad68133003a20bb2c4a
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.3.tar.gz
+        sha512: 5b57df7a4f3f9e5b7c3fea50231490061cf4ee2aaa13575777942ad51564d5a3f1aaed493d8741f736d390888e95161f71d9f39d2bf61cc2e4958df09b496a07
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -558,6 +576,7 @@ modules:
     buildsystem: autotools
     config-opts:
       - --prefix=/app
+      - --libdir=/app/lib
       - --disable-python
       - --without-ads
       - --without-ldap
@@ -576,8 +595,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://samba.org/samba/ftp/stable/samba-4.22.6.tar.gz
-        sha256: 8e6beb0cce87fb3c763af94c2dc21fd47b8fd02d46b3cb1deb2a72df9259c425
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz
+        sha256: 1b1e457fd651a612cd08226cc6efd04e5d01e36d918c8b4c4e470e74e86881ea
         x-checker-data:
           type: anitya
           project-id: 4758
