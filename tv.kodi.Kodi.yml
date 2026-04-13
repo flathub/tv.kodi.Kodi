@@ -775,7 +775,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: 44856b1a76f1edac24317ff0f7af3672a49925ae
+        commit: 364219ea7cb01c1ee627c56c88c0178d310505a1
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
@@ -830,7 +830,7 @@ modules:
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
-  # pvr.teleboy, pvr.waipu & pvr.zattoo still require rapidjson
+  # pvr.teleboy & pvr.zattoo still require rapidjson
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
@@ -923,7 +923,7 @@ modules:
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
-  - addons/pvr.waipu/pvr.waipu.json # https://github.com/flubshi/pvr.waipu/issues/418
+  - addons/pvr.waipu/pvr.waipu.json
   - addons/pvr.wmc/pvr.wmc.json
   - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
   - addons/screensaver.asteroids/screensaver.asteroids.json
