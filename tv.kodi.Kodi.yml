@@ -182,18 +182,18 @@ modules:
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: jsoncpp
-    buildsystem: meson
+    buildsystem: cmake-ninja
+    builddir: true
     config-opts:
-      - -Dbuildtype=release
-      - -Dtests=false
+      - -DJSONCPP_WITH_TESTS=OFF
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.7.tar.gz
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
         sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
         x-checker-data:
           type: anitya
           project-id: 7483
-          url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
     cleanup:
       - /lib/*.a
       - /include
