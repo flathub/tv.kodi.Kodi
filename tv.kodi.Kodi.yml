@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -74,6 +74,7 @@ modules:
       - --enable-gnutls
       - --enable-vaapi
       - --enable-vdpau
+      - --disable-doc
     cleanup:
       - /include
       - /lib
@@ -109,22 +110,6 @@ modules:
       - type: shell
         commands:
           - sed -i 's/-Werror=/-W/g;s/-Werror//g' CMakeLists.txt
-  - name: fmt
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DCMAKE_INSTALL_LIBDIR=lib
-    cleanup:
-      - /include
-      - '*.a'
-    sources:
-      - type: archive
-        url: https://github.com/fmtlib/fmt/archive/refs/tags/12.1.0.tar.gz
-        sha512: f0da82c545b01692e9fd30fdfb613dbb8dd9716983dcd0ff19ac2a8d36f74beb5540ef38072fdecc1e34191b3682a8542ecbf3a61ef287dbba0a2679d4e023f2
-        x-checker-data:
-          type: anitya
-          project-id: 11526
-          url-template: https://github.com/fmtlib/fmt/archive/refs/tags/$version.tar.gz
   - name: fstrcmp
     buildsystem: autotools
     make-args:
@@ -197,18 +182,18 @@ modules:
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: jsoncpp
-    buildsystem: meson
+    buildsystem: cmake-ninja
+    builddir: true
     config-opts:
-      - -Dbuildtype=release
-      - -Dtests=false
+      - -DJSONCPP_WITH_TESTS=OFF
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/1.9.7.tar.gz
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
         sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
         x-checker-data:
           type: anitya
           project-id: 7483
-          url-template: https://github.com/open-source-parsers/jsoncpp/archive/$version.tar.gz
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
     cleanup:
       - /lib/*.a
       - /include
@@ -226,33 +211,6 @@ modules:
           type: anitya
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
-  - name: libgcrypt
-    config-opts:
-      - --disable-static
-      - --disable-doc
-    sources:
-      - type: archive
-        url: https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.12.1.tar.bz2
-        sha512: e4be1f9d32bb672663499a1203454b9c646b7f237d9acb64303b991798fe3f4c3366793b0564b94c6687885353f6e7fef6ae6e74a57ccb5eb5606e77c81b3738
-        x-checker-data:
-          type: anitya
-          project-id: 1623
-          stable-only: true
-          tag-template: libgcrypt-$version
-    modules:
-      - name: libgpg-error
-        config-opts:
-          - --disable-static
-          - --disable-doc
-        sources:
-          - type: archive
-            url: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2
-            sha256: a19bc5087fd97026d93cb4b45d51638d1a25202a5e1fbc3905799f424cfa6134
-            x-checker-data:
-              type: anitya
-              project-id: 1628
-              stable-only: true
-              url-template: https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-$version.tar.bz2
   - name: libaacs
     rm-configure: true
     config-opts:
@@ -354,13 +312,10 @@ modules:
           - /include
           - '*.a'
         sources:
-          - type: archive
-            url: https://github.com/Pulse-Eight/platform/archive/p8-platform-2.1.0.1.tar.gz
-            sha512: 76e6f1ac64b61e4def7d99965708d0f05698379e0f3e846317174f0bc12a9654b3341afc84bd8a3a70f101ecab6c692dea96b57d7e000dfabf6cedee2b8dcd8a
-            x-checker-data:
-              type: anitya
-              project-id: 7322
-              url-template: https://github.com/Pulse-Eight/platform/archive/p8-platform-$version.tar.gz
+          - type: git
+            url: https://github.com/xbmc/platform.git
+            tag: p8-platform-20260129
+            commit: c51ddf4787d083b6cf039761a48fb90d0c4f00ff
   - name: libdisplay-info
     buildsystem: meson
     sources:
@@ -478,23 +433,6 @@ modules:
         dest-filename: autogen.sh
         commands:
           - autoreconf -vfi
-  - name: lzo
-    config-opts:
-      - --enable-shared
-      - --disable-static
-    cleanup:
-      - /include
-      - /share/doc
-      - '*.la'
-      - /lib/*.so
-    sources:
-      - type: archive
-        url: http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-        sha512: a3dae5e4a6b93b1f5bf7435e8ab114a9be57252e9efc5dd444947d7a2d031b0819f34bcaeb35f60b5629a01b1238d738735a64db8f672be9690d3c80094511a4
-        x-checker-data:
-          type: anitya
-          project-id: 1868
-          url-template: http://www.oberhumer.com/opensource/lzo/download/lzo-$version.tar.gz
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
@@ -518,30 +456,38 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/dd/3b/38d83c2725fec5b837fc05d5c6e0178a420ff839a6ad5872f10c89244899/pycryptodome-3.12.0.zip
-        sha512: bca064a6c544f639c2fef8bab4737db92dd9707c9496e715402a3b51c80e6b887097ef3ba9da12cbe8165d5acb57e9e4f17680e7f93794d2abe42a1339ce5da7
+        url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
+        sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+  - name: python3-pybind11
+    buildsystem: simple
+    build-commands:
+      - >-
+        pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/ab/87/99f21e9b20899d6dc1bf7544cfe53e5fa17acc21bb267971a540425357d3/pybind11-3.0.3-py3-none-any.whl
+        sha256: fb5f8e4a64946b4dcc0451c83a8c384f803bc0a62dd1ba02f199e97dbc9aad4c
   - name: python-pillow
     buildsystem: simple
     build-commands:
       - python3 setup.py install --prefix=/app --root=/
     sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/80/d7/c4b258c9098b469c4a4e77b0a99b5f4fd21e359c2e486c977d231f52fc71/Pillow-10.1.0.tar.gz
-        sha512: 77eeaee6f2b8b77b33438d6a5f3a2c79ff1154e39bc225f279f066d6471b6991aad4390756575fa53448062f7bf8763462e95a5b2cc8af1414c1d52f27529736
-  - name: python3-yaml
-    buildsystem: simple
-    build-commands:
-      - >-
-        pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "pyyaml" --no-build-isolation
-    sources:
-      - type: file
-        url: https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz
-        sha256: d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e
+      - type: git
+        url: https://github.com/python-pillow/Pillow.git
+        tag: 12.2.0
+        commit: 3c41c095064200a02672d89cc5ff629eaf4b0d4f
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: lirc
-    no-autogen: true
+    rm-configure: true
     config-opts:
       - --with-systemdsystemunitdir=/app/lib/systemd
+    cleanup:
+      - /bin
+      - /sbin
+      - /share
     sources:
       - type: archive
         url: https://downloads.sourceforge.net/project/lirc/LIRC/0.10.2/lirc-0.10.2.tar.bz2
@@ -555,6 +501,10 @@ modules:
           - sed -i s/Ubuntu/ignoreme/g configure.ac
       - type: patch
         path: patches/lirc-dont-build-docs.patch
+      - type: script
+        dest-filename: autogen.sh
+        commands:
+          - autoreconf -vfi
   - name: rapidjson
     buildsystem: cmake-ninja
     config-opts:
@@ -566,12 +516,10 @@ modules:
       - /include
       - /share/doc
     sources:
-      - type: archive
-        url: https://github.com/Tencent/rapidjson/archive/v1.1.0.tar.gz
-        sha512: 2e82a4bddcd6c4669541f5945c2d240fb1b4fdd6e239200246d3dd50ce98733f0a4f6d3daa56f865d8c88779c036099c52a9ae85d47ad263686b68a88d832dff
-      - type: patch
-        paths:
-          - patches/rapidjson-gcc14.patch
+      # no release since 2016, cmake fixes committed 2024/2025
+      - type: git
+        url: https://github.com/Tencent/rapidjson.git
+        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
   - name: samba
     buildsystem: autotools
     config-opts:
@@ -593,6 +541,10 @@ modules:
       - /share
       - /include
       - /lib/*.so
+      - /lib/perl5
+    build-options:
+      env:
+        PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
         url: https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz
@@ -602,36 +554,16 @@ modules:
           project-id: 4758
           url-template: https://samba.org/samba/ftp/stable/samba-$version.tar.gz
     modules:
-      - name: perl
-        no-autogen: true
-        config-opts:
-          - -des
-        post-install:
-          - find $FLATPAK_DEST/lib/perl5/5.34.0/${FLATPAK_ARCH}-linux/auto/ -name
-            \*.so -exec chmod u+w {} +
-        sources:
-          - type: archive
-            url: https://www.cpan.org/src/5.0/perl-5.34.0.tar.xz
-            sha256: 82c2e5e5c71b0e10487a80d79140469ab1f8056349ca8545140a224dbbed7ded
-          - type: script
-            dest-filename: configure
-            commands:
-              - exec ./configure.gnu $@
       - name: parse-yapp
         buildsystem: simple
         build-commands:
-          - perl Makefile.PL
+          - perl Makefile.PL PREFIX=/app LIB=/app/lib/perl5
           - make
           - make install
         sources:
           - type: archive
             url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
             sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
-      - name: rpcsvc-proto
-        sources:
-          - type: archive
-            url: https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.4/rpcsvc-proto-1.4.4.tar.xz
-            sha256: 81c3aa27edb5d8a18ef027081ebb984234d5b5860c65bd99d4ac8f03145a558b
   - name: shairplay
     cleanup:
       - /include
@@ -748,23 +680,6 @@ modules:
             url: http://mirrors.kodi.tv/build-deps/sources/commons-text-1.11.0-bin.tar.gz
             sha512: 2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f
             dest: commons-text
-  - name: taglib
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DBUILD_SHARED_LIBS=ON
-      - -DCMAKE_INSTALL_LIBDIR=lib
-    cleanup:
-      - /include
-      - /lib/*.so
-    sources:
-      - type: archive
-        url: https://taglib.org/releases/taglib-1.13.1.tar.gz
-        sha512: 986231ee62caa975afead7e94630d58acaac25a38bc33d4493d51bd635d79336e81bba60586d7355ebc0670e31f28d32da3ecceaf33292e4bc240c64bf00f35b
-        x-checker-data:
-          type: anitya
-          project-id: 1982
-          versions: {<: 2.0.0}
-          url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: tinyxml
     cleanup:
       - /include
@@ -920,8 +835,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/xbmc/kodi-platform/archive/809c5e9d711e378561440a896fcb7dbcd009eb3d.tar.gz
-        sha256: 159165ae641da5eb273885ce53b8a4b84e62a595c4974f9d12c1b5d1428ef25c
+        url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
+        sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
