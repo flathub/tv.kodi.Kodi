@@ -552,7 +552,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 4758
-          url-template: https://samba.org/samba/ftp/stable/samba-$version.tar.gz
+          url-template: https://download.samba.org/pub/samba/stable/samba-$version.tar.gz
     modules:
       - name: parse-yapp
         buildsystem: simple
