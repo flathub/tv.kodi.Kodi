@@ -6,12 +6,16 @@
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.dumb",
             "commit": "24f3b659cc27bebeafd5bf6ef1e87597a90b027b"
+        },
+        {
+            "type": "patch",
+            "path": "patches/14b5e8e68704c7c97fa7787c3b070298833fc4c3.patch"
         }
     ],
     "build-options": {
         "no-debuginfo": true,
-        "cflags": "-g0",
-        "cxxflags": "-g0"
+        "cflags": "-g0 -fPIC",
+        "cxxflags": "-g0 -fPIC"
     },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release"

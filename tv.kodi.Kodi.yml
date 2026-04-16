@@ -841,7 +841,7 @@ modules:
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
-  # - addons/audiodecoder.dumb/audiodecoder.dumb.json
+  - addons/audiodecoder.dumb/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
