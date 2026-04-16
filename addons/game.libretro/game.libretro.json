@@ -23,30 +23,6 @@
     ],
     "modules": [
         {
-            "name": "tinyxml",
-            "cleanup": [
-                "/include",
-                "/share/doc",
-                "*.a",
-                "*.la",
-                "/lib/*.so"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz",
-                    "sha256": "8164c9ad48b9028667768a584d62f7760cfbfb90d0dd6214ad174403058da10c"
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "autogen.sh",
-                    "commands": [
-                        "autoreconf -vfi"
-                    ]
-                }
-            ]
-        },
-        {
             "name": "libretro-common",
             "buildsystem": "cmake-ninja",
             "build-options": {
@@ -57,8 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-common/archive/ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65.tar.gz",
-                    "sha256": "e8261fb72c107351d433f921e6a383df5f1e7fe6936fb53c8c0e439821dbf175"
+                    "url": "https://github.com/libretro/libretro-common/archive/a08b2b574787408abbb4ba34faf673117f9a0eae.tar.gz",
+                    "sha256": "448c6531e32783835fc900e1dffcf621ad2d0e29134f1e6645e2ee2a3132038f"
                 },
                 {
                     "type": "file",

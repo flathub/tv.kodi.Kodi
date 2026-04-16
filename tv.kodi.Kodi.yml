@@ -101,8 +101,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19.tar.gz
-        sha512: 808c77536fbfb1c8a1145506873a2b4e5cb508e48bf35f8502a2d1349b64e7581bfe7ff2f587b3edb2642cc885c60c0170a8875fad245240a1288057f4c07a42
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19-2026-02-06-03fffb2.tar.gz
+        sha512: 61d71f830a249d16e5d9e3d7ffde40b123bddc3824c3431aeedc3c19eb9913ca5c6ae4d509a65824242b50b363037cd9d5b084170e4719d8b24762c13be054c4
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -361,8 +361,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.3.tar.gz
-        sha512: 5b57df7a4f3f9e5b7c3fea50231490061cf4ee2aaa13575777942ad51564d5a3f1aaed493d8741f736d390888e95161f71d9f39d2bf61cc2e4958df09b496a07
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.4.tar.gz
+        sha256: d72e5cfccd62bf2f79252edbc3828eeedc088ce71fc47b7c9e3bd7246b3d54de
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -577,8 +577,8 @@ modules:
           - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc3.tar.gz
-            sha256: 9f2ff92864c56364d711eb2acec4c0455d1375d8c3266e420611730a2c9ccba5
+            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz
+            sha256: 08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5
             x-checker-data:
               type: anitya
               project-id: 147
@@ -762,7 +762,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: 364219ea7cb01c1ee627c56c88c0178d310505a1
+        commit: 2468ae154860790300e8d5af4b99c01549aa6d1b
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
