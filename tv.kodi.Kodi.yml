@@ -523,6 +523,7 @@ modules:
     config-opts:
       - --prefix=/app
       - --libdir=/app/lib
+      - --disable-rpath
       - --disable-python
       - --without-ads
       - --without-ldap
@@ -532,6 +533,7 @@ modules:
       - --without-ad-dc
       - --without-json
       - --disable-cups
+      - --disable-iprint
       - --without-ldb-lmdb
     cleanup:
       - /bin
