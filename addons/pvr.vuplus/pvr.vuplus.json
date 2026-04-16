@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vuplus",
-            "commit": "dfc5fa3078a020f9842ce63a110c5a92d3e137cc"
+            "commit": "04f5e0de300586f1e825779ea2a178097099410b"
         }
     ],
     "build-options": {
