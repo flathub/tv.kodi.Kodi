@@ -101,8 +101,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19.tar.gz
-        sha512: 808c77536fbfb1c8a1145506873a2b4e5cb508e48bf35f8502a2d1349b64e7581bfe7ff2f587b3edb2642cc885c60c0170a8875fad245240a1288057f4c07a42
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19-2026-02-06-03fffb2.tar.gz
+        sha512: 61d71f830a249d16e5d9e3d7ffde40b123bddc3824c3431aeedc3c19eb9913ca5c6ae4d509a65824242b50b363037cd9d5b084170e4719d8b24762c13be054c4
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -375,8 +375,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.3.tar.gz
-        sha512: 5b57df7a4f3f9e5b7c3fea50231490061cf4ee2aaa13575777942ad51564d5a3f1aaed493d8741f736d390888e95161f71d9f39d2bf61cc2e4958df09b496a07
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.4.tar.gz
+        sha512: 67c70243a144099db0501f102b759b79ef4454af8a2767ce33376ca5db378dd79cc4968c6ac69203669db0c6b88f2a1f90cae19c16874ce77d5eaa4a5fae4e02
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -547,7 +547,7 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz
+        url: https://samba.org/samba/ftp/stable/samba-4.24.0.tar.gz
         sha256: 1b1e457fd651a612cd08226cc6efd04e5d01e36d918c8b4c4e470e74e86881ea
         x-checker-data:
           type: anitya
