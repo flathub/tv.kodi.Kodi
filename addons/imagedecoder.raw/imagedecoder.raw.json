@@ -19,8 +19,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/LibRaw/LibRaw/archive/refs/tags/0.20.2.tar.gz",
-                    "sha256": "02df7d403b34602b769bb38e5bf7d4258e075eeefbe980b6832e6e1491989d60"
+                    "url": "https://github.com/LibRaw/LibRaw/archive/refs/tags/0.22.1.tar.gz",
+                    "sha256": "e676248284075605aa2697a66eeed7dc258820bd1d4988c724d29edffd726726"
                 },
                 {
                     "type": "script",

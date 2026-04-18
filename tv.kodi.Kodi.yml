@@ -14,6 +14,7 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
+  - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
@@ -101,8 +102,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19.tar.gz
-        sha512: 808c77536fbfb1c8a1145506873a2b4e5cb508e48bf35f8502a2d1349b64e7581bfe7ff2f587b3edb2642cc885c60c0170a8875fad245240a1288057f4c07a42
+        url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19-2026-02-06-03fffb2.tar.gz
+        sha512: 61d71f830a249d16e5d9e3d7ffde40b123bddc3824c3431aeedc3c19eb9913ca5c6ae4d509a65824242b50b363037cd9d5b084170e4719d8b24762c13be054c4
         x-checker-data:
           type: anitya
           project-id: 16642
@@ -251,19 +252,19 @@ modules:
       - type: patch
         path: patches/libbdplus-fix-libgcrypt.patch
   - name: libbluray
+    buildsystem: meson
     config-opts:
-      - --disable-static
-      - --disable-bdjava-jar
-    cleanup:
-      - /include
-      - '*.a'
-      - '*.la'
-      - '*.pc'
-      - /lib/*.so
+      - -Ddefault_library=shared
+      - -Denable_docs=false
+      - -Denable_tools=false
+      - -Denable_devtools=false
+      - -Denable_examples=false
+      - -Dbdj_jar=disabled
+      - -Djava9=false
     sources:
       - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.3.4/libbluray-1.3.4.tar.bz2
-        sha512: 94dbf3b68d1c23fe4648c153cc2f0c251886fac0a6b6bbe3a77caabaa5322682f712afe4a7b6b16ca3f06744fbc0e1ca872209a32898dcf0ae182055d335aec1
+        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
+        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
         x-checker-data:
           type: anitya
           project-id: 1565
@@ -299,8 +300,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.2.tar.gz
-        sha256: 090696d7a4fb772d7acebbb06f91ab92e025531c7c91824046b9e4e71ecb3377
+        url: https://github.com/Pulse-Eight/libcec/archive/libcec-7.1.1.tar.gz
+        sha256: 7f7da95a4c1e7160d42ca37a3ac80cf6f389b317e14816949e0fa5e2edf4cc64
         x-checker-data:
           type: anitya
           project-id: 21468
@@ -375,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.3.tar.gz
-        sha512: 5b57df7a4f3f9e5b7c3fea50231490061cf4ee2aaa13575777942ad51564d5a3f1aaed493d8741f736d390888e95161f71d9f39d2bf61cc2e4958df09b496a07
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.4.tar.gz
+        sha256: d72e5cfccd62bf2f79252edbc3828eeedc088ce71fc47b7c9e3bd7246b3d54de
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -415,6 +416,7 @@ modules:
           project-id: 11675
           url-template: https://github.com/libimobiledevice/libplist/releases/download/$version/libplist-$version.tar.bz2
   - name: libudfread
+    buildsystem: meson
     cleanup:
       - /include
       - /share/doc
@@ -423,16 +425,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.1.2.tar.gz
-        sha512: 3069feb5db40288beb5b112b285186162a704f0fdd3cf67a17fd4eeea015f2cfcfbb455b7aa7c3d79d00fd095a3fd11cffc7b121dce94d99c3b06a509a8977d2
+        url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.2.0.tar.bz2
+        sha512: 53df39c207cadd742b4d4f78fd14159a6e4f45c97c9a7b97a39778fab4fdb5b0c087ebba04d27c28b8078681b82c3e903a4394f0d381cdadf23d2fd24956261f
         x-checker-data:
           type: anitya
           project-id: 89591
           url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
-      - type: script
-        dest-filename: autogen.sh
-        commands:
-          - autoreconf -vfi
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
@@ -525,6 +523,7 @@ modules:
     config-opts:
       - --prefix=/app
       - --libdir=/app/lib
+      - --disable-rpath
       - --disable-python
       - --without-ads
       - --without-ldap
@@ -534,6 +533,7 @@ modules:
       - --without-ad-dc
       - --without-json
       - --disable-cups
+      - --disable-iprint
       - --without-ldb-lmdb
     cleanup:
       - /bin
@@ -547,12 +547,12 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz
-        sha256: 1b1e457fd651a612cd08226cc6efd04e5d01e36d918c8b4c4e470e74e86881ea
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.1.tar.gz
+        sha256: 217151ca318a5576f8e0de72ba0acdf08157ecf12adac42d1af86db0b09a5f5a
         x-checker-data:
           type: anitya
           project-id: 4758
-          url-template: https://samba.org/samba/ftp/stable/samba-$version.tar.gz
+          url-template: https://download.samba.org/pub/samba/stable/samba-$version.tar.gz
     modules:
       - name: parse-yapp
         buildsystem: simple
@@ -651,8 +651,8 @@ modules:
           - cp -r groovy/* ${FLATPAK_DEST}/groovy
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/apache-groovy-binary-4.0.16.zip
-            sha512: 743698979c801f3cfb36545888b5303e1e25dae5692bb45cab7ebbe102a6eda31f09abc6978349ad90ecaf630416fc87eacba7781244855e7e771a3c44041fa0
+            url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
+            sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
             dest: groovy
         cleanup:
           - /groovy
@@ -665,8 +665,8 @@ modules:
           - /commons-lang3
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/commons-lang3-3.14.0-bin.tar.gz
-            sha512: 8e7e62418a49ba810512c13a640a8bf35f878fcd54af32fdaab1111e37817f58b21b475980ba663fba4887e45ef8d88af8ff17796f20d202e929e8e2574546dc
+            url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
+            sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
             dest: commons-lang3
       - name: commons-text
         buildsystem: simple
@@ -677,8 +677,8 @@ modules:
           - /commons-text
         sources:
           - type: archive
-            url: http://mirrors.kodi.tv/build-deps/sources/commons-text-1.11.0-bin.tar.gz
-            sha512: 2e94877000dd270b69e2e8cbf49f258a90b4c628b6b6b0814e300a2f0e9c391f0816dceb0707e596ae3b7c9532f93e7a4917df47c77f44b3a810e14042ce5f3f
+            url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
+            sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
             dest: commons-text
   - name: tinyxml
     cleanup:
@@ -768,6 +768,7 @@ modules:
       - -DENABLE_NFS=ON
       - -DENABLE_OPTICAL=ON
       - -DENABLE_PULSEAUDIO=ON
+      - -DENABLE_PIPEWIRE=ON
       - -DENABLE_SMBCLIENT=ON
       - -DENABLE_UDEV=ON
       - -DENABLE_UPNP=ON
@@ -840,7 +841,7 @@ modules:
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
-  # - addons/audiodecoder.dumb/audiodecoder.dumb.json
+  - addons/audiodecoder.dumb/audiodecoder.dumb.json
   - addons/audiodecoder.fluidsynth/audiodecoder.fluidsynth.json
   - addons/audiodecoder.gme/audiodecoder.gme.json
   - addons/audiodecoder.gsf/audiodecoder.gsf.json
@@ -866,7 +867,7 @@ modules:
   - addons/audioencoder.vorbis/audioencoder.vorbis.json
   - addons/audioencoder.wav/audioencoder.wav.json
   - addons/game.libretro/game.libretro.json
-  # - addons/game.libretro.2048/game.libretro.2048.json
+  - addons/game.libretro.2048/game.libretro.2048.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json

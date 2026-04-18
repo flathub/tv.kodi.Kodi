@@ -18,7 +18,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "3b3aa934198ccbf0c25138e10a579db1db8f4ffe"
+            "commit": "c378bfb31d4cfec6f93b7f37afa25c42f8cd1afc"
         }
     ],
     "modules": [
@@ -33,12 +33,12 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-common/archive/50c15a88eb741cbe675743a282d8cc4c89421e3f.tar.gz",
-                    "sha256": "042986fad22dc37188df7a186d17a258edfe8e552353f9b509a47418e8dfa623"
+                    "url": "https://github.com/libretro/libretro-common/archive/a08b2b574787408abbb4ba34faf673117f9a0eae.tar.gz",
+                    "sha256": "448c6531e32783835fc900e1dffcf621ad2d0e29134f1e6645e2ee2a3132038f"
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/Omega/depends/common/libretro-common/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/24ba30f1dfdf021980a6d1163849c4d7ce66ff06/depends/common/libretro-common/CMakeLists.txt",
                     "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
                 }
             ]
