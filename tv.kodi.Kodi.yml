@@ -184,22 +184,6 @@ modules:
           type: anitya
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
-  - name: jsoncpp
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DJSONCPP_WITH_TESTS=OFF
-    sources:
-      - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
-        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
-        x-checker-data:
-          type: anitya
-          project-id: 7483
-          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
-    cleanup:
-      - /lib/*.a
-      - /include
   - name: libass
     cleanup:
       - /include
@@ -840,6 +824,21 @@ modules:
       - type: archive
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
+
+  # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
+  - name: jsoncpp
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DJSONCPP_WITH_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
+        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
+        x-checker-data:
+          type: anitya
+          project-id: 7483
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
