@@ -593,6 +593,8 @@ modules:
         config-opts:
           - --with-distro=none
           - --disable-libdaemon
+          - --disable-libsystemd
+          - --disable-nls
           - --disable-core-docs
           - --disable-manpages
           - --disable-mono
@@ -605,12 +607,12 @@ modules:
           - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: https://github.com/lathiat/avahi/archive/v0.8.tar.gz
-            sha256: c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f
+            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz
+            sha256: 08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5
             x-checker-data:
               type: anitya
               project-id: 147
-              url-template: https://github.com/lathiat/avahi/archive/v$version.tar.gz
+              url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
