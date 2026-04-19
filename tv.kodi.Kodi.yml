@@ -538,6 +538,7 @@ modules:
       - --without-ldb-lmdb
     cleanup:
       - /bin
+      - /sbin
       - /libexec
       - /share
       - /include
