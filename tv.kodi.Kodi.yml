@@ -285,8 +285,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/libcec-7.1.1.tar.gz
-        sha256: 7f7da95a4c1e7160d42ca37a3ac80cf6f389b317e14816949e0fa5e2edf4cc64
+        url: https://github.com/Pulse-Eight/libcec/archive/c7c4c82dc171c49decfbfe5d2959706d3e2ea47c.tar.gz
+        sha256: 1ea208bd6218d70102fead867c6c7ef92d5d9f6f78e5010bc0ce41312d24ccfd
         x-checker-data:
           type: anitya
           project-id: 21468
