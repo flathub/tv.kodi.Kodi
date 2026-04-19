@@ -174,6 +174,8 @@ modules:
       - /lib/pkgconfig
   - name: json
     buildsystem: cmake-ninja
+    config-opts:
+      - -DJSON_BuildTests=OFF
     sources:
       - type: archive
         url: https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz
