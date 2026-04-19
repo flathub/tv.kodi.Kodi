@@ -76,6 +76,7 @@ modules:
       - --enable-gnutls
       - --enable-vaapi
       - --enable-vdpau
+      - --disable-doc
     cleanup:
       - /include
       - /lib
