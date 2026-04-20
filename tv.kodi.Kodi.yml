@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.openjdk17
+  - org.freedesktop.Sdk.Extension.openjdk25
 command: kodi
 rename-icon: kodi
 rename-desktop-file: kodi.desktop
@@ -76,6 +76,7 @@ modules:
       - --enable-gnutls
       - --enable-vaapi
       - --enable-vdpau
+      - --disable-doc
     cleanup:
       - /include
       - /lib
@@ -285,8 +286,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/libcec-7.1.1.tar.gz
-        sha256: 7f7da95a4c1e7160d42ca37a3ac80cf6f389b317e14816949e0fa5e2edf4cc64
+        url: https://github.com/Pulse-Eight/libcec/archive/c7c4c82dc171c49decfbfe5d2959706d3e2ea47c.tar.gz
+        sha256: 1ea208bd6218d70102fead867c6c7ef92d5d9f6f78e5010bc0ce41312d24ccfd
         x-checker-data:
           type: anitya
           project-id: 21468
@@ -361,8 +362,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.4.tar.gz
-        sha256: d72e5cfccd62bf2f79252edbc3828eeedc088ce71fc47b7c9e3bd7246b3d54de
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
+        sha256: b46d00f58efa6f497b97d2e782c4ee66301d412ddd855dd3068518b3a2cd3ea2
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -519,8 +520,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.0.tar.gz
-        sha256: 1b1e457fd651a612cd08226cc6efd04e5d01e36d918c8b4c4e470e74e86881ea
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.1.tar.gz
+        sha256: 217151ca318a5576f8e0de72ba0acdf08157ecf12adac42d1af86db0b09a5f5a
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -745,14 +746,11 @@ modules:
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
-      - -DENABLE_INTERNAL_FLATBUFFERS=OFF
-      - -DENABLE_INTERNAL_FMT=OFF
-      - -DENABLE_INTERNAL_NFS=OFF
-      - -DENABLE_INTERNAL_FFMPEG=OFF
       - -DENABLE_LIRCCLIENT=ON
+      - -DDISABLE_FFMPEG_SOURCE_PLUGINS=ON
       - -DDEPENDS_PATH=/app
       - -DAPP_RENDER_SYSTEM=gl
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
+      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk25/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
       - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
@@ -762,7 +760,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: 2468ae154860790300e8d5af4b99c01549aa6d1b
+        commit: c35e1ca4bb72fb8abd19bdc84156864e1b4b7433
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$

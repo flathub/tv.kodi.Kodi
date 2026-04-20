@@ -38,7 +38,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/Piers/depends/common/libretro-common/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/d04890600f5be1004056d42a936335de92d24b1f/depends/common/libretro-common/CMakeLists.txt",
                     "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
                 }
             ]
@@ -59,7 +59,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/Piers/depends/common/rcheevos/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/d04890600f5be1004056d42a936335de92d24b1f/depends/common/rcheevos/CMakeLists.txt",
                     "sha256": "76896119cc13623975abbf99587221f6de8f9b2733ce0729df3c35794ec5783b"
                 }
             ]
