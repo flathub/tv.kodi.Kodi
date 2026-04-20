@@ -14,7 +14,6 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
-  - --filesystem=xdg-run/pipewire-0:ro
   - --filesystem=/mnt
   - --filesystem=/media
   - --filesystem=/run/media
@@ -174,6 +173,8 @@ modules:
       - /lib/pkgconfig
   - name: json
     buildsystem: cmake-ninja
+    config-opts:
+      - -DJSON_BuildTests=OFF
     sources:
       - type: archive
         url: https://github.com/nlohmann/json/archive/refs/tags/v3.12.0.tar.gz
@@ -182,22 +183,6 @@ modules:
           type: anitya
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
-  - name: jsoncpp
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DJSONCPP_WITH_TESTS=OFF
-    sources:
-      - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
-        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
-        x-checker-data:
-          type: anitya
-          project-id: 7483
-          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
-    cleanup:
-      - /lib/*.a
-      - /include
   - name: libass
     cleanup:
       - /include
@@ -336,12 +321,12 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.1/libinput-1.31.1.tar.gz
-        sha256: e010b02021b8fe9f3e696a4a2059c0243f0c90f2f9d4bcf4c88d2f9613c52b0b
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.1/libinput-1.31.1.tar.bz2
+        sha256: e0bb6537de892ce7c63fc5be9ad373eae894b7655c92220ef00316cc33097356
         x-checker-data:
           type: anitya
           project-id: 5781
-          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.gz
+          url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.bz2
     modules:
       - name: mtdev
         sources:
@@ -376,8 +361,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.4.tar.gz
-        sha256: d72e5cfccd62bf2f79252edbc3828eeedc088ce71fc47b7c9e3bd7246b3d54de
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
+        sha256: b46d00f58efa6f497b97d2e782c4ee66301d412ddd855dd3068518b3a2cd3ea2
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -436,6 +421,7 @@ modules:
     config-opts:
       - -DWITH_UNIT_TESTS=OFF
       - -DDEFAULT_SSL_VERIFY_SERVER_CERT=OFF
+      - -DINSTALL_LIBDIR=/app/lib
     cleanup:
       - /include
       - '*.a'
@@ -537,6 +523,7 @@ modules:
       - --without-ldb-lmdb
     cleanup:
       - /bin
+      - /sbin
       - /libexec
       - /share
       - /include
@@ -591,6 +578,8 @@ modules:
         config-opts:
           - --with-distro=none
           - --disable-libdaemon
+          - --disable-libsystemd
+          - --disable-nls
           - --disable-core-docs
           - --disable-manpages
           - --disable-mono
@@ -603,12 +592,12 @@ modules:
           - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: https://github.com/lathiat/avahi/archive/v0.8.tar.gz
-            sha256: c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f
+            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz
+            sha256: 08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5
             x-checker-data:
               type: anitya
               project-id: 147
-              url-template: https://github.com/lathiat/avahi/archive/v$version.tar.gz
+              url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -714,6 +703,7 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_INSTALL_LIBDIR=lib
+      - -DBUILD_DOCUMENTATION=OFF
     sources:
       - type: archive
         url: https://github.com/NilsBrause/waylandpp/archive/1.0.1.tar.gz
@@ -768,18 +758,12 @@ modules:
       - -DENABLE_NFS=ON
       - -DENABLE_OPTICAL=ON
       - -DENABLE_PULSEAUDIO=ON
-      - -DENABLE_PIPEWIRE=ON
       - -DENABLE_SMBCLIENT=ON
       - -DENABLE_UDEV=ON
       - -DENABLE_UPNP=ON
       - -DENABLE_VAAPI=ON
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
-      - -DENABLE_INTERNAL_RapidJSON=OFF
-      - -DENABLE_INTERNAL_FLATBUFFERS=OFF
-      - -DENABLE_INTERNAL_FMT=OFF
-      - -DENABLE_INTERNAL_NFS=OFF
-      - -DENABLE_INTERNAL_FFMPEG=OFF
       - -DENABLE_LIRCCLIENT=ON
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
@@ -838,6 +822,21 @@ modules:
       - type: archive
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
+
+  # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
+  - name: jsoncpp
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DJSONCPP_WITH_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
+        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
+        x-checker-data:
+          type: anitya
+          project-id: 7483
+          url-template: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/$version.tar.gz
 
   - addons/audiodecoder.2sf/audiodecoder.2sf.json
   - addons/audiodecoder.asap/audiodecoder.asap.json
