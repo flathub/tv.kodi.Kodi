@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.ffmpegdirect",
             "commit": "3c596496d2360f7b25ff58886a81cb1273266481"
+        },
+        {
+            "type": "patch",
+            "path": "patches/ffmpeg7.patch"
         }
     ],
     "build-options": {

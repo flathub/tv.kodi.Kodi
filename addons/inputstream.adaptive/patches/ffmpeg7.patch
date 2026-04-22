@@ -1,0 +1,46 @@
+From 5b0c63b51bf9482004c44c243d3e0605c15f6b29 Mon Sep 17 00:00:00 2001
+From: CastagnaIT <gottardo.stefano.83@gmail.com>
+Date: Sun, 22 Dec 2024 11:25:42 +0100
+Subject: [PATCH] [Session] Set Atmos profile instead of JOC codec string
+
+Since has been merged ffmpeg 7.1 in to kodi core
+the string "eac3-joc" is no longer recognized as a workaround to display the atmos profile in the GUI
+but in its place the atmos codec profile is now working
+---
+ src/Session.cpp   | 7 +++----
+ src/utils/Utils.h | 2 +-
+ 2 files changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/src/Session.cpp b/src/Session.cpp
+index 0593fa34f..abbf7cb5a 100644
+--- a/src/Session.cpp
++++ b/src/Session.cpp
+@@ -819,12 +819,11 @@ void SESSION::CSession::UpdateStream(CStream& stream)
+       stream.m_info.SetCodecName(CODEC::NAME_DTS);
+     else if (CODEC::Contains(codecs, CODEC::FOURCC_AC_3, codecStr))
+       stream.m_info.SetCodecName(CODEC::NAME_AC3);
+-    else if (CODEC::Contains(codecs, CODEC::NAME_EAC3_JOC, codecStr) ||
+-             CODEC::Contains(codecs, CODEC::FOURCC_EC_3, codecStr))
++    else if (CODEC::Contains(codecs, CODEC::FOURCC_EC_3, codecStr))
+     {
+-      // In the above condition above is checked NAME_EAC3_JOC as first,
+-      // in order to get the codec string to signal DD+ Atmos in to the SetCodecInternalName
+       stream.m_info.SetCodecName(CODEC::NAME_EAC3);
++      if (CODEC::Contains(codecs, CODEC::NAME_EAC3_JOC))
++        stream.m_info.SetCodecProfile(STREAMCODEC_PROFILE::DDPlusCodecProfileAtmos);
+     }
+     else if (CODEC::Contains(codecs, CODEC::FOURCC_OPUS, codecStr))
+       stream.m_info.SetCodecName(CODEC::NAME_OPUS);
+diff --git a/src/utils/Utils.h b/src/utils/Utils.h
+index 2ab8de8eb..9001fca38 100644
+--- a/src/utils/Utils.h
++++ b/src/utils/Utils.h
+@@ -59,7 +59,7 @@ namespace CODEC
+ {
+ constexpr const char* NAME_UNKNOWN = "unk"; // Kodi codec name for unknown codec
+ 
+-// Kodi internal codec name to signal DD+ Atmos ("joc"), not a ffmpeg definition
++// ISA internal codec name to signal DD+ Atmos profile ("joc")
+ constexpr const char* NAME_EAC3_JOC = "eac3-joc";
+ 
+ // IMPORTANT: Codec names must match the ffmpeg library definition

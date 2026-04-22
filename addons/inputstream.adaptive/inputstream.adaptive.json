@@ -14,6 +14,10 @@
             "commit": "c567d396fba39fc423628531d07e7064315afe00"
         },
         {
+            "type": "patch",
+            "path": "patches/ffmpeg7.patch"
+        },
+        {
             "type": "file",
             "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-3-Omega.tar.gz",
             "sha256": "a9b231b63159b3a4d9e47c5328b476308852bf092ccb9ce98f7cf46a386465ce",

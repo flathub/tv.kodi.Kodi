@@ -82,12 +82,12 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.4.tar.gz
-        sha256: 78dd367fbfc5d4a9949d528808334accffcc8e898aee30fa9fab6999c4751e3a
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n7.1.3.tar.gz
+        sha256: e0b04c4b43d7e6d67cb6710334fb513adf13ac860532f30e1d0ac4c231f232fb
         x-checker-data:
           type: anitya
           project-id: 5405
-          versions: {<: 7.0.0}
+          versions: {<: 8.0.0}
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
   - name: flatbuffers
     buildsystem: cmake-ninja
@@ -815,6 +815,8 @@ modules:
         sha512: 51e6fc033121241354a5f0b3fc9a430577ae3ff6bb7f31445aa548ef4893037fb80eea3b2c6774c81e9ebaf9c45e9b490c98c2c65eb38f9f7daba84b236f7e1d
         dest: build/download/
         dest-filename: libdvdnav.tar.gz
+      - type: patch
+        path: patches/ffmpeg7.patch
 
   - name: kodi-platform
     buildsystem: cmake-ninja
