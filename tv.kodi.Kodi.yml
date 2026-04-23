@@ -451,8 +451,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ab/87/99f21e9b20899d6dc1bf7544cfe53e5fa17acc21bb267971a540425357d3/pybind11-3.0.3-py3-none-any.whl
-        sha256: fb5f8e4a64946b4dcc0451c83a8c384f803bc0a62dd1ba02f199e97dbc9aad4c
+        url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
+        sha256: 961720ee652da51d531b7b2451a6bd2bc042b0106e6d9baa48ecb7d58034ce63
   - name: python-pillow
     buildsystem: simple
     build-commands:
