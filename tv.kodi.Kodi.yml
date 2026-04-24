@@ -75,7 +75,6 @@ modules:
       - --enable-gpl
       - --enable-gnutls
       - --enable-vaapi
-      - --enable-vdpau
       - --disable-doc
     cleanup:
       - /include
@@ -748,7 +747,6 @@ modules:
       - -DENABLE_UDEV=ON
       - -DENABLE_UPNP=ON
       - -DENABLE_VAAPI=ON
-      - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
       - -DENABLE_LIRCCLIENT=ON
       - -DDEPENDS_PATH=/app
