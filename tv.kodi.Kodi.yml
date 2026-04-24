@@ -90,6 +90,10 @@ modules:
           type: anitya
           project-id: 5405
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
+        # libpostproc is now a source plugin that must be patched in
+        # https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
+      - type: patch
+        path: patches/ffmpeg-all-libpostproc-plugin.patch
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
@@ -747,7 +751,6 @@ modules:
       - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
       - -DENABLE_LIRCCLIENT=ON
-      - -DDISABLE_FFMPEG_SOURCE_PLUGINS=ON
       - -DDEPENDS_PATH=/app
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
