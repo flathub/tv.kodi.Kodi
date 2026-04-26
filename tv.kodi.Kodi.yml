@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -737,6 +737,25 @@ modules:
               type: anitya
               project-id: 2610
               url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
+  # taglib and lzo may be dropped once we move on from runtime 24.08
+  - name: taglib
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
+    cleanup:
+      - /include
+      - /lib/*.so
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-1.13.1.tar.gz
+        sha512: 986231ee62caa975afead7e94630d58acaac25a38bc33d4493d51bd635d79336e81bba60586d7355ebc0670e31f28d32da3ecceaf33292e4bc240c64bf00f35b
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          versions: {<: 2.0.0}
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
+  - shared-modules/lzo/lzo.json
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
