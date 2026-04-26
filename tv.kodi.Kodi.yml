@@ -75,7 +75,6 @@ modules:
       - --enable-gpl
       - --enable-gnutls
       - --enable-vaapi
-      - --enable-vdpau
       - --disable-doc
     cleanup:
       - /include
@@ -90,6 +89,10 @@ modules:
           type: anitya
           project-id: 5405
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
+        # libpostproc is now a source plugin that must be patched in
+        # https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
+      - type: patch
+        path: patches/ffmpeg-all-libpostproc-plugin.patch
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
@@ -451,8 +454,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ab/87/99f21e9b20899d6dc1bf7544cfe53e5fa17acc21bb267971a540425357d3/pybind11-3.0.3-py3-none-any.whl
-        sha256: fb5f8e4a64946b4dcc0451c83a8c384f803bc0a62dd1ba02f199e97dbc9aad4c
+        url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
+        sha256: 961720ee652da51d531b7b2451a6bd2bc042b0106e6d9baa48ecb7d58034ce63
   - name: python-pillow
     buildsystem: simple
     build-commands:
@@ -744,10 +747,8 @@ modules:
       - -DENABLE_UDEV=ON
       - -DENABLE_UPNP=ON
       - -DENABLE_VAAPI=ON
-      - -DENABLE_VDPAU=ON
       - -DENABLE_XSLT=ON
       - -DENABLE_LIRCCLIENT=ON
-      - -DDISABLE_FFMPEG_SOURCE_PLUGINS=ON
       - -DDEPENDS_PATH=/app
       - -DAPP_RENDER_SYSTEM=gl
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
@@ -760,7 +761,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: c35e1ca4bb72fb8abd19bdc84156864e1b4b7433
+        commit: ecd4c7c31f6082e416b0a3a93636d709d19e5a6e
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
