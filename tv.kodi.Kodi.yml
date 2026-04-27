@@ -750,7 +750,7 @@ modules:
       - -DENABLE_XSLT=ON
       - -DENABLE_LIRCCLIENT=ON
       - -DDEPENDS_PATH=/app
-      - -DAPP_RENDER_SYSTEM=gl
+      - -DAPP_RENDER_SYSTEM=gles
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
