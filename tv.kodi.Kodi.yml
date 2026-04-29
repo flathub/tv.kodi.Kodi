@@ -750,7 +750,7 @@ modules:
       - -DENABLE_XSLT=ON
       - -DENABLE_LIRCCLIENT=ON
       - -DDEPENDS_PATH=/app
-      - -DAPP_RENDER_SYSTEM=gl
+      - -DAPP_RENDER_SYSTEM=gles
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=build/download/crossguid.tar.gz
       - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
@@ -761,7 +761,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: ecd4c7c31f6082e416b0a3a93636d709d19e5a6e
+        commit: 1671a6091b96013f4043d28845d7e367b6a51f04
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
