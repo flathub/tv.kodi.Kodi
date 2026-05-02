@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.nestopia",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.nestopia",
+            "commit": "eafa091047a32ccb55c57d481304f301b6762f96"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-nestopia",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C libretro/",
+                "install -D -m 755 libretro/nestopia_libretro.so /app/lib/libretro/nestopia_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/nestopia-libretro/archive/b0fd87dd07e3c52903435d302b04e5e97796f127.tar.gz",
+                    "sha256": "32c602b65090615c6b1b6867772c3b7f261127d56d28b48ab6c05afc68d781e0"
+                }
+            ]
+        }
+    ]
+}

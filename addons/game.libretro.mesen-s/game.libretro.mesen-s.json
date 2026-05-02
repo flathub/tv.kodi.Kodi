@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.mesen-s",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.mesen-s",
+            "commit": "d00f2779c8321e4b9c7d18aaaff1f53fbb7adeaf"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-mesen-s",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C Libretro/",
+                "install -D -m 755 Libretro/mesen-s_libretro.so /app/lib/libretro/mesen-s_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/mesen-s/archive/1d475abd174d16ecb1fb030961ff26076ab51ee6.tar.gz",
+                    "sha256": "9dc6b2762769cae40ff2d008562fa0f8883d89906a693b44f1fbe8d8cfaedbd4"
+                }
+            ]
+        }
+    ]
+}

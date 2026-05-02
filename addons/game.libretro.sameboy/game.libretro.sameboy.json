@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.sameboy",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.sameboy",
+            "commit": "2147f7cc9e61328f6d1b84655225510dfbc03d75"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-sameboy",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C libretro/",
+                "install -D -m 755 libretro/sameboy_libretro.so /app/lib/libretro/sameboy_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/SameBoy/archive/06c184f0b186f161bcdfec50ebd604fe789ed04a.tar.gz",
+                    "sha256": "0afbed5dae436c9006836b1801ab53b7a8fa6e1fbc740950303b34bc54758765"
+                }
+            ]
+        }
+    ]
+}

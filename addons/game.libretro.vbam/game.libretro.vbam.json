@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.vbam",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.vbam",
+            "commit": "dfabe6854c5e80646cdb93a700fcf4b808bd66ae"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-vbam",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C src/libretro/",
+                "install -D -m 755 src/libretro/vbam_libretro.so /app/lib/libretro/vbam_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/visualboyadvance-m/visualboyadvance-m/archive/cc10bcaade3689ddc1113ac521cda6c26e6ff54a.tar.gz",
+                    "sha256": "e6a0aa8a34a4eadc7971ab3342f6f3f03fe9cbe606bcd5bc22338d87674e02ea"
+                }
+            ]
+        }
+    ]
+}

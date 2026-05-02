@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-supergrafx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-supergrafx",
+            "commit": "8b41922ad4a31db6c9f3a42365f5d7eac6fe1982"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-supergrafx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_supergrafx_libretro.so /app/lib/libretro/mednafen_supergrafx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-supergrafx-libretro/archive/3c6fcd3deded54ebecd69408f108407ac03d11b5.tar.gz",
+                    "sha256": "87c5355089ad3d60befd76c2227062e48d6db5a33ab46e4b3efd680cb55a9ee9"
+                }
+            ]
+        }
+    ]
+}

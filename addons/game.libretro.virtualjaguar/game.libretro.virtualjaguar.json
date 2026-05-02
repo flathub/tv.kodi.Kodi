@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.virtualjaguar",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.virtualjaguar",
+            "commit": "8f7ca4edd83022a3716aeb7028e66ac1508cf0c2"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-virtualjaguar",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 virtualjaguar_libretro.so /app/lib/libretro/virtualjaguar_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/e04f953915731c15f5f9cb9b8ae44630c901f23f.tar.gz",
+                    "sha256": "8bd2844e349bc4e1ca1df850609562b54d6f2f9da0f4e7884400db61c2037a4a"
+                }
+            ]
+        }
+    ]
+}

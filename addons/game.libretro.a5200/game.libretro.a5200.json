@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.a5200",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.a5200",
+            "commit": "7a685d0fbb8e3f55b857f0ac71ba9b257884ed68"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-a5200",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 a5200_libretro.so /app/lib/libretro/a5200_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/a5200/archive/e09b29dd159bbc1098648c12cd83514b3befe89b.tar.gz",
+                    "sha256": "8d32a5ffa348348acb5b9511ac978f477efc2c86b69ccdc1f3f3d0eef776817a"
+                }
+            ]
+        }
+    ]
+}

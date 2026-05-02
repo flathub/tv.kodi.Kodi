@@ -1,0 +1,47 @@
+{
+    "name": "game.libretro.blastem",
+    "only_arches": [
+      "x86_64"
+    ],
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.blastem",
+            "commit": "77bec3abd7d91914348603a1bef0765b4f3fce68"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-blastem",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 blastem_libretro.so /app/lib/libretro/blastem_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/blastem/archive/277e4a62668597d4f59cadda1cbafb844f981d45.tar.gz",
+                    "sha256": "1ad8eab6f528612d52f8310237d3e62a501e7449682369baa9eb5d4c73a6b90e"
+                }
+            ]
+        }
+    ]
+}

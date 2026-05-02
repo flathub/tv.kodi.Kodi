@@ -1,5 +1,5 @@
 {
-    "name": "game.libretro.mrboom",
+    "name": "game.libretro.yabause",
     "buildsystem": "cmake-ninja",
     "build-options": {
         "no-debuginfo": true,
@@ -12,13 +12,13 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "6c20a884fedd80fe50c24f9c5d97d08b7d302cd0"
+            "url": "https://github.com/kodi-game/game.libretro.yabause",
+            "commit": "b9599fcc0c00a6808d0a84968f93c065db0be48c"
         }
     ],
     "modules": [
         {
-            "name": "mrboom",
+            "name": "libretro-yabause",
             "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
@@ -27,19 +27,19 @@
                 "arch": {
                     "x86_64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=0"
+                            "ARCH_FLAGS": "HAVE_SSE=1"
                         }
                     },
                     "aarch64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=1"
+                            "ARCH_FLAGS": "HAVE_SSE=0"
                         }
                     }
                 }
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
-                "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS -C yabause/src/libretro",
+                "install -D -m 755 yabause/src/libretro/yabause_libretro.so /app/lib/libretro/yabause_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -47,8 +47,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/kodi-game/mrboom-libretro/archive/0e52349c674860190397075ba3993efe5b65b887.tar.gz",
-                    "sha256": "89cd6c6d0f94b9e59ccc57547e401e41223f2413c88bcf1c65e791866e567dc9"
+                    "url": "https://github.com/libretro/yabause/archive/7cb15b8f9eea5a6fa7cae34468a6989522bcba75.tar.gz",
+                    "sha256": "4c9b818067b333583c640ac7eb395adc47f480ede4e32f94e11b2d45e2bb26be"
                 }
             ]
         }

@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.gambatte",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.gambatte",
+            "commit": "507e82c6abee1652b1c1c5e9ed8955a8f5adc988"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-gambatte",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 gambatte_libretro.so /app/lib/libretro/gambatte_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/gambatte-libretro/archive/2147d9257911b484b07666994ceecc4c5a2cb318.tar.gz",
+                    "sha256": "2538d76176e4aa11de33c4b7d484cc1b5fec877e4819a044d3553ae25f6066ff"
+                }
+            ]
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 {
-    "name": "game.libretro.mrboom",
+    "name": "game.libretro.pcsx-rearmed",
     "buildsystem": "cmake-ninja",
     "build-options": {
         "no-debuginfo": true,
@@ -12,13 +12,13 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "6c20a884fedd80fe50c24f9c5d97d08b7d302cd0"
+            "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
+            "commit": "af400a7e20b15d340429a6b1ef942e1cdcfb291f"
         }
     ],
     "modules": [
         {
-            "name": "mrboom",
+            "name": "libretro-pcsx-rearmed",
             "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
@@ -27,19 +27,19 @@
                 "arch": {
                     "x86_64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=0"
+                            "ARCH_FLAGS": "platform=unix DYNAREC=none"
                         }
                     },
                     "aarch64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=1"
+                            "ARCH_FLAGS": "platform=unix DYNAREC=ari64"
                         }
                     }
                 }
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
-                "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS -f Makefile.libretro",
+                "install -D -m 755 pcsx_rearmed_libretro.so /app/lib/libretro/pcsx_rearmed_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -47,8 +47,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/kodi-game/mrboom-libretro/archive/0e52349c674860190397075ba3993efe5b65b887.tar.gz",
-                    "sha256": "89cd6c6d0f94b9e59ccc57547e401e41223f2413c88bcf1c65e791866e567dc9"
+                    "url": "https://github.com/libretro/pcsx_rearmed/archive/a97efbb0646dd7766bd66fe9e93118206edec36a.tar.gz",
+                    "sha256": "ca8bbe47b4e4720d62c3ec9f42ba31e60d3aa3e15643dbc7620fffbb6a1bf80d"
                 }
             ]
         }

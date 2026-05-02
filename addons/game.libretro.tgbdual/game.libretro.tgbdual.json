@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.tgbdual",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.tgbdual",
+            "commit": "fcbc0956343e97a0e2c67a50b3fd7a1b03e8af29"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-tgbdual",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 tgbdual_libretro.so /app/lib/libretro/tgbdual_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/tgbdual-libretro/archive/12540f0b2d3783259a0dce34ac8aa7a86beeaa11.tar.gz",
+                    "sha256": "2717509184ae532d147e1e8cc8009a49721cbdf6958af5d0f5d6875e7565f273"
+                }
+            ]
+        }
+    ]
+}

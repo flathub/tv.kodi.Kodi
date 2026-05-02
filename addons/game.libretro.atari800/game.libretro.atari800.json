@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.atari800",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.atari800",
+            "commit": "682d73471881b84544dafe879a88fe0588470b5a"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-atari800",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 atari800_libretro.so /app/lib/libretro/atari800_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-atari800/archive/d1d0d425458e6b5a2e51ad5f1507bdf97e857c95.tar.gz",
+                    "sha256": "250291312ca10a20643699f8ac506766cad5792e70fc924818a496bfe7ce11cb"
+                }
+            ]
+        }
+    ]
+}

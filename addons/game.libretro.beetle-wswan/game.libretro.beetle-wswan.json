@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-wswan",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-wswan",
+            "commit": "1629be5a09ea63057661b571228ac1681b0777a7"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-wswan",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_wswan_libretro.so /app/lib/libretro/mednafen_wswan_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-wswan-libretro/archive/da6d0d9acb8d4e9bd6725ab44225a275325d8352.tar.gz",
+                    "sha256": "420fab5729fa0f55bb97683021ea69c8b1e7e7ecf1a946213cd58c90d3effc2a"
+                }
+            ]
+        }
+    ]
+}

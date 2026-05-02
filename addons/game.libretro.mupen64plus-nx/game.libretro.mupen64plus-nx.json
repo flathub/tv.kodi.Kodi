@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.mupen64plus-nx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.mupen64plus-nx",
+            "commit": "8d6b4ec3a289306c0ebb730394ea526b1a9ec354"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-mupen64plus-nx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix HAVE_THR_AL=1 HAVE_PARALLEL_RDP=1 LLE=1 HAVE_PARALLEL_RSP=1 FORCE_GLES3=1",
+                "install -D -m 755 mupen64plus_next_libretro.so /app/lib/libretro/mupen64plus_next_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/mupen64plus-libretro-nx/archive/58b9daf940fb43f09c3984c6a7c730f4b4c24861.tar.gz",
+                    "sha256": "858e2e5e435ed4543809d65d622efdc0738b8ff9e83185e6cea0725699a03661"
+                }
+            ]
+        }
+    ]
+}

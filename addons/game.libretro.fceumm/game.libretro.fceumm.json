@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.fceumm",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.fceumm",
+            "commit": "e5dd4d672b6336bdd311038f038af8e3e1b945dd"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-fceumm",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 fceumm_libretro.so /app/lib/libretro/fceumm_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-fceumm/archive/448a231618186b2af0bb9d6e37aeca05467e112f.tar.gz",
+                    "sha256": "97fccc101725474f4c985696576dd2d62fe432e4535fd18b660cf9962e53d4c3"
+                }
+            ]
+        }
+    ]
+}
