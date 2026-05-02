@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.stella",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.stella",
+            "commit": "2af8093b4c05431cd5a8a8a759d31f0d60afc70c"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-stella",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C src/os/libretro -f Makefile",
+                "install -D -m 755 src/os/libretro/stella_libretro.so /app/lib/libretro/stella_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/stella-emu/stella",
+                    "commit": "bcb5da5fe07c7cd4c8e2b560888923159e111b85"
+                }
+            ]
+        }
+    ]
+}

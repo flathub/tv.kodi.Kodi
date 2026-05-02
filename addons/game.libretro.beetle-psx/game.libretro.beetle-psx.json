@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-psx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-psx",
+            "commit": "e82fc48b91be7d407f26ad48804b871618d1c40c"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-psx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAVE_CDROM=1 LINK_STATIC_LIBCPLUSPLUS=0",
+                "install -D -m 755 mednafen_psx_libretro.so /app/lib/libretro/mednafen_psx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/beetle-psx-libretro",
+                    "commit": "c194d8c7d9cef77b653f688f1293746aa71a928e"
+                }
+            ]
+        }
+    ]
+}
