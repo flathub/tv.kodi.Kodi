@@ -726,6 +726,7 @@ modules:
               tag-pattern: ^v([\d.]+)$
   - name: kodi
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -DAPP_PACKAGE=tv.kodi.Kodi
       - -DADDONS_CONFIGURE_AT_STARTUP=OFF
@@ -755,11 +756,11 @@ modules:
       - -DDEPENDS_PATH=/app
       - -DAPP_RENDER_SYSTEM=gles
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
-      - -DCROSSGUID_URL=build/download/crossguid.tar.gz
-      - -DLIBDVDCSS_URL=build/download/libdvdcss.tar.gz
-      - -DLIBDVDREAD_URL=build/download/libdvdread.tar.gz
-      - -DLIBDVDNAV_URL=build/download/libdvdnav.tar.gz
-      - -DTARBALL_DIR=build/download
+      - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
+      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.gz
+      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.gz
+      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.gz
+      - -DTARBALL_DIR=/app/tarballs
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
@@ -803,14 +804,23 @@ modules:
         url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
         sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
         dest: build/download/
+        dest-filename: apache-groovy-binary-4.0.30.zip
       - type: file
         url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
         sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
         dest: build/download/
+        dest-filename: commons-lang3-3.20.0-bin.tar.gz
       - type: file
         url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
         sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
         dest: build/download/
+        dest-filename: commons-text-1.15.0-bin.tar.gz
+      - type: shell
+        commands:
+          - mkdir -p /app/tarballs
+          - mv build/download/*.tar.gz build/download/*.zip /app/tarballs/
+    cleanup:
+      - /tarballs
 
   - name: kodi-platform
     buildsystem: cmake-ninja
