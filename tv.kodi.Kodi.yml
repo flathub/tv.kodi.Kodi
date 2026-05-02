@@ -89,10 +89,13 @@ modules:
           type: anitya
           project-id: 5405
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
-        # libpostproc is now a source plugin that must be patched in
-        # https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
-      - type: patch
-        path: patches/ffmpeg-all-libpostproc-plugin.patch
+      - type: file
+        url: https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
+        sha256: ef4db98503c1303c9240fc4774d338c8460979c9948391cb6f0c5b27f512508b
+        dest-filename: 001-ffmpeg-all-libpostproc-plugin.patch
+      - type: shell
+        commands:
+          - patch -p1 < 001-ffmpeg-all-libpostproc-plugin.patch
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
