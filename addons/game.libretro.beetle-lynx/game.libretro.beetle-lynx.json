@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-lynx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-lynx",
+            "commit": "0f411631f0acc8c5445660f3a43fe6c64dbfd400"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-lynx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_lynx_libretro.so /app/lib/libretro/mednafen_lynx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/beetle-lynx-libretro",
+                    "commit": "fcdefcfb3c11d6d2e71be076a5d3df2e88ab73ed"
+                }
+            ]
+        }
+    ]
+}

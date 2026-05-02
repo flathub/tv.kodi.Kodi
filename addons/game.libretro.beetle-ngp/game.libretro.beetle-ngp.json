@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-ngp",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-ngp",
+            "commit": "7693bcf068fd514bbf0657bd763df6cdfcab6303"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-ngp",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_ngp_libretro.so /app/lib/libretro/mednafen_ngp_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/beetle-ngp-libretro",
+                    "commit": "a50d5ac288a81f2104ddf43195a4efdd15c72227"
+                }
+            ]
+        }
+    ]
+}

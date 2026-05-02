@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.81",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.81",
+            "commit": "a480932043e24f4386629e55e20cfe7db810d944"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-81",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 81_libretro.so /app/lib/libretro/81_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/81-libretro",
+                    "commit": "fa7094910d040baa5fd8b11dbf6a1a618330ecd9"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.bluemsx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.bluemsx",
+            "commit": "91fc149a239de6e350aa4b16d33f560e449c3649"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-bluemsx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 bluemsx_libretro.so /app/lib/libretro/bluemsx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/blueMSX-libretro",
+                    "commit": "4f74bf22d2730d989502943784f217aed8cea5c1"
+                }
+            ]
+        }
+    ]
+}

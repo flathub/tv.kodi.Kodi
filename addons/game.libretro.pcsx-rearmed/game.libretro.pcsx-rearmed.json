@@ -1,0 +1,56 @@
+{
+    "name": "game.libretro.pcsx-rearmed",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
+            "commit": "7f916b87bd73b8977285de4538f128bcd2d62562"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-pcsx-rearmed",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "platform=unix DYNAREC=none"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "platform=unix DYNAREC=ari64"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS -f Makefile.libretro",
+                "install -D -m 755 pcsx_rearmed_libretro.so /app/lib/libretro/pcsx_rearmed_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/pcsx_rearmed",
+                    "commit": "050981b6eeb715f142854f57c68086f62921f027"
+                }
+            ]
+        }
+    ]
+}

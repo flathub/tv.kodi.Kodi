@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.swanstation",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.swanstation",
+            "commit": "41fd9c353b6e689a0f5fd7e0a0b846465fa788ae"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-swanstation",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release"
+            ],
+            "no-make-install": true,
+            "post-install": [
+                "install -D -m 755 swanstation_libretro.so /app/lib/libretro/swanstation_libretro.so"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/swanstation",
+                    "commit": "f901022198dacf125d43331c6540492441ab415b"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.cap32",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.cap32",
+            "commit": "e6006b0e07fb1b0e0701790231dec5324d800fd0"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-cap32",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 cap32_libretro.so /app/lib/libretro/cap32_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/libretro-cap32",
+                    "commit": "4abfb8be233bec630f369379fb6c1d92d31f1c7d"
+                }
+            ]
+        }
+    ]
+}
