@@ -899,7 +899,53 @@ modules:
   - addons/audioencoder.wav/audioencoder.wav.json
   - addons/game.libretro/game.libretro.json
   - addons/game.libretro.2048/game.libretro.2048.json
+  - addons/game.libretro.81/game.libretro.81.json
+  - addons/game.libretro.a5200/game.libretro.a5200.json
+  - addons/game.libretro.atari800/game.libretro.atari800.json
+  #- addons/game.libretro.beetle-bsnes/game.libretro.beetle-bsnes.json
+  - addons/game.libretro.beetle-gba/game.libretro.beetle-gba.json
+  - addons/game.libretro.beetle-lynx/game.libretro.beetle-lynx.json
+  - addons/game.libretro.beetle-ngp/game.libretro.beetle-ngp.json
+  - addons/game.libretro.beetle-pce/game.libretro.beetle-pce.json
+  #- addons/game.libretro.beetle-pce-fast/game.libretro.beetle-pce-fast.json
+  - addons/game.libretro.beetle-pcfx/game.libretro.beetle-pcfx.json
+  - addons/game.libretro.beetle-psx/game.libretro.beetle-psx.json
+  - addons/game.libretro.beetle-saturn/game.libretro.beetle-saturn.json
+  - addons/game.libretro.beetle-supergrafx/game.libretro.beetle-supergrafx.json
+  - addons/game.libretro.beetle-vb/game.libretro.beetle-vb.json
+  - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
+  - addons/game.libretro.bk/game.libretro.bk.json
+  - addons/game.libretro.blastem/game.libretro.blastem.json
+  - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
+  - addons/game.libretro.cap32/game.libretro.cap32.json
+  - addons/game.libretro.dosbox/game.libretro.dosbox.json
+  - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
+  - addons/game.libretro.fceumm/game.libretro.fceumm.json
+  - addons/game.libretro.fuse/game.libretro.fuse.json
+  - addons/game.libretro.gambatte/game.libretro.gambatte.json
+  - addons/game.libretro.gw/game.libretro.gw.json
+  - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.mesen/game.libretro.mesen.json
+  - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
+  - addons/game.libretro.mupen64plus-nx/game.libretro.mupen64plus-nx.json
+  - addons/game.libretro.nestopia/game.libretro.nestopia.json
+  - addons/game.libretro.pcsx-rearmed/game.libretro.pcsx-rearmed.json
+  - addons/game.libretro.pokemini/game.libretro.pokemini.json
+  - addons/game.libretro.prboom/game.libretro.prboom.json
+  - addons/game.libretro.prosystem/game.libretro.prosystem.json
+  - addons/game.libretro.quicknes/game.libretro.quicknes.json
+  - addons/game.libretro.sameboy/game.libretro.sameboy.json
+  - addons/game.libretro.stella/game.libretro.stella.json
+  - addons/game.libretro.supafaust/game.libretro.supafaust.json
+  - addons/game.libretro.swanstation/game.libretro.swanstation.json
+  - addons/game.libretro.tgbdual/game.libretro.tgbdual.json
+  - addons/game.libretro.tyrquake/game.libretro.tyrquake.json
+  - addons/game.libretro.uae/game.libretro.uae.json
+  - addons/game.libretro.vbam/game.libretro.vbam.json
+  - addons/game.libretro.vecx/game.libretro.vecx.json
+  - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
+  - addons/game.libretro.yabause/game.libretro.yabause.json
   - addons/game.shader.presets/game.shader.presets.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json

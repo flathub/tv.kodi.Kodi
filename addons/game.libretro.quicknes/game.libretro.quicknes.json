@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.quicknes",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.quicknes",
+            "commit": "9020b9493bd75cb37c48ef0464188e57afdc9b6e"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-quicknes",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 quicknes_libretro.so /app/lib/libretro/quicknes_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/QuickNES_Core/archive/7848e1ac22b1c69d056ae4cb57710651ff1dd169.tar.gz",
+                    "sha256": "63e596b0b0e25c4cc269d89815d7ea5c7fb6fce2942942253c7c83c7b8b3305f"
+                }
+            ]
+        }
+    ]
+}

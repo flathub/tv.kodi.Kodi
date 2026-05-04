@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-saturn",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-saturn",
+            "commit": "7eb6e014deaec38473d2b767118156b4d15c8671"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-saturn",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAVE_CDROM=1",
+                "install -D -m 755 mednafen_saturn_libretro.so /app/lib/libretro/mednafen_saturn_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-saturn-libretro/archive/02503506566bed8f0d68c9267a1c6c57400870f2.tar.gz",
+                    "sha256": "29799acc867438740d66daf038218c2d1bcf02fce0219cd904ac07680a5aa01a"
+                }
+            ]
+        }
+    ]
+}

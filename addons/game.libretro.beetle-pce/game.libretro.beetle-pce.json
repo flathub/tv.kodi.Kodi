@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-pce",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-pce",
+            "commit": "e4708e3ae295a37bf9185c23c37a234b3a958c62"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-pce",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAVE_CDROM=1",
+                "install -D -m 755 mednafen_pce_libretro.so /app/lib/libretro/mednafen_pce_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-pce-libretro/archive/ae99235c2139c176c1a8d0fde2957bf701d3cab0.tar.gz",
+                    "sha256": "2af1581ddf1a23e80fee1238707b90f605dab2e2597041069b9600ea28f83f51"
+                }
+            ]
+        }
+    ]
+}

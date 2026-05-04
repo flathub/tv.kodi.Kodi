@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.pokemini",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.pokemini",
+            "commit": "c4d9772433ed7cc38665d8fca28ee93df35de368"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-pokemini",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 pokemini_libretro.so /app/lib/libretro/pokemini_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/pokemini/archive/bb009b1379ad15f1514f20ca7cbf710b4af42b3e.tar.gz",
+                    "sha256": "583f53c4997bef1d3667e1527cf19e2daeaadc77e546396e93f35373fc6ea8f7"
+                }
+            ]
+        }
+    ]
+}

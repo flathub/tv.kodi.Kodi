@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.dosbox",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.dosbox",
+            "commit": "85329f7215e45f5195267c8c9d4b452edbc79873"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-dosbox",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 dosbox_libretro.so /app/lib/libretro/dosbox_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/dosbox-libretro/archive/4024bf0048c261db58ef98cb5e16de291c429f4e.tar.gz",
+                    "sha256": "49582f2c3a3abcf32819d25ec428d6350e15742e4642c9da8cdac7b8a76e8d79"
+                }
+            ]
+        }
+    ]
+}

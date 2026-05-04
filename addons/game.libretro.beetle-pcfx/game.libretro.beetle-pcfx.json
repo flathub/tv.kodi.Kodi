@@ -1,5 +1,5 @@
 {
-    "name": "game.libretro.mrboom",
+    "name": "game.libretro.beetle-pcfx",
     "buildsystem": "cmake-ninja",
     "build-options": {
         "no-debuginfo": true,
@@ -12,13 +12,13 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "6c20a884fedd80fe50c24f9c5d97d08b7d302cd0"
+            "url": "https://github.com/kodi-game/game.libretro.beetle-pcfx",
+            "commit": "a3db4b4beb66e72c479bfbf99c1050361761cb18"
         }
     ],
     "modules": [
         {
-            "name": "mrboom",
+            "name": "libretro-beetle-pcfx",
             "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
@@ -27,19 +27,19 @@
                 "arch": {
                     "x86_64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=0"
+                            "ARCH_FLAGS": "platform=unix"
                         }
                     },
                     "aarch64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=1"
+                            "ARCH_FLAGS": "platform=armv"
                         }
                     }
                 }
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
-                "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
+                "install -D -m 755 mednafen_pcfx_libretro.so /app/lib/libretro/mednafen_pcfx_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -47,8 +47,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/kodi-game/mrboom-libretro/archive/0e52349c674860190397075ba3993efe5b65b887.tar.gz",
-                    "sha256": "89cd6c6d0f94b9e59ccc57547e401e41223f2413c88bcf1c65e791866e567dc9"
+                    "url": "https://github.com/libretro/beetle-pcfx-libretro/archive/650c30ea2203636a1716675854d11c608ed6eacc.tar.gz",
+                    "sha256": "29e9cc8beed9936c9b5524abf5e289799ba302761107a48e934a5f9d44235236"
                 }
             ]
         }

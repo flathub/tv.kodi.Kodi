@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-bsnes",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-bsnes",
+            "commit": "5622b3504d3e13827e308f7a21161f4cafa0ffa4"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-bsnes",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_snes_libretro.so /app/lib/libretro/mednafen_snes_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-bsnes-libretro/archive/e2b7694d12c44a2842cf4640844287f622026d9a.tar.gz",
+                    "sha256": "f3debec219fefd43077f3b66d9dd194720722ee2fea20e9bc315ccbd92291b64"
+                }
+            ]
+        }
+    ]
+}

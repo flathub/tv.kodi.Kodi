@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.beetle-gba",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-gba",
+            "commit": "f3e4dcb555717ac65ed1fa5d728109fb4e54b0fe"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-gba",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_gba_libretro.so /app/lib/libretro/mednafen_gba_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-gba-libretro/archive/145d4884ad246e3c16765f6d69decb2a4359b6ae.tar.gz",
+                    "sha256": "140f19f3509c897405c4b1aeb0feac25138d0792241ec72c46ee373f77f2d10d"
+                }
+            ]
+        }
+    ]
+}

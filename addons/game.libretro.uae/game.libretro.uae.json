@@ -1,0 +1,46 @@
+{
+    "name": "game.libretro.uae",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.uae",
+            "commit": "e5818766966583d05391ac4af6ad61042158ebbf"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-uae",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 puae_libretro.so /app/lib/libretro/puae_libretro.so",
+                "mkdir -p $FLATPAK_DEST/usr/share/retroarch/system/uae_data/",
+                "cp -vR sources/uae_data/* $FLATPAK_DEST/usr/share/retroarch/system/uae_data/"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-uae/archive/20e019d4405e33472a3c20824c53bcd79f474a1b.tar.gz",
+                    "sha256": "5632a68e02c4496b799136630dfe3d0071f70178a41806e6711ec774d8bfeaac"
+                }
+            ]
+        }
+    ]
+}
