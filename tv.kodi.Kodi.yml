@@ -74,8 +74,17 @@ modules:
       - --enable-libdav1d
       - --enable-gpl
       - --enable-gnutls
-      - --enable-vaapi
+      - --enable-libdrm
+      - --enable-hwaccels
       - --disable-doc
+    build-options:
+      arch:
+        x86_64:
+          config-opts:
+            - --enable-vaapi
+        aarch64:
+          config-opts:
+            - --enable-v4l2_m2m
     cleanup:
       - /include
       - /lib
