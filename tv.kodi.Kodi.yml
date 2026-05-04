@@ -74,8 +74,17 @@ modules:
       - --enable-libdav1d
       - --enable-gpl
       - --enable-gnutls
-      - --enable-vaapi
+      - --enable-libdrm
+      - --enable-hwaccels
       - --disable-doc
+    build-options:
+      arch:
+        x86_64:
+          config-opts:
+            - --enable-vaapi
+        aarch64:
+          config-opts:
+            - --enable-v4l2_m2m
     cleanup:
       - /include
       - /lib
@@ -765,7 +774,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: 1671a6091b96013f4043d28845d7e367b6a51f04
+        commit: f14577b96dfb575b37a46c03b7acbba02b428223
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
