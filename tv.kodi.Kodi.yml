@@ -82,8 +82,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.4.tar.gz
-        sha256: 78dd367fbfc5d4a9949d528808334accffcc8e898aee30fa9fab6999c4751e3a
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.5.tar.gz
+        sha256: 4bdedf0bfc705c99f515391054cd4df8723494c66016c33e0009419da5231e63
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -592,8 +592,8 @@ modules:
           - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz
-            sha256: 08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5
+            url: https://github.com/avahi/avahi/archive/refs/tags/v0.8.tar.gz
+            sha256: c15e750ef7c6df595fb5f2ce10cac0fee2353649600e6919ad08ae8871e4945f
             x-checker-data:
               type: anitya
               project-id: 147
