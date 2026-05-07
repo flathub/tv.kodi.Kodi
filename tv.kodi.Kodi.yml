@@ -85,6 +85,8 @@ modules:
         aarch64:
           config-opts:
             - --enable-v4l2_m2m
+            - --enable-libudev
+            - --enable-v4l2-request
     cleanup:
       - /include
       - /lib
@@ -102,9 +104,14 @@ modules:
         url: https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
         sha256: ef4db98503c1303c9240fc4774d338c8460979c9948391cb6f0c5b27f512508b
         dest-filename: 001-ffmpeg-all-libpostproc-plugin.patch
+      - type: file
+        url: https://raw.githubusercontent.com/LibreELEC/LibreELEC.tv/79de202a10f1be81ca784d5bf8bd11b2b317f6b5/packages/multimedia/ffmpeg/patches/v4l2-request/ffmpeg-001-v4l2-request.patch
+        sha256: afd04c202c27081c355d8d34b58a52c4141de26433007e27ed6e0d2093d10d3c
+        dest-filename: 002-ffmpeg-v4l2-request.patch
       - type: shell
         commands:
           - patch -p1 < 001-ffmpeg-all-libpostproc-plugin.patch
+          - patch -p1 < 002-ffmpeg-v4l2-request.patch
   - name: flatbuffers
     buildsystem: cmake-ninja
     config-opts:
