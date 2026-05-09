@@ -1,0 +1,15 @@
+--- a/tools/Linux/kodi.sh.in
++++ b/tools/Linux/kodi.sh.in
+@@ -32,6 +32,13 @@ export KODI_HOME=/app/share/kodi
+ # Workaround for high CPU load with nvidia GFX
+ export __GL_YIELD=USLEEP
+ 
++# set LIBVA_DRIVERS_PATH excluding nvidia-vaapi-driver
++case "$(uname -m)" in
++    x86_64)
++        export LIBVA_DRIVERS_PATH="/usr/lib/x86_64-linux-gnu/dri:/usr/lib/x86_64-linux-gnu/dri/intel-vaapi-driver:/usr/lib/x86_64-linux-gnu/GL/lib/dri"
++        ;;
++esac
++
+ # Fix wasting RAM due to fragmentation
+ export MALLOC_MMAP_THRESHOLD_=131072

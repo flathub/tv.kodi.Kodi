@@ -780,6 +780,8 @@ modules:
           tag-pattern: ^([\d.]+)-\w+$
       - type: patch
         path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi.sh.in.set-LIBVA_DRIVERS_PATH-excluding-nvidia-vaapi-driver.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
