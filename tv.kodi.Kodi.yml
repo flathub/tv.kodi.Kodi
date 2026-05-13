@@ -92,8 +92,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-8.1.tar.xz
-        sha512: 9deb30b93c27873564ec094693e72ff552f63a09af3175f9118672b88299a4e9495502aa0fb2dfbcd45857ba255f24b829bdd3c3c17d0f1eee75423302a9af8c
+        url: https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.xz
+        sha512: f7873208d99cccfcf7b6aa3fe8e740e0f90f0ac55352f5eed93f994d51b5839700907811ac6cb160d09b4dacc6b174609bb7ed7fe902b3be3d787d86fe1b17bd
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -535,8 +535,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.1.tar.gz
-        sha256: 217151ca318a5576f8e0de72ba0acdf08157ecf12adac42d1af86db0b09a5f5a
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.2.tar.gz
+        sha256: ac24583f271a82ac324f7c6fad7327f65b591ad3492e1dccfee988e2c1c81dd1
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -774,7 +774,7 @@ modules:
       - type: git
         url: https://github.com/xbmc/xbmc.git
         #tag: 22.0a3-Piers
-        commit: f14577b96dfb575b37a46c03b7acbba02b428223
+        commit: 6a04ff15ce544e2fe0584db7d026c2ab8fa68250
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)-\w+$
