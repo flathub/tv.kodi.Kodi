@@ -82,8 +82,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.4.tar.gz
-        sha256: 78dd367fbfc5d4a9949d528808334accffcc8e898aee30fa9fab6999c4751e3a
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.5.tar.gz
+        sha256: 4bdedf0bfc705c99f515391054cd4df8723494c66016c33e0009419da5231e63
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -534,8 +534,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.1.tar.gz
-        sha256: 217151ca318a5576f8e0de72ba0acdf08157ecf12adac42d1af86db0b09a5f5a
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.2.tar.gz
+        sha256: ac24583f271a82ac324f7c6fad7327f65b591ad3492e1dccfee988e2c1c81dd1
         x-checker-data:
           type: anitya
           project-id: 4758
