@@ -82,8 +82,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.4.tar.gz
-        sha256: 78dd367fbfc5d4a9949d528808334accffcc8e898aee30fa9fab6999c4751e3a
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n6.1.5.tar.gz
+        sha256: 4bdedf0bfc705c99f515391054cd4df8723494c66016c33e0009419da5231e63
         x-checker-data:
           type: anitya
           project-id: 5405
