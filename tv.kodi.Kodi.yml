@@ -599,6 +599,7 @@ modules:
               type: anitya
               project-id: 147
               url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
+              stable-only: false
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
