@@ -12,6 +12,9 @@
         {
             "name": "libde265",
             "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/bin"
+            ],
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",

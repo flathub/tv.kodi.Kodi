@@ -34,6 +34,7 @@ finish-args:
 
 cleanup:
   - '*.a'
+  - '*.la'
   - '*.pyc'
   - '*.pyo'
   - '*.cmake'
@@ -43,24 +44,27 @@ cleanup:
   - /lib/cmake
   - /lib64/cmake
   - /lib/pkgconfig
+  - /lib/*.so
   - /lib64/pkgconfig
   - /man
   - /private
+  - /share/aclocal
   - /share/doc
+  - /share/info
+  - /share/locale
   - /share/man
   - /var
 modules:
   - name: dav1d
     buildsystem: meson
     config-opts:
+      - -Ddefault_library=shared
       - -Denable_asm=true
       - -Denable_tools=false
       - -Denable_examples=false
       - -Denable_tests=false
     cleanup:
-      - /include
       - /bin
-      - /share/doc
     sources:
       - type: archive
         url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.bz2
@@ -71,6 +75,8 @@ modules:
           url-template: https://code.videolan.org/videolan/dav1d/-/archive/$version/dav1d-$version.tar.bz2
   - name: ffmpeg
     config-opts:
+      - --enable-shared
+      - --disable-static
       - --enable-libdav1d
       - --enable-gpl
       - --enable-gnutls
@@ -86,10 +92,7 @@ modules:
           config-opts:
             - --enable-v4l2_m2m
     cleanup:
-      - /include
-      - /lib
       - /bin
-      - /share/doc
     sources:
       - type: archive
         url: https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.xz
@@ -113,8 +116,7 @@ modules:
       - -DFLATBUFFERS_BUILD_SHAREDLIB=ON
       - -DCMAKE_INSTALL_LIBDIR=lib
     cleanup:
-      - /include
-      - /lib/*.so
+      - /bin
     sources:
       - type: archive
         url: https://github.com/google/flatbuffers/archive/refs/tags/v25.12.19-2026-02-06-03fffb2.tar.gz
@@ -128,14 +130,14 @@ modules:
           - sed -i 's/-Werror=/-W/g;s/-Werror//g' CMakeLists.txt
   - name: fstrcmp
     buildsystem: autotools
+    config-opts:
+      - --enable-shared
+      - --disable-static
     make-args:
       - all-bin
     install-rule: install-libdir
     make-install-args:
       - install-include
-    cleanup:
-      - /include
-      - '*.a'
     sources:
       - type: archive
         url: http://fstrcmp.sourceforge.net/fstrcmp-0.7.D001.tar.gz
@@ -185,8 +187,6 @@ modules:
           project-id: 13577
           stable-only: true
           url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
-    cleanup:
-      - /lib/pkgconfig
   - name: json
     buildsystem: cmake-ninja
     config-opts:
@@ -200,11 +200,9 @@ modules:
           project-id: 11152
           url-template: https://github.com/nlohmann/json/archive/refs/tags/v$version.tar.gz
   - name: libass
-    cleanup:
-      - /include
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
+    config-opts:
+      - --enable-shared
+      - --disable-static
     sources:
       - type: archive
         url: https://github.com/libass/libass/archive/refs/tags/0.17.4.tar.gz
@@ -216,9 +214,10 @@ modules:
   - name: libaacs
     rm-configure: true
     config-opts:
-      - --with-pic
       - --enable-shared
       - --disable-static
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
@@ -235,7 +234,6 @@ modules:
   - name: libbdplus
     rm-configure: true
     config-opts:
-      - --with-pic
       - --enable-shared
       - --disable-static
     build-options:
@@ -272,6 +270,8 @@ modules:
           url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.bz2
   - name: libcdio
     config-opts:
+      - --enable-shared
+      - --disable-static
       - --enable-cxx
       - --without-cd-drive
       - --without-cd-info
@@ -280,12 +280,6 @@ modules:
       - --without-iso-info
       - --without-iso-read
       - --disable-example-progs
-    cleanup:
-      - /include
-      - /share/info
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
     sources:
       - type: archive
         url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
@@ -297,8 +291,7 @@ modules:
   - name: libcec
     buildsystem: cmake-ninja
     cleanup:
-      - /include
-      - /lib/*.so
+      - /bin
     sources:
       - type: archive
         url: https://github.com/Pulse-Eight/libcec/archive/c7c4c82dc171c49decfbfe5d2959706d3e2ea47c.tar.gz
@@ -310,9 +303,6 @@ modules:
     modules:
       - name: p8-platform
         buildsystem: cmake-ninja
-        cleanup:
-          - /include
-          - '*.a'
         sources:
           - type: git
             url: https://github.com/xbmc/platform.git
@@ -320,6 +310,10 @@ modules:
             commit: c51ddf4787d083b6cf039761a48fb90d0c4f00ff
   - name: libdisplay-info
     buildsystem: meson
+    config-opts:
+      - -Ddefault_library=shared
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.3.0/libdisplay-info-0.3.0.tar.gz
@@ -331,10 +325,13 @@ modules:
   - name: libinput
     buildsystem: meson
     config-opts:
+      - -Ddefault_library=shared
       - -Dlibwacom=false
       - -Ddebug-gui=false
       - -Dtests=false
       - -Ddocumentation=false
+    cleanup:
+      - /bin
     sources:
       - type: archive
         url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.2/libinput-1.31.2.tar.bz2
@@ -345,6 +342,11 @@ modules:
           url-template: https://gitlab.freedesktop.org/libinput/libinput/-/archive/$version/libinput-$version.tar.bz2
     modules:
       - name: mtdev
+        config-opts:
+          - --enable-shared
+          - --disable-static
+        cleanup:
+          - /bin
         sources:
           - type: archive
             url: https://bitmath.se/org/code/mtdev/mtdev-1.1.7.tar.gz
@@ -359,8 +361,11 @@ modules:
       - name: libevdev
         buildsystem: meson
         config-opts:
+          - -Ddefault_library=shared
           - -Dtests=disabled
           - -Ddocumentation=disabled
+        cleanup:
+          - /bin
         sources:
           - type: archive
             url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz
@@ -370,11 +375,9 @@ modules:
               project-id: 20540
               url-template: https://www.freedesktop.org/software/libevdev/libevdev-$version.tar.xz
   - name: libmicrohttpd
-    cleanup:
-      - /include
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
+    config-opts:
+      - --enable-shared
+      - --disable-static
     sources:
       - type: archive
         url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
@@ -387,10 +390,9 @@ modules:
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_SHARED_LIBS=ON
     cleanup:
-      - /include
       - /bin
-      - /lib/*.so
     sources:
       - type: archive
         url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
@@ -401,13 +403,11 @@ modules:
           url-template: https://github.com/sahlberg/libnfs/archive/libnfs-$version.tar.gz
   - name: libplist
     cleanup:
-      - /include
       - /bin
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
       - /share/runtime/locale
-    config-opts: []
+    config-opts:
+      - --enable-shared
+      - --disable-static
     sources:
       - type: archive
         url: https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2
@@ -418,12 +418,8 @@ modules:
           url-template: https://github.com/libimobiledevice/libplist/releases/download/$version/libplist-$version.tar.bz2
   - name: libudfread
     buildsystem: meson
-    cleanup:
-      - /include
-      - /share/doc
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
+    config-opts:
+      - -Ddefault_library=shared
     sources:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.2.0.tar.bz2
@@ -439,8 +435,7 @@ modules:
       - -DDEFAULT_SSL_VERIFY_SERVER_CERT=OFF
       - -DINSTALL_LIBDIR=/app/lib
     cleanup:
-      - /include
-      - '*.a'
+      - /bin
     sources:
       - type: archive
         url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.8.tar.gz
@@ -460,6 +455,8 @@ modules:
         sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
   - name: python3-pybind11
     buildsystem: simple
+    cleanup:
+      - /bin
     build-commands:
       - >-
         pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
@@ -483,6 +480,8 @@ modules:
   - name: lirc
     rm-configure: true
     config-opts:
+      - --enable-shared
+      - --disable-static
       - --with-systemdsystemunitdir=/app/lib/systemd
     cleanup:
       - /bin
@@ -527,8 +526,6 @@ modules:
       - /sbin
       - /libexec
       - /share
-      - /include
-      - /lib/*.so
       - /lib/perl5
     build-options:
       env:
@@ -544,6 +541,9 @@ modules:
     modules:
       - name: parse-yapp
         buildsystem: simple
+        cleanup:
+          - /bin
+          - /lib/perl5
         build-commands:
           - perl Makefile.PL PREFIX=/app LIB=/app/lib/perl5
           - make
@@ -554,12 +554,11 @@ modules:
             sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
   - name: shairplay
     cleanup:
-      - /include
       - /bin
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
       - /share/runtime/locale
+    config-opts:
+      - --enable-shared
+      - --disable-static
     build-options:
       env:
         C_INCLUDE_PATH: /app/include/avahi-compat-libdns_sd:/app/include
@@ -570,13 +569,11 @@ modules:
     modules:
       - name: avahi
         cleanup:
-          - /include
           - /bin
-          - '*.a'
-          - '*.la'
-          - /lib/*.so
           - /share/runtime/locale
         config-opts:
+          - --enable-shared
+          - --disable-static
           - --with-distro=none
           - --disable-libdaemon
           - --disable-libsystemd
@@ -609,9 +606,6 @@ modules:
       - -DSPDLOG_INSTALL=ON
       - -DSPDLOG_FMT_EXTERNAL=ON
       - -DCMAKE_INSTALL_LIBDIR=lib
-    cleanup:
-      - /include
-      - '*.a'
     sources:
       - type: archive
         url: https://github.com/gabime/spdlog/archive/refs/tags/v1.17.0.tar.gz
@@ -625,6 +619,7 @@ modules:
       - --without-pcre
       - --without-alllang
     cleanup:
+      - /bin
       - /share/swig
     sources:
       - type: archive
@@ -636,11 +631,10 @@ modules:
           url-template: http://prdownloads.sourceforge.net/swig/swig-$version.tar.gz
   - name: tinyxml
     cleanup:
-      - /include
-      - /share/doc
-      - '*.a'
-      - '*.la'
-      - /lib/*.so
+      - /bin
+    config-opts:
+      - --enable-shared
+      - --disable-static
     sources:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
@@ -651,10 +645,8 @@ modules:
           - autoreconf -vfi
   - name: tinyxml2
     buildsystem: cmake-ninja
-    build-options:
-      cflags: -fPIC
-      cxxflags: -fPIC
     config-opts:
+      - -DBUILD_SHARED_LIBS=ON
       - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
@@ -666,6 +658,8 @@ modules:
           url-template: https://github.com/leethomason/tinyxml2/archive/refs/tags/$version.tar.gz
   - name: waylandpp
     buildsystem: cmake-ninja
+    cleanup:
+      - /bin
     config-opts:
       - -DCMAKE_INSTALL_LIBDIR=lib
       - -DBUILD_DOCUMENTATION=OFF
@@ -696,7 +690,6 @@ modules:
     builddir: true
     cleanup:
       - /bin
-      - /share/man
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
       - -DEXIV2_ENABLE_WEBREADY=OFF
@@ -724,8 +717,10 @@ modules:
     modules:
       - name: brotli
         buildsystem: cmake-ninja
+        config-opts:
+          - -DBUILD_SHARED_LIBS=ON
         cleanup:
-          - '*.a'
+          - /bin
         sources:
           - type: git
             url: https://github.com/google/brotli.git
@@ -847,9 +842,6 @@ modules:
       - -DRAPIDJSON_BUILD_EXAMPLES=OFF
       - -DRAPIDJSON_BUILD_TESTS=OFF
       - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
-    cleanup:
-      - /include
-      - /share/doc
     sources:
       # no release since 2016, cmake fixes committed 2024/2025
       - type: git

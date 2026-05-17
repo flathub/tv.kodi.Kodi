@@ -11,6 +11,9 @@
     "modules": [
         {
             "name": "libraw",
+            "cleanup": [
+                "/bin"
+            ],
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",
