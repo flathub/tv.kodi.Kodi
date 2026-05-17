@@ -149,9 +149,7 @@ modules:
   - name: glm
     buildsystem: cmake-ninja
     config-opts:
-      - -DBUILD_STATIC_LIBS=ON
-      - -DGLM_TEST_ENABLE_CXX_11=ON
-      - -DGLM_TEST_ENABLE=OFF
+      - -DGLM_BUILD_TESTS=OFF
     sources:
       - type: archive
         url: https://github.com/g-truc/glm/archive/refs/tags/1.0.3.tar.gz
