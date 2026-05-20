@@ -7,14 +7,11 @@ import os.path
 import pprint
 import shutil
 import sys
-
-import requests
 import tarfile
 
+import requests
 from dotenv import load_dotenv
-
-from github import Github
-from github import Auth
+from github import Auth, Github
 
 addon_repo_base = "https://github.com/xbmc/repo-binary-addons"
 addon_repo_branch = "Piers"
@@ -27,70 +24,82 @@ auth = Auth.Token(os.environ["GITHUB_TOKEN"])
 g = Github(auth=auth)
 
 
-def get_current_github_rev(url, branch) -> str | None:
-    repo = g.get_repo(url.split("/")[-2] + "/" + url.split("/")[-1].replace(".git", ""))
+def is_github_url(url: str) -> bool:
+    return "github.com" in url
 
+
+def get_current_github_rev(url: str, branch: str) -> str | None:
+    """Return the HEAD commit SHA for branch in the GitHub repo at url."""
+    repo_path = url.rstrip("/").replace(".git", "")
+    repo_name = repo_path.split("/")[-2] + "/" + repo_path.split("/")[-1]
     try:
-        branch_sha = repo.get_branch(branch).commit.sha
-        return branch_sha
+        repo = g.get_repo(repo_name)
+        return repo.get_branch(branch).commit.sha
     except Exception as e:
-        print("Error getting branch sha for {}: {}".format(branch, e))
-
+        if args.verbose:
+            print(f"  could not resolve {repo_name}@{branch}: {e}")
     return None
 
 
-def check_platform(def_file):
-    ret = False
+def resolve_commit(url: str, preferred_branch: str) -> str | None:
+    """
+    Try *preferred_branch* first; if that fails fall back to 'master' then
+    'main'.  Returns the commit SHA, or None if all attempts fail.
+    """
+    commit = get_current_github_rev(url, preferred_branch)
+    if commit:
+        return commit
+    for fallback in ("master", "main"):
+        if preferred_branch == fallback:
+            continue
+        commit = get_current_github_rev(url, fallback)
+        if commit:
+            if args.verbose:
+                print(f"  branch '{preferred_branch}' not found; used '{fallback}'")
+            return commit
+    return None
+
+
+def check_platform(def_file: str) -> bool:
     platform_file = os.path.join(os.path.dirname(def_file), "platforms.txt")
     with open(platform_file, mode="r") as plat_file:
         platforms = plat_file.readline().split()
-        if args.verbose:
-            print("valid platforms for {}: {}".format(def_file, platforms))
-
-        if ("all" in platforms or "linux" in platforms) and "!linux" not in platforms:
-            return True
-        for p in platforms:
-            if p.startswith("!") and p != "!linux":
-                ret = True
-        return ret
-
-
-def get_addon_definition(def_name, def_file) -> str:
     if args.verbose:
-        print("get_addon_definition from", f)
+        print(f"valid platforms for {def_file}: {platforms}")
+    if ("all" in platforms or "linux" in platforms) and "!linux" not in platforms:
+        return True
+    return any(p.startswith("!") and p != "!linux" for p in platforms)
 
+
+def get_addon_definition(def_name: str, def_file: str):
+    if args.verbose:
+        print("get_addon_definition from", def_file)
     if not check_platform(def_file):
         raise Exception("platform mismatch")
-
     with open(def_file, mode="r") as addon_def:
         a_name, a_url, a_rev = addon_def.readline().split()
         a_type = get_addon_type(a_url)
-
     if a_name != def_name or a_type == "unknown":
         raise Exception("addon_definition_error")
     if args.verbose:
         print(
-            "found addon details - name: {}, url: {}, git_rev: {}, type: {}".format(
-                a_name, a_url, a_rev, a_type
-            )
+            f"found addon details - name: {a_name}, url: {a_url}, "
+            f"git_rev: {a_rev}, type: {a_type}"
         )
-
-    if a_name != "" and a_url != "" and a_rev != "" and a_type != "":
+    if a_name and a_url and a_rev and a_type:
         return a_name, a_url, a_rev, a_type
-
     raise Exception("addon_definition_error")
 
 
-def get_addon_type(addon_url) -> str:
+def get_addon_type(addon_url: str) -> str:
     if addon_url.endswith((".tar.gz", ".tar.xz", ".tar.bz2", ".zip")):
         return "archive"
-    elif addon_url.startswith(("https://", "http://")) or addon_url.endswith(".git"):
+    if addon_url.startswith(("https://", "http://")) or addon_url.endswith(".git"):
         return "git"
-
     return "unknown"
 
 
-def set_build_type(a_data):
+def set_build_type(a_data: dict) -> dict:
     if "build-options" not in a_data:
         a_data["build-options"] = {}
     if "config-opts" not in a_data:
@@ -110,24 +119,22 @@ def set_build_type(a_data):
         if "-DCMAKE_BUILD_TYPE=Release" in a_data["config-opts"]:
             a_data["config-opts"].remove("-DCMAKE_BUILD_TYPE=Release")
         a_data["build-options"]["no-debuginfo"] = False
-        a_data["build-options"]["cflags"] = a_data["build-options"]["cflags"].replace(
-            "-g0", ""
-        )
-        a_data["build-options"]["cxxflags"] = a_data["build-options"][
-            "cxxflags"
-        ].replace("-g0", "")
-        if a_data["build-options"]["cflags"].strip() == "":
-            del a_data["build-options"]["cflags"]
-        if a_data["build-options"]["cxxflags"].strip() == "":
-            del a_data["build-options"]["cxxflags"]
-
+        cflags = a_data["build-options"].get("cflags", "").replace("-g0", "")
+        cxxflags = a_data["build-options"].get("cxxflags", "").replace("-g0", "")
+        if cflags.strip():
+            a_data["build-options"]["cflags"] = cflags
+        else:
+            a_data["build-options"].pop("cflags", None)
+        if cxxflags.strip():
+            a_data["build-options"]["cxxflags"] = cxxflags
+        else:
+            a_data["build-options"].pop("cxxflags", None)
     return a_data
 
 
 def update_addon_repo():
     if args.verbose:
         print("downloading binary addon repo")
-
     if os.path.isdir(addon_repo_dir):
         shutil.rmtree(addon_repo_dir)
     addon_repo_url = (
@@ -137,16 +144,96 @@ def update_addon_repo():
     try:
         with tarfile.open(fileobj=response.raw, mode="r|gz") as tarball:
             tarball.extractall(addon_repo_dir)
-    except tarfile.ReadError as e:
+    except tarfile.ReadError:
         print(
-            "Error downloading repository tarball {}, did you specify an existing branch from {}?".format(
-                addon_repo_url, addon_repo_base
-            )
+            f"Error downloading repository tarball {addon_repo_url}, "
+            f"did you specify an existing branch from {addon_repo_base}?"
         )
         sys.exit(2)
 
 
-### Main ###
+def _apply_git_update(source: dict, url: str, branch: str) -> bool:
+    """
+    Resolve the latest commit for url@branch and write it into source.
+    Returns True on success, False if the commit could not be resolved.
+    """
+    commit = resolve_commit(url, branch)
+    if not commit:
+        print(f"  Warning: could not resolve commit for {url}@{branch}")
+        return False
+    source["url"] = url
+    source["type"] = "git"
+    source["commit"] = commit
+    source.pop("tag", None)
+    if args.verbose:
+        print(f"  → {url} @ {commit[:12]}")
+    return True
+
+
+def _update_module_git_sources(module: dict, fallback_branch: str) -> int:
+    """
+    Recursively update every git source within an inline module dict.
+    String entries (paths to external JSON modules) are silently ignored.
+    Returns the number of sources updated.
+    """
+    if not isinstance(module, dict):
+        return 0
+    updated = 0
+    for source in module.get("sources", []):
+        if source.get("type") != "git":
+            continue
+        url = source.get("url", "")
+        if not url or not is_github_url(url):
+            continue
+        branch = source.get("branch", fallback_branch)
+        if args.verbose:
+            print(f"  module '{module.get('name', '?')}' git source: {url}@{branch}")
+        if _apply_git_update(source, url, branch):
+            updated += 1
+    for sub in module.get("modules", []):
+        updated += _update_module_git_sources(sub, fallback_branch)
+    return updated
+
+
+def update_addon_sources(
+    addon_data: dict, main_url: str, main_rev: str, main_atype: str
+) -> dict:
+    """
+    Update all updatable sources in addon_data:
+
+    1. primary addon source — the first git/archive entry in
+       addon_data["sources"].  URL and branch come from the binary addon repo
+       definition (.txt file).
+
+    2. all git sources inside module definitions
+    """
+    sources = addon_data.get("sources", [])
+
+    # primary addon source
+    primary_idx = next(
+        (i for i, s in enumerate(sources) if s.get("type") in ("git", "archive")),
+        None,
+    )
+    if primary_idx is not None:
+        primary = sources[primary_idx]
+        if main_atype == "git":
+            if args.verbose:
+                print(f"  primary source: {main_url}@{main_rev}")
+            _apply_git_update(primary, main_url, main_rev)
+
+    # module definitions
+    for module in addon_data.get("modules", []):
+        if isinstance(module, str):
+            if args.verbose:
+                print(f"  skipping external module reference: {module}")
+            continue
+        n = _update_module_git_sources(module, main_rev)
+        if args.verbose and n:
+            print(f"  updated {n} git source(s) in module '{module.get('name', '?')}'")
+
+    return addon_data
+
+
 pp = pprint.PrettyPrinter(indent=4)
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -185,24 +272,21 @@ if len(repo_file_list) == 0:
 if args.verbose:
     print("{}: {}".format("addon_files", repo_file_list))
 
-skipped_addons = {}
-missing_addons = []
+skipped_addons = dict()
+missing_addons = list()
+updated_addons = set()
 
 for f in repo_file_list:
     definition_file = os.path.basename(f)
     if definition_file == "platforms.txt":
         continue
 
+    addon_id = definition_file.rsplit(".txt", maxsplit=1)[0]
     try:
-        addon_id = definition_file.rsplit(".txt", maxsplit=1)[0]
         (name, url, rev, atype) = get_addon_definition(addon_id, f)
     except Exception as e:
-        print(
-            "Error parsing addon definition in {}: {} - skipping".format(
-                definition_file, e
-            )
-        )
-        skipped_addons[addon_id] = e.__str__()
+        print(f"Error parsing addon definition in {definition_file}: {e} - skipping")
+        skipped_addons[addon_id] = str(e)
         continue
 
     addon_json = os.path.join("../addons/", addon_id, addon_id + ".json")
@@ -213,50 +297,68 @@ for f in repo_file_list:
         continue
 
     print("updating", addon_id)
+    updated_addons.add(addon_id)
 
-    # parse and update manifests
-    with open(addon_json, mode="r+") as jf:
-        addon_data = json.load(jf)
-        if args.verbose:
-            print(addon_data)
+    try:
+        with open(addon_json, mode="r+") as jf:
+            addon_data = json.load(jf)
+            if args.verbose:
+                print(addon_data)
 
-        if addon_data["name"] != name:
-            print(
-                "Error: skipping addon due to name mismatch: {} vs {}".format(
-                    name, addon_data["name"]
+            if addon_data["name"] != name:
+                print(
+                    f"Error: skipping addon due to name mismatch: "
+                    f"{name} vs {addon_data['name']}"
                 )
+                skipped_addons[addon_id] = (
+                    f"name mismatch: {name} vs {addon_data['name']}"
+                )
+                continue
+
+            addon_data = set_build_type(addon_data)
+            addon_data = update_addon_sources(addon_data, url, rev, atype)
+
+            jf.seek(0)
+            jf.write(json.dumps(addon_data, indent=4))
+            jf.write("\n")
+            jf.truncate()
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"  Warning: could not process {addon_json}: {e}")
+
+addon_jsons = sorted(glob.glob(os.path.join("..", "addons", "*", "*.json")))
+for json_path in addon_jsons:
+    addon_id = os.path.basename(os.path.dirname(json_path))
+    if addon_id in updated_addons:
+        continue
+
+    try:
+        with open(json_path, "r+") as jf:
+            addon_data = json.load(jf)
+
+            sources = addon_data.get("sources", [])
+            primary = next(
+                (s for s in sources if s.get("type") == "git"),
+                None,
             )
-            skipped_addons[addon_id] = "name mismatch: {} vs {}".format(
-                name, addon_data["name"]
+            if primary is None:
+                continue
+
+            url = primary.get("url", "")
+
+            print(f"updating {addon_id}")
+
+            addon_data = set_build_type(addon_data)
+            branch = primary.get("branch", "master")
+            addon_data = update_addon_sources(
+                addon_data, url, branch, primary.get("type", "git")
             )
-            continue
 
-        addon_data = set_build_type(addon_data)
-
-        i = 0
-        while i < len(addon_data["sources"]) and addon_data["sources"][i][
-            "type"
-        ] not in ["git", "archive"]:
-            i = i + 1
-
-        addon_data["sources"][i]["url"] = url
-        addon_data["sources"][i]["type"] = atype
-
-        if get_current_github_rev(url, rev) and (
-            addon_repo_branch == rev or rev == "master"
-        ):
-            addon_data["sources"][i]["commit"] = get_current_github_rev(url, rev)
-        else:
-            addon_data["sources"][i]["commit"] = get_current_github_rev(url, "master")
-
-        if "tag" in addon_data["sources"][i]:
-            del addon_data["sources"][i]["tag"]
-
-        # save file
-        jf.seek(0)
-        jf.write(json.dumps(addon_data, indent=4))
-        jf.write("\n")
-        jf.truncate()
+            jf.seek(0)
+            jf.write(json.dumps(addon_data, indent=4))
+            jf.write("\n")
+            jf.truncate()
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"  Warning: could not process {json_path}: {e}")
 
 print("\n\n### DONE ###\nskipped addons:")
 pp.pprint(skipped_addons)
