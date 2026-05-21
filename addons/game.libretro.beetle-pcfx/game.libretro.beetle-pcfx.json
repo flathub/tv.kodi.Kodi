@@ -1,5 +1,5 @@
 {
-    "name": "game.libretro.mrboom",
+    "name": "game.libretro.beetle-pcfx",
     "buildsystem": "cmake-ninja",
     "build-options": {
         "no-debuginfo": true,
@@ -12,13 +12,13 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "df9a34c8e1624f03277354e3406e969fb852acf4"
+            "url": "https://github.com/kodi-game/game.libretro.beetle-pcfx",
+            "commit": "16f320bd5cf6bb3e43035f1d902e62f294073869"
         }
     ],
     "modules": [
         {
-            "name": "mrboom",
+            "name": "libretro-beetle-pcfx",
             "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
@@ -27,19 +27,19 @@
                 "arch": {
                     "x86_64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=0"
+                            "ARCH_FLAGS": "platform=unix"
                         }
                     },
                     "aarch64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=1"
+                            "ARCH_FLAGS": "platform=armv"
                         }
                     }
                 }
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
-                "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
+                "install -D -m 755 mednafen_pcfx_libretro.so /app/lib/libretro/mednafen_pcfx_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -47,8 +47,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/kodi-game/mrboom-libretro",
-                    "commit": "89997083b6f492b5adbae3124a5ed2c784ace6eb"
+                    "url": "https://github.com/libretro/beetle-pcfx-libretro",
+                    "commit": "650c30ea2203636a1716675854d11c608ed6eacc"
                 }
             ]
         }
