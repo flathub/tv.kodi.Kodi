@@ -780,12 +780,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: facf5c1c2580b20eed3b980e0238641e54b9bb9d
+        commit: 3dc0a1650865c234cd18b2e529710d6c9daa05bb
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
           versions:
-            '>=': '22'
+            '>': '22.0a3-Piers'
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: file
