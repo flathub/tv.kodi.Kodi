@@ -95,8 +95,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-8.1.1.tar.xz
-        sha512: f7873208d99cccfcf7b6aa3fe8e740e0f90f0ac55352f5eed93f994d51b5839700907811ac6cb160d09b4dacc6b174609bb7ed7fe902b3be3d787d86fe1b17bd
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n8.1.1.tar.gz
+        sha512: e858e92e5eb08d562302cde371af55917df6e1fe53994e18462a3c929a40ede1828c2bd53c2a7d65a2cfd791782ead3cd94efb2def904f49cb5dd8ab5cd4256f
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -178,13 +178,13 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.406.tar.gz
-        sha256: 1ccfd1ca723595b1fe8794f4157ec5635be1ebedb5d13769b4be75d0b75bc199
+        url: https://github.com/vcrhonek/hwdata/archive/v0.407/hwdata-0.407.tar.gz
+        sha256: 6a88f6f5cb510fbfaa9c49488348b7fcd7aa209b0a331f24dfebb1c8c339568b
         x-checker-data:
           type: anitya
-          project-id: 13577
+          project-id: 5387
           stable-only: true
-          url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
+          url-template: https://github.com/vcrhonek/hwdata/archive/v$version/hwdata-$version.tar.gz
   - name: json
     buildsystem: cmake-ninja
     config-opts:
@@ -265,7 +265,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1565
-          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.bz2
+          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
   - name: libcdio
     config-opts:
       - --enable-shared
@@ -306,6 +306,9 @@ modules:
             url: https://github.com/xbmc/platform.git
             tag: p8-platform-20260129
             commit: c51ddf4787d083b6cf039761a48fb90d0c4f00ff
+            x-checker-data:
+              type: git
+              tag-pattern: ^(p8-platform-[\d]+)$
   - name: libdisplay-info
     buildsystem: meson
     config-opts:
@@ -420,12 +423,12 @@ modules:
       - -Ddefault_library=shared
     sources:
       - type: archive
-        url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.2.0.tar.bz2
+        url: https://code.videolan.org/videolan/libudfread/-/archive/1.2.0/libudfread-1.2.0.tar.bz2
         sha512: 53df39c207cadd742b4d4f78fd14159a6e4f45c97c9a7b97a39778fab4fdb5b0c087ebba04d27c28b8078681b82c3e903a4394f0d381cdadf23d2fd24956261f
         x-checker-data:
           type: anitya
           project-id: 89591
-          url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
+          url-template: https://code.videolan.org/videolan/libudfread/-/archive/$version/libudfread-$version.tar.bz2
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
@@ -451,6 +454,11 @@ modules:
       - type: archive
         url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
         sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/pycryptodome/json
+          version-query: .info.version
+          url-query: .urls[] | select(.filename | endswith(".tar.gz")) | .url
   - name: python3-pybind11
     buildsystem: simple
     cleanup:
@@ -463,6 +471,11 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
         sha256: 961720ee652da51d531b7b2451a6bd2bc042b0106e6d9baa48ecb7d58034ce63
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/pybind11/json
+          version-query: .info.version
+          url-query: .urls[] | select(.filename | endswith("none-any.whl")) | .url
   - name: python-pillow
     buildsystem: simple
     build-commands:
@@ -530,8 +543,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.2.tar.gz
-        sha256: ac24583f271a82ac324f7c6fad7327f65b591ad3492e1dccfee988e2c1c81dd1
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.3.tar.gz
+        sha256: 4a5e0ed1ea192b798c873d9957c50a5767c10c2767cccb00d56ecc427e94f8e9
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -767,11 +780,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        #tag: 22.0a3-Piers
         commit: facf5c1c2580b20eed3b980e0238641e54b9bb9d
         x-checker-data:
           type: git
-          tag-pattern: ^([\d.]+)-\w+$
+          tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
+          versions:
+            '>=': '22'
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: file
@@ -845,6 +859,11 @@ modules:
       - type: git
         url: https://github.com/Tencent/rapidjson.git
         commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
+          versions:
+            '>': '1.1.0'
 
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp
