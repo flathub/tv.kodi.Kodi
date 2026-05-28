@@ -1,0 +1,719 @@
+From 5d56b6335f8f60cd5a02494973b19773ed3f2e15 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sun, 17 May 2026 15:25:42 +0200
+Subject: [PATCH 1/5] increase cmake_minimum version to 3.18
+
+Relates to:
+```
+  CMake Deprecation Warning at CMakeLists.txt:2 (cmake_policy):
+    Compatibility with CMake < 3.10 will be removed from a future version of
+    CMake.
+```
+
+And to have equal to Kodi's used version.
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 812f7fd..4f5d958 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.5)
++cmake_minimum_required(VERSION 3.18)
+ project(visualization.waveform)
+ 
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
+
+From 3c1b0da554b9ad2779473f8acd965d9ecaac8cf8 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sun, 17 May 2026 15:27:52 +0200
+Subject: [PATCH 2/5] Implement clang cleanup and perform on add-on sources
+
+---
+ .clang-format                | 88 ++++++++++++++++++++++++++++++++++++
+ src/DefaultPixelShader.hlsl  |  2 +-
+ src/DefaultVertexShader.hlsl | 10 ++--
+ src/Main_dx.cpp              | 70 ++++++++++++++++------------
+ src/Main_gl.cpp              | 68 ++++++++++++++++------------
+ 5 files changed, 174 insertions(+), 64 deletions(-)
+ create mode 100644 .clang-format
+
+diff --git a/.clang-format b/.clang-format
+new file mode 100644
+index 0000000..8ef33f0
+--- /dev/null
++++ b/.clang-format
+@@ -0,0 +1,88 @@
++---
++# BasedOnStyle:  LLVM
++AccessModifierOffset: -2
++AlignAfterOpenBracket: Align
++AlignConsecutiveAssignments: false
++AlignConsecutiveDeclarations: false
++AlignEscapedNewlines: DontAlign
++AlignOperands:   true
++AlignTrailingComments: false
++AllowAllParametersOfDeclarationOnNextLine: true
++AllowShortBlocksOnASingleLine: false
++AllowShortCaseLabelsOnASingleLine: false
++AllowShortFunctionsOnASingleLine: InlineOnly
++AllowShortIfStatementsOnASingleLine: false
++AllowShortLoopsOnASingleLine: false
++AlwaysBreakAfterDefinitionReturnType: None
++AlwaysBreakAfterReturnType: None
++AlwaysBreakBeforeMultilineStrings: false
++AlwaysBreakTemplateDeclarations: true
++BinPackArguments: true
++BinPackParameters: false
++BreakBeforeBinaryOperators: None
++BreakBeforeBraces: Allman
++BreakBeforeTernaryOperators: true
++BreakConstructorInitializersBeforeComma: false
++BreakConstructorInitializers: BeforeColon
++BreakAfterJavaFieldAnnotations: false
++BreakStringLiterals: true
++ColumnLimit:     100
++CommentPragmas:  '^ IWYU pragma:'
++ConstructorInitializerAllOnOneLineOrOnePerLine: true
++ConstructorInitializerIndentWidth: 2
++ContinuationIndentWidth: 4
++Cpp11BracedListStyle: true
++DerivePointerAlignment: false
++DisableFormat:   false
++ExperimentalAutoDetectBinPacking: false
++ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
++IncludeBlocks: Regroup
++IncludeCategories:
++  - Regex:           '^<[a-z0-9_]+>$'
++    Priority:        3
++  - Regex:           '^<(assert|complex|ctype|errno|fenv|float|inttypes|iso646|limits|locale|math|setjmp|signal|stdalign|stdarg|stdatomic|stdbool|stddef|stdint|stdio|stdlib|stdnoreturn|string|tgmath|threads|time|uchar|wchar|wctype)\.h>$'
++    Priority:        3
++  - Regex:           '^<'
++    Priority:        3
++  - Regex:           '^["<](kodi|p8-platform)\/.*\.h[">]$'
++    Priority:        2
++  - Regex:           '.*'
++    Priority:        1
++IncludeIsMainRegex: '$'
++IndentCaseLabels: true
++IndentWidth:     2
++IndentWrappedFunctionNames: false
++JavaScriptQuotes: Leave
++JavaScriptWrapImports: true
++KeepEmptyLinesAtTheStartOfBlocks: true
++MacroBlockBegin: ''
++MacroBlockEnd:   ''
++MaxEmptyLinesToKeep: 2
++NamespaceIndentation: None
++ObjCBlockIndentWidth: 2
++ObjCSpaceAfterProperty: false
++ObjCSpaceBeforeProtocolList: true
++PenaltyBreakBeforeFirstCallParameter: 19
++PenaltyBreakComment: 300
++PenaltyBreakFirstLessLess: 120
++PenaltyBreakString: 1000
++PenaltyExcessCharacter: 1000000
++PenaltyReturnTypeOnItsOwnLine: 60000
++PointerAlignment: Left
++ReflowComments:  false
++SortIncludes:    true
++SpaceAfterCStyleCast: false
++SpaceAfterTemplateKeyword: false
++SpaceBeforeAssignmentOperators: true
++SpaceBeforeParens: ControlStatements
++SpaceInEmptyParentheses: false
++SpacesBeforeTrailingComments: 1
++SpacesInAngles:  false
++SpacesInContainerLiterals: true
++SpacesInCStyleCastParentheses: false
++SpacesInParentheses: false
++SpacesInSquareBrackets: false
++Standard:        Cpp11
++TabWidth:        8
++UseTab:          Never
++...
+diff --git a/src/DefaultPixelShader.hlsl b/src/DefaultPixelShader.hlsl
+index 804154c..4cbc8bf 100644
+--- a/src/DefaultPixelShader.hlsl
++++ b/src/DefaultPixelShader.hlsl
+@@ -5,7 +5,7 @@
+  *  See LICENSE.md for more information.
+  */
+ 
+-float4 main(float4 pos: SV_POSITION, float4 col : COLOR) : SV_TARGET
++float4 main(float4 pos : SV_POSITION, float4 col : COLOR) : SV_TARGET
+ {
+   return col;
+ }
+\ No newline at end of file
+diff --git a/src/DefaultVertexShader.hlsl b/src/DefaultVertexShader.hlsl
+index e583b52..571d723 100644
+--- a/src/DefaultVertexShader.hlsl
++++ b/src/DefaultVertexShader.hlsl
+@@ -22,10 +22,10 @@ cbuffer cbViewPort : register(b0)
+ VS_OUT main(float4 pos : POSITION, float4 col : COLOR)
+ {
+   VS_OUT r = (VS_OUT)0;
+-  r.pos.x  =  (pos.x / (g_viewPortWidth / 2.0)) - 1;
+-  r.pos.y  = -(pos.y / (g_viewPortHeigh / 2.0)) + 1;
+-  r.pos.z  = pos.z;
+-  r.pos.w  = 1.0;
+-  r.col    = col;
++  r.pos.x = (pos.x / (g_viewPortWidth / 2.0)) - 1;
++  r.pos.y = -(pos.y / (g_viewPortHeigh / 2.0)) + 1;
++  r.pos.z = pos.z;
++  r.pos.w = 1.0;
++  r.col = col;
+   return r;
+ }
+\ No newline at end of file
+diff --git a/src/Main_dx.cpp b/src/Main_dx.cpp
+index 63ef922..cab2e3a 100644
+--- a/src/Main_dx.cpp
++++ b/src/Main_dx.cpp
+@@ -8,15 +8,13 @@
+ // Waveform.vis
+ // A simple visualisation example by MrC
+ 
+-#include <kodi/addon-instance/Visualization.h>
+-#include <stdio.h>
+-#include <d3d11_1.h>
+ #include <DirectXMath.h>
+ #include <DirectXPackedVector.h>
+-#include <stdio.h>
+-
++#include <d3d11_1.h>
+ #include <glm/glm.hpp>
+ #include <glm/gtc/type_ptr.hpp>
++#include <kodi/addon-instance/Visualization.h>
++#include <stdio.h>
+ 
+ using namespace DirectX;
+ using namespace DirectX::PackedVector;
+@@ -24,9 +22,9 @@ using namespace DirectX::PackedVector;
+ // Include the precompiled shader code.
+ namespace
+ {
+-  #include "DefaultPixelShader.inc"
+-  #include "DefaultVertexShader.inc"
+-}
++#include "DefaultPixelShader.inc"
++#include "DefaultVertexShader.inc"
++} // namespace
+ 
+ struct cbViewPort
+ {
+@@ -41,16 +39,18 @@ struct Vertex_t
+   XMFLOAT4 col;
+ };
+ 
+-class CVisualizationWaveForm
+-  : public kodi::addon::CAddonBase,
+-    public kodi::addon::CInstanceVisualization
++class CVisualizationWaveForm : public kodi::addon::CAddonBase,
++                               public kodi::addon::CInstanceVisualization
+ {
+ public:
+   CVisualizationWaveForm() = default;
+   ~CVisualizationWaveForm() override;
+ 
+   ADDON_STATUS Create() override;
+-  bool Start(int channels, int samplesPerSec, int bitsPerSample, const std::string& songName) override;
++  bool Start(int channels,
++             int samplesPerSec,
++             int bitsPerSample,
++             const std::string& songName) override;
+   void Render() override;
+   void AudioData(const float* audioData, size_t audioDataLength) override;
+ 
+@@ -118,7 +118,10 @@ ADDON_STATUS CVisualizationWaveForm::Create()
+ //-- Start -------------------------------------------------------------------
+ // Called on load. Addon should fully initalize or return error status
+ //-----------------------------------------------------------------------------
+-bool CVisualizationWaveForm::Start(int channels, int samplesPerSec, int bitsPerSample, const std::string& songName)
++bool CVisualizationWaveForm::Start(int channels,
++                                   int samplesPerSec,
++                                   int bitsPerSample,
++                                   const std::string& songName)
+ {
+   (void)channels;
+   (void)samplesPerSec;
+@@ -173,13 +176,13 @@ void CVisualizationWaveForm::AudioData(const float* pAudioData, size_t iAudioDat
+ 
+   while (ipos < m_usedLinePoints)
+   {
+-    for (size_t i=0; i < length; i+=usedStep)
++    for (size_t i = 0; i < length; i += usedStep)
+     {
+-      m_fWaveform[0][ipos] = pAudioData[i  ]; // left channel
+-      m_fWaveform[1][ipos] = pAudioData[i+1]; // right channel
++      m_fWaveform[0][ipos] = pAudioData[i]; // left channel
++      m_fWaveform[1][ipos] = pAudioData[i + 1]; // right channel
+       ipos++;
+       if (ipos >= m_usedLinePoints)
+-         break;
++        break;
+     }
+   }
+ }
+@@ -237,8 +240,10 @@ void CVisualizationWaveForm::Render()
+   for (int i = 0; i < m_usedLinePoints; i++)
+   {
+     m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
+-    m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
+-    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.25f + (m_fWaveform[0][i] * m_viewport.Height * 0.3f);
++    m_verts[j].x =
++        m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
++    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.25f +
++                   (m_fWaveform[0][i] * m_viewport.Height * 0.3f);
+     m_verts[j].z = 1.0;
+     j++;
+   }
+@@ -247,8 +252,10 @@ void CVisualizationWaveForm::Render()
+   for (int i = 0; i < m_usedLinePoints; i++)
+   {
+     m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
+-    m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
+-    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.75f + (m_fWaveform[1][i] * m_viewport.Height * 0.3f);
++    m_verts[j].x =
++        m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
++    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.75f +
++                   (m_fWaveform[1][i] * m_viewport.Height * 0.3f);
+     m_verts[j].z = 1.0;
+     j++;
+   }
+@@ -268,24 +275,27 @@ void CVisualizationWaveForm::Render()
+ bool CVisualizationWaveForm::init_renderer_objs()
+ {
+   // Create vertex shader
+-  if (S_OK != m_device->CreateVertexShader(DefaultVertexShaderCode, sizeof(DefaultVertexShaderCode), nullptr, &m_vShader))
++  if (S_OK != m_device->CreateVertexShader(DefaultVertexShaderCode, sizeof(DefaultVertexShaderCode),
++                                           nullptr, &m_vShader))
+     return false;
+ 
+   // Create input layout
+-  D3D11_INPUT_ELEMENT_DESC layout[] =
+-  {
+-    { "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT,    0,  0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+-    { "COLOR",    0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
++  D3D11_INPUT_ELEMENT_DESC layout[] = {
++      {"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
++      {"COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0},
+   };
+-  if (S_OK != m_device->CreateInputLayout(layout, ARRAYSIZE(layout), DefaultVertexShaderCode, sizeof(DefaultVertexShaderCode), &m_inputLayout))
++  if (S_OK != m_device->CreateInputLayout(layout, ARRAYSIZE(layout), DefaultVertexShaderCode,
++                                          sizeof(DefaultVertexShaderCode), &m_inputLayout))
+     return false;
+ 
+   // Create pixel shader
+-  if (S_OK != m_device->CreatePixelShader(DefaultPixelShaderCode, sizeof(DefaultPixelShaderCode), nullptr, &m_pShader))
++  if (S_OK != m_device->CreatePixelShader(DefaultPixelShaderCode, sizeof(DefaultPixelShaderCode),
++                                          nullptr, &m_pShader))
+     return false;
+ 
+   // create buffers
+-  CD3D11_BUFFER_DESC desc(sizeof(Vertex_t) * 1024 * 2, D3D11_BIND_VERTEX_BUFFER, D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE);
++  CD3D11_BUFFER_DESC desc(sizeof(Vertex_t) * 1024 * 2, D3D11_BIND_VERTEX_BUFFER,
++                          D3D11_USAGE_DYNAMIC, D3D11_CPU_ACCESS_WRITE);
+   if (S_OK != m_device->CreateBuffer(&desc, NULL, &m_vBuffer))
+     return false;
+ 
+@@ -294,7 +304,7 @@ bool CVisualizationWaveForm::init_renderer_objs()
+   desc.Usage = D3D11_USAGE_DEFAULT;
+   desc.CPUAccessFlags = 0;
+ 
+-  cbViewPort viewPort = { (float)m_viewport.Width, (float)m_viewport.Height, 0.0f, 0.0f };
++  cbViewPort viewPort = {(float)m_viewport.Width, (float)m_viewport.Height, 0.0f, 0.0f};
+   D3D11_SUBRESOURCE_DATA initData;
+   initData.pSysMem = &viewPort;
+ 
+diff --git a/src/Main_gl.cpp b/src/Main_gl.cpp
+index ac65c17..d091187 100644
+--- a/src/Main_gl.cpp
++++ b/src/Main_gl.cpp
+@@ -16,15 +16,13 @@
+  *  Ported to GLES by gimli
+  */
+ 
+-#include <string.h>
+-#include <math.h>
+-
++#include <glm/glm.hpp>
++#include <glm/gtc/type_ptr.hpp>
+ #include <kodi/addon-instance/Visualization.h>
+ #include <kodi/gui/gl/GL.h>
+ #include <kodi/gui/gl/Shader.h>
+-
+-#include <glm/glm.hpp>
+-#include <glm/gtc/type_ptr.hpp>
++#include <math.h>
++#include <string.h>
+ 
+ #define NUM_BANDS 16
+ 
+@@ -32,16 +30,18 @@
+ #define M_PI 3.141592654f
+ #endif
+ 
+-class ATTR_DLL_LOCAL CVisualizationWaveForm
+-  : public kodi::addon::CAddonBase,
+-    public kodi::addon::CInstanceVisualization,
+-    public kodi::gui::gl::CShaderProgram
++class ATTR_DLL_LOCAL CVisualizationWaveForm : public kodi::addon::CAddonBase,
++                                              public kodi::addon::CInstanceVisualization,
++                                              public kodi::gui::gl::CShaderProgram
+ {
+ public:
+   CVisualizationWaveForm() = default;
+   ~CVisualizationWaveForm() override = default;
+ 
+-  bool Start(int channels, int samplesPerSec, int bitsPerSample, const std::string& songName) override;
++  bool Start(int channels,
++             int samplesPerSec,
++             int bitsPerSample,
++             const std::string& songName) override;
+   void Stop() override;
+   void Render() override;
+   bool IsDirty() override { return true; }
+@@ -79,15 +79,20 @@ class ATTR_DLL_LOCAL CVisualizationWaveForm
+ //-- Start -------------------------------------------------------------------
+ // Called on load. Addon should fully initalize or return error status
+ //-----------------------------------------------------------------------------
+-bool CVisualizationWaveForm::Start(int channels, int samplesPerSec, int bitsPerSample, const std::string& songName)
++bool CVisualizationWaveForm::Start(int channels,
++                                   int samplesPerSec,
++                                   int bitsPerSample,
++                                   const std::string& songName)
+ {
+   (void)channels;
+   (void)samplesPerSec;
+   (void)bitsPerSample;
+   (void)songName;
+ 
+-  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+-  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
++  std::string fraqShader =
++      kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
++  std::string vertShader =
++      kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/vert.glsl");
+   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
+   {
+     kodi::Log(ADDON_LOG_ERROR, "Failed to create or compile shader");
+@@ -108,7 +113,8 @@ bool CVisualizationWaveForm::Start(int channels, int samplesPerSec, int bitsPerS
+   }
+ 
+   kodi::addon::CheckSettingInt("line-thickness", m_lineThickness);
+-  m_lineThicknessFactor = 1.0f / static_cast<float>(Height()) * static_cast<float>(m_lineThickness) / 2.0f;
++  m_lineThicknessFactor =
++      1.0f / static_cast<float>(Height()) * static_cast<float>(m_lineThickness) / 2.0f;
+   if (m_lineThickness == 1)
+   {
+     glLineWidth(1.0f); // Force set to 1.0
+@@ -116,7 +122,7 @@ bool CVisualizationWaveForm::Start(int channels, int samplesPerSec, int bitsPerS
+   }
+   else
+   {
+-    m_position.resize(1024*6);
++    m_position.resize(1024 * 6);
+   }
+ 
+   kodi::addon::CheckSettingFloat("line-red", m_lineColor.r);
+@@ -135,7 +141,7 @@ bool CVisualizationWaveForm::Start(int channels, int samplesPerSec, int bitsPerS
+   glGenBuffers(1, &m_vertexVBO);
+ #endif
+ 
+-  m_modelProjMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f ,0.0f ,-1.0f));
++  m_modelProjMat = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -1.0f));
+   m_modelProjMat = glm::rotate(m_modelProjMat, 0.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+   m_modelProjMat = glm::rotate(m_modelProjMat, 0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+   m_modelProjMat = glm::rotate(m_modelProjMat, 0.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+@@ -169,7 +175,8 @@ void CVisualizationWaveForm::Render()
+ #ifdef HAS_GL
+   glBindBuffer(GL_ARRAY_BUFFER, m_vertexVBO);
+ 
+-  glVertexAttribPointer(m_aPosition, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), BUFFER_OFFSET(offsetof(glm::vec3, x)));
++  glVertexAttribPointer(m_aPosition, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3),
++                        BUFFER_OFFSET(offsetof(glm::vec3, x)));
+   glEnableVertexAttribArray(m_aPosition);
+ 
+   glEnable(GL_LINE_SMOOTH);
+@@ -180,7 +187,8 @@ void CVisualizationWaveForm::Render()
+ 
+   if (m_backgroundColor.a != 0.0f)
+   {
+-    glClearColor(m_backgroundColor.r, m_backgroundColor.g, m_backgroundColor.b, m_backgroundColor.a);
++    glClearColor(m_backgroundColor.r, m_backgroundColor.g, m_backgroundColor.b,
++                 m_backgroundColor.a);
+     glClear(GL_COLOR_BUFFER_BIT);
+   }
+ 
+@@ -213,10 +221,12 @@ void CVisualizationWaveForm::DrawLine(float* waveform, bool topBottom)
+ 
+   if (m_lineThickness > 1)
+   {
+-    for (int i = 0; i < m_usedLinePoints-1; i++)
++    for (int i = 0; i < m_usedLinePoints - 1; i++)
+     {
+-      glm::vec2 A = glm::vec2(-1.0f + ((i     / float(m_usedLinePoints-1)) * 2.0f), posYOffset + waveform[i]   * 0.9f);
+-      glm::vec2 B = glm::vec2(-1.0f + (((i+1) / float(m_usedLinePoints-1)) * 2.0f), posYOffset + waveform[i+1] * 0.9f);
++      glm::vec2 A = glm::vec2(-1.0f + ((i / float(m_usedLinePoints - 1)) * 2.0f),
++                              posYOffset + waveform[i] * 0.9f);
++      glm::vec2 B = glm::vec2(-1.0f + (((i + 1) / float(m_usedLinePoints - 1)) * 2.0f),
++                              posYOffset + waveform[i + 1] * 0.9f);
+ 
+       glm::vec2 p(B.x - A.x, B.y - A.y);
+       p = glm::normalize(p);
+@@ -236,14 +246,16 @@ void CVisualizationWaveForm::DrawLine(float* waveform, bool topBottom)
+   {
+     for (int i = 0; i < m_usedLinePoints; i++)
+     {
+-      m_position[ptr++] = glm::vec3(-1.0f + ((i / float(m_usedLinePoints)) * 2.0f), posYOffset + waveform[i] * 0.9f, 1.0f);
++      m_position[ptr++] = glm::vec3(-1.0f + ((i / float(m_usedLinePoints)) * 2.0f),
++                                    posYOffset + waveform[i] * 0.9f, 1.0f);
+     }
+ 
+     mode = GL_LINE_STRIP;
+   }
+ 
+ #ifdef HAS_GL
+-  glBufferData(GL_ARRAY_BUFFER, m_position.size()*sizeof(glm::vec3), m_position.data(), GL_STATIC_DRAW);
++  glBufferData(GL_ARRAY_BUFFER, m_position.size() * sizeof(glm::vec3), m_position.data(),
++               GL_STATIC_DRAW);
+ #endif
+ 
+   glDrawArrays(mode, 0, ptr);
+@@ -264,13 +276,13 @@ void CVisualizationWaveForm::AudioData(const float* pAudioData, size_t iAudioDat
+   }
+   while (ipos < m_usedLinePoints)
+   {
+-    for (size_t i=0; i < iAudioDataLength; i+=usedStep)
++    for (size_t i = 0; i < iAudioDataLength; i += usedStep)
+     {
+-      m_fWaveform[0][ipos] = pAudioData[i  ]; // left channel
+-      m_fWaveform[1][ipos] = pAudioData[i+1]; // right channel
++      m_fWaveform[0][ipos] = pAudioData[i]; // left channel
++      m_fWaveform[1][ipos] = pAudioData[i + 1]; // right channel
+       ipos++;
+       if (ipos >= m_usedLinePoints)
+-         break;
++        break;
+     }
+   }
+ }
+
+From 6ed8f4a9bbeefed9a120d9e30dae515ae5b023df Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sun, 17 May 2026 15:29:11 +0200
+Subject: [PATCH 3/5] update copyright year to 2026
+
+---
+ debian/copyright             | 4 ++--
+ src/DefaultPixelShader.hlsl  | 2 +-
+ src/DefaultVertexShader.hlsl | 2 +-
+ src/Main_dx.cpp              | 2 +-
+ src/Main_gl.cpp              | 2 +-
+ 5 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/debian/copyright b/debian/copyright
+index 2df7259..f607bf8 100644
+--- a/debian/copyright
++++ b/debian/copyright
+@@ -2,7 +2,7 @@ Format: http://dep.debian.net/deps/dep5
+ Upstream-Name: visualization.waveform
+ 
+ Files: *
+-Copyright: 2005-2022 Team Kodi
++Copyright: 2005-2026 Team Kodi
+ License: GPL-2+
+  This package is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+@@ -24,7 +24,7 @@ License: GPL-2+
+ Files: debian/*
+ Copyright: 2013 Arne Morten Kvarving <arne.morten.kvarving@sintef.no>
+            2013 wsnipex <wsnipex@a1.net>
+-           2005-2022 Team Kodi
++           2005-2026 Team Kodi
+ License: GPL-2+
+  This package is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+diff --git a/src/DefaultPixelShader.hlsl b/src/DefaultPixelShader.hlsl
+index 4cbc8bf..a065fc7 100644
+--- a/src/DefaultPixelShader.hlsl
++++ b/src/DefaultPixelShader.hlsl
+@@ -1,5 +1,5 @@
+ /*
+- *  Copyright (C) 2005-2021 Team Kodi (https://kodi.tv)
++ *  Copyright (C) 2005-2026 Team Kodi (https://kodi.tv)
+  *
+  *  SPDX-License-Identifier: GPL-2.0-or-later
+  *  See LICENSE.md for more information.
+diff --git a/src/DefaultVertexShader.hlsl b/src/DefaultVertexShader.hlsl
+index 571d723..6e08783 100644
+--- a/src/DefaultVertexShader.hlsl
++++ b/src/DefaultVertexShader.hlsl
+@@ -1,5 +1,5 @@
+ /*
+- *  Copyright (C) 2005-2021 Team Kodi (https://kodi.tv)
++ *  Copyright (C) 2005-2026 Team Kodi (https://kodi.tv)
+  *
+  *  SPDX-License-Identifier: GPL-2.0-or-later
+  *  See LICENSE.md for more information.
+diff --git a/src/Main_dx.cpp b/src/Main_dx.cpp
+index cab2e3a..3add8a7 100644
+--- a/src/Main_dx.cpp
++++ b/src/Main_dx.cpp
+@@ -1,5 +1,5 @@
+ /*
+- *  Copyright (C) 2008-2022 Team Kodi (https://kodi.tv)
++ *  Copyright (C) 2008-2026 Team Kodi (https://kodi.tv)
+  *
+  *  SPDX-License-Identifier: GPL-2.0-or-later
+  *  See LICENSE.md for more information.
+diff --git a/src/Main_gl.cpp b/src/Main_gl.cpp
+index d091187..d496ffa 100644
+--- a/src/Main_gl.cpp
++++ b/src/Main_gl.cpp
+@@ -1,6 +1,6 @@
+ /*
+  *  Copyright (C) 1998-2000  Peter Alm, Mikael Alm, Olle Hallnas, Thomas Nilsson and 4Front Technologies
+- *  Copyright (C) 2008-2022 Team Kodi (https://kodi.tv)
++ *  Copyright (C) 2008-2026 Team Kodi (https://kodi.tv)
+  *
+  *  SPDX-License-Identifier: GPL-2.0-or-later
+  *  See LICENSE.md for more information.
+
+From 61d1f9c0085954705d616cd29134d557f00a14a5 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sun, 17 May 2026 15:34:05 +0200
+Subject: [PATCH 4/5] update to visualization API 5.0.0
+
+---
+ src/Main_dx.cpp | 28 ++++------------------------
+ src/Main_gl.cpp | 19 ++++---------------
+ 2 files changed, 8 insertions(+), 39 deletions(-)
+
+diff --git a/src/Main_dx.cpp b/src/Main_dx.cpp
+index 3add8a7..e2dbbee 100644
+--- a/src/Main_dx.cpp
++++ b/src/Main_dx.cpp
+@@ -46,11 +46,7 @@ class CVisualizationWaveForm : public kodi::addon::CAddonBase,
+   CVisualizationWaveForm() = default;
+   ~CVisualizationWaveForm() override;
+ 
+-  ADDON_STATUS Create() override;
+-  bool Start(int channels,
+-             int samplesPerSec,
+-             int bitsPerSample,
+-             const std::string& songName) override;
++  bool Init() override;
+   void Render() override;
+   void AudioData(const float* audioData, size_t audioDataLength) override;
+ 
+@@ -96,10 +92,10 @@ CVisualizationWaveForm::~CVisualizationWaveForm()
+     m_device->Release();
+ }
+ 
+-//-- Create -------------------------------------------------------------------
++//-- Init -------------------------------------------------------------------
+ // Called on load. Addon should fully initalize or return error status
+ //-----------------------------------------------------------------------------
+-ADDON_STATUS CVisualizationWaveForm::Create()
++bool CVisualizationWaveForm::Init()
+ {
+   m_viewport.TopLeftX = static_cast<float>(X());
+   m_viewport.TopLeftY = static_cast<float>(Y());
+@@ -110,23 +106,7 @@ ADDON_STATUS CVisualizationWaveForm::Create()
+   m_context = (ID3D11DeviceContext*)Device();
+   m_context->GetDevice(&m_device);
+   if (!init_renderer_objs())
+-    return ADDON_STATUS_PERMANENT_FAILURE;
+-
+-  return ADDON_STATUS_OK;
+-}
+-
+-//-- Start -------------------------------------------------------------------
+-// Called on load. Addon should fully initalize or return error status
+-//-----------------------------------------------------------------------------
+-bool CVisualizationWaveForm::Start(int channels,
+-                                   int samplesPerSec,
+-                                   int bitsPerSample,
+-                                   const std::string& songName)
+-{
+-  (void)channels;
+-  (void)samplesPerSec;
+-  (void)bitsPerSample;
+-  (void)songName;
++    return false;
+ 
+   kodi::addon::CheckSettingInt("points-per-line", m_usedLinePoints);
+ 
+diff --git a/src/Main_gl.cpp b/src/Main_gl.cpp
+index d496ffa..71747d0 100644
+--- a/src/Main_gl.cpp
++++ b/src/Main_gl.cpp
+@@ -38,11 +38,8 @@ class ATTR_DLL_LOCAL CVisualizationWaveForm : public kodi::addon::CAddonBase,
+   CVisualizationWaveForm() = default;
+   ~CVisualizationWaveForm() override = default;
+ 
+-  bool Start(int channels,
+-             int samplesPerSec,
+-             int bitsPerSample,
+-             const std::string& songName) override;
+-  void Stop() override;
++  bool Init() override;
++  void DeInit() override;
+   void Render() override;
+   bool IsDirty() override { return true; }
+   void AudioData(const float* audioData, size_t audioDataLength) override;
+@@ -79,16 +76,8 @@ class ATTR_DLL_LOCAL CVisualizationWaveForm : public kodi::addon::CAddonBase,
+ //-- Start -------------------------------------------------------------------
+ // Called on load. Addon should fully initalize or return error status
+ //-----------------------------------------------------------------------------
+-bool CVisualizationWaveForm::Start(int channels,
+-                                   int samplesPerSec,
+-                                   int bitsPerSample,
+-                                   const std::string& songName)
++bool CVisualizationWaveForm::Init()
+ {
+-  (void)channels;
+-  (void)samplesPerSec;
+-  (void)bitsPerSample;
+-  (void)songName;
+-
+   std::string fraqShader =
+       kodi::addon::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/frag.glsl");
+   std::string vertShader =
+@@ -150,7 +139,7 @@ bool CVisualizationWaveForm::Start(int channels,
+   return true;
+ }
+ 
+-void CVisualizationWaveForm::Stop()
++void CVisualizationWaveForm::DeInit()
+ {
+   if (!m_startOK)
+     return;
+
+From d7655a5fe947cd6fae03e5345f738f06c1b5dce7 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Sun, 17 May 2026 11:27:11 +0200
+Subject: [PATCH 5/5] Bump to version 22.1.0-Piers due to API version change
+
+---
+ visualization.waveform/addon.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/visualization.waveform/addon.xml.in b/visualization.waveform/addon.xml.in
+index 1a5a03c..9b9c7ee 100644
+--- a/visualization.waveform/addon.xml.in
++++ b/visualization.waveform/addon.xml.in
+@@ -1,7 +1,7 @@
+ ﻿<?xml version="1.0" encoding="UTF-8"?>
+ <addon
+   id="visualization.waveform"
+-  version="22.0.3"
++  version="22.1.0"
+   name="Waveform"
+   provider-name="MrC">
+   <requires>@ADDON_DEPENDS@</requires>
