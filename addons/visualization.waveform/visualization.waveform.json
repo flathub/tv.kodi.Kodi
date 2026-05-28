@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/visualization.waveform",
             "commit": "9477bc7938c833516d88a2f20504f69a388d1e14"
+        },
+        {
+            "type": "patch",
+            "path": "patches/105-update-to-visualization-API-4.1.0.patch"
         }
     ],
     "build-options": {
