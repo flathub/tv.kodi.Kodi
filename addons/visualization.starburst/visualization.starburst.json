@@ -5,11 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.starburst",
-            "commit": "ce800a445e42e2b9bec75ec6460f15c579a6ac61"
-        },
-        {
-            "type": "patch",
-            "path": "patches/66-update-to-visualization-API-4.1.0.patch"
+            "commit": "67b678e7e2c47cc937a652a91d28cca713c1e5bb"
         }
     ],
     "build-options": {

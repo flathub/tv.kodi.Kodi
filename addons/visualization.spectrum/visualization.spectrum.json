@@ -5,11 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.spectrum",
-            "commit": "5cb17691d130bc2e142fccc09b5eb53a21a92498"
-        },
-        {
-            "type": "patch",
-            "path": "patches/130-update-to-visualization-API-5.0.0.patch"
+            "commit": "35402d2e5809a448e2b640b5967e1bb1c369639d"
         }
     ],
     "build-options": {
