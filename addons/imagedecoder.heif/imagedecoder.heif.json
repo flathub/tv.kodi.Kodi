@@ -20,8 +20,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/releases/download/v1.0.18/libde265-1.0.18.tar.gz",
-                    "sha256": "800478f3bf35f0621b14928ceb317579f3e8b23de4bd2aac29b6cb8be962bbd8"
+                    "url": "https://github.com/strukturag/libde265/archive/v1.1.0/libde265-1.1.0.tar.gz",
+                    "sha256": "46c1ddb660a7cceaf05e954180360d265dcb4ce7b5b682a7ab541cd8f55bb93e",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/strukturag/libde265/releases/latest",
+                        "tag-query": ".tag_name",
+                        "timestamp-query": ".published_at",
+                        "version-query": "$tag | sub(\"^[vV]\"; \"\")",
+                        "url-query": "\"https://github.com/strukturag/libde265/archive/\\($tag)/libde265-\\($version).tar.gz\""
+                    }
                 }
             ]
         },
@@ -42,8 +50,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz",
-                    "sha256": "75f530b7154bc93e7ecf846edfc0416bf5f490612de8c45983c36385aa742b42"
+                    "url": "https://github.com/strukturag/libheif/archive/v1.23.0/libheif-1.23.0.tar.gz",
+                    "sha256": "50ea4fbd1e19c7b8820271d6d0c73f2623fec5d659ce9fae57e48dbeb94fab9a",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/strukturag/libheif/releases/latest",
+                        "tag-query": ".tag_name",
+                        "timestamp-query": ".published_at",
+                        "version-query": "$tag | sub(\"^[vV]\"; \"\")",
+                        "url-query": "\"https://github.com/strukturag/libheif/archive/\\($tag)/libheif-\\($version).tar.gz\""
+                    }
                 }
             ]
         }

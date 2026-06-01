@@ -23,8 +23,16 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Silicondust/libhdhomerun/archive/7c54382fb681d03888b469033e50bebaf4ce6bce.tar.gz",
-                    "sha256": "d686f88b8dc6089e2cb3829958170d6ba02ecc4f2c5f2cfe3fd37e0dda76ce42"
+                    "url": "https://github.com/Silicondust/libhdhomerun/archive/20260313/libhdhomerun-20260313.tar.gz",
+                    "sha256": "92a1df224a7c3636b596fc0ca44c9debe0b92440f5287686af79a756b8f5200a",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/Silicondust/libhdhomerun/releases/latest",
+                        "tag-query": ".tag_name",
+                        "timestamp-query": ".published_at",
+                        "version-query": "$tag",
+                        "url-query": "\"https://github.com/Silicondust/libhdhomerun/archive/\\($tag)/libhdhomerun-\\($version).tar.gz\""
+                    }
                 },
                 {
                     "type": "file",

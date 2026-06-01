@@ -162,13 +162,13 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/refs/tags/v0.406.tar.gz
-        sha256: 1ccfd1ca723595b1fe8794f4157ec5635be1ebedb5d13769b4be75d0b75bc199
+        url: https://github.com/vcrhonek/hwdata/archive/v0.407/hwdata-0.407.tar.gz
+        sha256: 6a88f6f5cb510fbfaa9c49488348b7fcd7aa209b0a331f24dfebb1c8c339568b
         x-checker-data:
           type: anitya
-          project-id: 13577
+          project-id: 5387
           stable-only: true
-          url-template: https://github.com/vcrhonek/hwdata/archive/refs/tags/v$version.tar.gz
+          url-template: https://github.com/vcrhonek/hwdata/archive/v$version/hwdata-$version.tar.gz
     cleanup:
       - /lib/pkgconfig
   - name: json
@@ -253,7 +253,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 1565
-          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.bz2
+          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
   - name: libcdio
     config-opts:
       - --enable-cxx
@@ -410,12 +410,12 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: http://mirrors.kodi.tv/build-deps/sources/libudfread-1.2.0.tar.bz2
+        url: https://code.videolan.org/videolan/libudfread/-/archive/1.2.0/libudfread-1.2.0.tar.bz2
         sha512: 53df39c207cadd742b4d4f78fd14159a6e4f45c97c9a7b97a39778fab4fdb5b0c087ebba04d27c28b8078681b82c3e903a4394f0d381cdadf23d2fd24956261f
         x-checker-data:
           type: anitya
           project-id: 89591
-          url-template: http://mirrors.kodi.tv/build-deps/sources/libudfread-$version.tar.gz
+          url-template: https://code.videolan.org/videolan/libudfread/-/archive/$version/libudfread-$version.tar.bz2
   - name: mariadb-connector
     buildsystem: cmake-ninja
     config-opts:
