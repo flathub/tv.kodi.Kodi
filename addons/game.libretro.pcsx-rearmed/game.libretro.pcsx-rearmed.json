@@ -1,5 +1,5 @@
 {
-    "name": "game.libretro.mrboom",
+    "name": "game.libretro.pcsx-rearmed",
     "buildsystem": "cmake-ninja",
     "build-options": {
         "no-debuginfo": true,
@@ -12,13 +12,13 @@
     "sources": [
         {
             "type": "git",
-            "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "df9a34c8e1624f03277354e3406e969fb852acf4"
+            "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
+            "commit": "4bad92732f8cd5002a0cca9978380f6fb68c7fff"
         }
     ],
     "modules": [
         {
-            "name": "mrboom",
+            "name": "libretro-pcsx-rearmed",
             "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
@@ -27,19 +27,19 @@
                 "arch": {
                     "x86_64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=0"
+                            "ARCH_FLAGS": "platform=unix DYNAREC=none"
                         }
                     },
                     "aarch64": {
                         "env": {
-                            "ARCH_FLAGS": "HAVE_NEON=1"
+                            "ARCH_FLAGS": "platform=unix DYNAREC=ari64"
                         }
                     }
                 }
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
-                "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS -f Makefile.libretro",
+                "install -D -m 755 pcsx_rearmed_libretro.so /app/lib/libretro/pcsx_rearmed_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -47,8 +47,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/kodi-game/mrboom-libretro",
-                    "commit": "89997083b6f492b5adbae3124a5ed2c784ace6eb"
+                    "url": "https://github.com/libretro/pcsx_rearmed",
+                    "commit": "c88070df8e0e84106ecc4b6394860a413a7bc046"
                 }
             ]
         }
