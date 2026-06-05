@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.407/hwdata-0.407.tar.gz
-        sha256: 6a88f6f5cb510fbfaa9c49488348b7fcd7aa209b0a331f24dfebb1c8c339568b
+        url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
+        sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -335,8 +335,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.2/libinput-1.31.2.tar.bz2
-        sha256: 1daebac6cb5b8946139c9669a7e5c0e4c8f17320de232a6b9bf470f37dc569e4
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.3/libinput-1.31.3.tar.bz2
+        sha256: 01414457befc3d1c68a328ebe01eacec8e7077a4ff08e181f5659daf9f50930e
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -785,7 +785,7 @@ modules:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
           versions:
-            '>': '22.0a3-Piers'
+            '>': 22.0a3-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: file
@@ -863,7 +863,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
           versions:
-            '>': '1.1.0'
+            '>': 1.1.0
 
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp
