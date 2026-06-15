@@ -846,25 +846,6 @@ modules:
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
-  # pvr.teleboy & pvr.zattoo still require rapidjson
-  - name: rapidjson
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DRAPIDJSON_BUILD_DOC=OFF
-      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
-      - -DRAPIDJSON_BUILD_TESTS=OFF
-      - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
-    sources:
-      # no release since 2016, cmake fixes committed 2024/2025
-      - type: git
-        url: https://github.com/Tencent/rapidjson.git
-        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
-          versions:
-            '>': 1.1.0
-
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp
     buildsystem: cmake-ninja
@@ -937,13 +918,13 @@ modules:
   - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
-  - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
+  - addons/pvr.teleboy/pvr.teleboy.json
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
   - addons/pvr.waipu/pvr.waipu.json
   - addons/pvr.wmc/pvr.wmc.json
-  - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
+  - addons/pvr.zattoo/pvr.zattoo.json
   - addons/screensaver.asteroids/screensaver.asteroids.json
   - addons/screensaver.asterwave/screensaver.asterwave.json
   - addons/screensaver.biogenesis/screensaver.biogenesis.json
