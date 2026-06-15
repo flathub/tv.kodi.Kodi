@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mrboom",
-            "commit": "6c20a884fedd80fe50c24f9c5d97d08b7d302cd0"
+            "commit": "44463f6ac8db35a2776e5ad615c4241515ea320e"
         }
     ],
     "modules": [
@@ -23,10 +23,22 @@
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",
-                "cxxflags": "-g0"
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_NEON=0"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_NEON=1"
+                        }
+                    }
+                }
             },
             "build-commands": [
-                "make -j PREFIX=/app platform=unix",
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
                 "install -D -m 755 mrboom_libretro.so /app/lib/libretro/mrboom_libretro.so"
             ],
             "cleanup": [
@@ -34,9 +46,9 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/kodi-game/mrboom-libretro/archive/0e52349c674860190397075ba3993efe5b65b887.tar.gz",
-                    "sha256": "89cd6c6d0f94b9e59ccc57547e401e41223f2413c88bcf1c65e791866e567dc9"
+                    "type": "git",
+                    "url": "https://github.com/kodi-game/mrboom-libretro",
+                    "commit": "89997083b6f492b5adbae3124a5ed2c784ace6eb"
                 }
             ]
         }

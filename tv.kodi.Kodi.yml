@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.407/hwdata-0.407.tar.gz
-        sha256: 6a88f6f5cb510fbfaa9c49488348b7fcd7aa209b0a331f24dfebb1c8c339568b
+        url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
+        sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -335,8 +335,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.2/libinput-1.31.2.tar.bz2
-        sha256: 1daebac6cb5b8946139c9669a7e5c0e4c8f17320de232a6b9bf470f37dc569e4
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.3/libinput-1.31.3.tar.bz2
+        sha256: 01414457befc3d1c68a328ebe01eacec8e7077a4ff08e181f5659daf9f50930e
         x-checker-data:
           type: anitya
           project-id: 5781
@@ -780,12 +780,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 15a4d07c007ceb491dfabe4b811d5d8bea647d54
+        commit: a1ef051fdd286c5b2c49922b6e4197dceb49a02b
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
           versions:
-            '>': '22.0a3-Piers'
+            '>': 22.0a3-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: file
@@ -845,25 +845,6 @@ modules:
       - type: archive
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
         sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
-
-  # pvr.teleboy & pvr.zattoo still require rapidjson
-  - name: rapidjson
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DRAPIDJSON_BUILD_DOC=OFF
-      - -DRAPIDJSON_BUILD_EXAMPLES=OFF
-      - -DRAPIDJSON_BUILD_TESTS=OFF
-      - -DRAPIDJSON_BUILD_THIRDPARTY_GTEST=OFF
-    sources:
-      # no release since 2016, cmake fixes committed 2024/2025
-      - type: git
-        url: https://github.com/Tencent/rapidjson.git
-        commit: 24b5e7a8b27f42fa16b96fc70aade9106cf7102f
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
-          versions:
-            '>': '1.1.0'
 
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp
@@ -937,13 +918,13 @@ modules:
   - addons/pvr.plutotv/pvr.plutotv.json
   - addons/pvr.sledovanitv.cz/pvr.sledovanitv.cz.json
   - addons/pvr.stalker/pvr.stalker.json
-  - addons/pvr.teleboy/pvr.teleboy.json # https://github.com/rbuehlma/pvr.teleboy/issues/99
+  - addons/pvr.teleboy/pvr.teleboy.json
   - addons/pvr.vbox/pvr.vbox.json
   - addons/pvr.vdr.vnsi/pvr.vdr.vnsi.json
   - addons/pvr.vuplus/pvr.vuplus.json
   - addons/pvr.waipu/pvr.waipu.json
   - addons/pvr.wmc/pvr.wmc.json
-  - addons/pvr.zattoo/pvr.zattoo.json # https://github.com/rbuehlma/pvr.zattoo/issues/224
+  - addons/pvr.zattoo/pvr.zattoo.json
   - addons/screensaver.asteroids/screensaver.asteroids.json
   - addons/screensaver.asterwave/screensaver.asterwave.json
   - addons/screensaver.biogenesis/screensaver.biogenesis.json
