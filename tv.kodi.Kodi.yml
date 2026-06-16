@@ -854,8 +854,8 @@ modules:
       - -DJSONCPP_WITH_TESTS=OFF
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
-        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8.tar.gz
+        sha256: 51828cf3574281d2b79ec2a1c56a9e4c20cc1103711321ea96384cffb8d2d904
         x-checker-data:
           type: anitya
           project-id: 7483
