@@ -690,8 +690,8 @@ modules:
           - -DCMAKE_INSTALL_LIBDIR=lib
         sources:
           - type: archive
-            url: https://github.com/zeux/pugixml/archive/v1.15.tar.gz
-            sha256: b39647064d9e28297a34278bfb897092bf33b7c487906ddfc094c9e8868bddcb
+            url: https://github.com/zeux/pugixml/archive/v1.16.tar.gz
+            sha256: 357bcab8877dc9943f355d3a72daba1b053238ba955f50fa81586afb65090219
             x-checker-data:
               type: anitya
               project-id: 3728
@@ -780,7 +780,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: a1ef051fdd286c5b2c49922b6e4197dceb49a02b
+        commit: 6bf297be8ff0cca1c749ef4f1db84166b3d4c3bb
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -854,8 +854,8 @@ modules:
       - -DJSONCPP_WITH_TESTS=OFF
     sources:
       - type: archive
-        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.7.tar.gz
-        sha256: 830bf352d822d8558e9d0eb19d640d2e38536b4b6699c30a4488da09d5b1df18
+        url: https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.8.tar.gz
+        sha256: 51828cf3574281d2b79ec2a1c56a9e4c20cc1103711321ea96384cffb8d2d904
         x-checker-data:
           type: anitya
           project-id: 7483
