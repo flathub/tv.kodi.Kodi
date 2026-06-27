@@ -203,8 +203,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libass/libass/archive/refs/tags/0.17.4.tar.gz
-        sha512: 08762623dd09e3034699ba9d11b70d1f6cc6b2e3b38aa897b07efef1364e76141df484e70ed27888cf3595b77d072cdb5e8abbbfa560e33ca21f87872e24df8d
+        url: https://github.com/libass/libass/archive/refs/tags/0.17.5.tar.gz
+        sha512: 8dfea8ef3043ace28efa8a6ae4d6a443fd19d49ad19a521a642e7ec3a7c6f97284cda16d479e168ce30bd560f7e05a0675c9f3fde872bb92ed650343499a57b1
         x-checker-data:
           type: anitya
           project-id: 1560
@@ -601,8 +601,8 @@ modules:
           - --enable-compat-libdns_sd
         sources:
           - type: archive
-            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc4.tar.gz
-            sha256: 08fcc57377ed05416ec4b3d8a179da716a7a9376821551a5ae16f8276a1ef0b5
+            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz
+            sha256: 5b0a9d88110b0fc8aaafc5cc0a26e83e7d2a4aca3a36bc27c9b626db7ead27b0
             x-checker-data:
               type: anitya
               project-id: 147
