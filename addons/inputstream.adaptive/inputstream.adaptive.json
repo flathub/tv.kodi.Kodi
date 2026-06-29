@@ -17,7 +17,13 @@
             "type": "file",
             "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-5-Piers.tar.gz",
             "sha256": "84a930e523553d638de7b2c66176e25c5910c65b906a06fb7211530df8edfc1f",
-            "dest-filename": "bento4.tar.gz"
+            "dest-filename": "bento4.tar.gz",
+            "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/xbmc/Bento4/tags?per_page=100",
+                "version-query": "[.[] | select(.name | endswith(\"-Piers\"))] | sort_by([.name | scan(\"[0-9]+\") | tonumber]) | last | .name | rtrimstr(\"-Piers\")",
+                "url-query": "\"https://github.com/xbmc/Bento4/archive/refs/tags/\" + $version + \"-Piers.tar.gz\""
+            }
         }
     ],
     "build-options": {
