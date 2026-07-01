@@ -11,13 +11,19 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "c531e079ad13f92631d9304a682af6e650da0d58"
+            "commit": "4532955255d6a91dcc46f06f0fd89f10c93eaca6"
         },
         {
             "type": "file",
-            "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-5-Piers.tar.gz",
-            "sha256": "84a930e523553d638de7b2c66176e25c5910c65b906a06fb7211530df8edfc1f",
-            "dest-filename": "bento4.tar.gz"
+            "url": "https://github.com/xbmc/Bento4/archive/refs/tags/1.6.0-641-6-Piers.tar.gz",
+            "sha256": "cb5006cd30889238760556e6148f69be34fef4dc48e8d895a9822f805504a5c0",
+            "dest-filename": "bento4.tar.gz",
+            "x-checker-data": {
+                "type": "json",
+                "url": "https://api.github.com/repos/xbmc/Bento4/tags?per_page=100",
+                "version-query": "[.[] | select(.name | endswith(\"-Piers\"))] | sort_by([.name | scan(\"[0-9]+\") | tonumber]) | last | .name | rtrimstr(\"-Piers\")",
+                "url-query": "\"https://github.com/xbmc/Bento4/archive/refs/tags/\" + $version + \"-Piers.tar.gz\""
+            }
         }
     ],
     "build-options": {
