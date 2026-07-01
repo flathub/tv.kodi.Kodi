@@ -483,8 +483,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
-        tag: 12.2.0
-        commit: 3c41c095064200a02672d89cc5ff629eaf4b0d4f
+        tag: 12.3.0
+        commit: bb1d8e8ab8d29048624d96e3ee53cecf7c13d13d
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
