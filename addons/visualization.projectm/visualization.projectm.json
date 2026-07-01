@@ -5,12 +5,43 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "commit": "054d47e98d56111f34c4c190729faf62c5eaf503"
+            "commit": "56becb945aa5f284af626df7a50a22a2dfa19026"
         }
     ],
     "modules": [
         {
+            "name": "projectm-eval",
+            "buildsystem": "cmake-ninja",
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig",
+                "*.a"
+            ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DENABLE_PROJECTM_EVAL_INSTALL=ON"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/projectM-visualizer/projectm-eval",
+                    "commit": "da885dcdf33620ef26aa04cac9e215378b80252e",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v[\\d.]+$"
+                    }
+                }
+            ]
+        },
+        {
             "name": "projectm",
+            "buildsystem": "cmake-ninja",
             "cleanup": [
                 "/bin"
             ],
@@ -19,11 +50,20 @@
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DENABLE_SYSTEM_PROJECTM_EVAL=ON"
+            ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/projectM-visualizer/projectm/releases/download/v3.1.12/projectM-3.1.12.tar.gz",
-                    "sha256": "b6b99dde5c8f0822ae362606a0429628ee478f4ec943a156723841b742954707"
+                    "type": "git",
+                    "url": "https://github.com/projectM-visualizer/projectm",
+                    "commit": "4d2849333b63235a6af4d1f02508a97529d96dc7",
+                    "disable-submodules": true,
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v[\\d.]+$"
+                    }
                 }
             ]
         }
