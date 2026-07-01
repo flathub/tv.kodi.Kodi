@@ -52,7 +52,8 @@
             },
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
-                "-DENABLE_SYSTEM_PROJECTM_EVAL=ON"
+                "-DENABLE_SYSTEM_PROJECTM_EVAL=ON",
+                "-DENABLE_GLES=ON"
             ],
             "sources": [
                 {
