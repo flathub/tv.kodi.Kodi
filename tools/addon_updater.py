@@ -186,7 +186,15 @@ def _apply_git_update(source: dict, url: str, branch: str) -> bool:
     """
     Resolve the latest commit for url@branch and write it into source.
     Returns True on success, False if the commit could not be resolved.
+
+    Sources carrying an "x-checker-data" definition are left untouched;
+    flatpak-external-data-checker owns their versioning.
     """
+    if "x-checker-data" in source:
+        if args.verbose:
+            print(f"  skipping {url}: managed by x-checker-data")
+        return False
+
     commit = resolve_commit(url, branch)
     if not commit:
         print(f"  Warning: could not resolve commit for {url}@{branch}")
