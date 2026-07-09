@@ -162,8 +162,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
-        sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
+        url: https://github.com/vcrhonek/hwdata/archive/v0.409/hwdata-0.409.tar.gz
+        sha256: 23006accc0f931dd5187d0307a57d0744e2b8feb85e73c37bc0f5229fb31eadd
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -361,8 +361,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
-        sha256: b46d00f58efa6f497b97d2e782c4ee66301d412ddd855dd3068518b3a2cd3ea2
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.6.tar.gz
+        sha256: bb5cfcadfc52dbd5eb512d6e2995e0361351c33e97a87aba426d3a4a7ba6cf70
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -459,8 +459,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
-        tag: 12.2.0
-        commit: 3c41c095064200a02672d89cc5ff629eaf4b0d4f
+        tag: 12.3.0
+        commit: bb1d8e8ab8d29048624d96e3ee53cecf7c13d13d
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
