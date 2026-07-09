@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.supafaust",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.supafaust",
+            "commit": "0dba263b8948155b3eb5ed30d0d962f9c8b408de"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-supafaust",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 mednafen_supafaust_libretro.so /app/lib/libretro/mednafen_supafaust_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/supafaust",
+                    "commit": "2b93c0d7dff5b8f6c4e60e049d66849923fa8bba"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.prosystem",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.prosystem",
+            "commit": "4692d3cfd3f59dc58e4857404d1cfd2e1841084b"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-prosystem",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 prosystem_libretro.so /app/lib/libretro/prosystem_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/prosystem-libretro",
+                    "commit": "363b6dfbd3e240762e022c2b4897b4fe55722be3"
+                }
+            ]
+        }
+    ]
+}

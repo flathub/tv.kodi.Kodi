@@ -1,0 +1,56 @@
+{
+    "name": "game.libretro.beetle-pcfx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.beetle-pcfx",
+            "commit": "d1a6ec9d3cb64ff2ac16b81ca3f8f825ceb8597e"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-beetle-pcfx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "platform=unix"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "platform=armv"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS",
+                "install -D -m 755 mednafen_pcfx_libretro.so /app/lib/libretro/mednafen_pcfx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/beetle-pcfx-libretro",
+                    "commit": "650c30ea2203636a1716675854d11c608ed6eacc"
+                }
+            ]
+        }
+    ]
+}

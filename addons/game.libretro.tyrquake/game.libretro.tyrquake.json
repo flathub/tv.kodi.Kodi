@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.tyrquake",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.tyrquake",
+            "commit": "c64c27ee4c28c585041e72729ccca49bc1727411"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-tyrquake",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -D -m 755 tyrquake_libretro.so /app/lib/libretro/tyrquake_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/tyrquake",
+                    "commit": "8f1e7dcdcdd10f840b7020ac6701ae62b07c41a4"
+                }
+            ]
+        }
+    ]
+}

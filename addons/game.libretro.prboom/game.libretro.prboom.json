@@ -1,0 +1,45 @@
+{
+    "name": "game.libretro.prboom",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.prboom",
+            "commit": "18af6d2213d4eecd3fcd47a4ff6ede0b9704ea4a"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-prboom",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix",
+                "install -D -m 755 prboom_libretro.so /app/lib/libretro/prboom_libretro.so",
+                "install -D -m 644 prboom.wad /app/share/retroarch/system/prboom.wad"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/libretro-prboom",
+                    "commit": "141978db577b52cb943641629401776e49ccbbe6"
+                }
+            ]
+        }
+    ]
+}
