@@ -18,7 +18,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "07ae8a8328e6f30d101858d46402ec05cc4f4c60"
+            "commit": "e01465001f4095cbab413f88a3769557e051d54f"
         }
     ],
     "modules": [
@@ -54,13 +54,19 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/RetroAchievements/rcheevos/archive/v9.2.0.tar.gz",
-                    "sha256": "c8ed6ca74f905ea0c256250e46cced579922880001337e7c3d3d68179ad89d4e"
+                    "url": "https://github.com/RetroAchievements/rcheevos/archive/v12.3.0.tar.gz",
+                    "sha256": "bc7ab9985aee7b6a29e3d65492de9371c866236c5873a1c4493ec9cb6d2603d2",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/RetroAchievements/rcheevos/releases/latest",
+                        "version-query": ".tag_name",
+                        "url-query": "\"https://github.com/RetroAchievements/rcheevos/archive/\" + .tag_name + \".tar.gz\""
+                    }
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/d04890600f5be1004056d42a936335de92d24b1f/depends/common/rcheevos/CMakeLists.txt",
-                    "sha256": "76896119cc13623975abbf99587221f6de8f9b2733ce0729df3c35794ec5783b"
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/e01465001f4095cbab413f88a3769557e051d54f/depends/common/rcheevos/CMakeLists.txt",
+                    "sha256": "5a49ce4c200b2c9a6c2ce0e854c8c0530a7920e71e0eca5285962b0928f14563"
                 }
             ]
         }
