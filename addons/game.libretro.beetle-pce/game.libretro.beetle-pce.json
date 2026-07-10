@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-pce",
-            "commit": "c50a753e16579816cd335244e6413343a8f292c6"
+            "commit": "748eb696b03202d3aa535b7fe0a0799f9e13a8e9"
         }
     ],
     "modules": [

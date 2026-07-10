@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.vecx",
-            "commit": "d9f8b97321f0d5e4f7fa8c403b55ffeb250091fc"
+            "commit": "31ce888efda56bda3cf51fda96eb52cd85867953"
         }
     ],
     "modules": [

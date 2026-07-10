@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.nextpvr",
-            "commit": "77d4057922c4fdf0455f8d359805cf17c35653f8"
+            "commit": "a8043763eb91a90e7dfeafd6455927a403aacb05"
         }
     ],
     "build-options": {

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.vbam",
-            "commit": "672c582fd1d3aedae63153d28fb1d3e04d78b5ed"
+            "commit": "89781679d04d1e2b406963288579795d92faed89"
         }
     ],
     "modules": [
@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/visualboyadvance-m/visualboyadvance-m",
-                    "commit": "7fac06b39a445a98b83439bbef90b7bc278e8a71"
+                    "commit": "e2c073378c8d31cec691faba33912f6a709f1483"
                 }
             ]
         }

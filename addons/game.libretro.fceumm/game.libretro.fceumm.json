@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.fceumm",
-            "commit": "e609945e525ee7020fd51c970914c21c7343d7b9"
+            "commit": "2b2270df973d7221052fd07c5bffc3b539787e42"
         }
     ],
     "modules": [
@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/libretro-fceumm",
-                    "commit": "6e00afac498903586330492cdd81354a6c4c0d4c"
+                    "commit": "0d610d9a6401697157f693a5407adf450a0e52fb"
                 }
             ]
         }

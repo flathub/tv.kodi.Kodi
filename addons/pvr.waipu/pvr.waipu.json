@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/flubshi/pvr.waipu",
-            "commit": "0f88ff5ac46549903fd6be1ae73db711070c9460"
+            "commit": "4a34641ab278f23571f7addfacc34704e0835600"
         }
     ],
     "build-options": {

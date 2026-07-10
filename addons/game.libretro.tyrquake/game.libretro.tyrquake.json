@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.tyrquake",
-            "commit": "c64c27ee4c28c585041e72729ccca49bc1727411"
+            "commit": "d5a5283a13d82f50b5186e486620797a815a4d0d"
         }
     ],
     "modules": [
