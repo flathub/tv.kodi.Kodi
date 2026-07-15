@@ -43,7 +43,9 @@
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DWITH_EXAMPLES=OFF",
                 "-DWITH_AOM_DECODER=OFF",
-                "-DWITH_AOM_ENCODER=OFF"
+                "-DWITH_AOM_ENCODER=OFF",
+                "-DWITH_DAV1D=ON",
+                "-DENABLE_PLUGIN_LOADING=OFF"
             ],
             "build-options": {
                 "no-debuginfo": true,
