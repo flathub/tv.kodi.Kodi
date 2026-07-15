@@ -50,7 +50,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/mame2010-libretro",
-                    "commit": "cc63285e2109263da4eca0911ba07aec60b8109b"
+                    "commit": "484456818393505dd4367e6e4c116c573c04a1ec"
                 }
             ]
         }

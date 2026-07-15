@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/tyrquake",
-                    "commit": "8f1e7dcdcdd10f840b7020ac6701ae62b07c41a4"
+                    "commit": "e57bb11597e8a00380f30f2627d219da960cf69a"
                 }
             ]
         }

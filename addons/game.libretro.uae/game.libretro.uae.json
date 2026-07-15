@@ -38,7 +38,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/libretro-uae",
-                    "commit": "4c518532b15818aa32f89268c832ccb2c4867bcd"
+                    "commit": "6dec430be96028c4f85dde817c2ae23607d2de3c"
                 }
             ]
         }

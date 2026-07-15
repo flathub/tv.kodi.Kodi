@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/mame2000-libretro",
-                    "commit": "cee538f9b28f00039f298cb3c2b588203f07d0be"
+                    "commit": "131ae96d72a613451517fa2eca0b598b2b266a94"
                 }
             ]
         }

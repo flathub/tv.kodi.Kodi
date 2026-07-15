@@ -40,7 +40,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/mame2003-plus-libretro",
-                    "commit": "5373e38e1091eb28f075513ecdc2575bafc8a5e3"
+                    "commit": "2cca4441706b952c2eaf8264713b53fd5452e0bd"
                 }
             ]
         }
