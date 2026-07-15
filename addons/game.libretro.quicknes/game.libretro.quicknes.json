@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.quicknes",
-            "commit": "78bce79e61924f8da5b43378bdfae27c9b404439"
+            "commit": "68cb2d0e1552bac3878fb9434bcfe4fd656c8249"
         }
     ],
     "modules": [
@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/QuickNES_Core",
-                    "commit": "5ae75514d27d0bc45937b31fba966bdd64f9e542"
+                    "commit": "26bb785c9deddb66a17717b21bb4e328f03ade32"
                 }
             ]
         }

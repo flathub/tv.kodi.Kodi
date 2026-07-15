@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-saturn",
-            "commit": "8e0ee044513c174b2cb07eb3324691748441bfaf"
+            "commit": "2abde6bede9d1d5d6edecef4f78a0f172a6ccac4"
         }
     ],
     "modules": [
@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/beetle-saturn-libretro",
-                    "commit": "6ef969467ff9078b79bb56a5a80ed9afd672af27"
+                    "commit": "6f0cb9d1b9689601cd7dbf08e992d232304f50f7"
                 }
             ]
         }

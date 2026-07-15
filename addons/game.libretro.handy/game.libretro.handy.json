@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.handy",
-            "commit": "907e7d3e9f85b1dd0cd9b48b44e2a309c8e8b0d4"
+            "commit": "6f36ca32db1248be1e76d981834e8ca7a2c2c1ad"
         }
     ],
     "modules": [

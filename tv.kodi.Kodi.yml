@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.408/hwdata-0.408.tar.gz
-        sha256: ac7c34efc5941d5cbf739a8f7f6c84b1c2edea493fd3fca10906ef64d7afd690
+        url: https://github.com/vcrhonek/hwdata/archive/v0.409/hwdata-0.409.tar.gz
+        sha256: 23006accc0f931dd5187d0307a57d0744e2b8feb85e73c37bc0f5229fb31eadd
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -381,8 +381,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.5.tar.gz
-        sha256: b46d00f58efa6f497b97d2e782c4ee66301d412ddd855dd3068518b3a2cd3ea2
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.6.tar.gz
+        sha256: bb5cfcadfc52dbd5eb512d6e2995e0361351c33e97a87aba426d3a4a7ba6cf70
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -780,7 +780,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 4ece30a0265b88e94e2bc14a61efa0e70771ef1d
+        commit: f7aed8966ee0a409985a6716a47dce620694b089
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -915,6 +915,9 @@ modules:
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.mame2000/game.libretro.mame2000.json
+  - addons/game.libretro.mame2003_plus/game.libretro.mame2003_plus.json
+  - addons/game.libretro.mame2010/game.libretro.mame2010.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json

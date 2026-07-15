@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.pokemini",
-            "commit": "adf3fd8f64f20bbbbdf762dd202733dfed0bc030"
+            "commit": "4b14434c1b5f9063a54365e2da6addb774520903"
         }
     ],
     "modules": [

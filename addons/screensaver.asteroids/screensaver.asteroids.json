@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.asteroids",
-            "commit": "15ceef6f1189f48d16c159d95320f93cb64453d1"
+            "commit": "ab7aa97bbfbfe54c118cd19dcdb8f7b9b8102b97"
         }
     ],
     "build-options": {
