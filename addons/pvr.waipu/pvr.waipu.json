@@ -15,5 +15,8 @@
     },
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "post-install": [
+        "install -Dp -m 644 ${FLATPAK_BUILDER_BUILDDIR}/pvr.waipu/LICENSE.txt ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/pvr.waipu/LICENSE.txt"
     ]
 }

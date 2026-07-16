@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/libretro-atari800",
-                    "commit": "7d97a633cebc9f41e6d90961a8a46f439ee3adbb"
+                    "commit": "9d3bcf283502512052e21c6f1453fbdf7aa3122b"
                 }
             ]
         }

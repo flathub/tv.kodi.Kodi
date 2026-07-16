@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "commit": "db87dc42c921a796cd5c7c701e838c3cbd31f8f1"
+            "commit": "8cbb7bf745f75b63a838f1561651305ea7b5614f"
         }
     ],
     "modules": [
@@ -43,7 +43,9 @@
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DWITH_EXAMPLES=OFF",
                 "-DWITH_AOM_DECODER=OFF",
-                "-DWITH_AOM_ENCODER=OFF"
+                "-DWITH_AOM_ENCODER=OFF",
+                "-DWITH_DAV1D=ON",
+                "-DENABLE_PLUGIN_LOADING=OFF"
             ],
             "build-options": {
                 "no-debuginfo": true,

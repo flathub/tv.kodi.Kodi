@@ -26,8 +26,9 @@
                 "cxxflags": "-g0"
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C src/libretro/",
-                "install -D -m 755 src/libretro/vbam_libretro.so /app/lib/libretro/vbam_libretro.so"
+                "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_LIBRETRO=ON -DENABLE_WX=OFF -DENABLE_SDL=OFF -DENABLE_LINK=OFF -DBUILD_TESTING=OFF -DENABLE_LTO=OFF",
+                "cmake --build build --target vbam_libretro -j$FLATPAK_BUILDER_N_JOBS",
+                "install -D -m 755 build/vbam_libretro.so /app/lib/libretro/vbam_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -36,7 +37,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/visualboyadvance-m/visualboyadvance-m",
-                    "commit": "e2c073378c8d31cec691faba33912f6a709f1483"
+                    "commit": "55bbb4f932d3f50d4c284490308e4dbac9e51743"
                 }
             ]
         }

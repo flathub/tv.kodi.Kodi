@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.organya",
-            "commit": "0661269cca8771d3311aa9147061aa1cedcc1ad0"
+            "commit": "e420175fa76383c31fd39e3daa27c5d62643428f"
         }
     ],
     "build-options": {

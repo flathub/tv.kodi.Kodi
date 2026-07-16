@@ -67,8 +67,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.bz2
-        sha512: 208c3dee1037b4487c1846b5b5d78d8a88ee58624e4702583f4475518788cbdbefdf48e8fbcb8a2dbbad5d3a5f51a92c85baf978cf9be0aa451c5c86602f200a
+        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.bz2
+        sha512: 1e4dbc409ce77c61c5e4a4f8d6855c35cabf3da5dd6456beccb4c13d0fa58a50045d8ce5bb6832516fe860e6d27303b7b6b8404b330581e122513d39d524dbcc
         x-checker-data:
           type: anitya
           project-id: 18920
@@ -467,6 +467,7 @@ modules:
       - >-
         pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
+      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
@@ -646,6 +647,8 @@ modules:
     config-opts:
       - --enable-shared
       - --disable-static
+    post-install:
+      - install -Dp -m 644 README ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/tinyxml/README
     sources:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
@@ -780,7 +783,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: f7aed8966ee0a409985a6716a47dce620694b089
+        commit: d83ccb7f9db212cff6033193de3797cfb26ddc26
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -841,6 +844,10 @@ modules:
 
   - name: kodi-platform
     buildsystem: cmake-ninja
+    post-install:
+      # same GPL-2.0-or-later as Kodi itself; reuse Kodi's recorded license
+      - mkdir -pm755 ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform
+      - ln -sf ../kodi/LICENSE.md ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform/LICENSE.md
     sources:
       - type: archive
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
@@ -915,9 +922,6 @@ modules:
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
-  - addons/game.libretro.mame2000/game.libretro.mame2000.json
-  - addons/game.libretro.mame2003_plus/game.libretro.mame2003_plus.json
-  - addons/game.libretro.mame2010/game.libretro.mame2010.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
@@ -983,6 +987,7 @@ modules:
   - addons/screensaver.pyro/screensaver.pyro.json
   - addons/screensaver.shadertoy/screensaver.shadertoy.json
   - addons/screensaver.stars/screensaver.stars.json
+  - addons/screensavers.rsxs/screensavers.rsxs.json
   - addons/vfs.libarchive/vfs.libarchive.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
