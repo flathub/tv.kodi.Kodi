@@ -3,7 +3,8 @@ PROJECT ?= tv.kodi.Kodi
 .PHONY: update-addons build flatpak install run clean
 
 update-addons:
-	cd tools && uv run addon_updater.py -r
+	cd tools && uv run addon_updater.py --release --zip
+	cd tools && uv run addon_extensions_updater.py
 	for d in addons/*/; do id=$${d#addons/}; id=$${id%/}; \
 		case $$id in pvr.*) continue;; esac; \
 		if [ -f "$$d/provides.txt" ]; then cat "$$d/provides.txt"; else echo "$$id"; fi; \

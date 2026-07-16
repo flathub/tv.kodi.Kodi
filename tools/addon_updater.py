@@ -134,6 +134,25 @@ def set_build_type(a_data: dict) -> dict:
         a_data["build-options"] = {}
     if "config-opts" not in a_data:
         a_data["config-opts"] = []
+    if args.zip:
+        # PACKAGE_ZIP bundles each addon's lib+share into one dir; the install
+        # prefix override lands that dir at lib/kodi/addons/<id> (Kodi's native
+        # binary-addon path) so it can be mounted directly as a flatpak extension
+        # (no symlinks needed). CMAKE_PREFIX_PATH keeps /app on the find_package/
+        # find_library search path, which the install prefix override would
+        # otherwise drop (needed by addons that locate in-tree deps installed to
+        # /app, e.g. sidplay).
+        a_data["config-opts"] = [
+            o for o in a_data["config-opts"]
+            if not o.startswith("-DCMAKE_INSTALL_PREFIX=")
+        ]
+        for opt in (
+            "-DPACKAGE_ZIP=ON",
+            "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+            "-DCMAKE_PREFIX_PATH=/app",
+        ):
+            if opt not in a_data["config-opts"]:
+                a_data["config-opts"].append(opt)
     if args.release:
         if "-DCMAKE_BUILD_TYPE=Release" not in a_data["config-opts"]:
             a_data["config-opts"].append("-DCMAKE_BUILD_TYPE=Release")
@@ -300,6 +319,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "-r", "--release", help="enable release builds", action="store_true"
+)
+parser.add_argument(
+    "-z", "--zip", help="package each addon into a discrete folder", action="store_true"
 )
 args = parser.parse_args()
 

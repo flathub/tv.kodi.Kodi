@@ -7,13 +7,20 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
             "commit": "850e3db7994b967faf4869d07a03db9fae991d5a"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -52,5 +59,8 @@
                 }
             ]
         }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.pcsx-rearmed"
     ]
 }

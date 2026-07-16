@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.rtmp",
             "commit": "1b995db747b3f8671e04377e069a7b9d9260944d"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -38,6 +42,12 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh inputstream.rtmp"
     ]
 }

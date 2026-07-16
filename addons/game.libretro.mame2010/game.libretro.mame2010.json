@@ -1,0 +1,69 @@
+{
+    "name": "game.libretro.mame2010",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.mame2010",
+            "commit": "56296ef0c10b343a8d757a77f1bf6d16461513fc"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-mame2010",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "PTR64=1 ARM_ENABLED=0 LCPU=x86_64"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "PTR64=1 ARM_ENABLED=1 LCPU=arm64"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app CC=cc LD=cc $ARCH_FLAGS PLATCFLAGS=\"$CFLAGS\" maketree",
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app CC=cc LD=cc $ARCH_FLAGS PLATCFLAGS=\"$CFLAGS\"",
+                "install -D -m 755 mame2010_libretro.so /app/lib/libretro/mame2010_libretro.so",
+                "install -D -m 644 metadata/mame2010.xml /app/share/libretro-database/mame2010/mame2010.xml",
+                "install -D -m 644 docs/license.txt /app/share/licenses/tv.kodi.Kodi/libretro-mame2010/license.txt"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/mame2010-libretro",
+                    "commit": "484456818393505dd4367e6e4c116c573c04a1ec"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.mame2010"
+    ]
+}
