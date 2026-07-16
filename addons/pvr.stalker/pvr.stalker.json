@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.stalker",
             "commit": "07989d2d8e5542135c5c7107ffeb4c316f7f65fc"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "build-options": {
@@ -14,6 +18,12 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh pvr.stalker"
     ]
 }

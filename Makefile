@@ -3,7 +3,8 @@ PROJECT ?= tv.kodi.Kodi
 .PHONY: update-addons addon-list build flatpak install run clean
 
 update-addons:
-	cd tools && uv run addon_updater.py -r -u
+	cd tools && uv run addon_updater.py -r -u --zip
+	cd tools && uv run addon_extensions_updater.py
 	$(MAKE) addon-list
 addon-list:
 	for d in addons/*/; do id=$${d#addons/}; id=$${id%/}; \
