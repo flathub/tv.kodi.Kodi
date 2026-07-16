@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/vfs.sftp",
             "commit": "fbd4351742a0b6a91bc084225b0540fd6fc9f83f"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -46,6 +50,12 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh vfs.sftp"
     ]
 }
