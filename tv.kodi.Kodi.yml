@@ -467,6 +467,7 @@ modules:
       - >-
         pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
+      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
@@ -646,6 +647,8 @@ modules:
     config-opts:
       - --enable-shared
       - --disable-static
+    post-install:
+      - install -Dp -m 644 README ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/tinyxml/README
     sources:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/tinyxml-2.6.2_2.tar.gz
@@ -841,6 +844,10 @@ modules:
 
   - name: kodi-platform
     buildsystem: cmake-ninja
+    post-install:
+      # same GPL-2.0-or-later as Kodi itself; reuse Kodi's recorded license
+      - mkdir -pm755 ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform
+      - ln -sf ../kodi/LICENSE.md ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform/LICENSE.md
     sources:
       - type: archive
         url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
