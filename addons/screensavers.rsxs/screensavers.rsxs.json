@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/screensavers.rsxs",
             "commit": "5121bff115a30c9a0efeecb8c246851a1a91e9de"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "build-options": {
@@ -14,6 +18,33 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.busyspheres",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.colorfire",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.cyclone",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.drempels",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.euphoria",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.feedback",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.fieldlines",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.flocks",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.flux",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.helios",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.hufosmoke",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.hufotunnel",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.hyperspace",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.lattice",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.lorenz",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.matrixview",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.microcosm",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.plasma",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.skyrocket",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.solarwinds",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.spirographx",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.rsxs.sundancer2"
     ]
 }

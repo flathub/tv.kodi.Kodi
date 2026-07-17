@@ -920,14 +920,19 @@ modules:
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
   - addons/game.libretro.fuse/game.libretro.fuse.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
+  - addons/game.libretro.genplus/game.libretro.genplus.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.mame2000/game.libretro.mame2000.json
+  - addons/game.libretro.mame2003_plus/game.libretro.mame2003_plus.json
+  - addons/game.libretro.mame2010/game.libretro.mame2010.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/game.libretro.mupen64plus-nx/game.libretro.mupen64plus-nx.json
   - addons/game.libretro.nestopia/game.libretro.nestopia.json
   - addons/game.libretro.pcsx-rearmed/game.libretro.pcsx-rearmed.json
+  - addons/game.libretro.picodrive/game.libretro.picodrive.json
   - addons/game.libretro.pokemini/game.libretro.pokemini.json
   - addons/game.libretro.prboom/game.libretro.prboom.json
   - addons/game.libretro.prosystem/game.libretro.prosystem.json
@@ -1000,3 +1005,948 @@ modules:
   - addons/visualization.spectrum/visualization.spectrum.json
   - addons/visualization.starburst/visualization.starburst.json
   - addons/visualization.waveform/visualization.waveform.json
+add-extensions:
+  tv.kodi.Kodi.Addon.audiodecoder._2sf:
+    directory: "lib/kodi/addons/audiodecoder.2sf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.asap:
+    directory: "lib/kodi/addons/audiodecoder.asap"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.dumb:
+    directory: "lib/kodi/addons/audiodecoder.dumb"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.fluidsynth:
+    directory: "lib/kodi/addons/audiodecoder.fluidsynth"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.gme:
+    directory: "lib/kodi/addons/audiodecoder.gme"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.gsf:
+    directory: "lib/kodi/addons/audiodecoder.gsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.hvl:
+    directory: "lib/kodi/addons/audiodecoder.hvl"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.modplug:
+    directory: "lib/kodi/addons/audiodecoder.modplug"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.ncsf:
+    directory: "lib/kodi/addons/audiodecoder.ncsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.nosefart:
+    directory: "lib/kodi/addons/audiodecoder.nosefart"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.openmpt:
+    directory: "lib/kodi/addons/audiodecoder.openmpt"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.organya:
+    directory: "lib/kodi/addons/audiodecoder.organya"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.qsf:
+    directory: "lib/kodi/addons/audiodecoder.qsf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.sacd:
+    directory: "lib/kodi/addons/audiodecoder.sacd"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.sidplay:
+    directory: "lib/kodi/addons/audiodecoder.sidplay"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.snesapu:
+    directory: "lib/kodi/addons/audiodecoder.snesapu"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.ssf:
+    directory: "lib/kodi/addons/audiodecoder.ssf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.stsound:
+    directory: "lib/kodi/addons/audiodecoder.stsound"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.timidity:
+    directory: "lib/kodi/addons/audiodecoder.timidity"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.upse:
+    directory: "lib/kodi/addons/audiodecoder.upse"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.usf:
+    directory: "lib/kodi/addons/audiodecoder.usf"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.vgmstream:
+    directory: "lib/kodi/addons/audiodecoder.vgmstream"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audiodecoder.wsr:
+    directory: "lib/kodi/addons/audiodecoder.wsr"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.flac:
+    directory: "lib/kodi/addons/audioencoder.flac"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.lame:
+    directory: "lib/kodi/addons/audioencoder.lame"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.vorbis:
+    directory: "lib/kodi/addons/audioencoder.vorbis"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.audioencoder.wav:
+    directory: "lib/kodi/addons/audioencoder.wav"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro:
+    directory: "lib/kodi/addons/game.libretro"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro._2048:
+    directory: "lib/kodi/addons/game.libretro.2048"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro._81:
+    directory: "lib/kodi/addons/game.libretro.81"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.a5200:
+    directory: "lib/kodi/addons/game.libretro.a5200"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.atari800:
+    directory: "lib/kodi/addons/game.libretro.atari800"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-bsnes:
+    directory: "lib/kodi/addons/game.libretro.beetle-bsnes"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-gba:
+    directory: "lib/kodi/addons/game.libretro.beetle-gba"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-lynx:
+    directory: "lib/kodi/addons/game.libretro.beetle-lynx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-ngp:
+    directory: "lib/kodi/addons/game.libretro.beetle-ngp"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-pce:
+    directory: "lib/kodi/addons/game.libretro.beetle-pce"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-pcfx:
+    directory: "lib/kodi/addons/game.libretro.beetle-pcfx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-psx:
+    directory: "lib/kodi/addons/game.libretro.beetle-psx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-saturn:
+    directory: "lib/kodi/addons/game.libretro.beetle-saturn"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-supergrafx:
+    directory: "lib/kodi/addons/game.libretro.beetle-supergrafx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-vb:
+    directory: "lib/kodi/addons/game.libretro.beetle-vb"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.beetle-wswan:
+    directory: "lib/kodi/addons/game.libretro.beetle-wswan"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.bk:
+    directory: "lib/kodi/addons/game.libretro.bk"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.bluemsx:
+    directory: "lib/kodi/addons/game.libretro.bluemsx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.cap32:
+    directory: "lib/kodi/addons/game.libretro.cap32"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.dosbox:
+    directory: "lib/kodi/addons/game.libretro.dosbox"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.dosbox-pure:
+    directory: "lib/kodi/addons/game.libretro.dosbox-pure"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.fceumm:
+    directory: "lib/kodi/addons/game.libretro.fceumm"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.fuse:
+    directory: "lib/kodi/addons/game.libretro.fuse"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.gambatte:
+    directory: "lib/kodi/addons/game.libretro.gambatte"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.genplus:
+    directory: "lib/kodi/addons/game.libretro.genplus"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.gw:
+    directory: "lib/kodi/addons/game.libretro.gw"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.handy:
+    directory: "lib/kodi/addons/game.libretro.handy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.mame2000:
+    directory: "lib/kodi/addons/game.libretro.mame2000"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mame2003_plus:
+    directory: "lib/kodi/addons/game.libretro.mame2003_plus"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mame2010:
+    directory: "lib/kodi/addons/game.libretro.mame2010"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mesen:
+    directory: "lib/kodi/addons/game.libretro.mesen"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.mesen-s:
+    directory: "lib/kodi/addons/game.libretro.mesen-s"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.mrboom:
+    directory: "lib/kodi/addons/game.libretro.mrboom"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.mupen64plus-nx:
+    directory: "lib/kodi/addons/game.libretro.mupen64plus-nx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.nestopia:
+    directory: "lib/kodi/addons/game.libretro.nestopia"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.pcsx-rearmed:
+    directory: "lib/kodi/addons/game.libretro.pcsx-rearmed"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.picodrive:
+    directory: "lib/kodi/addons/game.libretro.picodrive"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.pokemini:
+    directory: "lib/kodi/addons/game.libretro.pokemini"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.prboom:
+    directory: "lib/kodi/addons/game.libretro.prboom"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.prosystem:
+    directory: "lib/kodi/addons/game.libretro.prosystem"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.quicknes:
+    directory: "lib/kodi/addons/game.libretro.quicknes"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.sameboy:
+    directory: "lib/kodi/addons/game.libretro.sameboy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.stella:
+    directory: "lib/kodi/addons/game.libretro.stella"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.supafaust:
+    directory: "lib/kodi/addons/game.libretro.supafaust"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.swanstation:
+    directory: "lib/kodi/addons/game.libretro.swanstation"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.tgbdual:
+    directory: "lib/kodi/addons/game.libretro.tgbdual"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.tyrquake:
+    directory: "lib/kodi/addons/game.libretro.tyrquake"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.uae:
+    directory: "lib/kodi/addons/game.libretro.uae"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.vbam:
+    directory: "lib/kodi/addons/game.libretro.vbam"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.vecx:
+    directory: "lib/kodi/addons/game.libretro.vecx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
+    directory: "lib/kodi/addons/game.libretro.virtualjaguar"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.yabause:
+    directory: "lib/kodi/addons/game.libretro.yabause"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.shader.presets:
+    directory: "lib/kodi/addons/game.shader.presets"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.imagedecoder.heif:
+    directory: "lib/kodi/addons/imagedecoder.heif"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.imagedecoder.mpo:
+    directory: "lib/kodi/addons/imagedecoder.mpo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.imagedecoder.raw:
+    directory: "lib/kodi/addons/imagedecoder.raw"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.adaptive:
+    directory: "lib/kodi/addons/inputstream.adaptive"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.ffmpegdirect:
+    directory: "lib/kodi/addons/inputstream.ffmpegdirect"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.inputstream.rtmp:
+    directory: "lib/kodi/addons/inputstream.rtmp"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.peripheral.joystick:
+    directory: "lib/kodi/addons/peripheral.joystick"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.peripheral.xarcade:
+    directory: "lib/kodi/addons/peripheral.xarcade"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.argustv:
+    directory: "lib/kodi/addons/pvr.argustv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.demo:
+    directory: "lib/kodi/addons/pvr.demo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.dvblink:
+    directory: "lib/kodi/addons/pvr.dvblink"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.dvbviewer:
+    directory: "lib/kodi/addons/pvr.dvbviewer"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.filmon:
+    directory: "lib/kodi/addons/pvr.filmon"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.freebox:
+    directory: "lib/kodi/addons/pvr.freebox"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.hdhomerun:
+    directory: "lib/kodi/addons/pvr.hdhomerun"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.hts:
+    directory: "lib/kodi/addons/pvr.hts"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.iptvsimple:
+    directory: "lib/kodi/addons/pvr.iptvsimple"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.mediaportal.tvserver:
+    directory: "lib/kodi/addons/pvr.mediaportal.tvserver"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.mythtv:
+    directory: "lib/kodi/addons/pvr.mythtv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.nextpvr:
+    directory: "lib/kodi/addons/pvr.nextpvr"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.njoy:
+    directory: "lib/kodi/addons/pvr.njoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.octonet:
+    directory: "lib/kodi/addons/pvr.octonet"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.pctv:
+    directory: "lib/kodi/addons/pvr.pctv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.plutotv:
+    directory: "lib/kodi/addons/pvr.plutotv"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.sledovanitv.cz:
+    directory: "lib/kodi/addons/pvr.sledovanitv.cz"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.stalker:
+    directory: "lib/kodi/addons/pvr.stalker"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.teleboy:
+    directory: "lib/kodi/addons/pvr.teleboy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.vbox:
+    directory: "lib/kodi/addons/pvr.vbox"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.vdr.vnsi:
+    directory: "lib/kodi/addons/pvr.vdr.vnsi"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.vuplus:
+    directory: "lib/kodi/addons/pvr.vuplus"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.waipu:
+    directory: "lib/kodi/addons/pvr.waipu"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.wmc:
+    directory: "lib/kodi/addons/pvr.wmc"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.pvr.zattoo:
+    directory: "lib/kodi/addons/pvr.zattoo"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.asteroids:
+    directory: "lib/kodi/addons/screensaver.asteroids"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.asterwave:
+    directory: "lib/kodi/addons/screensaver.asterwave"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.biogenesis:
+    directory: "lib/kodi/addons/screensaver.biogenesis"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.cpblobs:
+    directory: "lib/kodi/addons/screensaver.cpblobs"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.greynetic:
+    directory: "lib/kodi/addons/screensaver.greynetic"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.matrixtrails:
+    directory: "lib/kodi/addons/screensaver.matrixtrails"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.pingpong:
+    directory: "lib/kodi/addons/screensaver.pingpong"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.pyro:
+    directory: "lib/kodi/addons/screensaver.pyro"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.busyspheres:
+    directory: "lib/kodi/addons/screensaver.rsxs.busyspheres"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.colorfire:
+    directory: "lib/kodi/addons/screensaver.rsxs.colorfire"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.cyclone:
+    directory: "lib/kodi/addons/screensaver.rsxs.cyclone"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.drempels:
+    directory: "lib/kodi/addons/screensaver.rsxs.drempels"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.euphoria:
+    directory: "lib/kodi/addons/screensaver.rsxs.euphoria"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.feedback:
+    directory: "lib/kodi/addons/screensaver.rsxs.feedback"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.fieldlines:
+    directory: "lib/kodi/addons/screensaver.rsxs.fieldlines"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.flocks:
+    directory: "lib/kodi/addons/screensaver.rsxs.flocks"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.flux:
+    directory: "lib/kodi/addons/screensaver.rsxs.flux"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.helios:
+    directory: "lib/kodi/addons/screensaver.rsxs.helios"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.hufosmoke:
+    directory: "lib/kodi/addons/screensaver.rsxs.hufosmoke"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.hufotunnel:
+    directory: "lib/kodi/addons/screensaver.rsxs.hufotunnel"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.hyperspace:
+    directory: "lib/kodi/addons/screensaver.rsxs.hyperspace"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.lattice:
+    directory: "lib/kodi/addons/screensaver.rsxs.lattice"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.lorenz:
+    directory: "lib/kodi/addons/screensaver.rsxs.lorenz"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.matrixview:
+    directory: "lib/kodi/addons/screensaver.rsxs.matrixview"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.microcosm:
+    directory: "lib/kodi/addons/screensaver.rsxs.microcosm"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.plasma:
+    directory: "lib/kodi/addons/screensaver.rsxs.plasma"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.skyrocket:
+    directory: "lib/kodi/addons/screensaver.rsxs.skyrocket"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.solarwinds:
+    directory: "lib/kodi/addons/screensaver.rsxs.solarwinds"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.spirographx:
+    directory: "lib/kodi/addons/screensaver.rsxs.spirographx"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.rsxs.sundancer2:
+    directory: "lib/kodi/addons/screensaver.rsxs.sundancer2"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.shadertoy:
+    directory: "lib/kodi/addons/screensaver.shadertoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.screensaver.stars:
+    directory: "lib/kodi/addons/screensaver.stars"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.libarchive:
+    directory: "lib/kodi/addons/vfs.libarchive"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.rar:
+    directory: "lib/kodi/addons/vfs.rar"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.sftp:
+    directory: "lib/kodi/addons/vfs.sftp"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.fishbmc:
+    directory: "lib/kodi/addons/visualization.fishbmc"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.goom:
+    directory: "lib/kodi/addons/visualization.goom"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.matrix:
+    directory: "lib/kodi/addons/visualization.matrix"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.pictureit:
+    directory: "lib/kodi/addons/visualization.pictureit"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.projectm:
+    directory: "lib/kodi/addons/visualization.projectm"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.shadertoy:
+    directory: "lib/kodi/addons/visualization.shadertoy"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.spectrum:
+    directory: "lib/kodi/addons/visualization.spectrum"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.starburst:
+    directory: "lib/kodi/addons/visualization.starburst"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.visualization.waveform:
+    directory: "lib/kodi/addons/visualization.waveform"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+cleanup-commands:
+  - "mkdir -pm755 $FLATPAK_DEST/lib/kodi/addons"
