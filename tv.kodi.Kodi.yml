@@ -290,6 +290,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 21468
+          versions: {<: 8.0.0}
           url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
     modules:
       - name: p8-platform
