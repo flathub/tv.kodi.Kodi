@@ -290,6 +290,7 @@ modules:
         x-checker-data:
           type: anitya
           project-id: 21468
+          versions: {<: 8.0.0}
           url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
     modules:
       - name: p8-platform
@@ -931,6 +932,7 @@ modules:
   - addons/screensaver.pyro/screensaver.pyro.json
   - addons/screensaver.shadertoy/screensaver.shadertoy.json
   - addons/screensaver.stars/screensaver.stars.json
+  - addons/screensavers.rsxs/screensavers.rsxs.json
   - addons/vfs.libarchive/vfs.libarchive.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
