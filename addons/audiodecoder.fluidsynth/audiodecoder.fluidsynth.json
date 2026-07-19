@@ -17,6 +17,68 @@
         }
     ],
     "modules": [
-        "../../shared-modules/linux-audio/fluidsynth2.json"
+        {
+            "name": "fluidsynth",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-Denable-alsa=OFF",
+                "-Denable-aufile=OFF",
+                "-Denable-dbus=OFF",
+                "-Denable-jack=OFF",
+                "-Denable-ladspa=OFF",
+                "-Denable-network=OFF",
+                "-Denable-oss=OFF",
+                "-Denable-pipewire=OFF",
+                "-Denable-pulseaudio=OFF",
+                "-Denable-readline=OFF",
+                "-Denable-sdl3=OFF",
+                "-Denable-systemd=OFF"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig",
+                "/share/man",
+                "*.so"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.5.6.tar.gz",
+                    "sha256": "0825f024c9cf7a18073739b83612d46542ecbfb349ae9147a1e9f08e2d524407",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 10437,
+                        "url-template": "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v$version.tar.gz"
+                    }
+                }
+            ],
+            "modules": [
+                {
+                    "name": "gcem",
+                    "buildsystem": "cmake-ninja",
+                    "config-opts": [
+                        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+                    ],
+                    "cleanup": [
+                        "*"
+                    ],
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://github.com/kthohr/gcem/archive/refs/tags/v1.18.0.tar.gz",
+                            "sha256": "8e71a9f5b62956da6c409dda44b483f98c4a98ae72184f3aa4659ae5b3462e61",
+                            "x-checker-data": {
+                                "type": "anitya",
+                                "project-id": 385675,
+                                "stable-only": true,
+                                "url-template": "https://github.com/kthohr/gcem/archive/refs/tags/v$version.tar.gz"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }
