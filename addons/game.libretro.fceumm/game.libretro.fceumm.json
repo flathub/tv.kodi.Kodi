@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/libretro-fceumm",
-                    "commit": "becde7dc48ad590e9c63ac9637dbaa01552beba3"
+                    "commit": "38440e42415e1db959ea030a121f48736d96adc4"
                 }
             ]
         }
