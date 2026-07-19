@@ -178,8 +178,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.409/hwdata-0.409.tar.gz
-        sha256: 23006accc0f931dd5187d0307a57d0744e2b8feb85e73c37bc0f5229fb31eadd
+        url: https://github.com/vcrhonek/hwdata/archive/v0.410/hwdata-0.410.tar.gz
+        sha256: 2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -218,8 +218,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
-        sha256: a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39
+        url: https://download.videolan.org/videolan/libaacs/0.12.0/libaacs-0.12.0.tar.bz2
+        sha256: 1996673a9fc45ee4a364c66ffa84756629bf3923e52346c7358b71becb8e4419
         x-checker-data:
           type: anitya
           project-id: 5562
@@ -227,7 +227,6 @@ modules:
       - type: script
         dest-filename: autogen.sh
         commands:
-          - rm -fv m4/libgcrypt.m4
           - autoreconf -vfi
   - name: libbdplus
     rm-configure: true
@@ -257,11 +256,10 @@ modules:
       - -Denable_devtools=false
       - -Denable_examples=false
       - -Dbdj_jar=disabled
-      - -Djava9=false
     sources:
       - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
-        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
+        url: https://download.videolan.org/pub/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz
+        sha512: f35d89097ad0c263ffa2102aba0068e7fe9b85afe27b14cf3c34ed6eff5876d1528aa8a62c3941b767353be2e1de4ae765f1402bd44af4544d922ffb69cea354
         x-checker-data:
           type: anitya
           project-id: 1565
@@ -317,8 +315,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.3.0/libdisplay-info-0.3.0.tar.gz
-        sha512: fa023df810d9354135c3a8576233b1a4bab29d943e9ec61ba30cfe512001e4aa56ffc10e1af42ec4d1caa5c10d8e34e3bdbe51d1858d3db580b03a3fa266ee66
+        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.4.0/libdisplay-info-0.4.0.tar.gz
+        sha512: e1fd3ebc4e68500df31539e65168e5bc8b26b1315ef0796c1e073e58fa5e177d13338ba3caaf4e8edff89634ad73134062013400439c18cf8c522df85681e862
         x-checker-data:
           type: anitya
           project-id: 326668
@@ -381,8 +379,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.6.tar.gz
-        sha256: bb5cfcadfc52dbd5eb512d6e2995e0361351c33e97a87aba426d3a4a7ba6cf70
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.9.tar.gz
+        sha256: 6e9adc446b08083ec03d40317fb66ca6f2e03e4f6170aef33a6e59bb08db2012
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -467,7 +465,8 @@ modules:
       - >-
         pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
-      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
+      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE
+        ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
@@ -544,8 +543,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.4.tar.gz
-        sha256: df2c51ab4361ec626ab9988e5946efcca8465bc7afae834291d5558468265ff8
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.5.tar.gz
+        sha256: 6d5d7ee82f5ce9da4135086c9b184e47a58b4b023565f58abbb1f8c8a922306b
         x-checker-data:
           type: anitya
           project-id: 4758
