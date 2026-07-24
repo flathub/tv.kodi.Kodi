@@ -733,6 +733,26 @@ modules:
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
+  - name: taglib
+    buildsystem: cmake-ninja
+    builddir: true
+    cleanup:
+      - /bin
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_TESTING=OFF
+      - -DWITH_ZLIB=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-2.3.1.tar.gz
+        sha256: a19d90e6fd41d09a0281ec0fe762d51491d7a6ccffc923c4f7868c5e647ca230
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          stable-only: true
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: kodi
     buildsystem: cmake-ninja
     builddir: true
