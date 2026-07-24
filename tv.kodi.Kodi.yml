@@ -210,32 +210,28 @@ modules:
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
   - name: libaacs
-    rm-configure: true
     config-opts:
       - --enable-shared
       - --disable-static
     cleanup:
       - /bin
     sources:
-      - type: archive
-        url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
-        sha256: a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39
+      - type: git
+        url: https://code.videolan.org/videolan/libaacs.git
+        tag: 0.12.0
+        commit: a414bf3bd80b9b05bcb3dff72329d24b60bc80df
         x-checker-data:
-          type: anitya
-          project-id: 5562
-          url-template: https://download.videolan.org/videolan/libaacs/$version/libaacs-$version.tar.bz2
+          type: git
+          tag-pattern: ^([\d.]+)$
       - type: script
         dest-filename: autogen.sh
         commands:
-          - rm -fv m4/libgcrypt.m4
           - autoreconf -vfi
   - name: libbdplus
     rm-configure: true
     config-opts:
       - --enable-shared
       - --disable-static
-    build-options:
-      append-path: /app/share/vlc/extra/bluray/ant/bin
     sources:
       - type: archive
         url: https://download.videolan.org/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2
@@ -257,15 +253,14 @@ modules:
       - -Denable_devtools=false
       - -Denable_examples=false
       - -Dbdj_jar=disabled
-      - -Djava9=false
     sources:
-      - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
-        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
+      - type: git
+        url: https://code.videolan.org/videolan/libbluray.git
+        tag: 1.5.0
+        commit: d75c88e54c893e5cbf4c61d356477655eb435769
         x-checker-data:
-          type: anitya
-          project-id: 1565
-          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: libcdio
     config-opts:
       - --enable-shared
@@ -292,23 +287,12 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/c7c4c82dc171c49decfbfe5d2959706d3e2ea47c.tar.gz
-        sha256: 1ea208bd6218d70102fead867c6c7ef92d5d9f6f78e5010bc0ce41312d24ccfd
+        url: https://github.com/Pulse-Eight/libcec/archive/libcec-8.1.0.tar.gz
+        sha256: 11fef68e5a77adf30519096c333d4cdb3f4cfd1d9e0a6d679636899c5807f585
         x-checker-data:
           type: anitya
           project-id: 21468
-          url-template: https://github.com/Pulse-Eight/libcec/archive/$version.tar.gz
-    modules:
-      - name: p8-platform
-        buildsystem: cmake-ninja
-        sources:
-          - type: git
-            url: https://github.com/xbmc/platform.git
-            tag: p8-platform-20260129
-            commit: c51ddf4787d083b6cf039761a48fb90d0c4f00ff
-            x-checker-data:
-              type: git
-              tag-pattern: ^(p8-platform-[\d]+)$
+          url-template: https://github.com/Pulse-Eight/libcec/archive/libcec-$version.tar.gz
   - name: libdisplay-info
     buildsystem: meson
     config-opts:
@@ -317,8 +301,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.3.0/libdisplay-info-0.3.0.tar.gz
-        sha512: fa023df810d9354135c3a8576233b1a4bab29d943e9ec61ba30cfe512001e4aa56ffc10e1af42ec4d1caa5c10d8e34e3bdbe51d1858d3db580b03a3fa266ee66
+        url: https://gitlab.freedesktop.org/emersion/libdisplay-info/-/archive/0.4.0/libdisplay-info-0.4.0.tar.gz
+        sha512: e1fd3ebc4e68500df31539e65168e5bc8b26b1315ef0796c1e073e58fa5e177d13338ba3caaf4e8edff89634ad73134062013400439c18cf8c522df85681e862
         x-checker-data:
           type: anitya
           project-id: 326668
@@ -467,7 +451,8 @@ modules:
       - >-
         pip3 install --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
-      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
+      - install -Dp -m 644 ${FLATPAK_DEST}/lib/python3.*/site-packages/pybind11-*.dist-info/licenses/LICENSE
+        ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
@@ -480,7 +465,7 @@ modules:
   - name: python-pillow
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=/app --root=/
+      - pip3 install --no-index --no-build-isolation --prefix=${FLATPAK_DEST} .
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
@@ -743,6 +728,26 @@ modules:
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
+  - name: taglib
+    buildsystem: cmake-ninja
+    builddir: true
+    cleanup:
+      - /bin
+    config-opts:
+      - -DBUILD_SHARED_LIBS=ON
+      - -DBUILD_EXAMPLES=OFF
+      - -DBUILD_TESTING=OFF
+      - -DWITH_ZLIB=ON
+      - -DCMAKE_INSTALL_LIBDIR=lib
+    sources:
+      - type: archive
+        url: https://taglib.org/releases/taglib-2.3.1.tar.gz
+        sha256: a19d90e6fd41d09a0281ec0fe762d51491d7a6ccffc923c4f7868c5e647ca230
+        x-checker-data:
+          type: anitya
+          project-id: 1982
+          stable-only: true
+          url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: kodi
     buildsystem: cmake-ninja
     builddir: true
@@ -783,7 +788,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: d83ccb7f9db212cff6033193de3797cfb26ddc26
+        commit: b6e177187267e0ec63d5f146fd7b671d2831a807
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -841,17 +846,6 @@ modules:
           - mv build/download/*.tar.gz build/download/*.zip /app/tarballs/
     cleanup:
       - /tarballs
-
-  - name: kodi-platform
-    buildsystem: cmake-ninja
-    post-install:
-      # same GPL-2.0-or-later as Kodi itself; reuse Kodi's recorded license
-      - mkdir -pm755 ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform
-      - ln -sf ../kodi/LICENSE.md ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/kodi-platform/LICENSE.md
-    sources:
-      - type: archive
-        url: https://github.com/xbmc/kodi-platform/archive/844cf3ef5ad0649b8d97894d422928ec8a7a7d71.tar.gz
-        sha256: 3215ff51649c852645e499917b69c7393f3998cd458440ab6025c1ce2434dd88
 
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp

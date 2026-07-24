@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/stella-emu/stella",
-                    "commit": "90d01ecb309b9c3317ca762078d4df40681e111b"
+                    "commit": "61f4282f57934df94e08a2db79ec492aaab5b805"
                 }
             ]
         }

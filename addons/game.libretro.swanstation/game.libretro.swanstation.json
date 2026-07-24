@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/swanstation",
-                    "commit": "f901022198dacf125d43331c6540492441ab415b"
+                    "commit": "5430a4a53b89fa5827c97b84ada29d23317245bc"
                 }
             ]
         }
