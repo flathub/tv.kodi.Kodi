@@ -34,8 +34,9 @@
                     "commit": "da885dcdf33620ef26aa04cac9e215378b80252e",
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^v[\\d.]+$"
-                    }
+                        "tag-pattern": "^v([\\d.]+)$"
+                    },
+                    "tag": "v1.0.6"
                 }
             ]
         },
@@ -59,12 +60,13 @@
                 {
                     "type": "git",
                     "url": "https://github.com/projectM-visualizer/projectm",
-                    "commit": "4d2849333b63235a6af4d1f02508a97529d96dc7",
+                    "commit": "e0b0a967f0ffd7d332106c366668ed271718472b",
                     "disable-submodules": true,
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^v[\\d.]+$"
-                    }
+                        "tag-pattern": "^v([\\d.]+)$"
+                    },
+                    "tag": "v4.1.7"
                 }
             ]
         }
