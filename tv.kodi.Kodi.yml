@@ -210,32 +210,28 @@ modules:
           project-id: 1560
           url-template: https://github.com/libass/libass/archive/refs/tags/$version.tar.gz
   - name: libaacs
-    rm-configure: true
     config-opts:
       - --enable-shared
       - --disable-static
     cleanup:
       - /bin
     sources:
-      - type: archive
-        url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
-        sha256: a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39
+      - type: git
+        url: https://code.videolan.org/videolan/libaacs.git
+        tag: 0.12.0
+        commit: a414bf3bd80b9b05bcb3dff72329d24b60bc80df
         x-checker-data:
-          type: anitya
-          project-id: 5562
-          url-template: https://download.videolan.org/videolan/libaacs/$version/libaacs-$version.tar.bz2
+          type: git
+          tag-pattern: ^([\d.]+)$
       - type: script
         dest-filename: autogen.sh
         commands:
-          - rm -fv m4/libgcrypt.m4
           - autoreconf -vfi
   - name: libbdplus
     rm-configure: true
     config-opts:
       - --enable-shared
       - --disable-static
-    build-options:
-      append-path: /app/share/vlc/extra/bluray/ant/bin
     sources:
       - type: archive
         url: https://download.videolan.org/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2
@@ -257,15 +253,14 @@ modules:
       - -Denable_devtools=false
       - -Denable_examples=false
       - -Dbdj_jar=disabled
-      - -Djava9=false
     sources:
-      - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
-        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
+      - type: git
+        url: https://code.videolan.org/videolan/libbluray.git
+        tag: 1.5.0
+        commit: d75c88e54c893e5cbf4c61d356477655eb435769
         x-checker-data:
-          type: anitya
-          project-id: 1565
-          url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: libcdio
     config-opts:
       - --enable-shared
