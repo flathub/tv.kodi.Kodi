@@ -465,7 +465,7 @@ modules:
   - name: python-pillow
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=/app --root=/
+      - pip3 install --no-index --no-build-isolation --prefix=${FLATPAK_DEST} .
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
