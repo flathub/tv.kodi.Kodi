@@ -362,8 +362,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.6.tar.gz
-        sha256: bb5cfcadfc52dbd5eb512d6e2995e0361351c33e97a87aba426d3a4a7ba6cf70
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.7.tar.gz
+        sha256: 827250db649546cdb04bea01f5f0560f0edffde9130e256387d1f977242eaf98
         x-checker-data:
           type: anitya
           project-id: 1658
