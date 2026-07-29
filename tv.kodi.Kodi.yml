@@ -205,8 +205,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://download.videolan.org/videolan/libaacs/0.11.1/libaacs-0.11.1.tar.bz2
-        sha256: a88aa0ebe4c98a77f7aeffd92ab3ef64ac548c6b822e8248a8b926725bea0a39
+        url: https://download.videolan.org/videolan/libaacs/0.12.0/libaacs-0.12.0.tar.bz2
+        sha256: 1996673a9fc45ee4a364c66ffa84756629bf3923e52346c7358b71becb8e4419
         x-checker-data:
           type: anitya
           project-id: 5562
@@ -248,8 +248,8 @@ modules:
       - -Djava9=false
     sources:
       - type: archive
-        url: https://download.videolan.org/pub/videolan/libbluray/1.4.0/libbluray-1.4.0.tar.xz
-        sha512: 7284169b32624e5ca4fd71b260a4cc2921efafb1f63143a562568be45e373bfcbfeac63895d5659ccdcb11d7dbd0236cc46ccb15c12eff855703010e46991f27
+        url: https://download.videolan.org/pub/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz
+        sha512: f35d89097ad0c263ffa2102aba0068e7fe9b85afe27b14cf3c34ed6eff5876d1528aa8a62c3941b767353be2e1de4ae765f1402bd44af4544d922ffb69cea354
         x-checker-data:
           type: anitya
           project-id: 1565
@@ -362,8 +362,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.7.tar.gz
-        sha256: 827250db649546cdb04bea01f5f0560f0edffde9130e256387d1f977242eaf98
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.8.tar.gz
+        sha256: 0763970a0e39f8f382123366e3cf5d03f70aa1e2208d3101e84da3e2cd674703
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -535,8 +535,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.4.tar.gz
-        sha256: df2c51ab4361ec626ab9988e5946efcca8465bc7afae834291d5558468265ff8
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.5.tar.gz
+        sha256: 6d5d7ee82f5ce9da4135086c9b184e47a58b4b023565f58abbb1f8c8a922306b
         x-checker-data:
           type: anitya
           project-id: 4758
