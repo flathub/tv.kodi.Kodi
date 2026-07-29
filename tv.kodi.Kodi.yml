@@ -362,8 +362,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.7.tar.gz
-        sha256: 827250db649546cdb04bea01f5f0560f0edffde9130e256387d1f977242eaf98
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.8.tar.gz
+        sha256: 0763970a0e39f8f382123366e3cf5d03f70aa1e2208d3101e84da3e2cd674703
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -535,8 +535,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.4.tar.gz
-        sha256: df2c51ab4361ec626ab9988e5946efcca8465bc7afae834291d5558468265ff8
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.5.tar.gz
+        sha256: 6d5d7ee82f5ce9da4135086c9b184e47a58b4b023565f58abbb1f8c8a922306b
         x-checker-data:
           type: anitya
           project-id: 4758
