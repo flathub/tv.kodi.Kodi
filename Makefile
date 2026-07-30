@@ -1,9 +1,16 @@
 PROJECT ?= tv.kodi.Kodi
 
-.PHONY: update-addons build flatpak install run clean
+.PHONY: update-addons update-addon-modules addon-list build flatpak install run clean
 
 update-addons:
 	cd tools && uv run addon_updater.py -r
+	$(MAKE) addon-list
+# bump addon dependency modules to latest githash, all of them or
+# ADDONS="<addon id> ..."
+update-addon-modules:
+	cd tools && uv run addon_updater.py -r --modules $(ADDONS)
+	$(MAKE) addon-list
+addon-list:
 	for d in addons/*/; do id=$${d#addons/}; id=$${id%/}; \
 		case $$id in pvr.*) continue;; esac; \
 		if [ -f "$$d/provides.txt" ]; then cat "$$d/provides.txt"; else echo "$$id"; fi; \
