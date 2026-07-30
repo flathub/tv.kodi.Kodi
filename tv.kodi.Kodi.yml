@@ -233,8 +233,6 @@ modules:
     config-opts:
       - --enable-shared
       - --disable-static
-    build-options:
-      append-path: /app/share/vlc/extra/bluray/ant/bin
     sources:
       - type: archive
         url: https://download.videolan.org/videolan/libbdplus/0.2.0/libbdplus-0.2.0.tar.bz2
