@@ -11,14 +11,17 @@
     "modules": [
         {
             "name": "libhdhomerun",
-            "buildsystem": "cmake-ninja",
+            "buildsystem": "simple",
             "build-options": {
                 "no-debuginfo": true,
                 "cflags": "-g0",
                 "cxxflags": "-g0"
             },
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release"
+            "build-commands": [
+                "make -j $FLATPAK_BUILDER_N_JOBS SHARED=\"-shared -Wl,-soname,libhdhomerun.so.0\" libhdhomerun.so",
+                "install -D -m 755 libhdhomerun.so /app/lib/libhdhomerun.so.0",
+                "ln -sf libhdhomerun.so.0 /app/lib/libhdhomerun.so",
+                "install -D -m 644 -t /app/include/hdhomerun hdhomerun*.h"
             ],
             "sources": [
                 {
@@ -33,12 +36,6 @@
                         "version-query": "$tag",
                         "url-query": "\"https://github.com/Silicondust/libhdhomerun/archive/\\($tag)/libhdhomerun-\\($version).tar.gz\""
                     }
-                },
-                {
-                    "type": "file",
-                    "//": "Update this when updating from Omega",
-                    "url": "https://raw.githubusercontent.com/kodi-pvr/pvr.hdhomerun/90439d15f6a0e3be8370343b75d7256b16a34c0e/depends/common/hdhomerun/CMakeLists.txt",
-                    "sha256": "e1bb766ac6e9d70fda6f5a2c5991bebef440bcd3ba6bb9be6c93e2d8fbf4bd29"
                 }
             ]
         }
