@@ -782,9 +782,9 @@ modules:
       - -DAPP_RENDER_SYSTEM=gles
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
-      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.gz
-      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.gz
-      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.gz
+      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.bz2
+      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.bz2
+      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.bz2
       - -DTARBALL_DIR=/app/tarballs
     sources:
       - type: git
@@ -812,20 +812,20 @@ modules:
         dest: build/download/
         dest-filename: crossguid.tar.gz
       - type: file
-        url: https://github.com/xbmc/libdvdcss/archive/1.4.3-Next-Nexus-Alpha2-2.tar.gz
-        sha512: d3be3bfc13c5ea56d8db745c2aab090c99760684fe4c8f62a13d266feb319e9180ceeecf8116bfd2ed90d9accba2c11dbbf93b61ad00f69a40812ebf4eabcdda
+        url: http://mirrors.kodi.tv/build-deps/sources/libdvdcss-1.5.0.tar.bz2
+        sha512: 439fbd9dae60b9a114d3429a19703478c734e8525ac6852da6f05f72d9ca44ca0ac5e874ab6a10017e7f31869fcd29f01d1bc156c4f0331b4e4abd98ec2f95cd
         dest: build/download/
-        dest-filename: libdvdcss.tar.gz
+        dest-filename: libdvdcss.tar.bz2
       - type: file
-        url: https://github.com/xbmc/libdvdread/archive/6.1.3-Next-Nexus-Alpha2-2.tar.gz
-        sha512: 629a41157d07b8ec0ea1fe89ae5ec48f63047472a862782b805c531ae31a0376fc4dc15175f8280c3ef91d7fa977bacebb1b51232640034a34bab2293210fc5e
+        url: http://mirrors.kodi.tv/build-deps/sources/libdvdread-7.0.1.tar.bz2
+        sha512: b5390a1acb8fdf6e24188f9259199eb0fef2dd4b332447ba2bfa571f9fc0c3bfad00c1d27a8b8806180a853c04a818b7802d3075ff787142c1a175ad798c6a3d
         dest: build/download/
-        dest-filename: libdvdread.tar.gz
+        dest-filename: libdvdread.tar.bz2
       - type: file
-        url: https://github.com/xbmc/libdvdnav/archive/6.1.1-Next-Nexus-Alpha2-2.tar.gz
-        sha512: 51e6fc033121241354a5f0b3fc9a430577ae3ff6bb7f31445aa548ef4893037fb80eea3b2c6774c81e9ebaf9c45e9b490c98c2c65eb38f9f7daba84b236f7e1d
+        url: http://mirrors.kodi.tv/build-deps/sources/libdvdnav-7.0.0.tar.bz2
+        sha512: 8d12d476e352def9716ecbd7ba184a70dd9bae87dcde669b8647a0ef9ac1991f617c9918c043e159eb353302c4cc50fb71bc591ceaeba1d3b9d47af77fa72c71
         dest: build/download/
-        dest-filename: libdvdnav.tar.gz
+        dest-filename: libdvdnav.tar.bz2
       - type: file
         url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
         sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
@@ -844,7 +844,7 @@ modules:
       - type: shell
         commands:
           - mkdir -p /app/tarballs
-          - mv build/download/*.tar.gz build/download/*.zip /app/tarballs/
+          - mv build/download/*.tar.gz build/download/*.tar.bz2 build/download/*.zip /app/tarballs/
     cleanup:
       - /tarballs
 
