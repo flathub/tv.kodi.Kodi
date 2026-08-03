@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/beetle-bsnes-libretro",
-                    "commit": "e2b7694d12c44a2842cf4640844287f622026d9a"
+                    "commit": "08e5a8cc719859180891544517816093f4dbd40a"
                 },
                 {
                     "type": "file",

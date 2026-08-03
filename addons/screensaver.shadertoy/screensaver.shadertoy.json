@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.shadertoy",
-            "commit": "aeb3ca1ec6746db3895e44cfb2b517d68a3e3527"
+            "commit": "5498c06c145036c8c282fbdc1f18f2ed60926435"
         }
     ],
     "build-options": {

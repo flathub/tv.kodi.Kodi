@@ -221,15 +221,37 @@ def _apply_git_update(source: dict, url: str, branch: str) -> bool:
     return True
 
 
-def _update_module_git_sources(module: dict, fallback_branch: str) -> int:
+def _report_git_drift(source: dict, url: str, branch: str, addon_id: str) -> bool:
     """
-    Recursively update every git source within an inline module dict.
-    String entries (paths to external JSON modules) are silently ignored.
-    Returns the number of sources updated.
+    Report, without writing, that url@branch has moved past the recorded
+    commit.  Used for module sources when --modules did not select them.
+    Returns True if drift was recorded.
+    """
+    if "x-checker-data" in source:
+        return False
+
+    commit = resolve_commit(url, branch)
+    current = source.get("commit", "")
+    if not commit or commit == current:
+        return False
+
+    state = "newer" if commit_is_newer(url, current, commit) else "not newer"
+    module_drift[f"{addon_id}: {url}"] = (
+        f"{current[:12]} → {commit[:12]} ({state}, resolved from '{branch}')"
+    )
+    return True
+
+
+def _walk_module_git_sources(module: dict, fallback_branch: str, action) -> int:
+    """
+    Recursively apply action(source, url, branch) to every github git source
+    within an inline module dict.  String entries (paths to external JSON
+    modules) are silently ignored.  Returns the number of sources the action
+    reported as handled.
     """
     if not isinstance(module, dict):
         return 0
-    updated = 0
+    hits = 0
     for source in module.get("sources", []):
         if source.get("type") != "git":
             continue
@@ -239,15 +261,26 @@ def _update_module_git_sources(module: dict, fallback_branch: str) -> int:
         branch = source.get("branch", fallback_branch)
         if args.verbose:
             print(f"  module '{module.get('name', '?')}' git source: {url}@{branch}")
-        if _apply_git_update(source, url, branch):
-            updated += 1
+        if action(source, url, branch):
+            hits += 1
     for sub in module.get("modules", []):
-        updated += _update_module_git_sources(sub, fallback_branch)
-    return updated
+        hits += _walk_module_git_sources(sub, fallback_branch, action)
+    return hits
+
+
+def modules_selected(addon_id: str) -> bool:
+    """
+    True when --modules asked for addon_id's dependency modules to be bumped
+    to the latest githash.  Absent flag means no addon is selected, a bare
+    flag means every addon is.
+    """
+    if args.modules is None:
+        return False
+    return not args.modules or addon_id in args.modules
 
 
 def update_addon_sources(
-    addon_data: dict, main_url: str, main_rev: str, main_atype: str
+    addon_id: str, addon_data: dict, main_url: str, main_rev: str, main_atype: str
 ) -> dict:
     """
     Update all updatable sources in addon_data:
@@ -256,7 +289,9 @@ def update_addon_sources(
        addon_data["sources"].  URL and branch come from the binary addon repo
        definition (.txt file).
 
-    2. all git sources inside module definitions
+    2. git sources inside module definitions, but only for addons selected
+       with --modules; for the rest any drift is merely reported.  Those
+       upstreams are volatile, so following their branch HEAD is opt-in.
     """
     sources = addon_data.get("sources", [])
 
@@ -273,14 +308,24 @@ def update_addon_sources(
             _apply_git_update(primary, main_url, main_rev)
 
     # module definitions
+    selected = modules_selected(addon_id)
     for module in addon_data.get("modules", []):
         if isinstance(module, str):
             if args.verbose:
                 print(f"  skipping external module reference: {module}")
             continue
-        n = _update_module_git_sources(module, main_rev)
-        if args.verbose and n:
-            print(f"  updated {n} git source(s) in module '{module.get('name', '?')}'")
+        if selected:
+            n = _walk_module_git_sources(module, main_rev, _apply_git_update)
+            if args.verbose and n:
+                print(
+                    f"  updated {n} git source(s) in module '{module.get('name', '?')}'"
+                )
+        else:
+            _walk_module_git_sources(
+                module,
+                main_rev,
+                lambda s, u, b: _report_git_drift(s, u, b, addon_id),
+            )
 
     return addon_data
 
@@ -300,6 +345,15 @@ parser.add_argument(
 )
 parser.add_argument(
     "-r", "--release", help="enable release builds", action="store_true"
+)
+parser.add_argument(
+    "-m",
+    "--modules",
+    nargs="*",
+    metavar="ADDON_ID",
+    help="also update the git sources of addon dependency modules to the "
+    "latest githash; no argument covers every addon, otherwise name the "
+    "addon ids to bump. Without this flag such drift is only reported.",
 )
 args = parser.parse_args()
 
@@ -327,6 +381,7 @@ skipped_addons = dict()
 missing_addons = list()
 updated_addons = set()
 rejected_updates = dict()
+module_drift = dict()
 
 for f in repo_file_list:
     definition_file = os.path.basename(f)
@@ -368,7 +423,7 @@ for f in repo_file_list:
                 continue
 
             addon_data = set_build_type(addon_data)
-            addon_data = update_addon_sources(addon_data, url, rev, atype)
+            addon_data = update_addon_sources(addon_id, addon_data, url, rev, atype)
 
             jf.seek(0)
             jf.write(json.dumps(addon_data, indent=4))
@@ -402,7 +457,7 @@ for json_path in addon_jsons:
             addon_data = set_build_type(addon_data)
             branch = primary.get("branch", "master")
             addon_data = update_addon_sources(
-                addon_data, url, branch, primary.get("type", "git")
+                addon_id, addon_data, url, branch, primary.get("type", "git")
             )
 
             jf.seek(0)
@@ -418,3 +473,6 @@ print("\nmissing addons:")
 pp.pprint(missing_addons)
 print("\nrejected updates (resolved commit not newer than recorded):")
 pp.pprint(rejected_updates)
+print("\nmodule sources left alone (bump with --modules):")
+for source, drift in sorted(module_drift.items()):
+    print(f"  {source}\n      {drift}")

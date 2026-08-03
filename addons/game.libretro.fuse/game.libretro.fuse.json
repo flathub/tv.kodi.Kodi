@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.fuse",
-            "commit": "2b7fca09ea43347985eda0af64b48af6ed0a0820"
+            "commit": "30fcce8e29b6caf05857eacfee86d25ce85d0755"
         }
     ],
     "modules": [
