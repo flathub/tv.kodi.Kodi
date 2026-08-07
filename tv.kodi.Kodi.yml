@@ -95,15 +95,15 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n8.1.2.tar.gz
-        sha512: c72f4062aecc16d8b2b1e8678d5efe3af4cfaa0cc7c0997052248f9e499e60c2463acf07877cf3b78b246ce3e8078cb043e8d97e90a6b50d06af32ff7369a788
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.tar.gz
+        sha512: 4327d259b2ed9cc35a6139606643bf9c9db5fb0372a9eb259fed61af50505a2b59f0c3d94c51fec89d2e0cd552a413c5f50514683931c94c429824198d56ec56
         x-checker-data:
           type: anitya
           project-id: 5405
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
       - type: file
-        url: https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
-        sha256: ef4db98503c1303c9240fc4774d338c8460979c9948391cb6f0c5b27f512508b
+        url: https://raw.githubusercontent.com/xbmc/xbmc/bc56c2fcd679a9bbb8c9d13b505a6c7285f7206c/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
+        sha256: 019ab331eac814e4995c65dcc8076cc433a64bb4a5d2aa6aef5516922dd691e6
         dest-filename: 001-ffmpeg-all-libpostproc-plugin.patch
       - type: shell
         commands:
