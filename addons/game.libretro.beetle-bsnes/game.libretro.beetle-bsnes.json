@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-bsnes",
-            "commit": "cc388ddc8f52119021b975d486d8c5f960029c8a"
+            "commit": "016f1107b98fb946040258504106f0019a977a4c"
         }
     ],
     "modules": [

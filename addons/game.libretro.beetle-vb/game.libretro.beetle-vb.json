@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-vb",
-            "commit": "1f432508d31b7b763b7cf0cbbdf9a0e5c4d8c5a2"
+            "commit": "3227a8e1d085c4aefa6db8aee516d76cf1813626"
         }
     ],
     "modules": [

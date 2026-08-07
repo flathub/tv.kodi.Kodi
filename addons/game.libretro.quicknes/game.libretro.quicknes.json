@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.quicknes",
-            "commit": "68cb2d0e1552bac3878fb9434bcfe4fd656c8249"
+            "commit": "0f8b76e068c54f21a912c903dbd683100ecad9d5"
         }
     ],
     "modules": [

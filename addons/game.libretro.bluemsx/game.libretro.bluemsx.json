@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.bluemsx",
-            "commit": "9ea6cc7745da30b4b37711c4e72b92a4e2fe08ec"
+            "commit": "fbd03d077e905a2cab4cb954a9460956f86691e9"
         }
     ],
     "modules": [

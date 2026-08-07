@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.atari800",
-            "commit": "deec5c2cf4338902466b595e0b0a0d146d4cb9f8"
+            "commit": "779cd8428b670b8efb352ebf1e07c87be626887f"
         }
     ],
     "modules": [
