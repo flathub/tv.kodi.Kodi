@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/beetle-psx-libretro",
-                    "commit": "d45d9d1a8c3f59b7345e19d4ea66b187cb1fbe7b"
+                    "commit": "ed640fac8986d7813e4db6604544a6aafddd3018"
                 }
             ]
         }

@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/a5200",
-                    "commit": "23c1ea482afb08656ec507e9ce98ed242a20bdfa"
+                    "commit": "40c6f2f1ad4a3145b328d5baaf010fae6c7e752b"
                 }
             ]
         }

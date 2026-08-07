@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/fuse-libretro",
-                    "commit": "bce196fb774835fe65b3e5b821887a4ccf657167"
+                    "commit": "000a8ae51a5141d75c109a22150e37ba06d57910"
                 }
             ]
         }

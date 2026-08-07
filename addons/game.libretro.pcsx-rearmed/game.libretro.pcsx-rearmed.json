@@ -48,7 +48,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/pcsx_rearmed",
-                    "commit": "94f15b3a6b707070aeb0c58cab9bc4eddc1706ff"
+                    "commit": "da2cb8ecd17fd0932ab6d94774c0522beebce6e3"
                 }
             ]
         }

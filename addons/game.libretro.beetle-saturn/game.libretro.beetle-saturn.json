@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/beetle-saturn-libretro",
-                    "commit": "262c4ff521e96e3807a94fde041f332324be5cff"
+                    "commit": "84461434f249c1b5cd10c83ae922feae84e1acf8"
                 }
             ]
         }

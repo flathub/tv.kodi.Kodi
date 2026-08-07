@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/blueMSX-libretro",
-                    "commit": "f1715c8bf6443c4de7cad254ea14037704f8058e"
+                    "commit": "0f32f52c48d3e772bfdf0379756f81f00b4e08bc"
                 }
             ]
         }

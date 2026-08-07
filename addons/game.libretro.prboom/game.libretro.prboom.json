@@ -37,7 +37,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/libretro-prboom",
-                    "commit": "ac35b61d25317c869ba2f7f39ea4a9de1cc981aa"
+                    "commit": "b4046cef3641d6bb28c0394915bfcc732cc49652"
                 }
             ]
         }
