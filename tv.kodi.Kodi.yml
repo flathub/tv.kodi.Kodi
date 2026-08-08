@@ -360,8 +360,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.9.tar.gz
-        sha256: 6e9adc446b08083ec03d40317fb66ca6f2e03e4f6170aef33a6e59bb08db2012
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.10.tar.gz
+        sha256: 04bfe8ef75db7d629a33de767599765cecadc56274a39822d5d081030d577685
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -376,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
-        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.0.tar.gz
+        sha512: 16464129a827af897af35120d8b495993ea9bc56889fa815230e6fd999f391834256a83f3b58060b4c8e0c5d0608e2ca76f3716cff05ca15c40551a2be4aa8ad
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -626,8 +626,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.4.1.tar.gz
-        sha256: 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
+        url: http://prdownloads.sourceforge.net/swig/swig-4.5.0.tar.gz
+        sha256: 22ae0e887f8cca8031a325c67d005207653200b40e71edb3f88780e28e47d0ff
         x-checker-data:
           type: anitya
           project-id: 4919
