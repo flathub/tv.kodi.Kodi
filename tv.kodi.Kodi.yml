@@ -270,8 +270,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
-        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
+        url: https://github.com/libcdio/libcdio/releases/download/2.4.0/libcdio-2.4.0.tar.bz2
+        sha256: 8e6a305f81e45a78b41ce696d34497cc208d97075469d7304c11a6d44bf006ac
         x-checker-data:
           type: anitya
           project-id: 1573
@@ -376,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
-        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.0.tar.gz
+        sha512: 16464129a827af897af35120d8b495993ea9bc56889fa815230e6fd999f391834256a83f3b58060b4c8e0c5d0608e2ca76f3716cff05ca15c40551a2be4aa8ad
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -626,8 +626,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.4.1.tar.gz
-        sha256: 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
+        url: http://prdownloads.sourceforge.net/swig/swig-4.5.0.tar.gz
+        sha256: 22ae0e887f8cca8031a325c67d005207653200b40e71edb3f88780e28e47d0ff
         x-checker-data:
           type: anitya
           project-id: 4919
