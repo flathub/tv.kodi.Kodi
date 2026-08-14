@@ -125,8 +125,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.tar.gz
-        sha512: 4327d259b2ed9cc35a6139606643bf9c9db5fb0372a9eb259fed61af50505a2b59f0c3d94c51fec89d2e0cd552a413c5f50514683931c94c429824198d56ec56
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.1.tar.gz
+        sha512: 41aa687cec4e93d0ffde21ea96faa48e4344fda0e9d2c9c71adfb68fedadf03beb274ec712eb1e082bf64fdcee87c55a47bb5c78d5193934be3f3f06e5e792b2
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -306,8 +306,8 @@ modules:
       - --disable-example-progs
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
-        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
+        url: https://github.com/libcdio/libcdio/releases/download/2.4.0/libcdio-2.4.0.tar.bz2
+        sha256: 8e6a305f81e45a78b41ce696d34497cc208d97075469d7304c11a6d44bf006ac
         x-checker-data:
           type: anitya
           project-id: 1573
@@ -560,8 +560,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.5.tar.gz
-        sha256: 6d5d7ee82f5ce9da4135086c9b184e47a58b4b023565f58abbb1f8c8a922306b
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.6.tar.gz
+        sha256: 810cc955acb367e9bde556dccfb50db177a02b7c553aa1629a0b905fa7616267
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -846,7 +846,8 @@ modules:
       - type: shell
         commands:
           - mkdir -p /app/tarballs
-          - mv build/download/*.tar.gz build/download/*.tar.xz build/download/*.zip /app/tarballs/
+          - mv build/download/*.tar.gz build/download/*.tar.xz build/download/*.zip
+            /app/tarballs/
     cleanup:
       - /tarballs
 
