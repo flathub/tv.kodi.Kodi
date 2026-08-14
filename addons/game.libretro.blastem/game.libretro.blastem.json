@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.blastem",
-            "commit": "6c616b609e78e802c3349356f81623b912b44da8"
+            "commit": "8795ed12c76543e8e187500b71078d543bc8d4bf"
         }
     ],
     "modules": [

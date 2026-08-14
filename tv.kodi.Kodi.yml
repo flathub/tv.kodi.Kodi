@@ -55,6 +55,36 @@ cleanup:
   - /share/man
   - /var
 modules:
+  - name: avahi
+    cleanup:
+      - /bin
+      - /share/runtime/locale
+    config-opts:
+      - --enable-shared
+      - --disable-static
+      - --with-distro=none
+      - --disable-libdaemon
+      - --disable-libsystemd
+      - --disable-nls
+      - --disable-core-docs
+      - --disable-manpages
+      - --disable-mono
+      - --disable-libevent
+      - --disable-qt4
+      - --disable-qt5
+      - --disable-python
+      - --disable-gtk
+      - --disable-gtk3
+      - --enable-compat-libdns_sd
+    sources:
+      - type: archive
+        url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz
+        sha256: 5b0a9d88110b0fc8aaafc5cc0a26e83e7d2a4aca3a36bc27c9b626db7ead27b0
+        x-checker-data:
+          type: anitya
+          project-id: 147
+          url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
+          stable-only: false
   - name: dav1d
     buildsystem: meson
     config-opts:
@@ -95,15 +125,15 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n8.1.2.tar.gz
-        sha512: c72f4062aecc16d8b2b1e8678d5efe3af4cfaa0cc7c0997052248f9e499e60c2463acf07877cf3b78b246ce3e8078cb043e8d97e90a6b50d06af32ff7369a788
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.1.tar.gz
+        sha512: 41aa687cec4e93d0ffde21ea96faa48e4344fda0e9d2c9c71adfb68fedadf03beb274ec712eb1e082bf64fdcee87c55a47bb5c78d5193934be3f3f06e5e792b2
         x-checker-data:
           type: anitya
           project-id: 5405
           url-template: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n$version.tar.gz
       - type: file
-        url: https://raw.githubusercontent.com/xbmc/xbmc/c4913a2c601c44b44ce24b7f8decb981adedccdf/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
-        sha256: ef4db98503c1303c9240fc4774d338c8460979c9948391cb6f0c5b27f512508b
+        url: https://raw.githubusercontent.com/xbmc/xbmc/bc56c2fcd679a9bbb8c9d13b505a6c7285f7206c/tools/depends/target/ffmpeg/001-ffmpeg-all-libpostproc-plugin.patch
+        sha256: 019ab331eac814e4995c65dcc8076cc433a64bb4a5d2aa6aef5516922dd691e6
         dest-filename: 001-ffmpeg-all-libpostproc-plugin.patch
       - type: shell
         commands:
@@ -276,8 +306,8 @@ modules:
       - --disable-example-progs
     sources:
       - type: archive
-        url: https://github.com/libcdio/libcdio/releases/download/2.3.0/libcdio-2.3.0.tar.bz2
-        sha256: 53e83d284667535a767fd2d31edad1a6701591960459df373a10f1f21e80a7ed
+        url: https://github.com/libcdio/libcdio/releases/download/2.4.0/libcdio-2.4.0.tar.bz2
+        sha256: 8e6a305f81e45a78b41ce696d34497cc208d97075469d7304c11a6d44bf006ac
         x-checker-data:
           type: anitya
           project-id: 1573
@@ -288,8 +318,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/Pulse-Eight/libcec/archive/libcec-8.1.3.tar.gz
-        sha256: c7b208433418991a9ae7af1d43ffebf99ddc27ee7119a2794f19dcc02e4568b1
+        url: https://github.com/Pulse-Eight/libcec/archive/libcec-8.1.6.tar.gz
+        sha256: e1e762fee8589def3cbceb1f3e53ba06ed5b557a2705b86a225f8f30fb19c79a
         x-checker-data:
           type: anitya
           project-id: 21468
@@ -366,8 +396,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.9.tar.gz
-        sha256: 6e9adc446b08083ec03d40317fb66ca6f2e03e4f6170aef33a6e59bb08db2012
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.10.tar.gz
+        sha256: 04bfe8ef75db7d629a33de767599765cecadc56274a39822d5d081030d577685
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -381,8 +411,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-6.0.2.tar.gz
-        sha512: 539790ab98aac7b2f25755b745d1f5e016518f1adb3748b8c58df187048bc31e091915d59e6359bb95c49dd986361cbbf2536edcda02598b0fac236762b61a46
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.0.tar.gz
+        sha512: 16464129a827af897af35120d8b495993ea9bc56889fa815230e6fd999f391834256a83f3b58060b4c8e0c5d0608e2ca76f3716cff05ca15c40551a2be4aa8ad
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -456,8 +486,8 @@ modules:
         ${FLATPAK_DEST}/share/licenses/tv.kodi.Kodi/python3-pybind11/LICENSE
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/b3/06/c3a23c9a0263b136c519f033a58d4641e73065fefc7754e9667ec206d992/pybind11-3.0.4-py3-none-any.whl
-        sha256: 961720ee652da51d531b7b2451a6bd2bc042b0106e6d9baa48ecb7d58034ce63
+        url: https://files.pythonhosted.org/packages/33/fd/8762f7ee3e4e4be6d1d846cffb4916dd9bb02b2f800d3603718a0efe494c/pybind11-3.1.0-py3-none-any.whl
+        sha256: b8488090f8acffbcb6b5d6a85571a6827a0a2981ffb75e5a0b27b87c4a6b7dd0
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/pybind11/json
@@ -530,8 +560,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.5.tar.gz
-        sha256: 6d5d7ee82f5ce9da4135086c9b184e47a58b4b023565f58abbb1f8c8a922306b
+        url: https://download.samba.org/pub/samba/stable/samba-4.24.6.tar.gz
+        sha256: 810cc955acb367e9bde556dccfb50db177a02b7c553aa1629a0b905fa7616267
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -564,37 +594,6 @@ modules:
       - type: git
         url: https://github.com/juhovh/shairplay/
         commit: 096b61ad14c90169f438e690d096e3fcf87e504e
-    modules:
-      - name: avahi
-        cleanup:
-          - /bin
-          - /share/runtime/locale
-        config-opts:
-          - --enable-shared
-          - --disable-static
-          - --with-distro=none
-          - --disable-libdaemon
-          - --disable-libsystemd
-          - --disable-nls
-          - --disable-core-docs
-          - --disable-manpages
-          - --disable-mono
-          - --disable-libevent
-          - --disable-qt4
-          - --disable-qt5
-          - --disable-python
-          - --disable-gtk
-          - --disable-gtk3
-          - --enable-compat-libdns_sd
-        sources:
-          - type: archive
-            url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz
-            sha256: 5b0a9d88110b0fc8aaafc5cc0a26e83e7d2a4aca3a36bc27c9b626db7ead27b0
-            x-checker-data:
-              type: anitya
-              project-id: 147
-              url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
-              stable-only: false
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -621,8 +620,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.4.1.tar.gz
-        sha256: 40162a706c56f7592d08fd52ef5511cb7ac191f3593cf07306a0a554c6281fcf
+        url: http://prdownloads.sourceforge.net/swig/swig-4.5.0.tar.gz
+        sha256: 22ae0e887f8cca8031a325c67d005207653200b40e71edb3f88780e28e47d0ff
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -782,14 +781,17 @@ modules:
       - -DAPP_RENDER_SYSTEM=gles
       - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
-      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.bz2
-      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.bz2
-      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.bz2
+      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.xz
+      - -DLIBDVDCSS_HASH=SHA512=edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
+      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.xz
+      - -DLIBDVDREAD_HASH=SHA512=03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
+      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.xz
+      - -DLIBDVDNAV_HASH=SHA512=4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
       - -DTARBALL_DIR=/app/tarballs
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: d9f9abaccee5b5a4998f80d39e4aa85ed3ecc819
+        commit: 700f5f80cf51b923b06f534014a16c237bb69cde
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -812,20 +814,20 @@ modules:
         dest: build/download/
         dest-filename: crossguid.tar.gz
       - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/libdvdcss-1.5.0.tar.bz2
-        sha512: 439fbd9dae60b9a114d3429a19703478c734e8525ac6852da6f05f72d9ca44ca0ac5e874ab6a10017e7f31869fcd29f01d1bc156c4f0331b4e4abd98ec2f95cd
+        url: https://download.videolan.org/pub/videolan/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz
+        sha512: edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
         dest: build/download/
-        dest-filename: libdvdcss.tar.bz2
+        dest-filename: libdvdcss.tar.xz
       - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/libdvdread-7.0.1.tar.bz2
-        sha512: b5390a1acb8fdf6e24188f9259199eb0fef2dd4b332447ba2bfa571f9fc0c3bfad00c1d27a8b8806180a853c04a818b7802d3075ff787142c1a175ad798c6a3d
+        url: https://download.videolan.org/pub/videolan/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz
+        sha512: 03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
         dest: build/download/
-        dest-filename: libdvdread.tar.bz2
+        dest-filename: libdvdread.tar.xz
       - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/libdvdnav-7.0.0.tar.bz2
-        sha512: 8d12d476e352def9716ecbd7ba184a70dd9bae87dcde669b8647a0ef9ac1991f617c9918c043e159eb353302c4cc50fb71bc591ceaeba1d3b9d47af77fa72c71
+        url: https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
+        sha512: 4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
         dest: build/download/
-        dest-filename: libdvdnav.tar.bz2
+        dest-filename: libdvdnav.tar.xz
       - type: file
         url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
         sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
@@ -844,7 +846,8 @@ modules:
       - type: shell
         commands:
           - mkdir -p /app/tarballs
-          - mv build/download/*.tar.gz build/download/*.tar.bz2 build/download/*.zip /app/tarballs/
+          - mv build/download/*.tar.gz build/download/*.tar.xz build/download/*.zip
+            /app/tarballs/
     cleanup:
       - /tarballs
 

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mupen64plus-nx",
-            "commit": "2cb3a4e5d3f991fc6d39f322381bb6e89611e49c"
+            "commit": "d2ac1da76bbf4826d48167fdea57c9aa8eb6cda5"
         }
     ],
     "modules": [
