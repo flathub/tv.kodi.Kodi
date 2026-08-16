@@ -895,7 +895,6 @@ modules:
   - addons/audioencoder.wav/audioencoder.wav.json
   - addons/game.libretro/game.libretro.json
   - addons/game.libretro.2048/game.libretro.2048.json
-  - addons/game.libretro.81/game.libretro.81.json
   - addons/game.libretro.a5200/game.libretro.a5200.json
   - addons/game.libretro.atari800/game.libretro.atari800.json
   - addons/game.libretro.beetle-bsnes/game.libretro.beetle-bsnes.json
@@ -911,11 +910,9 @@ modules:
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
-  - addons/game.libretro.cap32/game.libretro.cap32.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
-  - addons/game.libretro.fuse/game.libretro.fuse.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
@@ -937,7 +934,6 @@ modules:
   - addons/game.libretro.tyrquake/game.libretro.tyrquake.json
   - addons/game.libretro.uae/game.libretro.uae.json
   - addons/game.libretro.vbam/game.libretro.vbam.json
-  - addons/game.libretro.vecx/game.libretro.vecx.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
   - addons/game.shader.presets/game.shader.presets.json
