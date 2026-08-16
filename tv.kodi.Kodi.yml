@@ -12,6 +12,7 @@ desktop-file-name-suffix: ' (Beta)'
 finish-args:
   - --device=all
   - --allow=bluetooth
+  - --filesystem=xdg-download:ro
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
