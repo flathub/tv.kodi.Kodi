@@ -40,6 +40,10 @@ OPT_IN = (
     "game.libretro.mame2010",
     "game.libretro.genplus",
     "game.libretro.picodrive",
+    "game.libretro.81",
+    "game.libretro.cap32",
+    "game.libretro.fuse",
+    "game.libretro.vecx",
 )
 
 

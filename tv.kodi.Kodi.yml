@@ -1196,7 +1196,7 @@ add-extensions:
     add-ld-path: "."
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.a5200:
     directory: "lib/kodi/addons/game.libretro.a5200"
     add-ld-path: "."
@@ -1286,7 +1286,7 @@ add-extensions:
     add-ld-path: "."
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.dosbox:
     directory: "lib/kodi/addons/game.libretro.dosbox"
     add-ld-path: "."
@@ -1310,7 +1310,7 @@ add-extensions:
     add-ld-path: "."
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.gambatte:
     directory: "lib/kodi/addons/game.libretro.gambatte"
     add-ld-path: "."
@@ -1508,7 +1508,7 @@ add-extensions:
     add-ld-path: "."
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: "lib/kodi/addons/game.libretro.virtualjaguar"
     add-ld-path: "."
