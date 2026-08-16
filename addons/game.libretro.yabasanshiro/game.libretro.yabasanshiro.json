@@ -1,0 +1,56 @@
+{
+    "name": "game.libretro.yabasanshiro",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.yabasanshiro",
+            "commit": "cc1bf930f02764087522fd413435960015d54dbe"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-yabasanshiro",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_SSE=1"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_SSE=0"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix FORCE_GLES=1 $ARCH_FLAGS -C yabause/src/libretro",
+                "install -D -m 755 yabause/src/libretro/yabasanshiro_libretro.so /app/lib/libretro/yabasanshiro_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/yabause",
+                    "commit": "f448097b69a6037246a08e9dc09eabaa420d7893"
+                }
+            ]
+        }
+    ]
+}

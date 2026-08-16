@@ -913,6 +913,7 @@ modules:
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
   - addons/game.libretro.cap32/game.libretro.cap32.json
+  - addons/game.libretro.dolphin/game.libretro.dolphin.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
@@ -920,6 +921,7 @@ modules:
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.melonds/game.libretro.melonds.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
@@ -940,6 +942,7 @@ modules:
   - addons/game.libretro.vbam/game.libretro.vbam.json
   - addons/game.libretro.vecx/game.libretro.vecx.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
+  - addons/game.libretro.yabasanshiro/game.libretro.yabasanshiro.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
   - addons/game.shader.presets/game.shader.presets.json
   - addons/imagedecoder.heif/imagedecoder.heif.json

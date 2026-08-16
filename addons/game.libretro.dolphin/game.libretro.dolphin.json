@@ -1,0 +1,231 @@
+{
+    "name": "game.libretro.dolphin",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.dolphin",
+            "commit": "88d5c8009e4c81700b4a711f69d032459939cce7"
+        }
+    ],
+    "modules": [
+        {
+            "name": "enet",
+            "config-opts": [
+                "--enable-shared",
+                "--disable-static"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/lsalzman/enet/archive/refs/tags/v1.3.18.tar.gz",
+                    "sha256": "28603c895f9ed24a846478180ee72c7376b39b4bb1287b73877e5eae7d96b0dd",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 696,
+                        "url-template": "https://github.com/lsalzman/enet/archive/refs/tags/v$version.tar.gz"
+                    }
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "autogen.sh",
+                    "commands": [
+                        "autoreconf -vfi"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libspng",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Ddefault_library=shared",
+                "-Dbuild_examples=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/randy408/libspng/archive/refs/tags/v0.7.4.tar.gz",
+                    "sha256": "47ec02be6c0a6323044600a9221b049f63e1953faf816903e7383d4dc4234487",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 24289,
+                        "url-template": "https://github.com/randy408/libspng/archive/refs/tags/v$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "minizip-ng",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DMZ_COMPAT=OFF",
+                "-DMZ_PPMD=OFF",
+                "-DMZ_BUILD_TESTS=OFF",
+                "-DMZ_FETCH_LIBS=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=lib"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.2.2.tar.gz",
+                    "sha256": "71af7b9799856d8b03619df3949e9c1be9703f8de0795af71399ba283cb27aac",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 301509,
+                        "url-template": "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "mbedtls",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                "-DUSE_SHARED_MBEDTLS_LIBRARY=ON",
+                "-DUSE_STATIC_MBEDTLS_LIBRARY=OFF",
+                "-DENABLE_TESTING=OFF",
+                "-DENABLE_PROGRAMS=OFF"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.10.tar.gz",
+                    "sha256": "0f2e0525903a89ae1d39ce439d858be66933bda54c5b6102b72a29ed8fe7c088",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 13824,
+                        "url-template": "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v$version.tar.gz",
+                        "versions": {
+                            "<": "3"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "sfml",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DSFML_BUILD_WINDOW=OFF",
+                "-DSFML_BUILD_GRAPHICS=OFF",
+                "-DSFML_BUILD_AUDIO=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=lib"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/SFML/SFML/archive/refs/tags/3.0.2.tar.gz",
+                    "sha256": "0034e05f95509e5d3fb81b1625713e06da7b068f210288ce3fd67106f8f46995",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 12315,
+                        "stable-only": true,
+                        "url-template": "https://github.com/SFML/SFML/archive/refs/tags/$version.tar.gz",
+                        "versions": {
+                            "<": "3.1"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "hidapi",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=ON",
+                "-DCMAKE_INSTALL_LIBDIR=lib"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.15.0.tar.gz",
+                    "sha256": "5d84dec684c27b97b921d2f3b73218cb773cf4ea915caee317ac8fc73cef8136",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 5594,
+                        "url-template": "https://github.com/libusb/hidapi/archive/refs/tags/hidapi-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "libretro-dolphin",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "cmake -S . -B Build -G Ninja -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_BUILD_TYPE=Release -DLIBRETRO=ON -DUSE_SYSTEM_LIBS=ON -DENABLE_VULKAN=OFF -DENABLE_X11=OFF -DENABLE_EGL=ON",
+                "cmake --build Build -j$FLATPAK_BUILDER_N_JOBS",
+                "install -D -m 755 Build/dolphin_libretro.so /app/lib/libretro/dolphin_libretro.so",
+                "mkdir -p /app/share/kodi/addons/game.libretro.dolphin/resources/system/dolphin-emu",
+                "cp -a Data/Sys /app/share/kodi/addons/game.libretro.dolphin/resources/system/dolphin-emu/Sys"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/dolphin/archive/0cd3bb89c29535db9b7552fc86871867ccf5b471.tar.gz",
+                    "sha256": "c8e7cb4bf68facc3d781d14209c678d6e14f857288bdd41c0ece1fa8195d393a"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/ocornut/imgui/archive/45acd5e0e82f4c954432533ae9985ff0e1aad6d5.tar.gz",
+                    "sha256": "97484925aec2f4d3e913d6644d46b234f8d6d8d98c6aa9c50109e0f0df772090",
+                    "dest": "Externals/imgui/imgui"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/epezent/implot/archive/3da8bd34299965d3b0ab124df743fe3e076fa222.tar.gz",
+                    "sha256": "4700b44ef00ca2feba0b35a31922c240045bbeb900da5b3eb3830b56871ada45",
+                    "dest": "Externals/implot/implot"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/syoyo/tinygltf/archive/c5641f2c22d117da7971504591a8f6a41ece488b.tar.gz",
+                    "sha256": "6352803f1ed18d479ea93abf96ac75c0222a21403be22840bde1072ee5935dfa",
+                    "dest": "Externals/tinygltf/tinygltf"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/e-dant/watcher/archive/b03bdcfc11549df595b77239cefe2643943a3e2f.tar.gz",
+                    "sha256": "61e97c12c3d23f2b6588d99ce61c8ad462b4382f979d14c7a338a11af507edd1",
+                    "dest": "Externals/watcher/watcher"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mutouyun/cpp-ipc/archive/ce0773b3e6d5abaa8d104100c5704321113853ca.tar.gz",
+                    "sha256": "01613a09deb56de754d5f3b284cb7d21c7286dbb61cd148f26515b1a0bd04d79",
+                    "dest": "Externals/cpp-ipc/cpp-ipc"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/weisslj/cpp-optparse/archive/2265d647232249a53a03b411099863ceca35f0d3.tar.gz",
+                    "sha256": "6f38fff3c4d2788eead7a28626b3220cc4c101510fc984678ad55f77756b107e",
+                    "dest": "Externals/cpp-optparse/cpp-optparse"
+                }
+            ]
+        }
+    ]
+}
