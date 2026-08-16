@@ -1139,7 +1139,7 @@ add-extensions:
     directory: "lib/kodi/addons/game.libretro.81"
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.a5200:
     directory: "lib/kodi/addons/game.libretro.a5200"
     bundle: true
@@ -1214,7 +1214,7 @@ add-extensions:
     directory: "lib/kodi/addons/game.libretro.cap32"
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.dosbox:
     directory: "lib/kodi/addons/game.libretro.dosbox"
     bundle: true
@@ -1234,7 +1234,7 @@ add-extensions:
     directory: "lib/kodi/addons/game.libretro.fuse"
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.gambatte:
     directory: "lib/kodi/addons/game.libretro.gambatte"
     bundle: true
@@ -1399,7 +1399,7 @@ add-extensions:
     directory: "lib/kodi/addons/game.libretro.vecx"
     bundle: true
     autodelete: true
-    no-autodownload: false
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: "lib/kodi/addons/game.libretro.virtualjaguar"
     bundle: true
