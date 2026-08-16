@@ -791,8 +791,8 @@ modules:
       - -DTARBALL_DIR=/app/tarballs
     sources:
       - type: git
-        url: https://github.com/xbmc/xbmc.git
-        commit: 700f5f80cf51b923b06f534014a16c237bb69cde
+        url: https://github.com/sunlollyking/xbmc.git
+        commit: d64fa22f0a568854b117a97cb14b57c88a56b2c5
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
