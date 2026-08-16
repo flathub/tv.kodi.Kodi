@@ -41,7 +41,6 @@ game.libretro.beetle-saturn
 game.libretro.beetle-supergrafx
 game.libretro.beetle-vb
 game.libretro.beetle-wswan
-game.libretro.bk
 game.libretro.blastem
 game.libretro.bluemsx
 game.libretro.cap32

@@ -909,7 +909,6 @@ modules:
   - addons/game.libretro.beetle-supergrafx/game.libretro.beetle-supergrafx.json
   - addons/game.libretro.beetle-vb/game.libretro.beetle-vb.json
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
-  - addons/game.libretro.bk/game.libretro.bk.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
   - addons/game.libretro.cap32/game.libretro.cap32.json
