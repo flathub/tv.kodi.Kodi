@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mame2010",
-            "commit": "56296ef0c10b343a8d757a77f1bf6d16461513fc"
+            "commit": "cab29aa45dcff1323bc71017171be6c260a5938b"
         },
         {
             "type": "file",

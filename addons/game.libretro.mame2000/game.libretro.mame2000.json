@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mame2000",
-            "commit": "e91aaf4f7690322f7c9c997bf0934433d17018d7"
+            "commit": "8a4067eab92321bf3748cd31f2ef43dc6cce4c7e"
         },
         {
             "type": "file",
@@ -44,7 +44,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/libretro/mame2000-libretro",
-                    "commit": "131ae96d72a613451517fa2eca0b598b2b266a94"
+                    "commit": "f099ba44c7664906fd7e01cbed89d13a7e32dee1"
                 }
             ]
         }
