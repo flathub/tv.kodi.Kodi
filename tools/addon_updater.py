@@ -2,9 +2,11 @@
 
 import argparse
 import glob
+import hashlib
 import json
 import os.path
 import pprint
+import re
 import shutil
 import sys
 import tarfile
@@ -221,62 +223,90 @@ def _apply_git_update(source: dict, url: str, branch: str) -> bool:
     return True
 
 
-def _report_git_drift(source: dict, url: str, branch: str, addon_id: str) -> bool:
+def get_depends_pins(repo_name: str, ref: str) -> dict:
     """
-    Report, without writing, that url@branch has moved past the recorded
-    commit.  Used for module sources when --modules did not select them.
-    Returns True if drift was recorded.
+    Map dependency name -> (url, rev) parsed from every
+    depends/common/<name>/<name>.txt in the addon repo at ref.  rev is None
+    for archive urls, which embed their pin.
     """
-    if "x-checker-data" in source:
-        return False
-
-    commit = resolve_commit(url, branch)
-    current = source.get("commit", "")
-    if not commit or commit == current:
-        return False
-
-    state = "newer" if commit_is_newer(url, current, commit) else "not newer"
-    module_drift[f"{addon_id}: {url}"] = (
-        f"{current[:12]} → {commit[:12]} ({state}, resolved from '{branch}')"
-    )
-    return True
-
-
-def _walk_module_git_sources(module: dict, fallback_branch: str, action) -> int:
-    """
-    Recursively apply action(source, url, branch) to every github git source
-    within an inline module dict.  String entries (paths to external JSON
-    modules) are silently ignored.  Returns the number of sources the action
-    reported as handled.
-    """
-    if not isinstance(module, dict):
-        return 0
-    hits = 0
-    for source in module.get("sources", []):
-        if source.get("type") != "git":
-            continue
-        url = source.get("url", "")
-        if not url or not is_github_url(url):
-            continue
-        branch = source.get("branch", fallback_branch)
+    pins = {}
+    try:
+        repo = g.get_repo(repo_name)
+        entries = repo.get_contents("depends/common", ref=ref)
+    except Exception as e:
         if args.verbose:
-            print(f"  module '{module.get('name', '?')}' git source: {url}@{branch}")
-        if action(source, url, branch):
-            hits += 1
-    for sub in module.get("modules", []):
-        hits += _walk_module_git_sources(sub, fallback_branch, action)
-    return hits
+            print(f"  no depends/common in {repo_name}@{ref[:12]}: {e}")
+        return pins
+    for entry in entries:
+        if entry.type != "dir":
+            continue
+        path = f"depends/common/{entry.name}/{entry.name}.txt"
+        try:
+            raw = repo.get_contents(path, ref=ref).decoded_content.decode()
+        except Exception:
+            continue
+        parts = raw.split()
+        if len(parts) >= 2:
+            pins[parts[0]] = (parts[1], parts[2] if len(parts) > 2 else None)
+    return pins
 
 
-def modules_selected(addon_id: str) -> bool:
+def sha256_of_url(url: str) -> str | None:
+    digest = hashlib.sha256()
+    try:
+        with requests.get(url, stream=True, timeout=300) as response:
+            response.raise_for_status()
+            for chunk in response.iter_content(1 << 16):
+                digest.update(chunk)
+    except requests.RequestException as e:
+        print(f"  Warning: could not fetch {url}: {e}")
+        return None
+    return digest.hexdigest()
+
+
+def _align_module_source(module: dict, pins: dict, addon_id: str) -> None:
     """
-    True when --modules asked for addon_id's dependency modules to be bumped
-    to the latest githash.  Absent flag means no addon is selected, a bare
-    flag means every addon is.
+    Pin a module's first git/archive source to the addon's depends entry of
+    the same name (allowing a libretro- module name prefix).  Archive depends
+    become archive sources -- an upstream rebase cannot orphan those, unlike
+    a git commit pin -- and git depends keep a git source.  Sources managed
+    by flatpak-external-data-checker are left alone.
     """
-    if args.modules is None:
-        return False
-    return not args.modules or addon_id in args.modules
+    name = module.get("name", "")
+    key = name if name in pins else name.removeprefix("libretro-")
+    if key not in pins:
+        unmatched_modules.setdefault(addon_id, []).append(name)
+        return
+    url, rev = pins[key]
+    source = next(
+        (s for s in module.get("sources", []) if s.get("type") in ("git", "archive")),
+        None,
+    )
+    if source is None:
+        return
+    if "x-checker-data" in source:
+        if args.verbose:
+            print(f"  skipping {name}: managed by x-checker-data")
+        return
+    if get_addon_type(url) == "archive":
+        if source.get("url") == url and source.get("sha256"):
+            return
+        checksum = sha256_of_url(url)
+        if not checksum:
+            return
+        source.clear()
+        source.update({"type": "archive", "url": url, "sha256": checksum})
+    elif rev and re.fullmatch(r"[0-9a-f]{40}", rev):
+        if source.get("url") == url and source.get("commit") == rev:
+            return
+        source.clear()
+        source.update({"type": "git", "url": url, "commit": rev})
+    else:
+        print(f"  Warning: cannot align {name}: unsupported depends pin {url} {rev}")
+        return
+    aligned_modules.setdefault(addon_id, []).append(f"{name} -> {url}")
+    if args.verbose:
+        print(f"  aligned {name} -> {url}")
 
 
 def update_addon_sources(
@@ -289,43 +319,39 @@ def update_addon_sources(
        addon_data["sources"].  URL and branch come from the binary addon repo
        definition (.txt file).
 
-    2. git sources inside module definitions, but only for addons selected
-       with --modules; for the rest any drift is merely reported.  Those
-       upstreams are volatile, so following their branch HEAD is opt-in.
+    2. inline module sources are pinned to whatever the addon's depends files
+       declare at the resolved addon commit, so each core is exactly the one
+       the addon expects rather than a branch HEAD.
     """
     sources = addon_data.get("sources", [])
 
     # primary addon source
-    primary_idx = next(
-        (i for i, s in enumerate(sources) if s.get("type") in ("git", "archive")),
+    primary = next(
+        (s for s in sources if s.get("type") in ("git", "archive")),
         None,
     )
-    if primary_idx is not None:
-        primary = sources[primary_idx]
-        if main_atype == "git":
-            if args.verbose:
-                print(f"  primary source: {main_url}@{main_rev}")
-            _apply_git_update(primary, main_url, main_rev)
+    if primary is not None and main_atype == "git":
+        if args.verbose:
+            print(f"  primary source: {main_url}@{main_rev}")
+        _apply_git_update(primary, main_url, main_rev)
 
-    # module definitions
-    selected = modules_selected(addon_id)
-    for module in addon_data.get("modules", []):
-        if isinstance(module, str):
-            if args.verbose:
-                print(f"  skipping external module reference: {module}")
-            continue
-        if selected:
-            n = _walk_module_git_sources(module, main_rev, _apply_git_update)
-            if args.verbose and n:
-                print(
-                    f"  updated {n} git source(s) in module '{module.get('name', '?')}'"
-                )
-        else:
-            _walk_module_git_sources(
-                module,
-                main_rev,
-                lambda s, u, b: _report_git_drift(s, u, b, addon_id),
-            )
+    # module definitions: align to the addon's depends pins
+    modules = [m for m in addon_data.get("modules", []) if isinstance(m, dict)]
+    if (
+        modules
+        and primary is not None
+        and primary.get("type") == "git"
+        and is_github_url(primary.get("url", ""))
+        and primary.get("commit")
+    ):
+        pins = get_depends_pins(
+            _repo_name_from_url(primary["url"]), primary["commit"]
+        )
+        for module in modules:
+            _align_module_source(module, pins, addon_id)
+            for sub in module.get("modules", []):
+                if isinstance(sub, dict):
+                    _align_module_source(sub, pins, addon_id)
 
     return addon_data
 
@@ -345,15 +371,6 @@ parser.add_argument(
 )
 parser.add_argument(
     "-r", "--release", help="enable release builds", action="store_true"
-)
-parser.add_argument(
-    "-m",
-    "--modules",
-    nargs="*",
-    metavar="ADDON_ID",
-    help="also update the git sources of addon dependency modules to the "
-    "latest githash; no argument covers every addon, otherwise name the "
-    "addon ids to bump. Without this flag such drift is only reported.",
 )
 args = parser.parse_args()
 
@@ -381,7 +398,8 @@ skipped_addons = dict()
 missing_addons = list()
 updated_addons = set()
 rejected_updates = dict()
-module_drift = dict()
+aligned_modules = dict()
+unmatched_modules = dict()
 
 for f in repo_file_list:
     definition_file = os.path.basename(f)
@@ -473,6 +491,10 @@ print("\nmissing addons:")
 pp.pprint(missing_addons)
 print("\nrejected updates (resolved commit not newer than recorded):")
 pp.pprint(rejected_updates)
-print("\nmodule sources left alone (bump with --modules):")
-for source, drift in sorted(module_drift.items()):
-    print(f"  {source}\n      {drift}")
+print("\nmodules aligned to addon depends pins:")
+for addon, mods in sorted(aligned_modules.items()):
+    for m in mods:
+        print(f"  {addon}: {m}")
+print("\nmodules with no depends counterpart (left alone):")
+for addon, mods in sorted(unmatched_modules.items()):
+    print(f"  {addon}: {', '.join(mods)}")
