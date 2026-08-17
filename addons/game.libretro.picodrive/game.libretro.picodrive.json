@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.picodrive",
-            "commit": "0cf5e3684ebf6a7ce0a0fdd99cca8bf6b11892c0"
+            "commit": "fcea1a83603ab95e4cc804f7532a787e58d48e47"
         },
         {
             "type": "file",
@@ -43,7 +43,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/kodi-game/picodrive",
-                    "commit": "e3a60793b0cb2a1380fe25cf11a543c431f1d731"
+                    "commit": "92c8634e9c8aa59a5cf54d7a8ac53822b603d5e8"
                 }
             ]
         }
