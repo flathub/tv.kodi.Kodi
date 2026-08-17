@@ -46,9 +46,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/pcsx_rearmed",
-                    "commit": "da2cb8ecd17fd0932ab6d94774c0522beebce6e3"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/pcsx_rearmed/archive/da2cb8ecd17fd0932ab6d94774c0522beebce6e3.tar.gz",
+                    "sha256": "ff191a349aa88b7156f2c40ae32b7144884eec921542f07508d88715105d175e"
                 }
             ]
         }

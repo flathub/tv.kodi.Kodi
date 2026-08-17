@@ -46,9 +46,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/beetle-pcfx-libretro",
-                    "commit": "650c30ea2203636a1716675854d11c608ed6eacc"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-pcfx-libretro/archive/650c30ea2203636a1716675854d11c608ed6eacc.tar.gz",
+                    "sha256": "29e9cc8beed9936c9b5524abf5e289799ba302761107a48e934a5f9d44235236"
                 }
             ]
         }

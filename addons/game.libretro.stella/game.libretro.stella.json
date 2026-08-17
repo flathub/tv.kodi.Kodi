@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/stella-emu/stella",
-                    "commit": "3f819a0d5760c3113610d1d07deb4ce9ea187517"
+                    "type": "archive",
+                    "url": "https://github.com/stella-emu/stella/archive/3f819a0d5760c3113610d1d07deb4ce9ea187517.tar.gz",
+                    "sha256": "adc133cab0231dcb674e9c9e771dbaa91e46275c4c8b6fbea676e43d5ac5612a"
                 }
             ]
         }

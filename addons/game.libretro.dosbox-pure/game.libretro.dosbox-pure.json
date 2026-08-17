@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/dosbox-pure",
-                    "commit": "a4a0bab7f8931433588f2fcad9045c85b277373d"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/dosbox-pure/archive/a4a0bab7f8931433588f2fcad9045c85b277373d.tar.gz",
+                    "sha256": "f0d04f087bb1c63a4cf1d46e314a9e0336afad427ddebbefde3daffe64b9005b"
                 }
             ]
         }

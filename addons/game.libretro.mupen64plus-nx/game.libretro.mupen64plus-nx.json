@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/mupen64plus-libretro-nx/archive/8cdfadf266a784cd1849f7fef8adae2912240b18.tar.gz",
-                    "sha256": "d139af1f96142fa65e4dd614238e211bdafd974733153dae6d2a182d5a3e2e1c"
+                    "url": "https://github.com/kodi-game/mupen64plus-libretro-nx/archive/eb014557b9c26d798f138f7751c3d9c01a604573.tar.gz",
+                    "sha256": "9fb15f117da3bcce8cc8fc6c73b66044517a6cd3f862a36b7710939aa0af41bc"
                 }
             ]
         }

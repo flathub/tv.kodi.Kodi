@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/tyrquake",
-                    "commit": "e57bb11597e8a00380f30f2627d219da960cf69a"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/tyrquake/archive/e57bb11597e8a00380f30f2627d219da960cf69a.tar.gz",
+                    "sha256": "6bedb86899ad6da030d15e11fa4a1a6b61db77a56d658d8de650f63afd1e166c"
                 }
             ]
         }

@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/nestopia-libretro",
-                    "commit": "d0f461cee801c509748606e91c8ff0563ef62cd6"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/nestopia/archive/d0f461cee801c509748606e91c8ff0563ef62cd6.tar.gz",
+                    "sha256": "b8273095754382ead61f7f9b41bc45e14886080462fce3dee004b2a796dd0741"
                 }
             ]
         }

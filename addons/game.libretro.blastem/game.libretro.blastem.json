@@ -38,8 +38,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/blastem/archive/277e4a62668597d4f59cadda1cbafb844f981d45.tar.gz",
-                    "sha256": "1ad8eab6f528612d52f8310237d3e62a501e7449682369baa9eb5d4c73a6b90e"
+                    "url": "https://github.com/libretro/blastem/archive/84e567e17b6fb3cea23146c4209c18d50d46cbf0.tar.gz",
+                    "sha256": "7bf9a28959fbced50479e59b7832bf9b2a9746bb06620bdd5c28c89d205e8fc7"
                 }
             ]
         }

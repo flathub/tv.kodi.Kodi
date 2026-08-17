@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/QuickNES_Core",
-                    "commit": "26bb785c9deddb66a17717b21bb4e328f03ade32"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/QuickNES_Core/archive/26bb785c9deddb66a17717b21bb4e328f03ade32.tar.gz",
+                    "sha256": "2e19edc678f1606c9eb4a6807bbc9d71caa519fd917c953d4082929ad56b7795"
                 }
             ]
         }

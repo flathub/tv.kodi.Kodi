@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/supafaust",
-                    "commit": "d6187e5337e6c2646d003db3ab1936727ca75301"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/supafaust/archive/d6187e5337e6c2646d003db3ab1936727ca75301.tar.gz",
+                    "sha256": "239c78976ef98584e38b7b017d9c73e96c92397963b73d82cd8b941ae71a456d"
                 }
             ]
         }

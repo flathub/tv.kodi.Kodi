@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/beetle-psx-libretro",
-                    "commit": "ed640fac8986d7813e4db6604544a6aafddd3018"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-psx-libretro/archive/c699953afa01bc3f179edbcb14c4cfbeee6107a2.tar.gz",
+                    "sha256": "b9562ba7e71119bebd201452db9d7b839bc00a9f6cd3124066a2c4c784826b3c"
                 }
             ]
         }

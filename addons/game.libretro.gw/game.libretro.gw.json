@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/gw-libretro",
-                    "commit": "91d599b951e7bfe7e040347f58667cba20074adc"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/gw-libretro/archive/91d599b951e7bfe7e040347f58667cba20074adc.tar.gz",
+                    "sha256": "88f47e3fe2ce7a5cdf42a087386a6cff5379dd2fe7901761c80a9f8d0d2185ad"
                 }
             ]
         }

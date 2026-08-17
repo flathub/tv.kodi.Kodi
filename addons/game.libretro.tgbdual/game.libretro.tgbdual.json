@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/tgbdual-libretro",
-                    "commit": "bf816b096f1dca55ea805337d7c9e78d6b98d839"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/tgbdual-libretro/archive/bf816b096f1dca55ea805337d7c9e78d6b98d839.tar.gz",
+                    "sha256": "575d40a48a0b331ce82a683afd8c72f07d8880548c6db7ef5c25cba2bf4bc2da"
                 }
             ]
         }

@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/virtualjaguar-libretro",
-                    "commit": "59f7f9cc594ae6c6982c2bd8fc0dbf36873f9869"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/59f7f9cc594ae6c6982c2bd8fc0dbf36873f9869.tar.gz",
+                    "sha256": "81b2d166f1539d6278894965ed049b3267ad6260957bf25046eab2d98dd27c0b"
                 }
             ]
         }

@@ -46,9 +46,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/yabause",
-                    "commit": "8926b0c6c347f8c5c755911ddb0ac695420ffbf8"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/yabause/archive/8926b0c6c347f8c5c755911ddb0ac695420ffbf8.tar.gz",
+                    "sha256": "a76c92903d9aa0c53548127202760bf28568f16f169c5f26b09a507d1c08ddab"
                 }
             ]
         }

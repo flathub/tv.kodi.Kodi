@@ -33,8 +33,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-common/archive/a08b2b574787408abbb4ba34faf673117f9a0eae.tar.gz",
-                    "sha256": "448c6531e32783835fc900e1dffcf621ad2d0e29134f1e6645e2ee2a3132038f"
+                    "url": "https://github.com/libretro/libretro-common/archive/55ca668901e72eb885976c8c839e6903ecbb119d.tar.gz",
+                    "sha256": "f2bc6311bd1a62bf86207dbd6e6e78507350eedf411e4b31597e4a7555f022f1"
                 },
                 {
                     "type": "file",
