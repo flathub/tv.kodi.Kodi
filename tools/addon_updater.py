@@ -309,6 +309,43 @@ def _align_module_source(module: dict, pins: dict, addon_id: str) -> None:
         print(f"  aligned {name} -> {url}")
 
 
+def _align_raw_file_sources(
+    module: dict, repo_name: str, commit: str, addon_id: str
+) -> None:
+    """
+    File sources fetched from raw.githubusercontent.com at a pinned commit of
+    the addon repo (depends CMakeLists, patches) follow the primary pin: the
+    embedded commit is rewritten to the resolved addon commit and the file is
+    re-hashed, so the companion files always come from the same tree as the
+    depends pins.  A file that no longer exists at the new commit keeps its
+    old pin, with a warning.
+    """
+    prefix = f"https://raw.githubusercontent.com/{repo_name}/"
+    pattern = re.compile(re.escape(prefix) + r"([0-9a-f]{40})/(.+)")
+    for source in module.get("sources", []):
+        if source.get("type") != "file":
+            continue
+        match = pattern.fullmatch(source.get("url", ""))
+        if not match or match.group(1) == commit:
+            continue
+        url = f"{prefix}{commit}/{match.group(2)}"
+        checksum = sha256_of_url(url)
+        if not checksum:
+            print(
+                f"  Warning: keeping {source['url']}: "
+                f"file unavailable at {commit[:12]}"
+            )
+            continue
+        source["url"] = url
+        source["sha256"] = checksum
+        source.pop("sha512", None)
+        aligned_modules.setdefault(addon_id, []).append(
+            f"{module.get('name', '?')} file {match.group(2)} -> @{commit[:12]}"
+        )
+        if args.verbose:
+            print(f"  aligned file {match.group(2)} -> {commit[:12]}")
+
+
 def update_addon_sources(
     addon_id: str, addon_data: dict, main_url: str, main_rev: str, main_atype: str
 ) -> dict:
@@ -344,14 +381,17 @@ def update_addon_sources(
         and is_github_url(primary.get("url", ""))
         and primary.get("commit")
     ):
-        pins = get_depends_pins(
-            _repo_name_from_url(primary["url"]), primary["commit"]
-        )
+        repo_name = _repo_name_from_url(primary["url"])
+        pins = get_depends_pins(repo_name, primary["commit"])
         for module in modules:
             _align_module_source(module, pins, addon_id)
+            _align_raw_file_sources(module, repo_name, primary["commit"], addon_id)
             for sub in module.get("modules", []):
                 if isinstance(sub, dict):
                     _align_module_source(sub, pins, addon_id)
+                    _align_raw_file_sources(
+                        sub, repo_name, primary["commit"], addon_id
+                    )
 
     return addon_data
 
