@@ -35,9 +35,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/libretro-prboom",
-                    "commit": "b4046cef3641d6bb28c0394915bfcc732cc49652"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-prboom/archive/b4046cef3641d6bb28c0394915bfcc732cc49652.tar.gz",
+                    "sha256": "80f42cfbdc82e9a4197a1903f80ae41ba6aa3a27e343f362ed1b6c2c96c01510"
                 }
             ]
         }

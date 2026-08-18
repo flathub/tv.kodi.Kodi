@@ -58,10 +58,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/projectM-visualizer/projectm",
-                    "commit": "2f244141320f6b97b09bf99964cc72a4efdfcfd3",
-                    "disable-submodules": true
+                    "type": "archive",
+                    "url": "https://github.com/garbear/projectm/archive/e6bda8e744301f6395d4b4c8c5c77bfa9eae2598.tar.gz",
+                    "sha256": "8d0206a369f172c7a66eb4acf8291f21a8ac20124a88f2865dc126e211e83a61"
                 }
             ]
         }

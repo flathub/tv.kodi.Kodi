@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/libretro-atari800",
-                    "commit": "9d3bcf283502512052e21c6f1453fbdf7aa3122b"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-atari800/archive/9d3bcf283502512052e21c6f1453fbdf7aa3122b.tar.gz",
+                    "sha256": "7a32de824c4273d3c1edffe8116a7a60b84cb1a9f4b819df7a558bbadb2424ca"
                 }
             ]
         }

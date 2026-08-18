@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/pokemini",
-                    "commit": "132111b76343559860532a1ccc094f93f1ed5650"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/PokeMini/archive/132111b76343559860532a1ccc094f93f1ed5650.tar.gz",
+                    "sha256": "53d1266404a823d1cf11b66b0d837c34604fa1623576275e52ec796b663ca2cf"
                 }
             ]
         }

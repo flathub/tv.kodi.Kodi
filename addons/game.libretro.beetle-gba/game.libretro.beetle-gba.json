@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/beetle-gba-libretro",
-                    "commit": "145d4884ad246e3c16765f6d69decb2a4359b6ae"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-gba-libretro/archive/145d4884ad246e3c16765f6d69decb2a4359b6ae.tar.gz",
+                    "sha256": "140f19f3509c897405c4b1aeb0feac25138d0792241ec72c46ee373f77f2d10d"
                 }
             ]
         }

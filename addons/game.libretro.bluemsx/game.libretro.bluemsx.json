@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/blueMSX-libretro",
-                    "commit": "0f32f52c48d3e772bfdf0379756f81f00b4e08bc"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/blueMSX-libretro/archive/0f32f52c48d3e772bfdf0379756f81f00b4e08bc.tar.gz",
+                    "sha256": "708565144f365e45100b59a67e4f44782ccc74ab0a3db342f754b1e56e038252"
                 }
             ]
         }

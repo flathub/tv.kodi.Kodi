@@ -34,9 +34,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/beetle-saturn-libretro",
-                    "commit": "84461434f249c1b5cd10c83ae922feae84e1acf8"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/beetle-saturn-libretro/archive/84461434f249c1b5cd10c83ae922feae84e1acf8.tar.gz",
+                    "sha256": "8d7c0e57c4dd31ca1e6e9122e5b4a306abe289963918809a16872a3a3b72d750"
                 }
             ]
         }
