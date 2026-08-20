@@ -140,6 +140,7 @@ modules:
       - type: shell
         commands:
           - patch -p1 < 001-ffmpeg-all-libpostproc-plugin.patch
+      # v4l2-request hwaccel (from LibreELEC) targets stateless decoders found on aarch64 SoCs; x86_64 uses VAAPI
       - type: file
         url: https://raw.githubusercontent.com/LibreELEC/LibreELEC.tv/e9e6b8531df13bc9058ca1771dab5f0c4fd5e98e/packages/multimedia/ffmpeg/patches/v4l2-request/0001-v4l2-request.patch
         sha256: afd04c202c27081c355d8d34b58a52c4141de26433007e27ed6e0d2093d10d3c
