@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.stella",
-            "commit": "9647e08bf540d019a177ef169a8ef9fd504ec60a"
+            "commit": "9ff2f9c0ea8200e475dbca049a7369cd99fb3e5b"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/stella-emu/stella/archive/3f819a0d5760c3113610d1d07deb4ce9ea187517.tar.gz",
-                    "sha256": "adc133cab0231dcb674e9c9e771dbaa91e46275c4c8b6fbea676e43d5ac5612a"
+                    "url": "https://github.com/stella-emu/stella/archive/9bbd209f4a9505b1cd58242fa4b6790da020adcb.tar.gz",
+                    "sha256": "802aec75180cd7143c616788cc5ab82c1f25565694079d642597c1b89c254db2"
                 }
             ]
         }

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mesen",
-            "commit": "a5f871a019d6fd90bd9637d03ae75c736eecea49"
+            "commit": "82093b3fcf0798351029be517020c1197fddbfe8"
         }
     ],
     "modules": [
