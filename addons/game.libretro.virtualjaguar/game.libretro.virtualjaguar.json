@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.virtualjaguar",
-            "commit": "a6f6bef53ac61dc971fac433870c1e20cef764f8"
+            "commit": "989f60be0b3f82de8b31fc2a717063cecbc35153"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/59f7f9cc594ae6c6982c2bd8fc0dbf36873f9869.tar.gz",
-                    "sha256": "81b2d166f1539d6278894965ed049b3267ad6260957bf25046eab2d98dd27c0b"
+                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/385c4d458538fd473c4bc8dc8dab4778897e8ac6.tar.gz",
+                    "sha256": "5ecaf9f1e84e8329aec2e44882b18b596e421229777cfa75fec0eafc0f4f1224"
                 }
             ]
         }

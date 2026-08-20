@@ -31,12 +31,12 @@
                 {
                     "type": "git",
                     "url": "https://github.com/projectM-visualizer/projectm-eval",
-                    "commit": "da885dcdf33620ef26aa04cac9e215378b80252e",
+                    "commit": "22fb0cfd8f2dfbcd2b68f2443e7f44e19b32c09a",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
                     },
-                    "tag": "v1.0.6"
+                    "tag": "v1.0.7"
                 }
             ]
         },
