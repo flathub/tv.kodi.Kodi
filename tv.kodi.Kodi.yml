@@ -947,6 +947,7 @@ modules:
   - addons/game.libretro.prosystem/game.libretro.prosystem.json
   - addons/game.libretro.quicknes/game.libretro.quicknes.json
   - addons/game.libretro.sameboy/game.libretro.sameboy.json
+  - addons/game.libretro.scummvm/game.libretro.scummvm.json
   - addons/game.libretro.stella/game.libretro.stella.json
   - addons/game.libretro.supafaust/game.libretro.supafaust.json
   - addons/game.libretro.swanstation/game.libretro.swanstation.json
@@ -1461,6 +1462,12 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.scummvm:
+    directory: "lib/kodi/addons/game.libretro.scummvm"
+    add-ld-path: "."
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.stella:
     directory: "lib/kodi/addons/game.libretro.stella"
     add-ld-path: "."
