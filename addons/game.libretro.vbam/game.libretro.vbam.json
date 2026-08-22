@@ -28,7 +28,7 @@
             "build-commands": [
                 "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_LIBRETRO=ON -DENABLE_WX=OFF -DENABLE_LUA=OFF -DENABLE_SDL=OFF -DENABLE_LINK=OFF -DBUILD_TESTING=OFF -DENABLE_LTO=OFF",
                 "cmake --build build --target vbam_libretro -j$FLATPAK_BUILDER_N_JOBS",
-                "install -D -m 755 build/vbam_libretro.so /app/lib/libretro/vbam_libretro.so"
+                "install -s -D -m 755 build/vbam_libretro.so /app/lib/libretro/vbam_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

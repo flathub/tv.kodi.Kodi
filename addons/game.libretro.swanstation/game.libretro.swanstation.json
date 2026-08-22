@@ -30,7 +30,7 @@
             ],
             "no-make-install": true,
             "post-install": [
-                "install -D -m 755 swanstation_libretro.so /app/lib/libretro/swanstation_libretro.so"
+                "install -s -D -m 755 swanstation_libretro.so /app/lib/libretro/swanstation_libretro.so"
             ],
             "sources": [
                 {

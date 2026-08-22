@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C libretro/",
-                "install -D -m 755 libretro/nestopia_libretro.so /app/lib/libretro/nestopia_libretro.so"
+                "install -s -D -m 755 libretro/nestopia_libretro.so /app/lib/libretro/nestopia_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

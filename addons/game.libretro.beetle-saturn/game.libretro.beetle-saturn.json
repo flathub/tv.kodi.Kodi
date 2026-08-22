@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAVE_CDROM=1",
-                "install -D -m 755 mednafen_saturn_libretro.so /app/lib/libretro/mednafen_saturn_libretro.so"
+                "install -s -D -m 755 mednafen_saturn_libretro.so /app/lib/libretro/mednafen_saturn_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

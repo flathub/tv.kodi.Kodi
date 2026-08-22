@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C Libretro/",
-                "install -D -m 755 Libretro/mesen-s_libretro.so /app/lib/libretro/mesen-s_libretro.so"
+                "install -s -D -m 755 Libretro/mesen-s_libretro.so /app/lib/libretro/mesen-s_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

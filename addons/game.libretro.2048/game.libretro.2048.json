@@ -19,7 +19,7 @@
             },
             "build-commands": [
                 "make -f Makefile.libretro PREFIX=/app platform=unix",
-                "install -D -m 755 2048_libretro.so /app/lib/libretro/2048_libretro.so"
+                "install -s -D -m 755 2048_libretro.so /app/lib/libretro/2048_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

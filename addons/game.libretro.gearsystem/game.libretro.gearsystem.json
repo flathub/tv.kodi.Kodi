@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C platforms/libretro",
-                "install -D -m 755 platforms/libretro/gearsystem_libretro.so /app/lib/libretro/gearsystem_libretro.so"
+                "install -s -D -m 755 platforms/libretro/gearsystem_libretro.so /app/lib/libretro/gearsystem_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

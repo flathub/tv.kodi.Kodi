@@ -28,7 +28,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix DISABLE_OPENGL=1",
-                "install -D -m 755 melonds_libretro.so /app/lib/libretro/melonds_libretro.so"
+                "install -s -D -m 755 melonds_libretro.so /app/lib/libretro/melonds_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
