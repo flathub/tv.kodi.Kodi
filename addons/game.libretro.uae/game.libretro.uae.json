@@ -27,9 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -s -D -m 755 puae_libretro.so /app/lib/libretro/puae_libretro.so",
-                "mkdir -p $FLATPAK_DEST/usr/share/retroarch/system/uae_data/",
-                "cp -vR sources/uae_data/* $FLATPAK_DEST/usr/share/retroarch/system/uae_data/"
+                "install -s -D -m 755 puae_libretro.so /app/lib/libretro/puae_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
