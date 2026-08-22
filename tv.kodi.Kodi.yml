@@ -928,13 +928,19 @@ modules:
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
+  - addons/game.libretro.gearsystem/game.libretro.gearsystem.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.hatari/game.libretro.hatari.json
+  - addons/game.libretro.melonds/game.libretro.melonds.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
+  - addons/game.libretro.mgba/game.libretro.mgba.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/game.libretro.mupen64plus-nx/game.libretro.mupen64plus-nx.json
   - addons/game.libretro.nestopia/game.libretro.nestopia.json
+  - addons/game.libretro.nx/game.libretro.nx.json
+  - addons/game.libretro.o2em/game.libretro.o2em.json
   - addons/game.libretro.pcsx-rearmed/game.libretro.pcsx-rearmed.json
   - addons/game.libretro.pokemini/game.libretro.pokemini.json
   - addons/game.libretro.prboom/game.libretro.prboom.json

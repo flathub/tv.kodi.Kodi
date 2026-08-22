@@ -1,0 +1,49 @@
+{
+    "name": "game.libretro.melonds",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.melonds",
+            "commit": "cb22f098a1e0b43ddc06b2bbd4288386eb820415"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-melonds",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "ldflags": "-Wl,-z,noexecstack"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix DISABLE_OPENGL=1",
+                "install -D -m 755 melonds_libretro.so /app/lib/libretro/melonds_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/melonDS/archive/66b5d2634cd0a79030562811e6e05f5532f800ba.tar.gz",
+                    "sha256": "8fa494f12a8fe7f20a4ab32ac89a1391f079d41a203d02822b8541e71637a22c"
+                },
+                {
+                    "type": "patch",
+                    "path": "libretro-melonds-001-allow-building-without-opengl.patch"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "name": "game.libretro.gearsystem",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.gearsystem",
+            "commit": "8ae68f76b2295a1209bbe0e13e1a07ef3c1e31e5"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-gearsystem",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C platforms/libretro",
+                "install -D -m 755 platforms/libretro/gearsystem_libretro.so /app/lib/libretro/gearsystem_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/drhelius/Gearsystem/archive/db6c65836d7605ac0d3cfca61ff8145a5434841b.tar.gz",
+                    "sha256": "bacc69cd122b6c9b9e9e0ddc863c1bfa91ffeb753e4be2e26e2389447d955d91"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.gearsystem/8ae68f76b2295a1209bbe0e13e1a07ef3c1e31e5/depends/common/gearsystem/0001-Explicitly-set-version-variable.patch",
+                    "sha256": "0b2c876194cf7fc02dc3581a2b9213299a56f0ee78b06a29fae5f12db7156af4",
+                    "dest-filename": "0001-Explicitly-set-version-variable.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 0001-Explicitly-set-version-variable.patch"
+                    ]
+                }
+            ]
+        }
+    ]
+}
