@@ -73,6 +73,7 @@ game.libretro.prboom
 game.libretro.prosystem
 game.libretro.quicknes
 game.libretro.sameboy
+game.libretro.scummvm
 game.libretro.stella
 game.libretro.supafaust
 game.libretro.swanstation

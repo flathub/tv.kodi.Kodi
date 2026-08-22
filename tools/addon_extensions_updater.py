@@ -22,7 +22,7 @@ EXTRA_EXTENSIONS = """\
 """
 EXTRA_CLEANUP = ["  - mkdir -p ${FLATPAK_DEST}/share/kodi/extra\n"]
 
-# non-commercial cores ship disabled rather than auto-downloaded
+# non-commercial cores (and scummvm, for size) ship disabled rather than auto-downloaded
 OPT_IN = (
     "game.libretro.mame2000",
     "game.libretro.mame2003_plus",
@@ -33,6 +33,7 @@ OPT_IN = (
     "game.libretro.cap32",
     "game.libretro.fuse",
     "game.libretro.vecx",
+    "game.libretro.scummvm",
 )
 
 
