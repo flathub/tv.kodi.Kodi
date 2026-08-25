@@ -27,8 +27,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.8+release.autotools.tar.gz",
-                    "sha256": "d4f00ddd29eecb9594bda7be76c13aaa2de1dadc18391c3e905f728ec9af8822",
+                    "url": "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.8.9+release.autotools.tar.gz",
+                    "sha256": "d7ce84fd05d686c4bcf66af40eae857afa371442db60eeda3f874bd6cf6fc318",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 141468,
