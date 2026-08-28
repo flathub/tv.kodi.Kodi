@@ -7,7 +7,7 @@ update-addons:
 	$(MAKE) addon-list
 addon-list:
 	for d in addons/*/; do id=$${d#addons/}; id=$${id%/}; \
-		case $$id in pvr.*) continue;; esac; \
+		case $$id in pvr.*|inputstream.airplay) continue;; esac; \
 		if [ -f "$$d/provides.txt" ]; then cat "$$d/provides.txt"; else echo "$$id"; fi; \
 	done | sort -u > addon-list.txt
 build:

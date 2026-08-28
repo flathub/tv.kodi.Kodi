@@ -57,7 +57,10 @@ cleanup:
 modules:
   - name: avahi
     cleanup:
-      - /bin
+      # keep avahi-browse: inputstream.airplay shells out to it for DACP remote control
+      - /bin/avahi-publish*
+      - /bin/avahi-resolve*
+      - /bin/avahi-set-host-name
       - /share/runtime/locale
     config-opts:
       - --enable-shared
@@ -594,20 +597,6 @@ modules:
           - type: archive
             url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
             sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
-  - name: shairplay
-    cleanup:
-      - /bin
-      - /share/runtime/locale
-    config-opts:
-      - --enable-shared
-      - --disable-static
-    build-options:
-      env:
-        C_INCLUDE_PATH: /app/include/avahi-compat-libdns_sd:/app/include
-    sources:
-      - type: git
-        url: https://github.com/juhovh/shairplay/
-        commit: 096b61ad14c90169f438e690d096e3fcf87e504e
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -770,7 +759,7 @@ modules:
       - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
-      - -DENABLE_AIRTUNES=ON
+      - -DENABLE_AIRTUNES=OFF
       - -DENABLE_ALSA=ON
       - -DENABLE_AVAHI=ON
       - -DENABLE_BLURAY=ON
@@ -961,6 +950,7 @@ modules:
   - addons/imagedecoder.mpo/imagedecoder.mpo.json
   - addons/imagedecoder.raw/imagedecoder.raw.json
   - addons/inputstream.adaptive/inputstream.adaptive.json
+  - addons/inputstream.airplay/inputstream.airplay.json
   - addons/inputstream.ffmpegdirect/inputstream.ffmpegdirect.json
   - addons/inputstream.rtmp/inputstream.rtmp.json
   - addons/peripheral.joystick/peripheral.joystick.json
