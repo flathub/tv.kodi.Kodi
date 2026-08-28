@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.nestopia",
-            "commit": "a43cb49cba4e8a5dab600a8a707019f39d66735a"
+            "commit": "36826dcb3a64a747a03a2d65882fa4b330777955"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/nestopia/archive/fc21888478ab372e894d3443f70fd1454e934748.tar.gz",
-                    "sha256": "88041c61a0b97b1039a981859efd1c12f91b1b8eb30d1bc3505bb760416c32fd"
+                    "url": "https://github.com/libretro/nestopia/archive/930726826ad20346b2d023af0b8f784c8570720e.tar.gz",
+                    "sha256": "030a375e1b4c4a49a36b4c39867d3fda3a2acad1525f3648a77b3de40be98dec"
                 }
             ]
         }

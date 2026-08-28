@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.uae",
-            "commit": "04166ba2c1695cd09cda904712623e1248822b67"
+            "commit": "80f8a648de4e105a89953e4b9714a832ff39a77d"
         }
     ],
     "modules": [

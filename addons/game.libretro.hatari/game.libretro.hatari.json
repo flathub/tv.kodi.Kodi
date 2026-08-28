@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.hatari",
-            "commit": "5fdca66da623cafaeacfcbfa3ea9acec9a9f8fbc"
+            "commit": "676480cf8cbb442d026f91f468dda0e4e77b973e"
         }
     ],
     "modules": [

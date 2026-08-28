@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mgba",
-            "commit": "6d1cecaae95ae9bc7ac16be31e928c8f7e871360"
+            "commit": "11be8082b52192c38126f2119109cfcc6ab22c25"
         }
     ],
     "modules": [

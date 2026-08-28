@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.vbam",
-            "commit": "dae3ee31583ff0bc5ae381ee82200ec1eb0337cf"
+            "commit": "ee6600e8709478ce22a0fa93ef4539e9ea2b02c5"
         }
     ],
     "modules": [
@@ -36,8 +36,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/visualboyadvance-m/visualboyadvance-m/archive/1bc817e16959b5cade42b1398ee0ff7582b5c402.tar.gz",
-                    "sha256": "d86242b570ce51be3c7dd9b3a7412ff82cb1e7927941f971bef0626ffe9dc7c8"
+                    "url": "https://github.com/visualboyadvance-m/visualboyadvance-m/archive/d34ae60213d84e086c6e3b2e08d81c154cd97784.tar.gz",
+                    "sha256": "6c336da0b88aa78d224f078e83ff763643304e172e6fd2a5b29f824d6cf5f7d9"
                 }
             ]
         }

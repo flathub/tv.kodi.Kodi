@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-gba",
-            "commit": "29271d2f2bfc74c03af0d153d508db38f3f36d63"
+            "commit": "0737c2dd35bb27cdc7ab8c44af0b03bb825767fa"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/beetle-gba-libretro/archive/145d4884ad246e3c16765f6d69decb2a4359b6ae.tar.gz",
-                    "sha256": "140f19f3509c897405c4b1aeb0feac25138d0792241ec72c46ee373f77f2d10d"
+                    "url": "https://github.com/libretro/beetle-gba-libretro/archive/bb9edd1d611f245cd5aeb0b39986f2ecf6ec843f.tar.gz",
+                    "sha256": "3ba3246a2915d3422da92f554c27fe2f08c969d9ee8e8269340de60280afe398"
                 }
             ]
         }

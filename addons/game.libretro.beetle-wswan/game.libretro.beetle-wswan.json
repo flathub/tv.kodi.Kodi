@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-wswan",
-            "commit": "6367f92c623fcb8a0257f1b9e3946eb76fab5ab3"
+            "commit": "b872748bdc0b2667e519923fe67620138f6e0659"
         }
     ],
     "modules": [

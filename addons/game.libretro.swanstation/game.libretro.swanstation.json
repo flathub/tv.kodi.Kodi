@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.swanstation",
-            "commit": "6913ec3b4235c08e6bf044a15b05d4d373c70510"
+            "commit": "a1b3b72bdc23742266fde14019e360bbada488ea"
         }
     ],
     "modules": [

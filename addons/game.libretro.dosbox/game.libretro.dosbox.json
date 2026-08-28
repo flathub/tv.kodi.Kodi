@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.dosbox",
-            "commit": "5356c5d7b79929529f4a11dcb6bd6651903cb371"
+            "commit": "ef1cdd028306d88f514f3e7cb3c15820a4715f3c"
         }
     ],
     "modules": [

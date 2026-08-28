@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.nx",
-            "commit": "2827481410aaa52fc47df6091212820f425b1e81"
+            "commit": "cea84a1da451cef8fef5af9ee58a10fd8643fd29"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/nxengine-libretro/archive/a1c45fd4d045333f4ea523e556469b545be82b0a.tar.gz",
-                    "sha256": "8e3b1b93a10344c0cb073b704d7f90003a142d1b9b7d2532d774ba61157a2bd5"
+                    "url": "https://github.com/libretro/nxengine-libretro/archive/fd1c0686f8b4c0aea9b5addbc077e3ad7da23bb7.tar.gz",
+                    "sha256": "81aa24816218c2fa0ddd0f429aa20e663ed903ff573633be8bc5bc812eeb38b7"
                 }
             ]
         }

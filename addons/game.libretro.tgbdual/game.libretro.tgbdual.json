@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.tgbdual",
-            "commit": "7b0052d4ad8b2400976f8b60b9bc27f536a9efa8"
+            "commit": "75e66dc1096af4b1e3f8171539e3b3726ab162e1"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/tgbdual-libretro/archive/bf816b096f1dca55ea805337d7c9e78d6b98d839.tar.gz",
-                    "sha256": "575d40a48a0b331ce82a683afd8c72f07d8880548c6db7ef5c25cba2bf4bc2da"
+                    "url": "https://github.com/libretro/tgbdual-libretro/archive/0392c9c469e653205e471114c7949c07c83bfce9.tar.gz",
+                    "sha256": "4f6bc3e93664db811794369c9b0ebbcca59c2edf4df311f4312e309a3e2ed95c"
                 }
             ]
         }
