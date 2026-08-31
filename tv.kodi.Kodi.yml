@@ -949,6 +949,7 @@ modules:
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json
   - addons/imagedecoder.raw/imagedecoder.raw.json
+  - addons/imagedecoder.svg/imagedecoder.svg.json
   - addons/inputstream.adaptive/inputstream.adaptive.json
   - addons/inputstream.airplay/inputstream.airplay.json
   - addons/inputstream.ffmpegdirect/inputstream.ffmpegdirect.json

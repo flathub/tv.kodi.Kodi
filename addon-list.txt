@@ -78,6 +78,7 @@ game.shader.presets
 imagedecoder.heif
 imagedecoder.mpo
 imagedecoder.raw
+imagedecoder.svg
 inputstream.adaptive
 inputstream.ffmpegdirect
 inputstream.rtmp
