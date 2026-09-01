@@ -56,12 +56,14 @@ cleanup:
   - /var
 modules:
   - name: avahi
+    # ships only avahi-browse: inputstream.airplay shells out to it for DACP
+    # remote control; kodi and avahi-browse use the runtime's avahi libraries
+    post-install:
+      - find ${FLATPAK_DEST}/bin -mindepth 1 -maxdepth 1 -name 'avahi-*' ! -name avahi-browse -delete
     cleanup:
-      # keep avahi-browse: inputstream.airplay shells out to it for DACP remote control
-      - /bin/avahi-publish*
-      - /bin/avahi-resolve*
-      - /bin/avahi-set-host-name
-      - /share/runtime/locale
+      - /include
+      - /lib
+      - /share
     config-opts:
       - --enable-shared
       - --disable-static
@@ -78,7 +80,6 @@ modules:
       - --disable-python
       - --disable-gtk
       - --disable-gtk3
-      - --enable-compat-libdns_sd
     sources:
       - type: archive
         url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz
