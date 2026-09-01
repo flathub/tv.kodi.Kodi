@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.nx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.nx",
+            "commit": "cea84a1da451cef8fef5af9ee58a10fd8643fd29"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-nx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -s -D -m 755 nxengine_libretro.so /app/lib/libretro/nxengine_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/nxengine-libretro/archive/fd1c0686f8b4c0aea9b5addbc077e3ad7da23bb7.tar.gz",
+                    "sha256": "81aa24816218c2fa0ddd0f429aa20e663ed903ff573633be8bc5bc812eeb38b7"
+                }
+            ]
+        }
+    ]
+}

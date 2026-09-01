@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-pce",
-            "commit": "748eb696b03202d3aa535b7fe0a0799f9e13a8e9"
+            "commit": "d7cb40b0158e01b825bb5458dd05cebaa7793e8d"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAVE_CDROM=1",
-                "install -D -m 755 mednafen_pce_libretro.so /app/lib/libretro/mednafen_pce_libretro.so"
+                "install -s -D -m 755 mednafen_pce_libretro.so /app/lib/libretro/mednafen_pce_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.yabause",
-            "commit": "8a6724bc60dd8b33c1532d7431ef04edd64ad13f"
+            "commit": "3043ce9aba588dde80e0aa1289dd6d92c4ac37e9"
         }
     ],
     "modules": [
@@ -39,7 +39,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app $ARCH_FLAGS -C yabause/src/libretro",
-                "install -D -m 755 yabause/src/libretro/yabause_libretro.so /app/lib/libretro/yabause_libretro.so"
+                "install -s -D -m 755 yabause/src/libretro/yabause_libretro.so /app/lib/libretro/yabause_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

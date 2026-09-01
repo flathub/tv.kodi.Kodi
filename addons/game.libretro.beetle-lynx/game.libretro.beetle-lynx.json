@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-lynx",
-            "commit": "84827f5084447bb28cd300a5ff3b49b4f5f42140"
+            "commit": "0a716fbea48247c9fee1c60e40507f0dbf7556a8"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -D -m 755 mednafen_lynx_libretro.so /app/lib/libretro/mednafen_lynx_libretro.so"
+                "install -s -D -m 755 mednafen_lynx_libretro.so /app/lib/libretro/mednafen_lynx_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

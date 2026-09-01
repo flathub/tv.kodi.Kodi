@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-supergrafx",
-            "commit": "d2dff9242b2b7807efc6f43978e512d1b9d3fd4c"
+            "commit": "da8acceba510187faaf6ab5022c59a67ea989e81"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -D -m 755 mednafen_supergrafx_libretro.so /app/lib/libretro/mednafen_supergrafx_libretro.so"
+                "install -s -D -m 755 mednafen_supergrafx_libretro.so /app/lib/libretro/mednafen_supergrafx_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

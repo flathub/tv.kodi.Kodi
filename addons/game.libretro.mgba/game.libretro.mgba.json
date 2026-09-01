@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.mgba",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.mgba",
+            "commit": "11be8082b52192c38126f2119109cfcc6ab22c25"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-mgba",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -s -D -m 755 mgba_libretro.so /app/lib/libretro/mgba_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/mgba/archive/6dce57eef127dc4cc292644f38196e0e7c58590c.tar.gz",
+                    "sha256": "2195b204a7949551ef6ad935497566dc80960bae58fd803183b84ddeca77e5c9"
+                }
+            ]
+        }
+    ]
+}

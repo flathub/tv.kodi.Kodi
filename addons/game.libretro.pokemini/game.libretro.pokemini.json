@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.pokemini",
-            "commit": "46136a63dd2b9a6268c518ae840c2efd7a3ff5cb"
+            "commit": "535dd9b82f5b1e5510699a588689a449d9156400"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -D -m 755 pokemini_libretro.so /app/lib/libretro/pokemini_libretro.so"
+                "install -s -D -m 755 pokemini_libretro.so /app/lib/libretro/pokemini_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

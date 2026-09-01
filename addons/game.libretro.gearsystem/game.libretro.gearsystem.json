@@ -1,0 +1,56 @@
+{
+    "name": "game.libretro.gearsystem",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.gearsystem",
+            "commit": "76936e608ce1fe2e09910a58d6b1ebad6540f315"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-gearsystem",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C platforms/libretro",
+                "install -s -D -m 755 platforms/libretro/gearsystem_libretro.so /app/lib/libretro/gearsystem_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/drhelius/Gearsystem/archive/2c725424715dd41a5d6f8e97a4d318316cf9dbad.tar.gz",
+                    "sha256": "f6c46691e43950f4d80b1a848ea0539c1852da6602d10c2ffc6b94d9848c67dd"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.gearsystem/76936e608ce1fe2e09910a58d6b1ebad6540f315/depends/common/gearsystem/0001-Explicitly-set-version-variable.patch",
+                    "sha256": "0b2c876194cf7fc02dc3581a2b9213299a56f0ee78b06a29fae5f12db7156af4",
+                    "dest-filename": "0001-Explicitly-set-version-variable.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 0001-Explicitly-set-version-variable.patch"
+                    ]
+                }
+            ]
+        }
+    ]
+}

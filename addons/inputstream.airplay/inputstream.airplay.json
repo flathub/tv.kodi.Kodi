@@ -1,0 +1,26 @@
+{
+    "name": "inputstream.airplay",
+    "buildsystem": "cmake-ninja",
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DUXPLAY_SOURCE_DIR=/run/build/inputstream.airplay/uxplay"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/popcornmix/inputstream.airplay",
+            "commit": "5c1bdedc2176d4452f989c28a65c5d7d883d7e4f"
+        },
+        {
+            "type": "archive",
+            "url": "https://github.com/FDH2/UxPlay/archive/462153392f2e30937424922039ff9f0cda5e7b1a.tar.gz",
+            "sha256": "0f5bf6f2ab3d1ac3ccaf4418afe00137ec1ba97c2a345710202fca40f6a1fb85",
+            "dest": "uxplay"
+        }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    }
+}

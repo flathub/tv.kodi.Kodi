@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gambatte",
-            "commit": "549cb9f1fa5c7bf42aa4bb0f3ae1c8a28c43e97a"
+            "commit": "7c51c8d445401ce24ba221489aa7797194b6b5fa"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -D -m 755 gambatte_libretro.so /app/lib/libretro/gambatte_libretro.so"
+                "install -s -D -m 755 gambatte_libretro.so /app/lib/libretro/gambatte_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/gambatte-libretro/archive/6a7c009273dba8d0607d60ac90634dea11d45343.tar.gz",
-                    "sha256": "50d89a4999af135bffb9e40713120dd534b9eceec3f634e677645fe8084fa6c5"
+                    "url": "https://github.com/libretro/gambatte-libretro/archive/d9d6cd06382d1ced30de34d56d3609452323dab1.tar.gz",
+                    "sha256": "bd39cd38662135d17e221a7fd34baf2908a40065ade16edf2e8d1168b21b921e"
                 }
             ]
         }

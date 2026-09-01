@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "commit": "8cbb7bf745f75b63a838f1561651305ea7b5614f"
+            "commit": "fa0d45fb6caf6ad6187d2cdf370e0184a7918836"
         }
     ],
     "modules": [
@@ -55,8 +55,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.23.1/libheif-1.23.1.tar.gz",
-                    "sha256": "0b14d6bdf5680488e3aede354b1e11be1444b3fc4a30fcf2ae06bd6b601466be",
+                    "url": "https://github.com/strukturag/libheif/archive/v1.23.2/libheif-1.23.2.tar.gz",
+                    "sha256": "1405ed070421459b569ff49deab109b7f1a30a447e72a9b20a4154f774634a44",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/strukturag/libheif/releases/latest",

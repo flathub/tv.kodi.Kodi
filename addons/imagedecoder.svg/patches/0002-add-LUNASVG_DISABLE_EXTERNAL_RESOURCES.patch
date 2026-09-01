@@ -1,0 +1,31 @@
+diff --git a/source/svgelement.cpp b/source/svgelement.cpp
+index 942ce97..796f9ab 100644
+--- a/source/svgelement.cpp
++++ b/source/svgelement.cpp
+@@ -908,7 +908,11 @@ static Bitmap loadImageResource(const std::string& href)
+         return plutovg_surface_load_from_image_base64(input.data(), input.length());
+     }
+ 
++#ifdef LUNASVG_DISABLE_EXTERNAL_RESOURCES
++    return Bitmap();
++#else
+     return plutovg_surface_load_from_image_file(href.data());
++#endif
+ }
+ 
+ void SVGImageElement::parseAttribute(PropertyID id, const std::string& value)
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c526159..3cdd8b5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -73,6 +73,10 @@ if(NOT BUILD_SHARED_LIBS)
+ endif()
+ 
+ option(LUNASVG_DISABLE_LOAD_SYSTEM_FONTS "Disable automatic loading of fonts from system directories" OFF)
++option(LUNASVG_DISABLE_EXTERNAL_RESOURCES "Disable loading of resources referenced by file path, leaving only data: URIs" OFF)
++if(LUNASVG_DISABLE_EXTERNAL_RESOURCES)
++    target_compile_definitions(lunasvg PRIVATE LUNASVG_DISABLE_EXTERNAL_RESOURCES)
++endif()
+ if(LUNASVG_DISABLE_LOAD_SYSTEM_FONTS)
+     target_compile_definitions(lunasvg PRIVATE LUNASVG_DISABLE_LOAD_SYSTEM_FONTS)
+ endif()

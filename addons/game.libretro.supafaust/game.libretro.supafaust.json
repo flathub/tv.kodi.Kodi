@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.supafaust",
-            "commit": "debe4c19d5182ed34809b75982c70d980a8c79e0"
+            "commit": "ff3d4b3e7a5a620dcfa0e155656b78af6b6336d1"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -D -m 755 mednafen_supafaust_libretro.so /app/lib/libretro/mednafen_supafaust_libretro.so"
+                "install -s -D -m 755 mednafen_supafaust_libretro.so /app/lib/libretro/mednafen_supafaust_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/supafaust/archive/d6187e5337e6c2646d003db3ab1936727ca75301.tar.gz",
-                    "sha256": "239c78976ef98584e38b7b017d9c73e96c92397963b73d82cd8b941ae71a456d"
+                    "url": "https://github.com/libretro/supafaust/archive/642d1d1b6684aa7e306a02a89885f3f5456a5157.tar.gz",
+                    "sha256": "257b3e3d5c6a1db16b9fe8d3b6fff956732df7d8c8b0a4865ca6d6534fc9145c"
                 }
             ]
         }

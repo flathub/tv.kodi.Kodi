@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gw",
-            "commit": "35c628b9df8df4d45334bc64184c63fa4ed4aa27"
+            "commit": "6235b95077035e18612449463352b4b6a53831a0"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -D -m 755 gw_libretro.so /app/lib/libretro/gw_libretro.so"
+                "install -s -D -m 755 gw_libretro.so /app/lib/libretro/gw_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

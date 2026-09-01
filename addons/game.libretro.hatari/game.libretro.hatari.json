@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.hatari",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.hatari",
+            "commit": "676480cf8cbb442d026f91f468dda0e4e77b973e"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-hatari",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -s -D -m 755 hatari_libretro.so /app/lib/libretro/hatari_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/hatari/archive/24e7bd744f24f20b464385f365a3850c269bd140.tar.gz",
+                    "sha256": "f45c64793a082f1d5a33cb32560276cfd32945912c958066e422f819489817d8"
+                }
+            ]
+        }
+    ]
+}

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.dosbox",
-            "commit": "5356c5d7b79929529f4a11dcb6bd6651903cb371"
+            "commit": "ef1cdd028306d88f514f3e7cb3c15820a4715f3c"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -D -m 755 dosbox_libretro.so /app/lib/libretro/dosbox_libretro.so"
+                "install -s -D -m 755 dosbox_libretro.so /app/lib/libretro/dosbox_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

@@ -3,11 +3,11 @@ PROJECT ?= tv.kodi.Kodi
 .PHONY: update-addons addon-list build flatpak install run clean
 
 update-addons:
-	cd tools && uv run addon_updater.py -r
+	cd tools && uv run addon_updater.py -r -u
 	$(MAKE) addon-list
 addon-list:
 	for d in addons/*/; do id=$${d#addons/}; id=$${id%/}; \
-		case $$id in pvr.*) continue;; esac; \
+		case $$id in pvr.*|inputstream.airplay) continue;; esac; \
 		if [ -f "$$d/provides.txt" ]; then cat "$$d/provides.txt"; else echo "$$id"; fi; \
 	done | sort -u > addon-list.txt
 build:

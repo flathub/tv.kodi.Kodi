@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.bluemsx",
-            "commit": "fbd03d077e905a2cab4cb954a9460956f86691e9"
+            "commit": "0fcb3eb7300d62f322648ae16e615f8d775b7f4b"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -D -m 755 bluemsx_libretro.so /app/lib/libretro/bluemsx_libretro.so"
+                "install -s -D -m 755 bluemsx_libretro.so /app/lib/libretro/bluemsx_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/blueMSX-libretro/archive/0f32f52c48d3e772bfdf0379756f81f00b4e08bc.tar.gz",
-                    "sha256": "708565144f365e45100b59a67e4f44782ccc74ab0a3db342f754b1e56e038252"
+                    "url": "https://github.com/libretro/blueMSX-libretro/archive/e3086eb5d36d77fa11704cf53dc176686e70127d.tar.gz",
+                    "sha256": "55d7f4feed17592d2c726469b00ec239cb4b8f2093a29b912931f25035838b9b"
                 }
             ]
         }

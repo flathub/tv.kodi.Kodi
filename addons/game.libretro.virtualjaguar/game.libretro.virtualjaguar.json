@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.virtualjaguar",
-            "commit": "989f60be0b3f82de8b31fc2a717063cecbc35153"
+            "commit": "c65e22c6b939b3f0449f6bdb6cbeac65fce12880"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -D -m 755 virtualjaguar_libretro.so /app/lib/libretro/virtualjaguar_libretro.so"
+                "install -s -D -m 755 virtualjaguar_libretro.so /app/lib/libretro/virtualjaguar_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/385c4d458538fd473c4bc8dc8dab4778897e8ac6.tar.gz",
-                    "sha256": "5ecaf9f1e84e8329aec2e44882b18b596e421229777cfa75fec0eafc0f4f1224"
+                    "url": "https://github.com/libretro/virtualjaguar-libretro/archive/8c758ff6cc49b0fefaf30ce5b80645ca754a54eb.tar.gz",
+                    "sha256": "56f28dc504d2b9b0b18120a70094f1064120f03ea33d1bf42261449566712873"
                 }
             ]
         }

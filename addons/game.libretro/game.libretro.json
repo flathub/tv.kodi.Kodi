@@ -18,7 +18,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "5e6c7e8926fb02afc0d48c947a60b011fb034a9f"
+            "commit": "d0d6d3279c6621ae75c5dc5368f4aceea01cbfc1"
         }
     ],
     "modules": [
@@ -38,7 +38,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/5e6c7e8926fb02afc0d48c947a60b011fb034a9f/depends/common/libretro-common/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/d0d6d3279c6621ae75c5dc5368f4aceea01cbfc1/depends/common/libretro-common/CMakeLists.txt",
                     "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
                 }
             ]
@@ -65,8 +65,8 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/5e6c7e8926fb02afc0d48c947a60b011fb034a9f/depends/common/rcheevos/CMakeLists.txt",
-                    "sha256": "5a49ce4c200b2c9a6c2ce0e854c8c0530a7920e71e0eca5285962b0928f14563"
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/d0d6d3279c6621ae75c5dc5368f4aceea01cbfc1/depends/common/rcheevos/CMakeLists.txt",
+                    "sha256": "49a8eb640f10ea35f98880f504048d07865627037bca1402039bb67fe28d1cc9"
                 }
             ]
         }

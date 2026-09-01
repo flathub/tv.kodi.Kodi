@@ -56,9 +56,14 @@ cleanup:
   - /var
 modules:
   - name: avahi
+    # ships only avahi-browse: inputstream.airplay shells out to it for DACP
+    # remote control; kodi and avahi-browse use the runtime's avahi libraries
+    post-install:
+      - find ${FLATPAK_DEST}/bin -mindepth 1 -maxdepth 1 -name 'avahi-*' ! -name avahi-browse -delete
     cleanup:
-      - /bin
-      - /share/runtime/locale
+      - /include
+      - /lib
+      - /share
     config-opts:
       - --enable-shared
       - --disable-static
@@ -75,7 +80,6 @@ modules:
       - --disable-python
       - --disable-gtk
       - --disable-gtk3
-      - --enable-compat-libdns_sd
     sources:
       - type: archive
         url: https://github.com/avahi/avahi/archive/refs/tags/v0.9-rc5.tar.gz
@@ -307,6 +311,8 @@ modules:
           project-id: 1565
           url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
   - name: libcdio
+    cleanup:
+      - /bin
     config-opts:
       - --enable-shared
       - --disable-static
@@ -425,8 +431,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.0.tar.gz
-        sha512: 16464129a827af897af35120d8b495993ea9bc56889fa815230e6fd999f391834256a83f3b58060b4c8e0c5d0608e2ca76f3716cff05ca15c40551a2be4aa8ad
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.1.tar.gz
+        sha512: 59e26c1131370482b8da0eba54da54c6270a8c9f683bd7ad74a95ff06a7fc9fd744ff60c04bb3d44d6278acb6e57b3f7f0d4825e6e8f53c9e216dd000cd1c001
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -594,20 +600,6 @@ modules:
           - type: archive
             url: https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
             sha256: 3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5
-  - name: shairplay
-    cleanup:
-      - /bin
-      - /share/runtime/locale
-    config-opts:
-      - --enable-shared
-      - --disable-static
-    build-options:
-      env:
-        C_INCLUDE_PATH: /app/include/avahi-compat-libdns_sd:/app/include
-    sources:
-      - type: git
-        url: https://github.com/juhovh/shairplay/
-        commit: 096b61ad14c90169f438e690d096e3fcf87e504e
   - name: spdlog
     buildsystem: cmake-ninja
     config-opts:
@@ -720,8 +712,8 @@ modules:
       - -DCMAKE_INSTALL_LIBDIR=lib
     sources:
       - type: archive
-        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.8.tar.gz
-        sha256: ea51b0609f58a9afa063b60daa1539948b62247721e154f4fff0ad3aec9f9756
+        url: https://github.com/Exiv2/exiv2/archive/refs/tags/v0.28.9.tar.gz
+        sha256: 700b76b97695b2fab4ef8c79619c68ae57d09e0c130724791cafbd39e0eb4aef
         x-checker-data:
           type: anitya
           project-id: 769
@@ -770,7 +762,7 @@ modules:
       - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
       - -DENABLE_TESTING=OFF
-      - -DENABLE_AIRTUNES=ON
+      - -DENABLE_AIRTUNES=OFF
       - -DENABLE_ALSA=ON
       - -DENABLE_AVAHI=ON
       - -DENABLE_BLURAY=ON
@@ -805,12 +797,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 0803e5da42a2c36cca107d2ce91c317f5e1960df
+        commit: e513e0ff4331fc25fd2454659a9dd3e6b7670146
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
           versions:
-            '>': 22.0b1-Piers
+            '>': 22.0b2-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: file
@@ -928,13 +920,19 @@ modules:
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
+  - addons/game.libretro.gearsystem/game.libretro.gearsystem.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
+  - addons/game.libretro.hatari/game.libretro.hatari.json
+  - addons/game.libretro.melonds/game.libretro.melonds.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
+  - addons/game.libretro.mgba/game.libretro.mgba.json
   - addons/game.libretro.mrboom/game.libretro.mrboom.json
   - addons/game.libretro.mupen64plus-nx/game.libretro.mupen64plus-nx.json
   - addons/game.libretro.nestopia/game.libretro.nestopia.json
+  - addons/game.libretro.nx/game.libretro.nx.json
+  - addons/game.libretro.o2em/game.libretro.o2em.json
   - addons/game.libretro.pcsx-rearmed/game.libretro.pcsx-rearmed.json
   - addons/game.libretro.pokemini/game.libretro.pokemini.json
   - addons/game.libretro.prboom/game.libretro.prboom.json
@@ -954,7 +952,9 @@ modules:
   - addons/imagedecoder.heif/imagedecoder.heif.json
   - addons/imagedecoder.mpo/imagedecoder.mpo.json
   - addons/imagedecoder.raw/imagedecoder.raw.json
+  - addons/imagedecoder.svg/imagedecoder.svg.json
   - addons/inputstream.adaptive/inputstream.adaptive.json
+  - addons/inputstream.airplay/inputstream.airplay.json
   - addons/inputstream.ffmpegdirect/inputstream.ffmpegdirect.json
   - addons/inputstream.rtmp/inputstream.rtmp.json
   - addons/peripheral.joystick/peripheral.joystick.json

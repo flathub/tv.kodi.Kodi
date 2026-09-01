@@ -309,6 +309,44 @@ def _align_module_source(module: dict, pins: dict, addon_id: str) -> None:
         print(f"  aligned {name} -> {url}")
 
 
+def _align_companion_sources(sources: list, primary: dict, pins: dict, addon_id: str) -> None:
+    """
+    Align non-primary git/archive sources whose dest (or dest-filename stem)
+    names a depends pin, so bundled companions (e.g. inputstream.airplay's
+    uxplay tree) stay in lockstep with the pin at the resolved addon commit.
+    Sources managed by flatpak-external-data-checker are left alone.
+    """
+    for source in sources:
+        if source is primary or source.get("type") not in ("git", "archive"):
+            continue
+        if "x-checker-data" in source:
+            continue
+        dest = source.get("dest") or source.get("dest-filename") or ""
+        key = os.path.basename(dest.rstrip("/")).split(".")[0]
+        if key not in pins:
+            continue
+        url, rev = pins[key]
+        if get_addon_type(url) == "archive":
+            if source.get("url") == url and source.get("sha256"):
+                continue
+            checksum = sha256_of_url(url)
+            if not checksum:
+                continue
+            source.update({"type": "archive", "url": url, "sha256": checksum})
+            source.pop("commit", None)
+        elif rev and re.fullmatch(r"[0-9a-f]{40}", rev):
+            if source.get("url") == url and source.get("commit") == rev:
+                continue
+            source.update({"type": "git", "url": url, "commit": rev})
+            source.pop("sha256", None)
+        else:
+            print(f"  Warning: cannot align {key}: unsupported depends pin {url} {rev}")
+            continue
+        aligned_modules.setdefault(addon_id, []).append(f"source {key} -> {url}")
+        if args.verbose:
+            print(f"  aligned source {key} -> {url}")
+
+
 def _align_raw_file_sources(
     module: dict, repo_name: str, commit: str, addon_id: str
 ) -> None:
@@ -372,10 +410,17 @@ def update_addon_sources(
             print(f"  primary source: {main_url}@{main_rev}")
         _apply_git_update(primary, main_url, main_rev)
 
-    # module definitions: align to the addon's depends pins
+    # modules and companion sources: align to the addon's depends pins
     modules = [m for m in addon_data.get("modules", []) if isinstance(m, dict)]
+    companions = [
+        s
+        for s in sources
+        if s is not primary
+        and s.get("type") in ("git", "archive")
+        and (s.get("dest") or s.get("dest-filename"))
+    ]
     if (
-        modules
+        (modules or companions)
         and primary is not None
         and primary.get("type") == "git"
         and is_github_url(primary.get("url", ""))
@@ -383,6 +428,7 @@ def update_addon_sources(
     ):
         repo_name = _repo_name_from_url(primary["url"])
         pins = get_depends_pins(repo_name, primary["commit"])
+        _align_companion_sources(sources, primary, pins, addon_id)
         for module in modules:
             _align_module_source(module, pins, addon_id)
             _align_raw_file_sources(module, repo_name, primary["commit"], addon_id)

@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.handy",
-            "commit": "6f36ca32db1248be1e76d981834e8ca7a2c2c1ad"
+            "commit": "e4b1b3b81d15783dc1eefdaf2ca4b9774e5c709b"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
-                "install -D -m 755 handy_libretro.so /app/lib/libretro/handy_libretro.so"
+                "install -s -D -m 755 handy_libretro.so /app/lib/libretro/handy_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

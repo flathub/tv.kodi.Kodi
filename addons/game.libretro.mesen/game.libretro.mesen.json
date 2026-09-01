@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mesen",
-            "commit": "82093b3fcf0798351029be517020c1197fddbfe8"
+            "commit": "f76e35026c8b14931f01dc20a711fa604ed47cff"
         }
     ],
     "modules": [
@@ -27,7 +27,7 @@
             },
             "build-commands": [
                 "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C Libretro/",
-                "install -D -m 755 Libretro/mesen_libretro.so /app/lib/libretro/mesen_libretro.so"
+                "install -s -D -m 755 Libretro/mesen_libretro.so /app/lib/libretro/mesen_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"

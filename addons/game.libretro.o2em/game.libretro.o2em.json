@@ -1,0 +1,44 @@
+{
+    "name": "game.libretro.o2em",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.o2em",
+            "commit": "cd1d937cce30abb46d0d690714e180d3f80ad792"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-o2em",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -s -D -m 755 o2em_libretro.so /app/lib/libretro/o2em_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-o2em/archive/679d6fec04963f6e70a7ec217e3d0ebb1fe472fc.tar.gz",
+                    "sha256": "d69453c179d1a4b63d3f937060bb255c3f02db904e7b2d22ae79042bce3997f1"
+                }
+            ]
+        }
+    ]
+}
