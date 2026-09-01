@@ -311,6 +311,8 @@ modules:
           project-id: 1565
           url-template: https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz
   - name: libcdio
+    cleanup:
+      - /bin
     config-opts:
       - --enable-shared
       - --disable-static
