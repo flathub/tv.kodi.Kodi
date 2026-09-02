@@ -58,6 +58,10 @@ case "${license}" in
         license="GPL-3.0-or-later" ;;
     LGPLv2.1|LGPLv2.1+|LGPL-2.1)
         license="LGPL-2.1-or-later" ;;
+    MPLv2.0|MPL2)
+        license="MPL-2.0" ;;
+    "Artistic License")
+        license="Artistic-2.0" ;;
     zlib)
         license="Zlib" ;;
     "Zlib|GPLv2")
