@@ -219,18 +219,6 @@ modules:
           - echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION include/glm/simd)'
             >> glm/CMakeLists.txt
           - echo 'install(TARGETS glm)' >> glm/CMakeLists.txt
-  - name: hwdata
-    config-opts:
-      - --datarootdir=${FLATPAK_DEST}/lib/
-    sources:
-      - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.410/hwdata-0.410.tar.gz
-        sha256: 2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0
-        x-checker-data:
-          type: anitya
-          project-id: 5387
-          stable-only: true
-          url-template: https://github.com/vcrhonek/hwdata/archive/v$version/hwdata-$version.tar.gz
   - name: json
     buildsystem: cmake-ninja
     config-opts:
