@@ -87,24 +87,6 @@ modules:
           project-id: 147
           url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
           stable-only: false
-  - name: dav1d
-    buildsystem: meson
-    config-opts:
-      - -Ddefault_library=shared
-      - -Denable_asm=true
-      - -Denable_tools=false
-      - -Denable_examples=false
-      - -Denable_tests=false
-    cleanup:
-      - /bin
-    sources:
-      - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.bz2
-        sha512: 1e4dbc409ce77c61c5e4a4f8d6855c35cabf3da5dd6456beccb4c13d0fa58a50045d8ce5bb6832516fe860e6d27303b7b6b8404b330581e122513d39d524dbcc
-        x-checker-data:
-          type: anitya
-          project-id: 18920
-          url-template: https://code.videolan.org/videolan/dav1d/-/archive/$version/dav1d-$version.tar.bz2
   - name: ffmpeg
     config-opts:
       - --enable-shared
