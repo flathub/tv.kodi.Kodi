@@ -50,8 +50,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.23.1/libheif-1.23.1.tar.gz",
-                    "sha256": "0b14d6bdf5680488e3aede354b1e11be1444b3fc4a30fcf2ae06bd6b601466be",
+                    "url": "https://github.com/strukturag/libheif/archive/v1.23.3/libheif-1.23.3.tar.gz",
+                    "sha256": "79e1f66059e55728e541b671f347e3fa787cedeb61170f4e75efe8aaee6ef59e",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/strukturag/libheif/releases/latest",
