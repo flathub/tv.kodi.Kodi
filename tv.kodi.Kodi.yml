@@ -1,9 +1,7 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.openjdk17
 command: kodi
 rename-icon: kodi
 rename-desktop-file: kodi.desktop
@@ -89,24 +87,6 @@ modules:
           project-id: 147
           url-template: https://github.com/avahi/avahi/archive/refs/tags/v$version.tar.gz
           stable-only: false
-  - name: dav1d
-    buildsystem: meson
-    config-opts:
-      - -Ddefault_library=shared
-      - -Denable_asm=true
-      - -Denable_tools=false
-      - -Denable_examples=false
-      - -Denable_tests=false
-    cleanup:
-      - /bin
-    sources:
-      - type: archive
-        url: https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.bz2
-        sha512: 1e4dbc409ce77c61c5e4a4f8d6855c35cabf3da5dd6456beccb4c13d0fa58a50045d8ce5bb6832516fe860e6d27303b7b6b8404b330581e122513d39d524dbcc
-        x-checker-data:
-          type: anitya
-          project-id: 18920
-          url-template: https://code.videolan.org/videolan/dav1d/-/archive/$version/dav1d-$version.tar.bz2
   - name: ffmpeg
     config-opts:
       - --enable-shared
@@ -221,18 +201,6 @@ modules:
           - echo 'install(FILES ${SIMD_HEADER} ${SIMD_INLINE} DESTINATION include/glm/simd)'
             >> glm/CMakeLists.txt
           - echo 'install(TARGETS glm)' >> glm/CMakeLists.txt
-  - name: hwdata
-    config-opts:
-      - --datarootdir=${FLATPAK_DEST}/lib/
-    sources:
-      - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.410/hwdata-0.410.tar.gz
-        sha256: 2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0
-        x-checker-data:
-          type: anitya
-          project-id: 5387
-          stable-only: true
-          url-template: https://github.com/vcrhonek/hwdata/archive/v$version/hwdata-$version.tar.gz
   - name: json
     buildsystem: cmake-ninja
     config-opts:
@@ -734,26 +702,6 @@ modules:
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
-  - name: taglib
-    buildsystem: cmake-ninja
-    builddir: true
-    cleanup:
-      - /bin
-    config-opts:
-      - -DBUILD_SHARED_LIBS=ON
-      - -DBUILD_EXAMPLES=OFF
-      - -DBUILD_TESTING=OFF
-      - -DWITH_ZLIB=ON
-      - -DCMAKE_INSTALL_LIBDIR=lib
-    sources:
-      - type: archive
-        url: https://taglib.org/releases/taglib-2.3.1.tar.gz
-        sha256: a19d90e6fd41d09a0281ec0fe762d51491d7a6ccffc923c4f7868c5e647ca230
-        x-checker-data:
-          type: anitya
-          project-id: 1982
-          stable-only: true
-          url-template: https://taglib.org/releases/taglib-$version.tar.gz
   - name: kodi
     buildsystem: cmake-ninja
     builddir: true
@@ -785,7 +733,6 @@ modules:
       - -DENABLE_LIRCCLIENT=ON
       - -DDEPENDS_PATH=/app
       - -DAPP_RENDER_SYSTEM=gles
-      - -DJava_JAVA_EXECUTABLE=/usr/lib/sdk/openjdk17/bin/java
       - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
       - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.xz
       - -DLIBDVDCSS_HASH=SHA512=edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
@@ -805,6 +752,12 @@ modules:
             '>': 22.0b2-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
+      # temporary: xbmc/xbmc#28958, generate the python bindings with swig
+      # directly and drop the java/groovy codegen. rebased onto the pinned
+      # commit; drop this patch once the PR is merged upstream.
+      - type: patch
+        path: patches/kodi-pr28958-swig-direct.patch
+        use-git: true
       - type: file
         path: addon-list.txt
         dest: build/download/
@@ -834,26 +787,10 @@ modules:
         sha512: 4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
         dest: build/download/
         dest-filename: libdvdnav.tar.xz
-      - type: file
-        url: https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.30.zip
-        sha512: 789e956ecad3c302d545a16caccd45454357556b566ee83abfafe102371cf218f5ed5dc83d748595fbb2d465bde6c7306a498806e58b512cfc742abe5f5b101d
-        dest: build/download/
-        dest-filename: apache-groovy-binary-4.0.30.zip
-      - type: file
-        url: https://archive.apache.org/dist/commons/lang/binaries/commons-lang3-3.20.0-bin.tar.gz
-        sha512: eead2c04a85c85cfc83ef8a858f954e7abf668367d5a42e1152eb5d656eb8f4c1d5e7ad03f46859e99393e92b0d5fc69c927301c1a2ca466a3c49fb1f186ce89
-        dest: build/download/
-        dest-filename: commons-lang3-3.20.0-bin.tar.gz
-      - type: file
-        url: https://archive.apache.org/dist/commons/text/binaries/commons-text-1.15.0-bin.tar.gz
-        sha512: 6d1fcbd85a85f38e95ea33c9ab7f58798723b0e6357077246a135c417e75c7b39e278ebdb77fcc8f9b56b52b1eeff113eea9463eaaaee8d38df9afdc149b6421
-        dest: build/download/
-        dest-filename: commons-text-1.15.0-bin.tar.gz
       - type: shell
         commands:
           - mkdir -p /app/tarballs
-          - mv build/download/*.tar.gz build/download/*.tar.xz build/download/*.zip
-            /app/tarballs/
+          - mv build/download/*.tar.gz build/download/*.tar.xz /app/tarballs/
     cleanup:
       - /tarballs
 

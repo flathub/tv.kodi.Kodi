@@ -1,0 +1,14 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e54af6e..af18588 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -4,7 +4,8 @@ project(imagedecoder.heif)
+ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
+ 
+ find_package(Kodi REQUIRED)
+-find_package(de265 REQUIRED)
++# optional: libheif may carry its own HEVC backend, built in or as a plugin
++find_package(de265)
+ find_package(HEIF REQUIRED)
+ find_package(Threads REQUIRED)
+ find_package(TinyXML2 REQUIRED)
