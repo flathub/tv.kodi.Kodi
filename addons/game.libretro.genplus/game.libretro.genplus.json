@@ -1,0 +1,54 @@
+{
+    "name": "game.libretro.genplus",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_PREFIX_PATH=/app",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.genplus",
+            "commit": "6e9cbdbe7daee0839b11c9a2e9c2a8bad373ae62"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-genplus",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -D -m 755 genesis_plus_gx_libretro.so /app/lib/libretro/genesis_plus_gx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/Genesis-Plus-GX",
+                    "commit": "ca93fec870378f3bff65931bcd828d5e756cce75"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.genplus"
+    ]
+}

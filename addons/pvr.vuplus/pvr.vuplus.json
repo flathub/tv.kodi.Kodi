@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/kodi-pvr/pvr.vuplus",
             "commit": "15093c0b83b22cc0cd02f63cd5cfc143250014b6"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "build-options": {
@@ -14,6 +18,12 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh pvr.vuplus"
     ]
 }

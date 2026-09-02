@@ -7,13 +7,20 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
             "commit": "7160ac6b7a4db7029b8ec2bae08717c3be0cedd7"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -80,5 +87,8 @@
                 }
             ]
         }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh audiodecoder.fluidsynth"
     ]
 }
