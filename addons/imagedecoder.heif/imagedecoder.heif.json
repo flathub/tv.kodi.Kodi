@@ -6,67 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
             "commit": "fa0d45fb6caf6ad6187d2cdf370e0184a7918836"
-        }
-    ],
-    "modules": [
-        {
-            "name": "libde265",
-            "buildsystem": "cmake-ninja",
-            "cleanup": [
-                "/bin"
-            ],
-            "build-options": {
-                "no-debuginfo": true,
-                "cflags": "-g0",
-                "cxxflags": "-g0"
-            },
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/strukturag/libde265/archive/v1.1.1/libde265-1.1.1.tar.gz",
-                    "sha256": "5b4fac677018e6074196e8f9889f3e4a5310e46afbf22a893f620d4e24d3510e",
-                    "x-checker-data": {
-                        "type": "json",
-                        "url": "https://api.github.com/repos/strukturag/libde265/releases/latest",
-                        "tag-query": ".tag_name",
-                        "timestamp-query": ".published_at",
-                        "version-query": "$tag | sub(\"^[vV]\"; \"\")",
-                        "url-query": "\"https://github.com/strukturag/libde265/archive/\\($tag)/libde265-\\($version).tar.gz\""
-                    }
-                }
-            ]
         },
         {
-            "name": "libheif",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_BUILD_TYPE=Release",
-                "-DWITH_EXAMPLES=OFF",
-                "-DWITH_AOM_DECODER=OFF",
-                "-DWITH_AOM_ENCODER=OFF",
-                "-DWITH_DAV1D=ON",
-                "-DENABLE_PLUGIN_LOADING=OFF"
-            ],
-            "build-options": {
-                "no-debuginfo": true,
-                "cflags": "-g0",
-                "cxxflags": "-g0"
-            },
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/strukturag/libheif/archive/v1.23.2/libheif-1.23.2.tar.gz",
-                    "sha256": "1405ed070421459b569ff49deab109b7f1a30a447e72a9b20a4154f774634a44",
-                    "x-checker-data": {
-                        "type": "json",
-                        "url": "https://api.github.com/repos/strukturag/libheif/releases/latest",
-                        "tag-query": ".tag_name",
-                        "timestamp-query": ".published_at",
-                        "version-query": "$tag | sub(\"^[vV]\"; \"\")",
-                        "url-query": "\"https://github.com/strukturag/libheif/archive/\\($tag)/libheif-\\($version).tar.gz\""
-                    }
-                }
-            ]
+            "type": "patch",
+            "path": "../../patches/imagedecoder.heif-de265-optional.patch"
         }
     ],
     "build-options": {
