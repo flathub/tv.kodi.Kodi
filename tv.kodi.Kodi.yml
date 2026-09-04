@@ -162,8 +162,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.410/hwdata-0.410.tar.gz
-        sha256: 2864b061b179b8ad8cb6a7339ca07678240a183d9cedce8677a4950acaf798e0
+        url: https://github.com/vcrhonek/hwdata/archive/v0.411/hwdata-0.411.tar.gz
+        sha256: d75462181fbd307228e0a48b8d1449f1773ea4b1f17e8a1d56346907f999ce33
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -426,8 +426,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.9.tar.gz
-        sha512: 950433b847316d02025889933e802bf295c3c136f57411c484a5e64a951ff23e4436e5dc55c7b643e625f5c79318a270451f9445ad9f17e027ca79c1cbbee8e2
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.10.tar.gz
+        sha512: 8ab06eff88a0fdb278a6be566cb47e8a0828fb44b7b46c0ec35caab4c7b92ab2486ac6356537c07ed77b84d65d5f70dd703b87adf9b331fc96c72221cbbdd9cd
         x-checker-data:
           type: anitya
           project-id: 16939
