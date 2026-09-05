@@ -376,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.1.tar.gz
-        sha512: 59e26c1131370482b8da0eba54da54c6270a8c9f683bd7ad74a95ff06a7fc9fd744ff60c04bb3d44d6278acb6e57b3f7f0d4825e6e8f53c9e216dd000cd1c001
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.2.tar.gz
+        sha512: 722d7a65090153a9892749fc7b9513d86a75534f7ea49ad4ce18c3360c3740b0c7255e4510fd956215eb25f807fbdc668c1af0262a4cc87de678561198448f8b
         x-checker-data:
           type: anitya
           project-id: 7325
