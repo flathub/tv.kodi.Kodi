@@ -141,7 +141,8 @@ def set_build_type(a_data: dict) -> dict:
         # point); CMAKE_PREFIX_PATH keeps /app deps findable, e.g. sidplay
         a_data["config-opts"] = [
             o for o in a_data["config-opts"]
-            if not o.startswith("-DCMAKE_INSTALL_PREFIX=")
+            if o == "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons"
+            or not o.startswith("-DCMAKE_INSTALL_PREFIX=")
         ]
         for opt in (
             "-DPACKAGE_ZIP=ON",
