@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.genplus",
-            "commit": "6e9cbdbe7daee0839b11c9a2e9c2a8bad373ae62"
+            "commit": "8f713152aa076e22272e489f48475dce01108860"
         },
         {
             "type": "file",
@@ -41,9 +41,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/Genesis-Plus-GX",
-                    "commit": "ca93fec870378f3bff65931bcd828d5e756cce75"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/Genesis-Plus-GX/archive/b7e79b3641eb2e322c5ba29903352e115887e83c.tar.gz",
+                    "sha256": "5e240e3c9e2cfae0dada87650005c289ed80e31c77c524945fc2c521f787455c"
                 }
             ]
         }

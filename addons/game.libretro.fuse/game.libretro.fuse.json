@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.fuse",
-            "commit": "d653ad6df9711c13ed7cfb3c1e9152871bce8e93"
+            "commit": "9339239d3e4b4bc0b74b59b9625463b60d117ea5"
         },
         {
             "type": "file",
@@ -41,9 +41,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/fuse-libretro",
-                    "commit": "000a8ae51a5141d75c109a22150e37ba06d57910"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/fuse-libretro/archive/2a5f1d43fec729063203605c39cc40f2957c47a1.tar.gz",
+                    "sha256": "06db30dc6c67aabab0f438eeed19cb8d41dee375473f84922cdd792235068274"
                 }
             ]
         }

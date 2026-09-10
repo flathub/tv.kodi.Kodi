@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mame2003_plus",
-            "commit": "683d36265ab3b99a858e14e74947736a572b5f0b"
+            "commit": "e82f9896ed73c55a538ac65dc6a91d1b9ca34872"
         },
         {
             "type": "file",
@@ -45,9 +45,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/mame2003-plus-libretro",
-                    "commit": "d6bf36f65f36853120d7e97cdf4fa3720de66728"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/mame2003-plus-libretro/archive/d6bf36f65f36853120d7e97cdf4fa3720de66728.tar.gz",
+                    "sha256": "2ef7d4ab1313623df277c94f5e1fcbec877492c810673ff72bdb9065da4da706"
                 }
             ]
         }
