@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-psx",
-            "commit": "4f243867f69d9975968cd3d9df79d2fc151e2aee"
+            "commit": "53b9537782962945e2e077c2ffa254442ebda7ca"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/kodi-game/beetle-psx-libretro/archive/dbd9abe2801ea246d8cec2a5aefc9fd8b224bc8a.tar.gz",
-                    "sha256": "63d303cdddf5a1279559abeeed67f015cfa991f34ead923b34a29b2fbf1ae1a3"
+                    "url": "https://github.com/kodi-game/beetle-psx-libretro/archive/7efcb4d7298dab5731089724af2e5704634b80fe.tar.gz",
+                    "sha256": "30139696e6be63f09bbf3db817b93be7750a13b14f910f6dd3e27986c9986ea9"
                 }
             ]
         }

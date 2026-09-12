@@ -9,12 +9,12 @@
         {
             "type": "git",
             "url": "https://github.com/popcornmix/inputstream.airplay",
-            "commit": "18dfcae27b28cecd4a724a32b1b486449060f512"
+            "commit": "1d96497a0658167953e628779ab575e6bcd86738"
         },
         {
             "type": "archive",
-            "url": "https://github.com/FDH2/UxPlay/archive/462153392f2e30937424922039ff9f0cda5e7b1a.tar.gz",
-            "sha256": "0f5bf6f2ab3d1ac3ccaf4418afe00137ec1ba97c2a345710202fca40f6a1fb85",
+            "url": "https://github.com/FDH2/UxPlay/archive/d29dfabe102aba137170121077f55390e875310c.tar.gz",
+            "sha256": "d68b043bb7eaf141b506199f0c3aa4b8dc261b4f063cf8ccc9697f22b8539ce2",
             "dest": "uxplay"
         }
     ],
