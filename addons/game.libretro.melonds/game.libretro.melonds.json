@@ -7,13 +7,20 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.melonds",
             "commit": "5c2e91b38f0f820e418bd7e1c01e1c7bc660c2d2"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -45,5 +52,8 @@
                 }
             ]
         }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.melonds"
     ]
 }

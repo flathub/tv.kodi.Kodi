@@ -7,7 +7,10 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
     ],
     "cleanup": [
         "/include",
@@ -18,7 +21,11 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "c03fe79009620e80b3d795e7c565e4e0abbce782"
+            "commit": "f53f681eb3b58a89ed04b6297be370f83a291a4d"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -38,7 +45,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/c03fe79009620e80b3d795e7c565e4e0abbce782/depends/common/libretro-common/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/f53f681eb3b58a89ed04b6297be370f83a291a4d/depends/common/libretro-common/CMakeLists.txt",
                     "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
                 }
             ]
@@ -65,10 +72,13 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/c03fe79009620e80b3d795e7c565e4e0abbce782/depends/common/rcheevos/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/f53f681eb3b58a89ed04b6297be370f83a291a4d/depends/common/rcheevos/CMakeLists.txt",
                     "sha256": "49a8eb640f10ea35f98880f504048d07865627037bca1402039bb67fe28d1cc9"
                 }
             ]
         }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro"
     ]
 }
