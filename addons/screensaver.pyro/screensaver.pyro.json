@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/screensaver.pyro",
             "commit": "d93f5f906f3cfa15b7931cc168ae1722859e9d87"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "build-options": {
@@ -14,6 +18,12 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh screensaver.pyro"
     ]
 }
