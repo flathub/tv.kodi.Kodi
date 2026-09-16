@@ -28,6 +28,34 @@ flatpak run tv.kodi.Kodi
 
 or just search for the installed app on your system
 
+## Debugging
+
+Start Kodi on the Flatpak SDK with debug logging:
+
+```
+flatpak run --devel tv.kodi.Kodi --debug
+```
+
+`--devel` swaps the Platform runtime for the SDK, which includes tools such as
+`gdb`, `strace` and `valgrind`. `--debug` turns on Kodi's debug log, written to
+`~/.var/app/tv.kodi.Kodi/data/temp/kodi.log`.
+
+Kodi ships stripped. Install the debug symbols to get useful backtraces (use
+`//beta` for the beta channel):
+
+```
+flatpak install flathub tv.kodi.Kodi.Debug//stable
+```
+
+Attach `gdb` to the running Kodi. Get the instance ID from `flatpak ps`:
+
+```
+flatpak enter <instance-id> sh -c 'exec gdb -p $(pgrep kodi.bin)'
+```
+
+If Kodi crashes while `gdb` is available, the launcher writes a backtrace to
+`~/.var/app/tv.kodi.Kodi/data/kodi_crashlog-<date>.log`.
+
 ## Debugging BD-J
 
 The `tv.kodi.Kodi.bdj` extension ships libbluray's `bd_info`, which reports
