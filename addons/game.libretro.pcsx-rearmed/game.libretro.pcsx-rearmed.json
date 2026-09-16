@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
-            "commit": "1dc82acc6831dbda616bb405bac343fadc4a9e46"
+            "commit": "2466abdf18c21bad07ec6a0c8e30eb48c304bc3e"
         }
     ],
     "modules": [

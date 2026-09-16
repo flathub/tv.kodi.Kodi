@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gearsystem",
-            "commit": "76936e608ce1fe2e09910a58d6b1ebad6540f315"
+            "commit": "aa9ec6af9ae382e3cb9a1445585b869298f73589"
         }
     ],
     "modules": [
@@ -40,7 +40,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.gearsystem/76936e608ce1fe2e09910a58d6b1ebad6540f315/depends/common/gearsystem/0001-Explicitly-set-version-variable.patch",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.gearsystem/aa9ec6af9ae382e3cb9a1445585b869298f73589/depends/common/gearsystem/0001-Explicitly-set-version-variable.patch",
                     "sha256": "0b2c876194cf7fc02dc3581a2b9213299a56f0ee78b06a29fae5f12db7156af4",
                     "dest-filename": "0001-Explicitly-set-version-variable.patch"
                 },

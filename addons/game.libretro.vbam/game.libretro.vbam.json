@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.vbam",
-            "commit": "ee6600e8709478ce22a0fa93ef4539e9ea2b02c5"
+            "commit": "0371035cf9097ce6d60b9b80626ee7e3ded48383"
         }
     ],
     "modules": [

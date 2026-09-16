@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mupen64plus-nx",
-            "commit": "29e9c5646bf69df8f26fb83638ce166440dcb3d6"
+            "commit": "049d8da0fc2d342569f8c6385584a9d4bfde80a8"
         }
     ],
     "modules": [
@@ -35,8 +35,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/kodi-game/mupen64plus-libretro-nx/archive/eb014557b9c26d798f138f7751c3d9c01a604573.tar.gz",
-                    "sha256": "9fb15f117da3bcce8cc8fc6c73b66044517a6cd3f862a36b7710939aa0af41bc"
+                    "url": "https://github.com/kodi-game/mupen64plus-libretro-nx/archive/9c8a7f81a86cf6ecd4a3cacef49cfb0ba3ef7f14.tar.gz",
+                    "sha256": "4ee37631817dfc7b76520dd171a38e3dfef65632556bd0558b02f3f7d59de73f"
                 }
             ]
         }
