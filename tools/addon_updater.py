@@ -176,7 +176,27 @@ def set_build_type(a_data: dict) -> dict:
             a_data["build-options"]["cxxflags"] = cxxflags
         else:
             a_data["build-options"].pop("cxxflags", None)
+    for module in a_data.get("modules", []):
+        if isinstance(module, dict):
+            harden_nested_module(module, a_data["name"])
     return a_data
+
+
+def harden_nested_module(module: dict, addon_id: str) -> None:
+    # flatpak-builder defers stripping of no-debuginfo modules to the next module
+    # without it, whose cleanup then owns the deferred files: keep every nested
+    # module no-debuginfo in release mode and never let one clean up '*'
+    if "*" in module.get("cleanup", []):
+        sys.exit(f"{addon_id}: nested module {module['name']} cleans up '*'")
+    if args.release:
+        opts = module.setdefault("build-options", {})
+        opts["no-debuginfo"] = True
+        for key in ("cflags", "cxxflags"):
+            if "-g0" not in opts.get(key, ""):
+                opts[key] = (opts.get(key, "") + " -g0").strip()
+    for sub in module.get("modules", []):
+        if isinstance(sub, dict):
+            harden_nested_module(sub, addon_id)
 
 
 def update_addon_repo():
