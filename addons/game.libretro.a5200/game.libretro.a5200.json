@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.a5200",
-            "commit": "5f3e17fd0b8de3adc86681f40a716e281fd245d9"
+            "commit": "ea8c62e7fc2f526d8b84be034d78369d9794b3a6"
         }
     ],
     "modules": [

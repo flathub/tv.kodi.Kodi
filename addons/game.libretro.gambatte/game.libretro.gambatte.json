@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gambatte",
-            "commit": "04976d9022b275fabff5f4a4582e33a31fa43627"
+            "commit": "1209bc8be7b655debce4e9e0f8c6be84c26762c9"
         }
     ],
     "modules": [

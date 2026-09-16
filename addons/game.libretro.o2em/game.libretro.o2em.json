@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.o2em",
-            "commit": "7bf08699e3ddfa60a6a5999fbd358dea4f12de8d"
+            "commit": "725c85e28f51153f8aa9aa84599e5ead86b89f47"
         }
     ],
     "modules": [

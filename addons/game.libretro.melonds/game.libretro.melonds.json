@@ -13,7 +13,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.melonds",
-            "commit": "5c2e91b38f0f820e418bd7e1c01e1c7bc660c2d2"
+            "commit": "1905e3924954d80da7dcd8eb978a3833134d832f"
         }
     ],
     "modules": [
