@@ -54,8 +54,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/RetroAchievements/rcheevos/archive/v12.4.0.tar.gz",
-                    "sha256": "7fb1a43b8edfe727219d054ed868cc985bca54f331f9c2410f818dd3143df5d3",
+                    "url": "https://github.com/RetroAchievements/rcheevos/archive/v12.5.0.tar.gz",
+                    "sha256": "e6df83de4e18f0a19206e711e1e589624dcfcf6bf529c14f6dd2bb2d1ced983f",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/RetroAchievements/rcheevos/releases/latest",
