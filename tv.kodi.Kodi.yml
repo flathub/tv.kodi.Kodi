@@ -320,8 +320,8 @@ modules:
       - -Ddocumentation=false
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.3/libinput-1.31.3.tar.bz2
-        sha256: 01414457befc3d1c68a328ebe01eacec8e7077a4ff08e181f5659daf9f50930e
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.32.0/libinput-1.32.0.tar.bz2
+        sha256: 3a6065c07b118c08d0c7b7b85a265ecb050a8cfc91eeb360890d768a51b4cce9
         x-checker-data:
           type: anitya
           project-id: 5781
