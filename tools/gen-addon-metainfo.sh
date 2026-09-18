@@ -21,11 +21,6 @@ name=$(x "/addon/@name")
 provider=$(x "/addon/@provider-name")
 source=$(x "${meta}/source")
 license=$(x "${meta}/license")
-# LICENSE file shipped but no <license> tag upstream
-case "${addon}" in
-    pvr.freebox)        license="${license:-MIT}" ;;
-    pvr.sledovanitv.cz) license="${license:-GPL-2.0-or-later}" ;; # "or later" per src/Addon.h
-esac
 summary=$(x "${meta}/summary[@lang='en_GB']")
 [ -n "${summary}" ] || summary=$(x "${meta}/summary[@lang='en_US']")
 [ -n "${summary}" ] || summary=$(x "(${meta}/summary)[1]")
