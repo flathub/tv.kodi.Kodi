@@ -3,7 +3,10 @@
     "buildsystem": "cmake-ninja",
     "config-opts": [
         "-DCMAKE_BUILD_TYPE=Release",
-        "-DUXPLAY_SOURCE_DIR=/run/build/inputstream.airplay/uxplay"
+        "-DUXPLAY_SOURCE_DIR=/run/build/inputstream.airplay/uxplay",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
     ],
     "sources": [
         {
@@ -16,11 +19,18 @@
             "url": "https://github.com/FDH2/UxPlay/archive/d29dfabe102aba137170121077f55390e875310c.tar.gz",
             "sha256": "d68b043bb7eaf141b506199f0c3aa4b8dc261b4f063cf8ccc9697f22b8539ce2",
             "dest": "uxplay"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "build-options": {
         "no-debuginfo": true,
         "cflags": "-g0",
         "cxxflags": "-g0"
-    }
+    },
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh inputstream.airplay"
+    ]
 }

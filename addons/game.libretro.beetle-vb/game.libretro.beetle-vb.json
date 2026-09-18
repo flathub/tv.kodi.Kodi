@@ -7,13 +7,20 @@
         "cxxflags": "-g0"
     },
     "config-opts": [
-        "-DCMAKE_BUILD_TYPE=Release"
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
     ],
     "sources": [
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-vb",
             "commit": "b03cc12b6e94bcef6f6bfff01fdcc95e79ad4be3"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
         }
     ],
     "modules": [
@@ -40,5 +47,8 @@
                 }
             ]
         }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.beetle-vb"
     ]
 }
