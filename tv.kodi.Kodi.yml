@@ -605,6 +605,9 @@ modules:
           type: anitya
           project-id: 4919
           url-template: http://prdownloads.sourceforge.net/swig/swig-$version.tar.gz
+          # bound by _verified in xbmc/interfaces/swig/fix-swig-3535.cmake
+          versions:
+            <=: 4.5.1
   - name: tinyxml
     cleanup:
       - /bin
