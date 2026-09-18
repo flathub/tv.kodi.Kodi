@@ -113,8 +113,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.1.tar.gz
-        sha512: 41aa687cec4e93d0ffde21ea96faa48e4344fda0e9d2c9c71adfb68fedadf03beb274ec712eb1e082bf64fdcee87c55a47bb5c78d5193934be3f3f06e5e792b2
+        url: https://github.com/FFmpeg/FFmpeg/archive/refs/tags/n9.0.2.tar.gz
+        sha512: 21bf3fbcdfd2f41ea6edeab40433fecfe362b09ecaa177a652471b54f9357011b4f74dab18245ab1c26f1a473b94205490baecb42289afd2effd603cd0b22b59
         x-checker-data:
           type: anitya
           project-id: 5405
@@ -343,8 +343,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.3/libinput-1.31.3.tar.bz2
-        sha256: 01414457befc3d1c68a328ebe01eacec8e7077a4ff08e181f5659daf9f50930e
+        url: https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.32.0/libinput-1.32.0.tar.bz2
+        sha256: 3a6065c07b118c08d0c7b7b85a265ecb050a8cfc91eeb360890d768a51b4cce9
         x-checker-data:
           type: anitya
           project-id: 5781
