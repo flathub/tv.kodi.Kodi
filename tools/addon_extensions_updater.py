@@ -96,7 +96,7 @@ def render_extensions(ext_ids):
     for addon in ext_ids:
         lines += [
             f"  {extension_id(addon)}:\n",
-            f'    directory: "lib/kodi/addons/{addon}"\n',
+            f'    directory: lib/kodi/addons/{addon}\n',
             "    bundle: true\n",
             "    autodelete: true\n",
             f"    no-autodownload: {no_autodownload(addon)}\n",
