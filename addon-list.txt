@@ -42,6 +42,7 @@ game.libretro.beetle-vb
 game.libretro.beetle-wswan
 game.libretro.blastem
 game.libretro.bluemsx
+game.libretro.dolphin
 game.libretro.dosbox
 game.libretro.dosbox-pure
 game.libretro.fceumm

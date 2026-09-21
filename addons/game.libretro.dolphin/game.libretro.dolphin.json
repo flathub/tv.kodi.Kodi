@@ -1,0 +1,279 @@
+{
+    "name": "game.libretro.dolphin",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.dolphin",
+            "commit": "d4922f253b6df41575ea824e750690ba0855f674"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "enet",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "--disable-shared"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/lsalzman/enet/archive/refs/tags/v1.3.18.tar.gz",
+                    "sha256": "28603c895f9ed24a846478180ee72c7376b39b4bb1287b73877e5eae7d96b0dd",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 696,
+                        "url-template": "https://github.com/lsalzman/enet/archive/refs/tags/v$version.tar.gz"
+                    }
+                },
+                {
+                    "type": "script",
+                    "dest-filename": "autogen.sh",
+                    "commands": [
+                        "autoreconf -vfi"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libspng",
+            "buildsystem": "meson",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-Ddefault_library=static",
+                "-Dbuild_examples=false"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/randy408/libspng/archive/refs/tags/v0.7.4.tar.gz",
+                    "sha256": "47ec02be6c0a6323044600a9221b049f63e1953faf816903e7383d4dc4234487",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 24289,
+                        "url-template": "https://github.com/randy408/libspng/archive/refs/tags/v$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "minizip-ng",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=OFF",
+                "-DMZ_COMPAT=OFF",
+                "-DMZ_PPMD=OFF",
+                "-DMZ_PKCRYPT=OFF",
+                "-DMZ_WZAES=OFF",
+                "-DMZ_OPENSSL=OFF",
+                "-DMZ_BUILD_TESTS=OFF",
+                "-DMZ_FETCH_LIBS=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=lib"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/4.2.2.tar.gz",
+                    "sha256": "71af7b9799856d8b03619df3949e9c1be9703f8de0795af71399ba283cb27aac",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 301509,
+                        "url-template": "https://github.com/zlib-ng/minizip-ng/archive/refs/tags/$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "mbedtls",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                "-DUSE_SHARED_MBEDTLS_LIBRARY=OFF",
+                "-DUSE_STATIC_MBEDTLS_LIBRARY=ON",
+                "-DENABLE_TESTING=OFF",
+                "-DENABLE_PROGRAMS=OFF"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.28.10.tar.gz",
+                    "sha256": "0f2e0525903a89ae1d39ce439d858be66933bda54c5b6102b72a29ed8fe7c088",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 13824,
+                        "url-template": "https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v$version.tar.gz",
+                        "versions": {
+                            "<": "3"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "sfml",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=OFF",
+                "-DSFML_BUILD_WINDOW=OFF",
+                "-DSFML_BUILD_GRAPHICS=OFF",
+                "-DSFML_BUILD_AUDIO=OFF",
+                "-DCMAKE_INSTALL_LIBDIR=lib"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/cmake",
+                "/lib/pkgconfig",
+                "/share/SFML"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/SFML/SFML/archive/refs/tags/3.0.2.tar.gz",
+                    "sha256": "0034e05f95509e5d3fb81b1625713e06da7b068f210288ce3fd67106f8f46995",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 12315,
+                        "stable-only": true,
+                        "url-template": "https://github.com/SFML/SFML/archive/refs/tags/$version.tar.gz",
+                        "versions": {
+                            "<": "3.1"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "libretro-dolphin",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "cmake -S . -B Build -G Ninja -DCMAKE_INSTALL_PREFIX=/app -DCMAKE_BUILD_TYPE=Release -DLIBRETRO=ON -DUSE_SYSTEM_LIBS=ON -DUSE_SYSTEM_LIBMGBA=OFF -DSFML_STATIC_LIBRARIES=ON -DENABLE_VULKAN=OFF -DENABLE_X11=OFF -DENABLE_EGL=ON",
+                "cmake --build Build -j$FLATPAK_BUILDER_N_JOBS",
+                "install -s -D -m 755 Build/dolphin_libretro.so /app/lib/libretro/dolphin_libretro.so",
+                "mkdir -p /app/lib/libretro/dolphin-emu/Sys/Resources",
+                "cp -a Data/Sys/GC Data/Sys/Wii Data/Sys/GameSettings Data/Sys/Load Data/Sys/Shaders Data/Sys/Profiles Data/Sys/codehandler.bin /app/lib/libretro/dolphin-emu/Sys/",
+                "cp -a Data/Sys/Resources/OSD_Font.ttf /app/lib/libretro/dolphin-emu/Sys/Resources/"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/dolphin/archive/ed70219e8bf86717d505b56a830d14ee7e7acce5.tar.gz",
+                    "sha256": "345e9355ae2ddce70c91a9249e56a83d4d040ed37f522194d83f9259a366b2fd"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/ocornut/imgui/archive/45acd5e0e82f4c954432533ae9985ff0e1aad6d5.tar.gz",
+                    "sha256": "97484925aec2f4d3e913d6644d46b234f8d6d8d98c6aa9c50109e0f0df772090",
+                    "dest": "Externals/imgui/imgui"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/epezent/implot/archive/3da8bd34299965d3b0ab124df743fe3e076fa222.tar.gz",
+                    "sha256": "4700b44ef00ca2feba0b35a31922c240045bbeb900da5b3eb3830b56871ada45",
+                    "dest": "Externals/implot/implot"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/syoyo/tinygltf/archive/c5641f2c22d117da7971504591a8f6a41ece488b.tar.gz",
+                    "sha256": "6352803f1ed18d479ea93abf96ac75c0222a21403be22840bde1072ee5935dfa",
+                    "dest": "Externals/tinygltf/tinygltf"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/e-dant/watcher/archive/b03bdcfc11549df595b77239cefe2643943a3e2f.tar.gz",
+                    "sha256": "61e97c12c3d23f2b6588d99ce61c8ad462b4382f979d14c7a338a11af507edd1",
+                    "dest": "Externals/watcher/watcher"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mutouyun/cpp-ipc/archive/b6cbbc940e25ff898f09a40b107781cef6027b13.tar.gz",
+                    "sha256": "33991ccd0620ab1bd244c6e94c519f4bf7e64247cec90a772e20f5eccd468a30",
+                    "dest": "Externals/cpp-ipc/cpp-ipc"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/weisslj/cpp-optparse/archive/2265d647232249a53a03b411099863ceca35f0d3.tar.gz",
+                    "sha256": "6f38fff3c4d2788eead7a28626b3220cc4c101510fc984678ad55f77756b107e",
+                    "dest": "Externals/cpp-optparse/cpp-optparse"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/mgba-emu/mgba/archive/0b40863f64d0940f333fa1c638e75f86f8a26a33.tar.gz",
+                    "sha256": "9b59ed1422914f605ce912e9cafcd84d1c5b1bf9abcf0fef1b49e1d810f6f5e5",
+                    "dest": "Externals/mGBA/mgba"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "rm -rf /app/lib/kodi/addons/game.libretro.dolphin/resources/system/dolphin-emu/Sys",
+        "mv /app/lib/libretro/dolphin-emu/Sys /app/lib/kodi/addons/game.libretro.dolphin/resources/system/dolphin-emu/Sys",
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.dolphin"
+    ]
+}

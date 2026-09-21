@@ -857,6 +857,7 @@ modules:
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
+  - addons/game.libretro.dolphin/game.libretro.dolphin.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
@@ -1192,6 +1193,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.game.libretro.bluemsx:
     directory: lib/kodi/addons/game.libretro.bluemsx
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.dolphin:
+    directory: lib/kodi/addons/game.libretro.dolphin
     bundle: true
     autodelete: true
     no-autodownload: false
