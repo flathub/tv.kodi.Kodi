@@ -1,0 +1,66 @@
+{
+    "name": "game.libretro.yabasanshiro",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.yabasanshiro",
+            "commit": "e8ae1574b1d3a23044f3fad107b258bd847ab4d9"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-yabasanshiro",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "arch": {
+                    "x86_64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_SSE=1"
+                        }
+                    },
+                    "aarch64": {
+                        "env": {
+                            "ARCH_FLAGS": "HAVE_SSE=0"
+                        }
+                    }
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix FORCE_GLES=1 $ARCH_FLAGS -C yabause/src/libretro",
+                "install -s -D -m 755 yabause/src/libretro/yabasanshiro_libretro.so /app/lib/libretro/yabasanshiro_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/yabause/archive/09ed8e5b2e97e7a848ea2514545c34c7b809e399.tar.gz",
+                    "sha256": "4ba9d98c136c34e6fc6fdf2b703103fe9cdf80c38eb2c617533b4da0b5f2f91f"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.yabasanshiro"
+    ]
+}

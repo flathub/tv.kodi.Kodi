@@ -74,6 +74,7 @@ game.libretro.tyrquake
 game.libretro.uae
 game.libretro.vbam
 game.libretro.virtualjaguar
+game.libretro.yabasanshiro
 game.libretro.yabause
 game.shader.presets
 imagedecoder.heif

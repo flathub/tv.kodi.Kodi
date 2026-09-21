@@ -889,6 +889,7 @@ modules:
   - addons/game.libretro.uae/game.libretro.uae.json
   - addons/game.libretro.vbam/game.libretro.vbam.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
+  - addons/game.libretro.yabasanshiro/game.libretro.yabasanshiro.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
   - addons/game.shader.presets/game.shader.presets.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
@@ -1353,6 +1354,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: lib/kodi/addons/game.libretro.virtualjaguar
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.yabasanshiro:
+    directory: lib/kodi/addons/game.libretro.yabasanshiro
     bundle: true
     autodelete: true
     no-autodownload: false
