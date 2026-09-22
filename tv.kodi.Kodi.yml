@@ -404,8 +404,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.2.tar.gz
-        sha512: 722d7a65090153a9892749fc7b9513d86a75534f7ea49ad4ce18c3360c3740b0c7255e4510fd956215eb25f807fbdc668c1af0262a4cc87de678561198448f8b
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-8.0.0.tar.gz
+        sha512: d36127b8c2683b2a80b7e7f27b7c02f58951ca27da0a5e8984c979def9ad3a5947dedb7a0f890e7013d68bf58b79b29298526013f62b430a8edbcf4c77f557e4
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -752,7 +752,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 6b55655cc10f58024aca4e68cc2150c3104413be
+        commit: 51e3bbb88341f129a1a49d7e5421b4ca83bb86be
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -857,6 +857,7 @@ modules:
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
+  - addons/game.libretro.dolphin/game.libretro.dolphin.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
@@ -888,6 +889,7 @@ modules:
   - addons/game.libretro.uae/game.libretro.uae.json
   - addons/game.libretro.vbam/game.libretro.vbam.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
+  - addons/game.libretro.yabasanshiro/game.libretro.yabasanshiro.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
   - addons/game.shader.presets/game.shader.presets.json
   - addons/imagedecoder.heif/imagedecoder.heif.json
@@ -1195,6 +1197,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.dolphin:
+    directory: lib/kodi/addons/game.libretro.dolphin
+    bundle: true
+    autodelete: true
+    no-autodownload: false
   tv.kodi.Kodi.Addon.game.libretro.dosbox:
     directory: lib/kodi/addons/game.libretro.dosbox
     bundle: true
@@ -1347,6 +1354,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: lib/kodi/addons/game.libretro.virtualjaguar
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.yabasanshiro:
+    directory: lib/kodi/addons/game.libretro.yabasanshiro
     bundle: true
     autodelete: true
     no-autodownload: false
