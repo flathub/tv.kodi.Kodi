@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/audiodecoder.fluidsynth",
-            "commit": "7160ac6b7a4db7029b8ec2bae08717c3be0cedd7"
+            "commit": "45517c23465e8ecf60074f64ef21270cb8b36fe3"
         },
         {
             "type": "file",
