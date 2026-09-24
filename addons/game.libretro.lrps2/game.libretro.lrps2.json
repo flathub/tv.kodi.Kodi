@@ -1,0 +1,60 @@
+{
+    "name": "game.libretro.lrps2",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.lrps2",
+            "commit": "b7f9598aea4973d5640679db266b2f4f896b9a55"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-lrps2",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -D_GNU_SOURCE",
+                "cxxflags": "-g0"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DPACKAGE_MODE=ON",
+                "-DBIN_DIR=lib/libretro",
+                "-DUSE_VULKAN=OFF"
+            ],
+            "builddir": true,
+            "post-install": [
+                "strip /app/lib/libretro/pcsx2_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/ps2/archive/0e9057b73bd128a775aa9e59310d68692838e96c.tar.gz",
+                    "sha256": "3296c08d710af54a3cc8485ac584c3dc5291779a20fda2609eca83a7b284c46a"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.lrps2"
+    ]
+}

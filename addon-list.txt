@@ -51,6 +51,7 @@ game.libretro.gearsystem
 game.libretro.gw
 game.libretro.handy
 game.libretro.hatari
+game.libretro.lrps2
 game.libretro.melonds
 game.libretro.mesen
 game.libretro.mesen-s
