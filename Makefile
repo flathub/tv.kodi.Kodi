@@ -23,14 +23,14 @@ flatpak:
 	flatpak build-bundle repo $(PROJECT).flatpak $(PROJECT) $(BRANCH)
 install:
 	flatpak remote-add --user --if-not-exists --no-gpg-verify local repo
-	flatpak install --user --or-update local $(PROJECT)//$(BRANCH)
+	flatpak install -y --user --or-update local $(PROJECT)//$(BRANCH)
 uninstall:
-	flatpak uninstall --user $(PROJECT)//$(BRANCH)
+	flatpak uninstall -y --user $(PROJECT)//$(BRANCH)
 	flatpak remote-delete --user local
 run:
 	flatpak run --user $(PROJECT)//$(BRANCH)
 debug:
-	flatpak install --user --or-update local $(PROJECT).Debug//$(BRANCH)
+	flatpak install -y --user --or-update local $(PROJECT).Debug//$(BRANCH)
 	flatpak run --user --devel $(PROJECT)//$(BRANCH) --debug
 clean:
 	rm -rf .flatpak-builder/cache
