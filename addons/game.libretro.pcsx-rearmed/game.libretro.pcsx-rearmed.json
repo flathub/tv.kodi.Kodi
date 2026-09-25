@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.pcsx-rearmed",
-            "commit": "2466abdf18c21bad07ec6a0c8e30eb48c304bc3e"
+            "commit": "a113bf751cf8eec3f7ea1790bc4a6f4aa456a809"
         },
         {
             "type": "file",
@@ -54,8 +54,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/pcsx_rearmed/archive/8625c395a24411f8c77e69802b516df9c613a712.tar.gz",
-                    "sha256": "e0bb6f9e4e0131458ced5049c3eec4fbe1ba2703e1e4be7f98079cf643bfef4a"
+                    "url": "https://github.com/libretro/pcsx_rearmed/archive/ff81ed17a15241d2f3730cdd7585b38e172532ca.tar.gz",
+                    "sha256": "23e0006435e66503e1b862daaf8a47cb6bee120f4ca82482c08ec129668a35c5"
                 }
             ]
         }

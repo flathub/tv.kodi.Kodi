@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.swanstation",
-            "commit": "c932c5e2eb391aaaaa431c4909d5c3c708553012"
+            "commit": "959ab34ab947494c5e41386ed02a1da2e24f92b0"
         },
         {
             "type": "file",
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/swanstation/archive/7f69c199ed88d5723f71dd3a6e9c1b7a45b535a6.tar.gz",
-                    "sha256": "d3a9e60a8b338f3edcfd8caeff54bbecc797668f0cda9e85f703255f69c5a821"
+                    "url": "https://github.com/libretro/swanstation/archive/b6c30a7b270a3f68ac41f268eafdfa678d17dea2.tar.gz",
+                    "sha256": "7f5711abd802d38095fc9239250704fa57ebff8c7d69d31f8702d1cc1e3e0256"
                 }
             ]
         }

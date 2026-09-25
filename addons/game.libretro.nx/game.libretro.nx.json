@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.nx",
-            "commit": "cea84a1da451cef8fef5af9ee58a10fd8643fd29"
+            "commit": "5e1e19c440438bc85e23c8e96de7e750ef03d31d"
         },
         {
             "type": "file",

@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.stella",
-            "commit": "fde5981516e31b4f9d9674849ec50316d89ab37d"
+            "commit": "3628c78ead82b143e10eb9d3f71d01d0d18b6a53"
         },
         {
             "type": "file",
