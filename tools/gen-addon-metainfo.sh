@@ -29,6 +29,11 @@ summary=$(x "${meta}/summary[@lang='en_GB']")
 summary=$(printf '%s' "${summary}" | sed -E 's#https?://[^[:space:]]+##g; s/[[:space:]]+/ /g; s/^[[:space:]]+//; s/[[:space:]]*[.,;:-]*[[:space:]]*$//')
 [ -n "${summary}" ] || summary="${name}"
 
+# libretro/libretro-super#2116
+case "${addon}:${license}" in
+    game.libretro.lrps2:GPL) license="GPL-3.0-or-later" ;;
+esac
+
 # addon.xml license strings -> SPDX; custom ones become LicenseRef-*
 case "${license}" in
     GPLv2|GPLv2+|GPL2|"GPL v2.0"|"GNU General Public License. Version 2, June 1991")
@@ -61,6 +66,11 @@ case "${license}" in
         license="LicenseRef-BSD" ;;
     "")
         echo "gen-addon-metainfo: ${addon}: addon.xml declares no <license>; refusing to guess" >&2
+        exit 1 ;;
+    GPL-2.0-only|GPL-2.0-or-later|GPL-3.0-only|GPL-3.0-or-later|LGPL-2.1-or-later|MIT|MPL-2.0|Zlib|BSD-3-Clause|Apache-2.0)
+        ;;
+    *)
+        echo "gen-addon-metainfo: ${addon}: unknown license '${license}'; add an SPDX mapping" >&2
         exit 1 ;;
 esac
 
