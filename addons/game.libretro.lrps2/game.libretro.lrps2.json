@@ -19,6 +19,10 @@
             "commit": "b7f9598aea4973d5640679db266b2f4f896b9a55"
         },
         {
+            "type": "patch",
+            "path": "game.libretro.lrps2-001-default-software-renderer.patch"
+        },
+        {
             "type": "file",
             "path": "../../tools/gen-addon-metainfo.sh"
         }

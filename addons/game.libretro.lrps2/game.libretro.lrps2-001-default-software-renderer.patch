@@ -1,0 +1,37 @@
+From e85e0e58efcede79d8d33f5748d3fff049aa5804 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Fri, 25 Sep 2026 22:29:05 +1000
+Subject: [PATCH] Default the renderer to Software (SW)
+
+The core's OpenGL renderer needs desktop OpenGL 3.3: its GLES path
+never detects a GLES context and requires desktop-only extensions, so
+on a GLES-only Kodi the Auto and OpenGL renderers fail to start and
+Kodi aborts when the game is closed. Default to the software renderer
+and drop the Vulkan and paraLLEl-GS options, which this build does
+not include.
+---
+ game.libretro.lrps2/resources/settings.xml | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/game.libretro.lrps2/resources/settings.xml b/game.libretro.lrps2/resources/settings.xml
+index de97d9a..f425716 100644
+--- a/game.libretro.lrps2/resources/settings.xml
++++ b/game.libretro.lrps2/resources/settings.xml
+@@ -125,13 +125,11 @@
+ 			<group id="1">
+ 				<setting id="pcsx2_renderer" type="string" label="30024">
+ 					<level>0</level>
+-					<default>Auto</default>
++					<default>Software (SW)</default>
+ 					<constraints>
+ 						<options>
+ 							<option label="16316">Auto</option>
+ 							<option label="30025">OpenGL</option>
+-							<option label="30026">Vulkan</option>
+-							<option label="30027">paraLLEl-GS</option>
+ 							<option label="30028">Software (HW)</option>
+ 							<option label="30029">Software (SW)</option>
+ 						</options>
+-- 
+2.55.0
+
