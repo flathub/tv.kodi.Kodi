@@ -553,8 +553,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.7.tar.gz
-        sha256: 45b7747a47452eff2b2159a44cc63eb43690d339fd1069088e023a015fed06c7
+        url: https://download.samba.org/pub/samba/stable/samba-4.25.0.tar.gz
+        sha256: 2e2cb7296833b35b8f7a7fb76045e0c57adc0c2cd03264b37df5d58e40f28437
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -752,7 +752,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 51e3bbb88341f129a1a49d7e5421b4ca83bb86be
+        commit: fdd53835390a3abc8252e8a4287ff8da3fba8c83
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -866,6 +866,7 @@ modules:
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
   - addons/game.libretro.hatari/game.libretro.hatari.json
+  - addons/game.libretro.lrps2/game.libretro.lrps2.json
   - addons/game.libretro.melonds/game.libretro.melonds.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
@@ -1239,6 +1240,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.game.libretro.hatari:
     directory: lib/kodi/addons/game.libretro.hatari
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.lrps2:
+    directory: lib/kodi/addons/game.libretro.lrps2
     bundle: true
     autodelete: true
     no-autodownload: false

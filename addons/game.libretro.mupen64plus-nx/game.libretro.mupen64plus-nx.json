@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.mupen64plus-nx",
-            "commit": "7b0831bbd427eb48a7d97589c5aa7657d209912b"
+            "commit": "2cdb234eeddca0e1237d153ebfd974b3de732b19"
         },
         {
             "type": "file",
@@ -33,7 +33,7 @@
                 "cxxflags": "-g0"
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix HAVE_THR_AL=1 HAVE_PARALLEL_RDP=1 LLE=1 HAVE_PARALLEL_RSP=1 FORCE_GLES3=1",
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app platform=unix HAVE_THR_AL=1 LLE=1 HAVE_PARALLEL_RSP=1 FORCE_GLES3=1",
                 "install -s -D -m 755 mupen64plus_next_libretro.so /app/lib/libretro/mupen64plus_next_libretro.so"
             ],
             "cleanup": [
