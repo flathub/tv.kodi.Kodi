@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.supafaust",
-            "commit": "ff3d4b3e7a5a620dcfa0e155656b78af6b6336d1"
+            "commit": "2a447c35294f4407a590830601ecdc863ba478d1"
         },
         {
             "type": "file",
