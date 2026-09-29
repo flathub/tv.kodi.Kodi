@@ -43,25 +43,23 @@ over HTTP and use that URL with `flatpak remote-add`.
 
 ## Debugging
 
-Start Kodi on the Flatpak SDK with debug logging:
+After `make install`, install the debug symbols from `repo` and start Kodi on
+the Flatpak SDK with debug logging:
 
 ```
-flatpak run --devel tv.kodi.Kodi --debug
+make debug
 ```
 
-`--devel` swaps the Platform runtime for the SDK, which includes tools such as
-`gdb`, `strace` and `valgrind`. `--debug` turns on Kodi's debug log, written to
-`~/.var/app/tv.kodi.Kodi/data/temp/kodi.log`.
+It runs Kodi with `--devel`, which swaps the Platform runtime for the SDK with
+tools such as `gdb`, `strace` and `valgrind`, and `--debug`, which writes
+Kodi's debug log to `~/.var/app/tv.kodi.Kodi/data/temp/kodi.log`.
 
-Kodi ships stripped. Install the debug symbols to get useful backtraces (use
-`//beta` for the beta channel):
+For a Flathub install, do the same by hand (use `//beta` for the beta channel):
 
 ```
-flatpak install flathub tv.kodi.Kodi.Debug//stable
+flatpak install flathub org.freedesktop.Sdk//26.08 tv.kodi.Kodi.Debug//stable
+flatpak run --devel tv.kodi.Kodi//stable --debug
 ```
-
-For a local build, `make debug` installs the symbols from `repo` and starts
-Kodi with `--devel` and `--debug` in one step.
 
 Attach `gdb` to the running Kodi. Get the instance ID from `flatpak ps`:
 
