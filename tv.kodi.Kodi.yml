@@ -376,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.2.tar.gz
-        sha512: 722d7a65090153a9892749fc7b9513d86a75534f7ea49ad4ce18c3360c3740b0c7255e4510fd956215eb25f807fbdc668c1af0262a4cc87de678561198448f8b
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-8.0.0.tar.gz
+        sha512: d36127b8c2683b2a80b7e7f27b7c02f58951ca27da0a5e8984c979def9ad3a5947dedb7a0f890e7013d68bf58b79b29298526013f62b430a8edbcf4c77f557e4
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -393,8 +393,8 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2
-        sha512: 83d0398b75ea9e610e49b4b96a7675b854c7551d4faf3e82e74c5c45cf04bbd95478cc40688f0995742e6a50601744d2a36641d0673aa7cc413f5ce2ec42f2d4
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2
+        sha512: 8adeb6357c3f4059f94002308d7f23b04d43156c5c7bcd62ea2a6bf077990957b8b53026d3ab31b9bfa892fe9d3b88b20219b1b0be208cb1c179ba88926eaa83
         x-checker-data:
           type: anitya
           project-id: 11675
@@ -426,8 +426,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.10.tar.gz
-        sha512: 8ab06eff88a0fdb278a6be566cb47e8a0828fb44b7b46c0ec35caab4c7b92ab2486ac6356537c07ed77b84d65d5f70dd703b87adf9b331fc96c72221cbbdd9cd
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.11.tar.gz
+        sha512: 47d6fa55a9d562c11fdf9783972d0f745236e8d671db90cf132fa6d9cf9c4761f6ac03b14cd7eefb97d339603b903e19409b5bce56a1b5463e4c2479fb3b096f
         x-checker-data:
           type: anitya
           project-id: 16939
@@ -533,8 +533,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.7.tar.gz
-        sha256: 45b7747a47452eff2b2159a44cc63eb43690d339fd1069088e023a015fed06c7
+        url: https://download.samba.org/pub/samba/stable/samba-4.25.0.tar.gz
+        sha256: 2e2cb7296833b35b8f7a7fb76045e0c57adc0c2cd03264b37df5d58e40f28437
         x-checker-data:
           type: anitya
           project-id: 4758
