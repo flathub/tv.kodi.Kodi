@@ -711,6 +711,14 @@ modules:
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
+  - name: googletest
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_GMOCK=OFF
+    sources:
+      - type: archive
+        url: http://mirrors.kodi.tv/build-deps/sources/googletest-1.17.0.tar.gz
+        sha512: 0f57e9ef06925e5b7722df1eb92ef5850e8dce79220ea16a8aaff586a71c0b01460ef1713649ee24ffedb2e6ad5a51e9198c5a5ae1b2789e43feb1f494e7d45c
   - name: kodi
     buildsystem: cmake-ninja
     builddir: true
@@ -718,7 +726,7 @@ modules:
       - -DAPP_PACKAGE=tv.kodi.Kodi
       - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
-      - -DENABLE_TESTING=OFF
+      - -DENABLE_TESTING=ON
       - -DENABLE_AIRTUNES=OFF
       - -DENABLE_ALSA=ON
       - -DENABLE_AVAHI=ON
@@ -750,6 +758,11 @@ modules:
       - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.xz
       - -DLIBDVDNAV_HASH=SHA512=4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
       - -DTARBALL_DIR=/app/tarballs
+    run-tests: true
+    test-rule: kodi-test
+    test-commands:
+      # PingHost needs ICMP, which the build sandbox lacks
+      - KODI_HOME=$PWD ./kodi-test --gtest_brief=1 --gtest_filter=-TestNetwork.PingHost
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
