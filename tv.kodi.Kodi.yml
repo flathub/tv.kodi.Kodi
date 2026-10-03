@@ -954,6 +954,7 @@ modules:
   - addons/screensaver.stars/screensaver.stars.json
   - addons/screensavers.rsxs/screensavers.rsxs.json
   - addons/vfs.libarchive/vfs.libarchive.json
+  - addons/vfs.pdf/vfs.pdf.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
@@ -1729,6 +1730,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.vfs.libarchive:
     directory: lib/kodi/addons/vfs.libarchive
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.pdf:
+    directory: lib/kodi/addons/vfs.pdf
     bundle: true
     autodelete: true
     no-autodownload: false

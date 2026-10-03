@@ -1,0 +1,78 @@
+{
+    "name": "vfs.pdf",
+    "buildsystem": "cmake-ninja",
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/sunlollyking/vfs.pdf",
+            "commit": "cbc3b7462e9ac8e50d1432eac19dfa80335af1fd"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "poppler",
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DBUILD_SHARED_LIBS=OFF",
+                "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DENABLE_CPP=ON",
+                "-DENABLE_UTILS=OFF",
+                "-DENABLE_GLIB=OFF",
+                "-DENABLE_GOBJECT_INTROSPECTION=OFF",
+                "-DENABLE_QT5=OFF",
+                "-DENABLE_QT6=OFF",
+                "-DENABLE_BOOST=OFF",
+                "-DENABLE_NSS3=OFF",
+                "-DENABLE_GPGME=OFF",
+                "-DENABLE_LIBCURL=OFF",
+                "-DENABLE_LIBTIFF=OFF",
+                "-DENABLE_LIBOPENJPEG=openjpeg2",
+                "-DENABLE_LCMS=OFF",
+                "-DWITH_Cairo=OFF",
+                "-DBUILD_GTK_TESTS=OFF",
+                "-DBUILD_QT5_TESTS=OFF",
+                "-DBUILD_QT6_TESTS=OFF",
+                "-DBUILD_CPP_TESTS=OFF",
+                "-DBUILD_MANUAL_TESTS=OFF",
+                "-DRUN_GPERF_IF_PRESENT=OFF"
+            ],
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0 -include climits"
+            },
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig/poppler*.pc",
+                "/lib/libpoppler*.a"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://poppler.freedesktop.org/poppler-26.01.0.tar.xz",
+                    "sha256": "1cb944a4b88847f5fb6551683bc799db59f04990f5d8be07aba2acbf38601089"
+                }
+            ]
+        }
+    ],
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh vfs.pdf"
+    ]
+}
