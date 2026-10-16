@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-bsnes",
-            "commit": "02fb12b07963ccc6866d51bb8fbb298df9146048"
+            "commit": "5614f5ceed23866551417f96836b75a8b2243eee"
         },
         {
             "type": "file",
@@ -47,7 +47,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.beetle-bsnes/02fb12b07963ccc6866d51bb8fbb298df9146048/depends/common/beetle-bsnes/0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.beetle-bsnes/5614f5ceed23866551417f96836b75a8b2243eee/depends/common/beetle-bsnes/0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch",
                     "sha256": "f5027b984ec7ed4d292a16406c862f32244c6ccd88688d087f8cf3745f1e9526",
                     "dest-filename": "0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch"
                 },

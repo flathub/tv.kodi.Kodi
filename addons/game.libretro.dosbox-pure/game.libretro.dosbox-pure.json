@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.dosbox-pure",
-            "commit": "0274277d085bb1a7f66589c9533afe6cb3a1fd87"
+            "commit": "7b203e62134ea82fa7702173f2bcba512c8ad320"
         },
         {
             "type": "file",
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/dosbox-pure/archive/a4a0bab7f8931433588f2fcad9045c85b277373d.tar.gz",
-                    "sha256": "f0d04f087bb1c63a4cf1d46e314a9e0336afad427ddebbefde3daffe64b9005b"
+                    "url": "https://github.com/libretro/dosbox-pure/archive/cdaea10ce8cac231bc341ca05d4c5e4e5fe0fbd5.tar.gz",
+                    "sha256": "c1c30bedc7254459d446047541570aad907252fdeb151daed2190ba64703ab97"
                 }
             ]
         }

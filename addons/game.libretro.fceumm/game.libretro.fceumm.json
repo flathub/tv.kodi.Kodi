@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.fceumm",
-            "commit": "407b05e922007a695db53051ad72084295c134ec"
+            "commit": "a3437c86c05952a4c55bc5279a0abea32bbdd6e8"
         },
         {
             "type": "file",
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/libretro-fceumm/archive/236ccdfc911e84c60fea6b9d0699c2d440a8de14.tar.gz",
-                    "sha256": "dd002cde9b5271979e0394bb9e696bd37e149ced473ff1e3629cc7fed502381f"
+                    "url": "https://github.com/libretro/libretro-fceumm/archive/ac0d00a7fc01166f84c7bac01d1084ebfd2b865e.tar.gz",
+                    "sha256": "364affeeea3d91ab8de4ef2a333cb0ca4d7d8e8992e94366a270b32e309485ca"
                 }
             ]
         }

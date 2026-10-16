@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/visualization.projectm",
-            "commit": "9c29089efdd5bcf8fd9bedf8f189cce88589fc3d"
+            "commit": "8788200c697dc005e768ef9646691f478b5906c3"
         },
         {
             "type": "file",
@@ -63,8 +63,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/garbear/projectm/archive/e6bda8e744301f6395d4b4c8c5c77bfa9eae2598.tar.gz",
-                    "sha256": "8d0206a369f172c7a66eb4acf8291f21a8ac20124a88f2865dc126e211e83a61"
+                    "url": "https://github.com/projectM-visualizer/projectm/archive/e98fca85e57802d27a6d11499642de2a1d5e994e.tar.gz",
+                    "sha256": "bab6e9fc5f42b9a760948909efba6ec0921faf87b0a321698bba56d6046b16e3"
                 }
             ]
         }
