@@ -8,6 +8,10 @@
             "commit": "2066e6e6d9fc34f7fe454d91025bcb56de156b74"
         },
         {
+            "type": "patch",
+            "path": "pvr.iptvsimple-001-stop-connection-manager-first.patch"
+        },
+        {
             "type": "file",
             "path": "../../tools/gen-addon-metainfo.sh"
         }

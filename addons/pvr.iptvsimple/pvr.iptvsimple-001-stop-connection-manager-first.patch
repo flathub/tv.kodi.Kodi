@@ -1,0 +1,44 @@
+From bac02d0fa040631fc10f20de0ae8aca57daa79b8 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sat, 17 Oct 2026 15:19:48 +1000
+Subject: [PATCH] Stop the connection manager before joining the update thread
+
+The connection manager thread can still be in its M3U check when the
+instance is destroyed. If the check then succeeds, it calls
+ConnectionEstablished(), which starts the update thread after the
+destructor has already looked for it, and destroying the still-joinable
+std::thread calls std::terminate().
+
+Stop the connection manager first, so nothing can start the update
+thread once the destructor joins it.
+---
+ src/IptvSimple.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/IptvSimple.cpp b/src/IptvSimple.cpp
+index 02383e5..d8a29ec 100644
+--- a/src/IptvSimple.cpp
++++ b/src/IptvSimple.cpp
+@@ -34,6 +34,10 @@ IptvSimple::IptvSimple(const kodi::addon::IInstanceInfo& instance) : iptvsimple:
+ 
+ IptvSimple::~IptvSimple()
+ {
++  // the connection manager can still start the update thread, so stop it first
++  if (connectionManager)
++    connectionManager->Stop();
++
+   Logger::Log(LEVEL_DEBUG, "%s Stopping update thread...", __FUNCTION__);
+   m_running = false;
+   if (m_thread.joinable())
+@@ -45,8 +49,6 @@ IptvSimple::~IptvSimple()
+   m_providers.Clear();
+   m_epg.Clear();
+ 
+-  if (connectionManager)
+-    connectionManager->Stop();
+   delete connectionManager;
+ }
+ 
+-- 
+2.55.0
+
