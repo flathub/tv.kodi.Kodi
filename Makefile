@@ -4,7 +4,7 @@ BRANCH ?= $(if $(findstring beta,$(GIT_BRANCH)),beta,stable)
 BUILDER_FLAGS ?=
 SHELL := /bin/bash
 
-.PHONY: update-sources update-addons addon-list build lint flatpak install uninstall run debug clean
+.PHONY: update-sources update-addons addon-list build build-dev lint flatpak install uninstall run debug clean
 
 update-sources:
 	flatpak run --filesystem="$$PWD" org.flathub.flatpak-external-data-checker --edit-only $(PROJECT).yml
@@ -19,6 +19,10 @@ addon-list:
 	done | sort -u > addon-list.txt
 build:
 	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
+	$(MAKE) lint
+build-dev:
+	python3 tools/gen_dev_manifest.py $(PROJECT).yml addons-dev.txt $(PROJECT).dev.yml
+	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).dev.yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
 	$(MAKE) lint
 lint:
 	out=$$(flatpak run --command=appstreamcli org.flatpak.Builder validate --no-net build-dir/files/share/metainfo/*.xml) || \

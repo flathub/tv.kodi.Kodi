@@ -1,0 +1,5 @@
+# Add-on modules (addons/<id>/) kept by make build-dev
+inputstream.adaptive
+inputstream.ffmpegdirect
+pvr.hts
+pvr.iptvsimple
