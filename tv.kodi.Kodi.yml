@@ -785,6 +785,12 @@ modules:
         path: patches/kodi-videoplayer-empty-packet-backoff.patch
       - type: patch
         path: patches/kodi-videoplayer-retry-addon-empty-packet.patch
+      - type: patch
+        path: patches/kodi-python-set-async-exc.patch
+      - type: patch
+        path: patches/kodi-script-stop-timeout.patch
+      - type: patch
+        path: patches/kodi-script-abort-notify.patch
       - type: file
         path: addon-list.txt
         dest: build/download/

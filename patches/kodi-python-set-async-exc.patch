@@ -1,0 +1,39 @@
+From e933ba573d1c940ee6cd07e252181eb5e94b41ce Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 18 Oct 2026 13:14:05 +1000
+Subject: [PATCH] [python] Raise SystemExit in scripts that won't stop with
+ PyThreadState_SetAsyncExc
+
+CPythonInvoker::stop() gives a script 5 seconds to end, then raises
+SystemExit in its threads by setting PyThreadState::async_exc directly.
+Up to Python 3.12, take_gil() checked async_exc whenever a thread took
+the GIL, so the script saw the exception the next time it woke up. Since
+Python 3.13 the eval loop only checks async_exc when a flag for it is
+set, which PyThreadState_SetAsyncExc() does and the direct write does
+not, so the exception never arrives and the script keeps running.
+
+Use PyThreadState_SetAsyncExc(), and leave out the temporary thread state
+stop() creates for itself.
+---
+ xbmc/interfaces/python/PythonInvoker.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
+index ef608a4b86..5a7f2df69d 100644
+--- a/xbmc/interfaces/python/PythonInvoker.cpp
++++ b/xbmc/interfaces/python/PythonInvoker.cpp
+@@ -558,10 +558,10 @@ bool CPythonInvoker::stop(bool abort)
+       PyThreadState* state = PyInterpreterState_ThreadHead(m_threadState->interp);
+       while (state)
+       {
+-        // Raise a SystemExit exception in python threads
+-        Py_XDECREF(state->async_exc);
+-        state->async_exc = PyExc_SystemExit;
+-        Py_XINCREF(state->async_exc);
++        // Raise a SystemExit exception in python threads; writing async_exc directly goes
++        // unnoticed since Python 3.13
++        if (state != ts)
++          PyThreadState_SetAsyncExc(state->thread_id, PyExc_SystemExit);
+         state = PyThreadState_Next(state);
+       }
+ 
