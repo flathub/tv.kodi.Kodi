@@ -1,0 +1,97 @@
+From ded381a238844ce13c819c134f1f2ef1b0beea86 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Tue, 20 Oct 2026 06:00:56 +1000
+Subject: [PATCH] [Session] Wait briefly for a sample that is still being read
+
+GetNextSample() returns an empty packet whenever a stream's next sample
+read is still in flight, without waiting at all. When every read is
+slow, such as samples decrypted in software on a Raspberry Pi 4, the
+player has to keep polling, and each sample is picked up some time after
+it is ready. The next read only starts once the player has collected the
+last one, so that gap comes straight off the throughput, and 1080p50
+streams stall there (xbmc/xbmc#29898).
+
+Wait for the read to finish before returning the empty packet, against
+one 5 ms deadline per call so several streams can't add up past the
+10 ms the player tolerates. A read that finishes in time is handed over
+at once, and one that takes longer, or a download that has stalled,
+still returns an empty packet every 5 ms.
+---
+ src/Session.cpp                 | 10 +++++++---
+ src/samplereader/SampleReader.h | 12 +++++++-----
+ 2 files changed, 14 insertions(+), 8 deletions(-)
+
+diff --git a/src/Session.cpp b/src/Session.cpp
+index cc657d20..5cbf8f64 100644
+--- a/src/Session.cpp
++++ b/src/Session.cpp
+@@ -37,6 +37,8 @@ using namespace UTILS;
+ namespace
+ {
+ constexpr const char* CHAPTER_NAME_UNKNOWN = "[Unknown]";
++// How long GetNextSample may wait for sample reads in flight, half of what VP tolerates
++constexpr auto SAMPLE_WAIT_BUDGET = std::chrono::milliseconds(5);
+ 
+ // \brief Make an unique ID based on period index and stream index.
+ // \param periodIndex The max value accepted by period index is uint16_t type max value.
+@@ -804,6 +806,7 @@ bool SESSION::CSession::GetNextSample(ISampleReader*& sampleReader)
+ {
+   CStream* res{nullptr};
+   CStream* waiting{nullptr};
++  const auto waitDeadline = std::chrono::steady_clock::now() + SAMPLE_WAIT_BUDGET;
+ 
+   for (auto& stream : m_streams)
+   {
+@@ -814,9 +817,10 @@ bool SESSION::CSession::GetNextSample(ISampleReader*& sampleReader)
+     if (stream->IsEnabled())
+     {
+       // Advice is that VP does not want to wait longer than 10ms for a return from
+-      // DemuxRead() - here we ask to not wait at all and if ReadSample has not yet
+-      // finished will return "true" to feed an empty packet
+-      if (streamReader->IsReadSampleAsyncWorking())
++      // DemuxRead() - here we wait until the deadline, so a slow read (e.g. software
++      // decryption) is handed over as soon as it finishes, and if ReadSample has still
++      // not finished will return "true" to feed an empty packet
++      if (streamReader->IsReadSampleAsyncWorking(waitDeadline))
+       {
+         waiting = stream.get();
+         break;
+diff --git a/src/samplereader/SampleReader.h b/src/samplereader/SampleReader.h
+index b6d80eff..468a7bbc 100644
+--- a/src/samplereader/SampleReader.h
++++ b/src/samplereader/SampleReader.h
+@@ -21,9 +21,10 @@
+ #include <kodi/addon-instance/Inputstream.h>
+ #endif
+ 
++#include <chrono>
+ #include <cstdint>
+-#include <optional>
+ #include <future>
++#include <optional>
+ 
+ class Adaptive_CencSingleSampleDecrypter;
+ 
+@@ -146,14 +147,15 @@ public:
+   }
+ 
+   /*!
+-   * \brief Check if the async ReadSample is working
++   * \brief Check if the async ReadSample is working, blocking until it finishes or the
++   *        deadline passes
++   * \param deadline When to stop waiting
+    * \return Return true if is working, otherwise false
+    */
+-  bool IsReadSampleAsyncWorking()
++  bool IsReadSampleAsyncWorking(std::chrono::steady_clock::time_point deadline)
+   {
+     return m_readSampleAsyncState.valid() &&
+-           m_readSampleAsyncState.wait_for(std::chrono::milliseconds(0)) !=
+-               std::future_status::ready;
++           m_readSampleAsyncState.wait_until(deadline) != std::future_status::ready;
+   }
+ 
+   void SetObserver(SampleReaderObserver* observer) { m_observer = observer; }
+-- 
+2.55.0
+
