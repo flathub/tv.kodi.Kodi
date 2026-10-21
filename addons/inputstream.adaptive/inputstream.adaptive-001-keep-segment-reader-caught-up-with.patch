@@ -1,0 +1,94 @@
+From cd1d53772f89743e739d1423084a2f7fa1f7b16c Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Tue, 20 Oct 2026 07:09:51 +1000
+Subject: [PATCH] [AdaptiveStream] Don't drop a segment the reader has caught
+ up with
+
+ensureSegment() pops the front segment once the read position reaches
+BufferSize(), but BufferSize() is what has been downloaded so far. When
+the reader catches up with a download in progress, it waited for the
+download to finish and then dropped the segment, discarding everything
+that arrived after the reader got there.
+
+Keep a segment that is still downloading and let read() wait for the
+rest of it. When the segment is completed while read() waits and has
+been read entirely, read() moves on to the next one instead of returning
+no data. The final state change is now made under mutexRW, so a reader
+waiting on cvRW cannot miss it.
+
+read() moves on to the next segment at most once per call, because
+ensureSegment() does not advance while a quality change is pending and
+the loop would otherwise never return.
+---
+ src/common/AdaptiveStream.cpp | 27 +++++++++++++++++++++------
+ 1 file changed, 21 insertions(+), 6 deletions(-)
+
+diff --git a/src/common/AdaptiveStream.cpp b/src/common/AdaptiveStream.cpp
+index aac8b755..bfc5f0cd 100644
+--- a/src/common/AdaptiveStream.cpp
++++ b/src/common/AdaptiveStream.cpp
+@@ -390,8 +390,12 @@ void adaptive::AdaptiveStream::worker()
+       }
+ 
+       m_segBuffers.NotifyDownloadCompleted();
+-      downloadInfo.m_segmentBuffer->ChangeState(isSegmentDownloaded ? BufferState::DOWNLOADED
+-                                                                    : BufferState::INVALID);
++      {
++        // Under mutexRW, so that a reader waiting on cvRW cannot miss the state change
++        std::lock_guard<std::mutex> lckrw(thread_data_->mutexRW);
++        downloadInfo.m_segmentBuffer->ChangeState(isSegmentDownloaded ? BufferState::DOWNLOADED
++                                                                      : BufferState::INVALID);
++      }
+ 
+       // Stop the playback if the data cant be downloaded
+       // is not the case for subtitles where in the case of missing files they can be ignored
+@@ -778,9 +782,9 @@ bool adaptive::AdaptiveStream::ensureSegment()
+   {
+     if (!m_segBuffers.IsEmpty() && m_segBuffers.Front().State() == BufferState::DOWNLOADING)
+     {
+-      // Although the reading position has reached the end, the segment status may not yet be updated
+-      // so wait for the mutex release, otherwise segment buffers PopFront will cause incorrect buffer updates
+-      std::lock_guard<std::mutex> lckWorker(thread_data_->mutexWorker);
++      // BufferSize() is what has been downloaded so far, not the size of the segment, so the reader
++      // has only caught up with the download. Keep the segment, read() waits for the rest of it.
++      return true;
+     }
+ 
+     if (m_fixateInitialization && !m_segBuffers.IsEmpty() &&
+@@ -1001,7 +1005,8 @@ bool adaptive::AdaptiveStream::ensureSegment()
+ 
+ uint32_t adaptive::AdaptiveStream::read(void* buffer, uint32_t bytesToRead)
+ {
+-  if (ensureSegment() && bytesToRead > 0)
++  bool retried{false};
++  while (ensureSegment() && bytesToRead > 0)
+   {
+     if (m_segBuffers.IsEmpty())
+       return 0;
+@@ -1023,6 +1028,15 @@ uint32_t adaptive::AdaptiveStream::read(void* buffer, uint32_t bytesToRead)
+       }
+     }
+ 
++    // The segment was completed while waiting and has been read entirely, continue with the next one.
++    // Only once: ensureSegment() does not advance while a quality change is pending
++    if (avail == 0 && currSegBuffer.BufferSize() != 0 &&
++        currSegBuffer.State() == BufferState::DOWNLOADED && !retried)
++    {
++      retried = true;
++      continue;
++    }
++
+     if (avail > bytesToRead)
+       avail = bytesToRead;
+ 
+@@ -1034,6 +1048,7 @@ uint32_t adaptive::AdaptiveStream::read(void* buffer, uint32_t bytesToRead)
+       currSegBuffer.CopyBufferTo(buffer, segment_read_pos_ - avail, avail);
+       return static_cast<uint32_t>(avail);
+     }
++    break;
+   }
+ 
+   return 0;
+-- 
+2.55.0
+
