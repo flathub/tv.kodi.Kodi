@@ -1,0 +1,106 @@
+From a3c70d0ebde1f5f0352797b64682b5e926cdcd56 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Thu, 15 Oct 2026 20:46:41 +1000
+Subject: [PATCH] [VideoPlayer] Mark empty packets that replace dropped input
+
+A demuxer returns an empty packet both when it has no data yet and when
+it read something and dropped it: a packet for another program, one that
+came before the stream was ready to decode, an invalid one, or a
+stream-info packet from an add-on. Only the first means the source is
+waiting.
+
+Mark the second kind, so the player can tell them apart. Empty packets
+from add-ons and FFmpeg read timeouts stay unmarked. The client demuxer
+also marks a stream change it swallows while the video isn't ready,
+since that is a packet the add-on produced.
+---
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp | 7 ++++++-
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp | 7 +++++++
+ xbmc/cores/VideoPlayer/Interface/DemuxPacket.h        | 3 +++
+ 3 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+index 261adf5e9f..4a820f9fff 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+@@ -331,7 +331,9 @@ DemuxPacket* CDVDDemuxClient::Read()
+   {
+     RequestStreams();
+     CDVDDemuxUtils::FreeDemuxPacket(m_packet.release());
+-    return CDVDDemuxUtils::AllocateDemuxPacket(0);
++    DemuxPacket* pPacket = CDVDDemuxUtils::AllocateDemuxPacket(0);
++    pPacket->m_inputDropped = true;
++    return pPacket;
+   }
+   else if (m_packet->iStreamId == DMX_SPECIALID_STREAMCHANGE)
+   {
+@@ -351,9 +353,12 @@ DemuxPacket* CDVDDemuxClient::Read()
+ 
+   if (!IsVideoReady())
+   {
++    // the add-on's own empty packets mean it has no data yet
++    const bool inputDropped = m_packet->iStreamId != -1;
+     CDVDDemuxUtils::FreeDemuxPacket(m_packet.release());
+     DemuxPacket *pPacket = CDVDDemuxUtils::AllocateDemuxPacket(0);
+     pPacket->demuxerId = GetDemuxerId();
++    pPacket->m_inputDropped = inputDropped;
+     return pPacket;
+   }
+ 
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
+index bc5186d103..ee8fa16a3c 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
+@@ -1081,6 +1081,8 @@ DemuxPacket* CDVDDemuxFFmpeg::ReadInternal(bool keep)
+   // on some cases where the received packet is invalid we will need to return an empty packet (0 length) otherwise the main loop (in CVideoPlayer)
+   // would consider this the end of stream and stop.
+   bool bReturnEmpty = false;
++  // only a timed out read returns an empty packet without dropping input
++  bool bTimedOut = false;
+   {
+     std::unique_lock lock(m_critSection); // open lock scope
+     if (m_pFormatContext)
+@@ -1106,6 +1108,7 @@ DemuxPacket* CDVDDemuxFFmpeg::ReadInternal(bool keep)
+       {
+         // timeout, probably no real error, return empty packet
+         bReturnEmpty = true;
++        bTimedOut = true;
+       }
+       else if (m_pkt.result == AVERROR_EOF)
+       {
+@@ -1243,7 +1246,10 @@ DemuxPacket* CDVDDemuxFFmpeg::ReadInternal(bool keep)
+     }
+   } // end of lock scope
+   if (bReturnEmpty && !pPacket)
++  {
+     pPacket = CDVDDemuxUtils::AllocateDemuxPacket(0);
++    pPacket->m_inputDropped = !bTimedOut;
++  }
+ 
+   if (!pPacket)
+     return nullptr;
+@@ -1289,6 +1295,7 @@ DemuxPacket* CDVDDemuxFFmpeg::ReadInternal(bool keep)
+     {
+       CDVDDemuxUtils::FreeDemuxPacket(pPacket);
+       pPacket = CDVDDemuxUtils::AllocateDemuxPacket(0);
++      pPacket->m_inputDropped = true;
+       return pPacket;
+     }
+ 
+diff --git a/xbmc/cores/VideoPlayer/Interface/DemuxPacket.h b/xbmc/cores/VideoPlayer/Interface/DemuxPacket.h
+index a8ffb9807b..466c3e7355 100644
+--- a/xbmc/cores/VideoPlayer/Interface/DemuxPacket.h
++++ b/xbmc/cores/VideoPlayer/Interface/DemuxPacket.h
+@@ -43,6 +43,9 @@ extern "C"
+ 
+     //! @brief PTS offset correction applied to the PTS and DTS.
+     double m_ptsOffsetCorrection{0};
++
++    //! @brief Empty packet replacing input the demuxer read and dropped.
++    bool m_inputDropped{false};
+   };
+ 
+ #ifdef __cplusplus
+-- 
+2.55.0
+

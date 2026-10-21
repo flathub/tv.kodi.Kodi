@@ -1,0 +1,86 @@
+From 3c52e1c2f2f6830820f366d9e59df06f9fa237b7 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sat, 17 Oct 2026 11:21:20 +1000
+Subject: [PATCH] [VideoPlayer] Ask an add-on demuxer again before passing on
+ an empty packet
+
+An inputstream add-on can't mark the empty packets that replace input it
+read and dropped, because DEMUX_PACKET has no field for it.
+inputstream.ffmpegdirect returns one for every packet before a live
+transport stream is ready, so the player backs off from them and a
+channel start takes as long as on RC1.
+
+When the add-on answers with an empty packet, ask it again, up to 32
+times and for at most 0.5 ms from the first call, before passing it on.
+The retries are counted rather than timed: an idle add-on answers in
+microseconds, so 32 calls cost next to nothing while a stream starves,
+and one that is dropping input it already has gets through up to 32
+packets per poll. The cap is half the player's 1 ms grace, so a read
+that only retried never counts as one that blocked, and a comment at the
+grace notes the dependency.
+---
+ .../DVDDemuxers/DVDDemuxClient.cpp            | 20 +++++++++++++++++++
+ xbmc/cores/VideoPlayer/VideoPlayer.cpp        |  1 +
+ 2 files changed, 21 insertions(+)
+
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+index 4a820f9fff..0847859981 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+@@ -15,6 +15,7 @@
+ #include "utils/StreamUtils.h"
+ #include "utils/log.h"
+ 
++#include <chrono>
+ #include <memory>
+ #include <tuple>
+ #include <type_traits>
+@@ -25,6 +26,16 @@ extern "C"
+ #include <libavcodec/defs.h>
+ }
+ 
++using namespace std::chrono_literals;
++
++namespace
++{
++// counted, not timed: an idle add-on answers in microseconds, a working one takes longer
++constexpr int EMPTY_PACKET_RETRIES = 32;
++// from entry, half the player's EMPTY_PACKET_GRACE, so a read that only retried never looks blocked
++constexpr auto EMPTY_PACKET_RETRY_CAP = 500us;
++} // namespace
++
+ class CDemuxStreamClientInternal
+ {
+ public:
+@@ -321,7 +332,16 @@ DemuxPacket* CDVDDemuxClient::Read()
+   if (m_packet)
+     return m_packet.release();
+ 
++  const auto readStart = std::chrono::steady_clock::now();
+   m_packet.reset(m_IDemux->ReadDemux());
++  // an add-on's empty packet may replace input it dropped; ask again while it answers at once
++  for (int retry = 0; retry < EMPTY_PACKET_RETRIES && m_packet && m_packet->iStreamId == -1 &&
++                      std::chrono::steady_clock::now() - readStart < EMPTY_PACKET_RETRY_CAP;
++       ++retry)
++  {
++    CDVDDemuxUtils::FreeDemuxPacket(m_packet.release());
++    m_packet.reset(m_IDemux->ReadDemux());
++  }
+   if (!m_packet)
+   {
+     return nullptr;
+diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+index 785ccd44b3..65bc48d3ce 100644
+--- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
++++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+@@ -92,6 +92,7 @@ using namespace std::chrono_literals;
+ namespace
+ {
+ // longer than a demuxer takes to hand over data it already has
++// CDVDDemuxClient's retry cap must stay at most half of this
+ constexpr auto EMPTY_PACKET_GRACE = 1ms;
+ // same as the idle sleep on full queues
+ constexpr auto EMPTY_PACKET_MAX_SLEEP = 10ms;
+-- 
+2.55.0
+

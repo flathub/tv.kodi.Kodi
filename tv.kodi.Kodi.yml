@@ -777,6 +777,14 @@ modules:
         path: patches/kodi.sh.in.patch
       - type: patch
         path: patches/kodi-games-rumble-unplug.patch
+      - type: patch
+        path: patches/kodi-videoplayer-revert-empty-packet-sleep.patch
+      - type: patch
+        path: patches/kodi-videoplayer-mark-dropped-input.patch
+      - type: patch
+        path: patches/kodi-videoplayer-empty-packet-backoff.patch
+      - type: patch
+        path: patches/kodi-videoplayer-retry-addon-empty-packet.patch
       - type: file
         path: addon-list.txt
         dest: build/download/

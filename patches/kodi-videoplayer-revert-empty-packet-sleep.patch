@@ -1,0 +1,55 @@
+From 3e23cff9f49d099c4ee216b8f6876878c279fadd Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Thu, 15 Oct 2026 20:18:33 +1000
+Subject: [PATCH] Revert "VideoPlayer: stop spinning when the source cannot
+ keep up"
+
+This reverts commit 7959679e8c19b49b59492de0b99e5c4ba3098bd4.
+
+inputstream.adaptive returns an empty packet from DemuxRead() whenever
+a stream's next sample read is still in flight, so that the player is
+never blocked for long. The sleep fires whenever the player polls more
+than 10 times before that read completes, which happens for a large and
+variable share of packets. A 720p60 H.264 + Opus YouTube stream needs
+about 110 packets a second and then cannot keep the demux queue full:
+one evening it stalled 20 times in 18 minutes, and in a 990 s run the
+next day it stalled twice, with the queue below 1 s in 11 of 195
+samples. With this revert the queue stayed full in all 195 samples,
+with no stalls.
+---
+ xbmc/cores/VideoPlayer/VideoPlayer.cpp | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+index 44e6e72cbe..b956ba92c6 100644
+--- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
++++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+@@ -1607,8 +1607,6 @@ void CVideoPlayer::Process()
+ 
+   Prepare();
+ 
+-  unsigned int emptyPackets = 0;
+-
+   while (!m_bAbortRequest)
+   {
+     // check display lost
+@@ -1723,16 +1721,9 @@ void CVideoPlayer::Process()
+     {
+       /* probably a empty packet, just free it and move on */
+       CDVDDemuxUtils::FreeDemuxPacket(pPacket);
+-
+-      /* a source that cannot keep up hands these back as fast as we ask */
+-      if (++emptyPackets > 10)
+-        CThread::Sleep(10ms);
+-
+       continue;
+     }
+ 
+-    emptyPackets = 0;
+-
+     if (!pPacket)
+     {
+       // when paused, demuxer could be be returning empty
+-- 
+2.55.0
+
