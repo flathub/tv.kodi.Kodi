@@ -20,7 +20,7 @@
         },
         {
             "type": "patch",
-            "path": "game.libretro.lrps2-001-default-software-renderer.patch"
+            "path": "game.libretro.lrps2-001-drop-unbuilt-renderers.patch"
         },
         {
             "type": "file",
