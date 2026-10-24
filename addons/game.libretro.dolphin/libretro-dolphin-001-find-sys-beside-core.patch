@@ -1,0 +1,57 @@
+From c4f3064e25f3da12a8309dcd932cb069c07fecdf Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 25 Oct 2026 08:15:07 +1000
+Subject: [PATCH] libretro: find Sys beside the core when the system directory
+ lacks it
+
+Kodi gives a core its profile resources directory as the system
+directory once anything is put there, such as a BIOS, and the add-on's
+install directory otherwise. Its Dolphin add-on ships Sys in the
+install directory, so the first file in the profile leaves Dolphin
+without Sys ("Core file codehandler.bin missing!"). Fall back to the
+Sys shipped beside the core when the system directory has none.
+---
+ Source/Core/DolphinLibretro/Boot.cpp | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/Source/Core/DolphinLibretro/Boot.cpp b/Source/Core/DolphinLibretro/Boot.cpp
+index 34f1251..cf6af37 100644
+--- a/Source/Core/DolphinLibretro/Boot.cpp
++++ b/Source/Core/DolphinLibretro/Boot.cpp
+@@ -4,6 +4,9 @@
+ #include <functional>
+ #include <filesystem>
+ #include <fstream>
++#ifndef _WIN32
++#include <dlfcn.h>
++#endif
+ 
+ #include "Common/CommonPaths.h"
+ #include "Core/CommonTitles.h"
+@@ -261,6 +264,23 @@ bool retro_load_game(const struct retro_game_info* game)
+   else
+     sys_dir = "dolphin-emu" DIR_SEP "Sys";
+ 
++#ifndef _WIN32
++  // Kodi moves the system directory to the profile once anything is put there
++  // (e.g. a BIOS), but its add-on ships Sys beside the core
++  if (!File::IsDirectory(sys_dir))
++  {
++    Dl_info info;
++    if (dladdr(reinterpret_cast<void*>(&retro_init), &info) && info.dli_fname)
++    {
++      const std::string shipped = (std::filesystem::path(info.dli_fname).parent_path() /
++                                   "resources" / "system" / "dolphin-emu" / "Sys")
++                                      .string();
++      if (File::IsDirectory(shipped))
++        sys_dir = shipped;
++    }
++  }
++#endif
++
+   using namespace Libretro::Options;
+   Libretro::Options::Init();
+   Libretro::VFile::Init();
+-- 
+2.55.0
+

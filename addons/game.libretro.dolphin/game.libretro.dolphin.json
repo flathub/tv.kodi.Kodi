@@ -227,6 +227,10 @@
                     "sha256": "50bb1309dfe6bf1e09a29e0b640ed96dd84c1dfcdee285ae73c1fe3c19e18bfd"
                 },
                 {
+                    "type": "patch",
+                    "path": "libretro-dolphin-001-find-sys-beside-core.patch"
+                },
+                {
                     "type": "archive",
                     "url": "https://github.com/ocornut/imgui/archive/45acd5e0e82f4c954432533ae9985ff0e1aad6d5.tar.gz",
                     "sha256": "97484925aec2f4d3e913d6644d46b234f8d6d8d98c6aa9c50109e0f0df772090",
