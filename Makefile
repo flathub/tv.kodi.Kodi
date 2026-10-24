@@ -2,6 +2,7 @@ PROJECT ?= tv.kodi.Kodi
 GIT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 BRANCH ?= $(if $(findstring beta,$(GIT_BRANCH)),beta,stable)
 BUILDER_FLAGS ?=
+DEV_ADDONS ?=
 SHELL := /bin/bash
 
 .PHONY: update-sources update-addons addon-list build build-dev lint flatpak install uninstall run debug clean
@@ -21,7 +22,7 @@ build:
 	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
 	$(MAKE) lint
 build-dev:
-	python3 tools/gen_dev_manifest.py $(PROJECT).yml addons-dev.txt $(PROJECT).dev.yml
+	python3 tools/gen_dev_manifest.py $(PROJECT).yml addons-dev.txt $(PROJECT).dev.yml $(DEV_ADDONS)
 	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).dev.yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
 	$(MAKE) lint
 lint:

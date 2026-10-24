@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Usage: gen_dev_manifest.py <manifest> <allowlist> <output>
+# Usage: gen_dev_manifest.py <manifest> <allowlist> <output> [addon-id...]
 
 import os
 import re
@@ -31,16 +31,16 @@ def ext_kept(block, provided):
     return True
 
 
-def main(manifest, allowlist, output):
+def main(manifest, allowlist, output, *extra):
     # newline="" keeps every kept line byte-identical
     with open(manifest, newline="") as f:
         lines = f.readlines()
 
     modules = {m.group(1) for line in lines if (m := ENTRY.match(line.rstrip("\r\n")))}
-    keep = read_allowlist(allowlist)
+    keep = read_allowlist(allowlist) | set(extra)
     unknown = keep - modules
     if unknown:
-        sys.exit(f"{allowlist}: not in {manifest}: {' '.join(sorted(unknown))}")
+        sys.exit(f"not in {manifest}: {' '.join(sorted(unknown))}")
     base = os.path.dirname(manifest)
     provided = set().union(*(provided_ids(base, m) for m in keep))
 
@@ -76,6 +76,6 @@ def main(manifest, allowlist, output):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        sys.exit(f"usage: {sys.argv[0]} <manifest> <allowlist> <output>")
+    if len(sys.argv) < 4:
+        sys.exit(f"usage: {sys.argv[0]} <manifest> <allowlist> <output> [addon-id...]")
     main(*sys.argv[1:])
