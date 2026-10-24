@@ -791,6 +791,8 @@ modules:
         path: patches/kodi-script-stop-timeout.patch
       - type: patch
         path: patches/kodi-script-abort-notify.patch
+      - type: patch
+        path: patches/kodi-videoplayer-subtitle-demux-disabled.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
