@@ -457,18 +457,18 @@ modules:
   - name: pycryptodome
     buildsystem: simple
     build-commands:
+      - touch .separate_namespace
       - python3 setup.py install --prefix=/app --root=/
-      # add-ons import Crypto or Cryptodome, as on LibreELEC
-      - cd /app/lib/python3*/site-packages && ln -s Crypto Cryptodome
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/be/3a/28ba9808f6a7361abfe71d389d24eaf15d2114fc4137b9ca764f2491fd49/pycryptodome-4.1.0.tar.gz
-        sha512: f183dfbe00a5cfbbd2831bb692c1f3f5d386c8f8dba463cbbbd634f7902071c2407727b86d8b0bff2e80834d0bad698db7fb5fd8277f94353f4481e46cccb6a6
+        url: https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz
+        sha512: 19421bd637d484b475037c47236c9cc140da0428601b7abad81e00b79ca2c4c52674638ecda64be4d4f024d835935150e28623131083c603363bf0cdcdc642cb
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/pycryptodome/json
-          version-query: .info.version
-          url-query: .urls[] | select(.filename | endswith(".tar.gz")) | .url
+          # 3.x keeps the Cryptodome namespace, as Kodi's own depends do
+          version-query: '[.releases | keys[] | select(test("^3\\.[0-9]+\\.[0-9]+$"))] | sort_by(split(".") | map(tonumber)) | last'
+          url-query: '.releases[$version][] | select(.filename | endswith(".tar.gz")) | .url'
   - name: python3-pybind11
     buildsystem: simple
     cleanup:
