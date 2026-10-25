@@ -797,6 +797,8 @@ modules:
         path: patches/kodi-scripts-stop-in-parallel.patch
       - type: patch
         path: patches/kodi-network-wsdiscovery-stop.patch
+      - type: patch
+        path: patches/kodi-ae-pipewire-drain-paused.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
