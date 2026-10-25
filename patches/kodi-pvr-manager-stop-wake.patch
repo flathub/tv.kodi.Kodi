@@ -1,6 +1,6 @@
-From 5729ce757d75ce84ddeb5a744b8f19178adc7e1a Mon Sep 17 00:00:00 2001
+From 16877187d8e159bbed34beed2ed4bc1ace686c36 Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
-Date: Sun, 25 Oct 2026 20:04:02 +1000
+Date: Sun, 25 Oct 2026 20:04:52 +1000
 Subject: [PVR] Wake the manager thread when it is told to stop
 
 CPVRManager::Stop() sets STATE_STOPPING and calls StopThread(), but
@@ -17,6 +17,7 @@ Timed on Linux with pvr.hts, "PVR Manager: Stopping" to "PVR Manager:
 Stopped" went from 92-992 ms to 1-2 ms.
 
 Assisted-By: Claude
+(cherry picked from commit 84ea1f990b63e441d83c782c9416e923c431d28a)
 ---
  xbmc/pvr/PVRManager.cpp | 3 +++
  1 file changed, 3 insertions(+)
