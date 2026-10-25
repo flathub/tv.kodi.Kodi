@@ -1,4 +1,4 @@
-From ca391d6f9c975bddade5518dc5e0282a8b3e6873 Mon Sep 17 00:00:00 2001
+From bc6a8f61a825e12e4e6e6de8d4f3013d5d715a18 Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Sat, 24 Oct 2026 15:59:07 +1000
 Subject: [PATCH] [network] Signal WS-Discovery to stop with the other servers,
@@ -24,8 +24,10 @@ Stopped" and stopped the first add-on 2590 ms after it.
 Give StopWSDiscovery(), IWSDiscovery::StopServices() and
 CWSDiscoveryListenerUDP::Stop() a bWait argument, as the other servers
 have. The first call now only signals the listener, and the second joins
-it and logs "Stopped". If the listener has already ended by the second
-call, the destructor joins it later, as happens for the event server.
+it and logs "Stopped". Only that join logs it, so the destructor's own
+stop at exit no longer logs it a second time. If the listener has
+already ended by the second call, the destructor joins it later, as
+happens for the event server.
 
 That alone would only move the wait, so the listener's select() now
 times out after 1 second, as CEventServer's and CTCPServer's do. All
@@ -41,18 +43,18 @@ and still releases the WSDAPI provider in the first call; the second
 call finds nothing left to do.
 
 Assisted-by: Claude
-(cherry picked from commit f0de2fa703a09624e36ba77e68838d3680873f9a)
+(cherry picked from commit 85c5a5ea6dd78770acd516f4b242c95cdbf7d7f8)
 ---
- xbmc/network/IWSDiscovery.h                              | 2 +-
- xbmc/network/NetworkServices.cpp                         | 8 ++++----
- xbmc/network/NetworkServices.h                           | 2 +-
- xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp        | 6 +++---
- xbmc/platform/posix/filesystem/SMBWSDiscovery.h          | 2 +-
- .../platform/posix/filesystem/SMBWSDiscoveryListener.cpp | 9 +++++----
- xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h  | 2 +-
- xbmc/platform/win32/network/WSDiscoveryWin32.cpp         | 6 +++---
- xbmc/platform/win32/network/WSDiscoveryWin32.h           | 2 +-
- 9 files changed, 20 insertions(+), 19 deletions(-)
+ xbmc/network/IWSDiscovery.h                         |  2 +-
+ xbmc/network/NetworkServices.cpp                    |  8 ++++----
+ xbmc/network/NetworkServices.h                      |  2 +-
+ xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp   |  6 +++---
+ xbmc/platform/posix/filesystem/SMBWSDiscovery.h     |  2 +-
+ .../posix/filesystem/SMBWSDiscoveryListener.cpp     | 13 +++++++++----
+ .../posix/filesystem/SMBWSDiscoveryListener.h       |  5 ++++-
+ xbmc/platform/win32/network/WSDiscoveryWin32.cpp    |  6 +++---
+ xbmc/platform/win32/network/WSDiscoveryWin32.h      |  2 +-
+ 9 files changed, 27 insertions(+), 19 deletions(-)
 
 diff --git a/xbmc/network/IWSDiscovery.h b/xbmc/network/IWSDiscovery.h
 index 47142dcd7e..94d304089f 100644
@@ -152,10 +154,10 @@ index e9a785cf48..568534e58d 100644
  
    /*
 diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
-index 7854eb6491..9d55a4a673 100644
+index 7854eb6491..cb92f50d8b 100644
 --- a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
 +++ b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
-@@ -159,10 +159,11 @@ CWSDiscoveryListenerUDP::~CWSDiscoveryListenerUDP()
+@@ -159,10 +159,14 @@ CWSDiscoveryListenerUDP::~CWSDiscoveryListenerUDP()
  {
  }
  
@@ -165,12 +167,23 @@ index 7854eb6491..9d55a4a673 100644
 -  StopThread(true);
 -  CLog::Log(LOGINFO, "CWSDiscoveryListenerUDP::Stop - Stopped");
 +  StopThread(bWait);
-+  if (bWait)
++  if (bWait && m_started)
++  {
++    m_started = false;
 +    CLog::Log(LOGINFO, "CWSDiscoveryListenerUDP::Stop - Stopped");
++  }
  }
  
  void CWSDiscoveryListenerUDP::Start()
-@@ -258,7 +259,7 @@ void CWSDiscoveryListenerUDP::Process()
+@@ -180,6 +184,7 @@ void CWSDiscoveryListenerUDP::Start()
+   // Create thread and set low priority
+   Create();
+   SetPriority(ThreadPriority::LOWEST);
++  m_started = true;
+   CLog::Log(LOGINFO, "CWSDiscoveryListenerUDP::Start - Started");
+ }
+ 
+@@ -258,7 +263,7 @@ void CWSDiscoveryListenerUDP::Process()
    while (!m_bStop)
    {
      FD_SET(fd, &rset);
@@ -180,7 +193,7 @@ index 7854eb6491..9d55a4a673 100644
      nready = select((fd + 1), &rset, NULL, NULL, &timeout);
  
 diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
-index 7f8f3da4e0..3aa7e811b9 100644
+index 7f8f3da4e0..7f3944094b 100644
 --- a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
 +++ b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
 @@ -30,7 +30,7 @@ public:
@@ -192,6 +205,16 @@ index 7f8f3da4e0..3aa7e811b9 100644
  
  protected:
    // CThread
+@@ -100,6 +100,9 @@ private:
+   // Socket FD for send/recv
+   int fd;
+ 
++  // Only the Stop() that joins a started thread logs that it stopped
++  bool m_started = false;
++
+   std::vector<Command> m_commandbuffer;
+ 
+   CCriticalSection crit_commandqueue;
 diff --git a/xbmc/platform/win32/network/WSDiscoveryWin32.cpp b/xbmc/platform/win32/network/WSDiscoveryWin32.cpp
 index e5ebd71b02..737e441d93 100644
 --- a/xbmc/platform/win32/network/WSDiscoveryWin32.cpp
