@@ -318,6 +318,8 @@ modules:
           type: anitya
           project-id: 21468
           url-template: https://github.com/Pulse-Eight/libcec/archive/libcec-$version.tar.gz
+      - type: patch
+        path: patches/libcec-client-stop-wake.patch
   - name: libdisplay-info
     buildsystem: meson
     config-opts:
