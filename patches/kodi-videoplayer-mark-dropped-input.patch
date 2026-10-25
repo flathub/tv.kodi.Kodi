@@ -1,4 +1,4 @@
-From a3c70d0ebde1f5f0352797b64682b5e926cdcd56 Mon Sep 17 00:00:00 2001
+From 729ae4ae91dc6a0d4ae450a4e7d69497c7e5af8c Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Thu, 15 Oct 2026 20:46:41 +1000
 Subject: [PATCH] [VideoPlayer] Mark empty packets that replace dropped input
@@ -48,7 +48,7 @@ index 261adf5e9f..4a820f9fff 100644
    }
  
 diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
-index bc5186d103..ee8fa16a3c 100644
+index bc5186d103..42ede8cef4 100644
 --- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
 +++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxFFmpeg.cpp
 @@ -1081,6 +1081,8 @@ DemuxPacket* CDVDDemuxFFmpeg::ReadInternal(bool keep)
@@ -56,7 +56,7 @@ index bc5186d103..ee8fa16a3c 100644
    // would consider this the end of stream and stop.
    bool bReturnEmpty = false;
 +  // only a timed out read returns an empty packet without dropping input
-+  bool bTimedOut = false;
++  bool timedOut = false;
    {
      std::unique_lock lock(m_critSection); // open lock scope
      if (m_pFormatContext)
@@ -64,7 +64,7 @@ index bc5186d103..ee8fa16a3c 100644
        {
          // timeout, probably no real error, return empty packet
          bReturnEmpty = true;
-+        bTimedOut = true;
++        timedOut = true;
        }
        else if (m_pkt.result == AVERROR_EOF)
        {
@@ -74,7 +74,7 @@ index bc5186d103..ee8fa16a3c 100644
    if (bReturnEmpty && !pPacket)
 +  {
      pPacket = CDVDDemuxUtils::AllocateDemuxPacket(0);
-+    pPacket->m_inputDropped = !bTimedOut;
++    pPacket->m_inputDropped = !timedOut;
 +  }
  
    if (!pPacket)
