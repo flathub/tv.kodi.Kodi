@@ -1,0 +1,37 @@
+From bbbb867b456d166d96ff6b9e86e49a9c98e24c95 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 25 Oct 2026 20:04:02 +1000
+Subject: [application] Drop the 200 ms sleep at the end of
+ CApplication::Stop()
+
+The sleep comes from 15dcb7b091 (2011), when Stop() ended with
+Destroy() and the process could exit() straight after it, so threads
+were given a moment to go away. Destroy() is no longer called there,
+and every caller of Stop() now runs Cleanup() afterwards: the Run()
+loop, the error paths in XBMC_Run(), the tvOS controller and the WASM
+iteration. The sleep only delays Cleanup() by 200 ms on every exit.
+
+Timed on Linux, "Application stopped" to the next main thread line
+went from 200 ms to 0-1 ms.
+
+Assisted-By: Claude
+---
+ xbmc/application/Application.cpp | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/xbmc/application/Application.cpp b/xbmc/application/Application.cpp
+index 95c2bbfa2a..ceee0536d4 100644
+--- a/xbmc/application/Application.cpp
++++ b/xbmc/application/Application.cpp
+@@ -1960,8 +1960,6 @@ bool CApplication::Stop(int exitCode)
+ 
+   cleanup_emu_environ();
+ 
+-  KODI::TIME::Sleep(200ms);
+-
+   return success;
+ }
+ 
+-- 
+2.55.0
+
