@@ -1,0 +1,238 @@
+From ca391d6f9c975bddade5518dc5e0282a8b3e6873 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sat, 24 Oct 2026 15:59:07 +1000
+Subject: [PATCH] [network] Signal WS-Discovery to stop with the other servers,
+ join later
+
+When the network services go down, CNetworkServices::Stop() runs twice:
+first with bWait false to tell each server to stop, then with bWait true
+to wait for them. StopWSDiscovery() had no bWait and joined the posix
+listener thread in the first call. That thread only looks for a stop
+request when its select() times out, every 3 seconds, so the main thread
+sat in the join for up to 3 seconds before it even logged "Waiting for
+network services to stop". On exit, the service add-ons are stopped
+right after that.
+
+Timing Kodi's exit on Linux with many Python service add-ons, 1.2 to
+2.6 s went by between "Stopping all" and the first
+"CServiceAddonManager: stopping" line. In one of those logs the event
+server thread ended 537 ms and the TCP server thread 990 ms after
+"Signaling network services to stop", the WS-Discovery thread 2589 ms
+after it, and the main thread logged "CWSDiscoveryListenerUDP::Stop -
+Stopped" and stopped the first add-on 2590 ms after it.
+
+Give StopWSDiscovery(), IWSDiscovery::StopServices() and
+CWSDiscoveryListenerUDP::Stop() a bWait argument, as the other servers
+have. The first call now only signals the listener, and the second joins
+it and logs "Stopped". If the listener has already ended by the second
+call, the destructor joins it later, as happens for the event server.
+
+That alone would only move the wait, so the listener's select() now
+times out after 1 second, as CEventServer's and CTCPServer's do. All
+three then see the stop request within about a second of the first
+call, and the second call waits for them together.
+
+The listener still sends its Bye before it ends. Its other waits already
+watch for the stop: CThread::Sleep() in DispatchCommand() returns as
+soon as the thread is told to stop, and the sendto() retry loop checks
+m_bStop. Turning WS-Discovery off in the settings still stops it and
+waits. CWSDiscoveryWindows has no thread of its own, so it ignores bWait
+and still releases the WSDAPI provider in the first call; the second
+call finds nothing left to do.
+
+Assisted-by: Claude
+(cherry picked from commit f0de2fa703a09624e36ba77e68838d3680873f9a)
+---
+ xbmc/network/IWSDiscovery.h                              | 2 +-
+ xbmc/network/NetworkServices.cpp                         | 8 ++++----
+ xbmc/network/NetworkServices.h                           | 2 +-
+ xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp        | 6 +++---
+ xbmc/platform/posix/filesystem/SMBWSDiscovery.h          | 2 +-
+ .../platform/posix/filesystem/SMBWSDiscoveryListener.cpp | 9 +++++----
+ xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h  | 2 +-
+ xbmc/platform/win32/network/WSDiscoveryWin32.cpp         | 6 +++---
+ xbmc/platform/win32/network/WSDiscoveryWin32.h           | 2 +-
+ 9 files changed, 20 insertions(+), 19 deletions(-)
+
+diff --git a/xbmc/network/IWSDiscovery.h b/xbmc/network/IWSDiscovery.h
+index 47142dcd7e..94d304089f 100644
+--- a/xbmc/network/IWSDiscovery.h
++++ b/xbmc/network/IWSDiscovery.h
+@@ -17,7 +17,7 @@ class IWSDiscovery
+ public:
+   virtual ~IWSDiscovery() = default;
+   virtual bool StartServices() = 0;
+-  virtual bool StopServices() = 0;
++  virtual bool StopServices(bool bWait) = 0;
+   virtual bool IsRunning() = 0;
+ 
+   static std::unique_ptr<IWSDiscovery> GetInstance();
+diff --git a/xbmc/network/NetworkServices.cpp b/xbmc/network/NetworkServices.cpp
+index eef3167886..849cb33e48 100644
+--- a/xbmc/network/NetworkServices.cpp
++++ b/xbmc/network/NetworkServices.cpp
+@@ -477,7 +477,7 @@ bool CNetworkServices::OnSettingChanging(const std::shared_ptr<const CSetting>&
+         return false;
+     }
+     else
+-      return StopWSDiscovery();
++      return StopWSDiscovery(true);
+   }
+ #endif // HAS_FILESYSTEM_SMB
+ 
+@@ -598,7 +598,7 @@ void CNetworkServices::Stop(bool bWait)
+   StopJSONRPCServer(bWait);
+   StopAirPlayServer(bWait);
+   StopAirTunesServer(bWait);
+-  StopWSDiscovery();
++  StopWSDiscovery(bWait);
+ }
+ 
+ bool CNetworkServices::StartServer(enum ESERVERS server, bool start)
+@@ -1245,13 +1245,13 @@ bool CNetworkServices::IsWSDiscoveryRunning()
+   return false;
+ }
+ 
+-bool CNetworkServices::StopWSDiscovery()
++bool CNetworkServices::StopWSDiscovery(bool bWait)
+ {
+ #if defined(HAS_FILESYSTEM_SMB)
+   if (!IsWSDiscoveryRunning())
+     return true;
+ 
+-  CServiceBroker::GetWSDiscovery().StopServices();
++  CServiceBroker::GetWSDiscovery().StopServices(bWait);
+ 
+   return true;
+ #endif // HAS_FILESYSTEM_SMB
+diff --git a/xbmc/network/NetworkServices.h b/xbmc/network/NetworkServices.h
+index cd4afd6012..ac51af805d 100644
+--- a/xbmc/network/NetworkServices.h
++++ b/xbmc/network/NetworkServices.h
+@@ -101,7 +101,7 @@ public:
+ 
+   bool StartWSDiscovery();
+   bool IsWSDiscoveryRunning();
+-  bool StopWSDiscovery();
++  bool StopWSDiscovery(bool bWait);
+ 
+ private:
+   CNetworkServices(const CNetworkServices&);
+diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp b/xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp
+index 31ef921ba0..e7cb7123ca 100644
+--- a/xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp
++++ b/xbmc/platform/posix/filesystem/SMBWSDiscovery.cpp
+@@ -49,12 +49,12 @@ CWSDiscoveryPosix::CWSDiscoveryPosix()
+ 
+ CWSDiscoveryPosix::~CWSDiscoveryPosix()
+ {
+-  StopServices();
++  StopServices(true);
+ }
+ 
+-bool CWSDiscoveryPosix::StopServices()
++bool CWSDiscoveryPosix::StopServices(bool bWait)
+ {
+-  m_WSDListenerUDP->Stop();
++  m_WSDListenerUDP->Stop(bWait);
+ 
+   return true;
+ }
+diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscovery.h b/xbmc/platform/posix/filesystem/SMBWSDiscovery.h
+index e9a785cf48..568534e58d 100644
+--- a/xbmc/platform/posix/filesystem/SMBWSDiscovery.h
++++ b/xbmc/platform/posix/filesystem/SMBWSDiscovery.h
+@@ -51,7 +51,7 @@ public:
+   // IWSDiscovery interface methods
+   ~CWSDiscoveryPosix() override;
+   bool StartServices() override;
+-  bool StopServices() override;
++  bool StopServices(bool bWait) override;
+   bool IsRunning() override;
+ 
+   /*
+diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
+index 7854eb6491..9d55a4a673 100644
+--- a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
++++ b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.cpp
+@@ -159,10 +159,11 @@ CWSDiscoveryListenerUDP::~CWSDiscoveryListenerUDP()
+ {
+ }
+ 
+-void CWSDiscoveryListenerUDP::Stop()
++void CWSDiscoveryListenerUDP::Stop(bool bWait)
+ {
+-  StopThread(true);
+-  CLog::Log(LOGINFO, "CWSDiscoveryListenerUDP::Stop - Stopped");
++  StopThread(bWait);
++  if (bWait)
++    CLog::Log(LOGINFO, "CWSDiscoveryListenerUDP::Stop - Stopped");
+ }
+ 
+ void CWSDiscoveryListenerUDP::Start()
+@@ -258,7 +259,7 @@ void CWSDiscoveryListenerUDP::Process()
+   while (!m_bStop)
+   {
+     FD_SET(fd, &rset);
+-    timeout.tv_sec = 3;
++    timeout.tv_sec = 1;
+     timeout.tv_usec = 0;
+     nready = select((fd + 1), &rset, NULL, NULL, &timeout);
+ 
+diff --git a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
+index 7f8f3da4e0..3aa7e811b9 100644
+--- a/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
++++ b/xbmc/platform/posix/filesystem/SMBWSDiscoveryListener.h
+@@ -30,7 +30,7 @@ public:
+   ~CWSDiscoveryListenerUDP();
+ 
+   void Start();
+-  void Stop();
++  void Stop(bool bWait);
+ 
+ protected:
+   // CThread
+diff --git a/xbmc/platform/win32/network/WSDiscoveryWin32.cpp b/xbmc/platform/win32/network/WSDiscoveryWin32.cpp
+index e5ebd71b02..737e441d93 100644
+--- a/xbmc/platform/win32/network/WSDiscoveryWin32.cpp
++++ b/xbmc/platform/win32/network/WSDiscoveryWin32.cpp
+@@ -209,7 +209,7 @@ std::unique_ptr<IWSDiscovery> IWSDiscovery::GetInstance()
+ 
+ CWSDiscoveryWindows::~CWSDiscoveryWindows()
+ {
+-  StopServices();
++  StopServices(true);
+ }
+ 
+ bool CWSDiscoveryWindows::StartServices()
+@@ -238,12 +238,12 @@ bool CWSDiscoveryWindows::StartServices()
+   // if get here something has gone wrong
+   CLog::Log(LOGERROR, "[WS-Discovery]: Daemon initialization has failed.");
+ 
+-  StopServices();
++  StopServices(true);
+ 
+   return false;
+ }
+ 
+-bool CWSDiscoveryWindows::StopServices()
++bool CWSDiscoveryWindows::StopServices(bool bWait)
+ {
+   if (m_initialized)
+   {
+diff --git a/xbmc/platform/win32/network/WSDiscoveryWin32.h b/xbmc/platform/win32/network/WSDiscoveryWin32.h
+index 0a46f8b1ab..458537603b 100644
+--- a/xbmc/platform/win32/network/WSDiscoveryWin32.h
++++ b/xbmc/platform/win32/network/WSDiscoveryWin32.h
+@@ -50,7 +50,7 @@ public:
+   ~CWSDiscoveryWindows() override;
+ 
+   bool StartServices() override;
+-  bool StopServices() override;
++  bool StopServices(bool bWait) override;
+   bool IsRunning() override;
+ 
+   bool ThereAreServers();
+-- 
+2.55.0
+

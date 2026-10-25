@@ -793,6 +793,10 @@ modules:
         path: patches/kodi-script-abort-notify.patch
       - type: patch
         path: patches/kodi-videoplayer-subtitle-demux-disabled.patch
+      - type: patch
+        path: patches/kodi-scripts-stop-in-parallel.patch
+      - type: patch
+        path: patches/kodi-network-wsdiscovery-stop.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
