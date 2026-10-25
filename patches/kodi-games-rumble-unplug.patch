@@ -1,0 +1,42 @@
+From bad2fd77bfb9c7431c4e9067618de6f7e9ceb075 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 25 Oct 2026 09:25:28 +1000
+Subject: [PATCH] [Games] Clear a port's input receivers once its controller is
+ gone
+
+When a controller is unplugged during a game, CAgentInput unregisters
+its port with a null provider, treating the peripheral as gone.
+CPortInput then skips UnregisterInputHandler(), which is the only place
+the receivers the peripheral gave it are reset. Later in the same
+refresh the agent lets go of the peripheral, which frees the receivers,
+and the core's next rumble request calls into freed memory.
+
+Reset both receivers when the provider is gone. This happens under the
+joystick's rumble lock, which SetRumble() also takes, and before the
+peripheral is released.
+
+Fixes #30094
+---
+ xbmc/games/ports/input/PortInput.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/xbmc/games/ports/input/PortInput.cpp b/xbmc/games/ports/input/PortInput.cpp
+index 0bfa09099c..d5b57fb66f 100644
+--- a/xbmc/games/ports/input/PortInput.cpp
++++ b/xbmc/games/ports/input/PortInput.cpp
+@@ -54,6 +54,12 @@ void CPortInput::UnregisterInput(JOYSTICK::IInputProvider* provider)
+     provider->UnregisterInputHandler(this);
+     provider->UnregisterInputHandler(m_inputSink.get());
+   }
++  else
++  {
++    // The provider is gone, and the receivers it gave us go with it
++    ResetInputReceiver();
++    m_inputSink->ResetInputReceiver();
++  }
+ }
+ 
+ float CPortInput::GetActivation() const
+-- 
+2.55.0
+

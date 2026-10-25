@@ -775,6 +775,8 @@ modules:
             '>': 22.0rc1-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi-games-rumble-unplug.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
