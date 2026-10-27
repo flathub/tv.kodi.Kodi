@@ -439,8 +439,14 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
-        sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+        url: https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz
+        sha512: 19421bd637d484b475037c47236c9cc140da0428601b7abad81e00b79ca2c4c52674638ecda64be4d4f024d835935150e28623131083c603363bf0cdcdc642cb
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/pycryptodome/json
+          # 3.x keeps the Cryptodome namespace, as Kodi's own depends do
+          version-query: '[.releases | keys[] | select(test("^3\\.[0-9]+\\.[0-9]+$"))] | sort_by(split(".") | map(tonumber)) | last'
+          url-query: '.releases[$version][] | select(.filename | endswith(".tar.gz")) | .url'
   - name: python3-pybind11
     buildsystem: simple
     build-commands:
