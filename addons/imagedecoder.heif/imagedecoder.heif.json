@@ -5,7 +5,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/imagedecoder.heif",
-            "commit": "9f6589739fb93d06d82b7574f11a2bc2e7c58958"
+            "commit": "95cafabda94b5e5ee1e1d369a5d16252084ad5a9"
         },
         {
             "type": "file",

@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gw",
-            "commit": "6235b95077035e18612449463352b4b6a53831a0"
+            "commit": "7729d745eb86e4580ad151eeaef5fb06e9ff107a"
         },
         {
             "type": "file",

@@ -1,0 +1,247 @@
+From 76c6dab2928b07c86063121ba7671dc6c4b6fcf1 Mon Sep 17 00:00:00 2001
+From: smp79 <sergey79@gmail.com>
+Date: Sat, 24 Oct 2026 19:30:13 +0300
+Subject: [PATCH] [VideoPlayer] Only mark a subtitle stream demuxer-disabled if
+  the demuxer honours it
+
+CVideoPlayer::SetEnableStream() set CCurrentStream::demuxDisabled whenever
+it asked the demuxer to disable a stream, but most demuxers do not
+implement EnableStream() at all. CDVDDemuxFFmpeg in particular ignores the
+request and keeps delivering the stream.
+
+Since 453dfcd8 ("Reopen a hidden subtitle stream when showing it again"),
+that flag makes showing hidden subtitles close and reopen the stream and
+queue an accurate backward seek to resync. For a stream that was never
+disabled this is pointless, and the seek flushes audio and video, so
+enabling embedded subtitles makes the picture and sound jump back a few
+frames.
+
+Let EnableStream() report whether the request was passed on to an
+implementation that can act on it, and only set demuxDisabled in that
+case:
+
+- CDVDInputStream::IDemux and CDVDDemux::EnableStream() return bool,
+  defaulting to false
+- CInputStreamAddon returns true when the add-on provides enable_stream
+- CDVDDemuxClient, CDVDDemuxVobsub and CDemuxMultiSource return what the
+  underlying implementation reports
+
+Streams from inputstream add-ons keep the reopen introduced by 453dfcd8.
+ffmpeg-demuxed subtitles go back to a plain visibility toggle.
+---
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemux.h            | 9 +++++++--
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp    | 8 ++++----
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.h      | 2 +-
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.cpp    | 5 +++--
+ xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.h      | 2 +-
+ xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.cpp  | 5 +++--
+ xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.h    | 2 +-
+ xbmc/cores/VideoPlayer/DVDInputStreams/DVDInputStream.h  | 7 ++++++-
+ .../VideoPlayer/DVDInputStreams/InputStreamAddon.cpp     | 5 +++--
+ .../cores/VideoPlayer/DVDInputStreams/InputStreamAddon.h | 2 +-
+ xbmc/cores/VideoPlayer/VideoPlayer.cpp                   | 6 ++++--
+ 11 files changed, 34 insertions(+), 19 deletions(-)
+
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemux.h b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemux.h
+index 7dd7baecae..a2affea2b2 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemux.h
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemux.h
+@@ -355,8 +355,13 @@ public:
+ 
+   /*
+    * enable / disable demux stream
++   * \return true if the demuxer can enable/disable streams and was asked to, false if it has no
++   *         such support (the stream keeps being delivered regardless of this call)
+    */
+-  virtual void EnableStream(int64_t demuxerId, int id, bool enable) { EnableStream(id, enable); }
++  virtual bool EnableStream(int64_t demuxerId, int id, bool enable)
++  {
++    return EnableStream(id, enable);
++  }
+ 
+   /*
+   * implicitly enable and open a demux stream for playback
+@@ -377,7 +382,7 @@ public:
+   int64_t GetDemuxerId() const { return m_demuxerId; }
+ 
+ protected:
+-  virtual void EnableStream(int id, bool enable) {}
++  virtual bool EnableStream(int id, bool enable) { return false; }
+   virtual void OpenStream(int id) {}
+   virtual CDemuxStream* GetStream(int iStreamId) const = 0;
+   virtual std::string GetStreamCodecName(int iStreamId) { return ""; }
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+index 33f0dc89bc..e14a6ba094 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
+@@ -718,12 +718,12 @@ void CDVDDemuxClient::FillBuffer(bool mode)
+   }
+ }
+ 
+-void CDVDDemuxClient::EnableStream(int id, bool enable)
++bool CDVDDemuxClient::EnableStream(int id, bool enable)
+ {
+   if (m_IDemux)
+-  {
+-    m_IDemux->EnableStream(id, enable);
+-  }
++    return m_IDemux->EnableStream(id, enable);
++
++  return false;
+ }
+ 
+ void CDVDDemuxClient::OpenStream(int id)
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.h b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.h
+index f1d646475a..0de15cc8dd 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.h
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.h
+@@ -40,7 +40,7 @@ public:
+   int GetNrOfStreams() const override;
+   std::string GetFileName() override;
+   std::string GetStreamCodecName(int iStreamId) override;
+-  void EnableStream(int id, bool enable) override;
++  bool EnableStream(int id, bool enable) override;
+   void OpenStream(int id) override;
+   void SetVideoResolution(unsigned int width, unsigned int height) override;
+   bool IsStreaming() const override;
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.cpp
+index 86b1514bba..76dafa4312 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.cpp
+@@ -261,14 +261,15 @@ bool CDVDDemuxVobsub::ParseTimestamp(SState& state, std::string& line)
+   return true;
+ }
+ 
+-void CDVDDemuxVobsub::EnableStream(int id, bool enable)
++bool CDVDDemuxVobsub::EnableStream(int id, bool enable)
+ {
+   for (auto &stream : m_Streams)
+   {
+     if (stream->uniqueId == id)
+     {
+       stream->m_discard = !enable;
+-      break;
++      return true;
+     }
+   }
++  return false;
+ }
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.h b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.h
+index 84e5651e8e..3db999c221 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.h
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxVobsub.h
+@@ -35,7 +35,7 @@ public:
+   std::vector<CDemuxStream*> GetStreams() const override;
+   int GetNrOfStreams() const override { return m_Streams.size(); }
+   std::string GetFileName() override { return m_Filename; }
+-  void EnableStream(int id, bool enable) override;
++  bool EnableStream(int id, bool enable) override;
+ 
+ private:
+   class CStream
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.cpp
+index 21826ef442..2bc4a35364 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.cpp
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.cpp
+@@ -42,14 +42,15 @@ void CDemuxMultiSource::Dispose()
+ 
+ }
+ 
+-void CDemuxMultiSource::EnableStream(int64_t demuxerId, int id, bool enable)
++bool CDemuxMultiSource::EnableStream(int64_t demuxerId, int id, bool enable)
+ {
+   auto iter = m_demuxerMap.find(demuxerId);
+   if (iter != m_demuxerMap.end())
+   {
+     DemuxPtr demuxer = iter->second;
+-    demuxer->EnableStream(demuxerId, id, enable);
++    return demuxer->EnableStream(demuxerId, id, enable);
+   }
++  return false;
+ }
+ 
+ void CDemuxMultiSource::Flush()
+diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.h b/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.h
+index 4406fd9607..ebb93eba11 100644
+--- a/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.h
++++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DemuxMultiSource.h
+@@ -39,7 +39,7 @@ public:
+ 
+   // implementation of CDVDDemux
+   void Abort() override;
+-  void EnableStream(int64_t demuxerId, int id, bool enable) override;
++  bool EnableStream(int64_t demuxerId, int id, bool enable) override;
+   void Flush() override;
+   int GetNrOfStreams() const override;
+   CDemuxStream* GetStream(int64_t demuxerId, int iStreamId) const override;
+diff --git a/xbmc/cores/VideoPlayer/DVDInputStreams/DVDInputStream.h b/xbmc/cores/VideoPlayer/DVDInputStreams/DVDInputStream.h
+index 01f902ee1e..2cf54081af 100644
+--- a/xbmc/cores/VideoPlayer/DVDInputStreams/DVDInputStream.h
++++ b/xbmc/cores/VideoPlayer/DVDInputStreams/DVDInputStream.h
+@@ -141,7 +141,12 @@ public:
+     virtual DemuxPacket* ReadDemux() = 0;
+     virtual CDemuxStream* GetStream(int iStreamId) const = 0;
+     virtual std::vector<CDemuxStream*> GetStreams() const = 0;
+-    virtual void EnableStream(int iStreamId, bool enable) {}
++    /*!
++     * \brief Enable or disable the delivery of packets of a stream.
++     * \return true if the request was passed on to an implementation that can act on it,
++     *         false if enabling/disabling streams is not supported
++     */
++    virtual bool EnableStream(int iStreamId, bool enable) { return false; }
+     virtual bool OpenStream(int iStreamId) { return false; }
+     virtual int GetNrOfStreams() const = 0;
+     virtual void SetSpeed(int iSpeed) = 0;
+diff --git a/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.cpp b/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.cpp
+index 9ee4232f51..53da89facb 100644
+--- a/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.cpp
++++ b/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.cpp
+@@ -593,12 +593,13 @@ KODI_HANDLE CInputStreamAddon::cb_get_stream_transfer(KODI_HANDLE handle,
+   return demuxStream;
+ }
+ 
+-void CInputStreamAddon::EnableStream(int streamId, bool enable)
++bool CInputStreamAddon::EnableStream(int streamId, bool enable)
+ {
+   if (!m_ifc.inputstream->toAddon->enable_stream)
+-    return;
++    return false;
+ 
+   m_ifc.inputstream->toAddon->enable_stream(m_ifc.inputstream, streamId, enable);
++  return true;
+ }
+ 
+ bool CInputStreamAddon::OpenStream(int streamId)
+diff --git a/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.h b/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.h
+index 683db903b9..2f1990c8b0 100644
+--- a/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.h
++++ b/xbmc/cores/VideoPlayer/DVDInputStreams/InputStreamAddon.h
+@@ -81,7 +81,7 @@ public:
+   DemuxPacket* ReadDemux() override;
+   CDemuxStream* GetStream(int streamId) const override;
+   std::vector<CDemuxStream*> GetStreams() const override;
+-  void EnableStream(int streamId, bool enable) override;
++  bool EnableStream(int streamId, bool enable) override;
+   bool OpenStream(int streamid) override;
+ 
+   int GetNrOfStreams() const override;
+diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+index 3e0a3aee1b..f9829ae55d 100644
+--- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
++++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
+@@ -4065,8 +4065,10 @@ void CVideoPlayer::SetEnableStream(CCurrentStream& current, bool isEnabled)
+   if (m_pDemuxer && STREAM_SOURCE_MASK(current.source) == STREAM_SOURCE_DEMUX &&
+       m_SelectionStreams.Contains(current.type, current.source, current.demuxerId, current.id))
+   {
+-    m_pDemuxer->EnableStream(current.demuxerId, current.id, isEnabled);
+-    current.demuxDisabled = !isEnabled;
++    // Only a demuxer that really supports it stops delivering a disabled stream. Others
++    // (e.g. ffmpeg) ignore the request and keep delivering, so there is nothing to reopen later.
++    if (m_pDemuxer->EnableStream(current.demuxerId, current.id, isEnabled))
++      current.demuxDisabled = !isEnabled;
+   }
+ }
+ 
+-- 
+2.55.0
+

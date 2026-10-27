@@ -120,6 +120,7 @@ screensaver.rsxs.sundancer2
 screensaver.shadertoy
 screensaver.stars
 vfs.libarchive
+vfs.pdf
 vfs.rar
 vfs.sftp
 visualization.fishbmc

@@ -19,7 +19,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.blastem",
-            "commit": "7195885e5a3e762d83dcc827c859420cfc4ab593"
+            "commit": "e40080fb01d8942c3c70e2c366f90487b783f35c"
         }
     ],
     "modules": [
@@ -41,8 +41,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/blastem/archive/b4d75247ebad8852fd9bc385b423df704c6c5af5.tar.gz",
-                    "sha256": "c1c216d39ab5d1401abd6da02938cb4b40fd52a033045ec49a25890b2dcc042d"
+                    "url": "https://github.com/libretro/blastem/archive/ab743653ed110eeb7b1fe64d00cc5f9279c2bfec.tar.gz",
+                    "sha256": "27ba68065f31314ad29abc6a5514ebf19cdd2a2f24648ffbe360275ccb01de25"
                 }
             ]
         }

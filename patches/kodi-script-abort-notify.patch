@@ -1,0 +1,73 @@
+From 4907d5f4b72915bbdd2fd62cd3c7619bebdcaf33 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 18 Oct 2026 15:45:59 +1000
+Subject: [PATCH] [python] Tell scripts run by path that they should stop
+
+CPythonInvoker::stop() only notifies xbmc.Monitor when the script
+belongs to an add-on, and only add-on scripts get __xbmcinvokerid__,
+which a Monitor uses to match a stop request to its own script. So a
+script run by path, such as RunScript(/path/to/script.py) from a keymap,
+never sees abortRequested() turn true or waitForAbort() report the
+abort on quit or on StopScript(), and only ends when SystemExit is
+raised 5 seconds later.
+
+The add-on check in stop() dates from when monitors were matched by
+add-on id and an empty id meant every monitor, so notifying for a script
+without an add-on would have stopped them all. ae9956b70d switched the
+matching to the invoker id but added __xbmcinvokerid__ behind the same
+add-on check. Set it for every script, and notify the script's monitors
+whenever it is stopped.
+---
+ xbmc/interfaces/python/PythonInvoker.cpp | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
+index 5a7f2df69d..d9ee2566bc 100644
+--- a/xbmc/interfaces/python/PythonInvoker.cpp
++++ b/xbmc/interfaces/python/PythonInvoker.cpp
+@@ -493,13 +493,10 @@ bool CPythonInvoker::stop(bool abort)
+ 
+       PyEval_RestoreThread(ts);
+ 
+-      //tell xbmc.Monitor to call onAbortRequested()
+-      if (m_addon)
+-      {
+-        CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
+-                  m_sourceFile);
+-        AbortNotification();
+-      }
++      // wake xbmc.Monitor's waitForAbort() and abortRequested()
++      CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
++                m_sourceFile);
++      AbortNotification();
+ 
+       PyThreadState_Clear(ts);
+       PyThreadState_DeleteCurrent();
+@@ -675,11 +672,17 @@ void CPythonInvoker::onInitialization()
+ 
+ void CPythonInvoker::onPythonModuleInitialization(void* moduleDict)
+ {
+-  if (m_addon.get() == NULL || moduleDict == NULL)
++  if (moduleDict == NULL)
+     return;
+ 
+   PyObject* moduleDictionary = (PyObject*)moduleDict;
+ 
++  // xbmc.Monitor uses it to receive this script's abort request, add-on or not
++  PyDict_SetItemString(moduleDictionary, "__xbmcinvokerid__", PyLong_FromLong(GetId()));
++
++  if (m_addon.get() == NULL)
++    return;
++
+   PyDict_SetItemString(moduleDictionary, "__xbmcaddonid__",
+                        PyObjectPtr(PyUnicode_FromString(m_addon->ID().c_str())).get());
+ 
+@@ -687,8 +690,6 @@ void CPythonInvoker::onPythonModuleInitialization(void* moduleDict)
+   PyDict_SetItemString(moduleDictionary, "__xbmcapiversion__",
+                        PyObjectPtr(PyUnicode_FromString(version.asString().c_str())).get());
+ 
+-  PyDict_SetItemString(moduleDictionary, "__xbmcinvokerid__", PyLong_FromLong(GetId()));
+-
+   CLog::Log(LOGDEBUG,
+             "CPythonInvoker({}, {}): instantiating addon using automatically obtained id of \"{}\" "
+             "dependent on version {} of the xbmc.python api",

@@ -12,6 +12,7 @@ desktop-file-name-suffix: ' (Beta)'
 finish-args:
   - --device=all
   - --allow=bluetooth
+  - --filesystem=xdg-download
   - --filesystem=xdg-music
   - --filesystem=xdg-pictures
   - --filesystem=xdg-videos
@@ -317,6 +318,8 @@ modules:
           type: anitya
           project-id: 21468
           url-template: https://github.com/Pulse-Eight/libcec/archive/libcec-$version.tar.gz
+      - type: patch
+        path: patches/libcec-client-stop-wake.patch
   - name: libdisplay-info
     buildsystem: meson
     config-opts:
@@ -377,8 +380,8 @@ modules:
           - /bin
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.7.tar.xz
-            sha256: 0caf824971108f15bb2ad356433bae198d7d3bf1e82d43f63626e069e060bfa6
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.14.0.tar.xz
+            sha256: 5a0966c7110648665983848bad696c7acba614a2160d2865d535397101007332
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -419,8 +422,8 @@ modules:
       - --disable-static
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2
-        sha512: 83d0398b75ea9e610e49b4b96a7675b854c7551d4faf3e82e74c5c45cf04bbd95478cc40688f0995742e6a50601744d2a36641d0673aa7cc413f5ce2ec42f2d4
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2
+        sha512: 8adeb6357c3f4059f94002308d7f23b04d43156c5c7bcd62ea2a6bf077990957b8b53026d3ab31b9bfa892fe9d3b88b20219b1b0be208cb1c179ba88926eaa83
         x-checker-data:
           type: anitya
           project-id: 11675
@@ -447,8 +450,8 @@ modules:
       - /bin
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.10.tar.gz
-        sha512: 8ab06eff88a0fdb278a6be566cb47e8a0828fb44b7b46c0ec35caab4c7b92ab2486ac6356537c07ed77b84d65d5f70dd703b87adf9b331fc96c72221cbbdd9cd
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.11.tar.gz
+        sha512: 47d6fa55a9d562c11fdf9783972d0f745236e8d671db90cf132fa6d9cf9c4761f6ac03b14cd7eefb97d339603b903e19409b5bce56a1b5463e4c2479fb3b096f
         x-checker-data:
           type: anitya
           project-id: 16939
@@ -460,13 +463,14 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
-        sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+        url: https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz
+        sha512: 19421bd637d484b475037c47236c9cc140da0428601b7abad81e00b79ca2c4c52674638ecda64be4d4f024d835935150e28623131083c603363bf0cdcdc642cb
         x-checker-data:
           type: json
           url: https://pypi.org/pypi/pycryptodome/json
-          version-query: .info.version
-          url-query: .urls[] | select(.filename | endswith(".tar.gz")) | .url
+          # 3.x keeps the Cryptodome namespace, as Kodi's own depends do
+          version-query: '[.releases | keys[] | select(test("^3\\.[0-9]+\\.[0-9]+$"))] | sort_by(split(".") | map(tonumber)) | last'
+          url-query: '.releases[$version][] | select(.filename | endswith(".tar.gz")) | .url'
   - name: python3-pybind11
     buildsystem: simple
     cleanup:
@@ -493,8 +497,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
-        tag: 12.3.0
-        commit: bb1d8e8ab8d29048624d96e3ee53cecf7c13d13d
+        tag: 13.0.0
+        commit: 293218ad059d994baf1777d882911bed6a49704a
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -553,8 +557,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.25.0.tar.gz
-        sha256: 2e2cb7296833b35b8f7a7fb76045e0c57adc0c2cd03264b37df5d58e40f28437
+        url: https://download.samba.org/pub/samba/stable/samba-4.25.1.tar.gz
+        sha256: 7f367545bca69aa96897628f82f0f04d4b66b3bcb36cb978b9bb952c4b4c428d
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -705,11 +709,19 @@ modules:
         sources:
           - type: git
             url: https://github.com/google/brotli.git
-            tag: v1.2.0
-            commit: 028fb5a23661f123017c060daa546b55cf4bde29
+            tag: v1.2.1
+            commit: db24a98aed38a16de78cc05ca15cdd8dc2a0d92d
             x-checker-data:
               type: git
               tag-pattern: ^v([\d.]+)$
+  - name: googletest
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_GMOCK=OFF
+    sources:
+      - type: archive
+        url: http://mirrors.kodi.tv/build-deps/sources/googletest-1.17.0.tar.gz
+        sha512: 0f57e9ef06925e5b7722df1eb92ef5850e8dce79220ea16a8aaff586a71c0b01460ef1713649ee24ffedb2e6ad5a51e9198c5a5ae1b2789e43feb1f494e7d45c
   - name: kodi
     buildsystem: cmake-ninja
     builddir: true
@@ -717,7 +729,7 @@ modules:
       - -DAPP_PACKAGE=tv.kodi.Kodi
       - -DADDONS_CONFIGURE_AT_STARTUP=OFF
       - -DVERBOSE=1
-      - -DENABLE_TESTING=OFF
+      - -DENABLE_TESTING=ON
       - -DENABLE_AIRTUNES=OFF
       - -DENABLE_ALSA=ON
       - -DENABLE_AVAHI=ON
@@ -749,10 +761,15 @@ modules:
       - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.xz
       - -DLIBDVDNAV_HASH=SHA512=4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
       - -DTARBALL_DIR=/app/tarballs
+    run-tests: true
+    test-rule: kodi-test
+    test-commands:
+      # PingHost needs ICMP, which the build sandbox lacks
+      - KODI_HOME=$PWD ./kodi-test --gtest_brief=1 --gtest_filter=-TestNetwork.PingHost
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 28ea2eac1eb7af8fdcbd2672d933ce87f594be79
+        commit: 81882add7001a7da204c47ceaf1de65ae7b3f549
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
@@ -760,6 +777,34 @@ modules:
             '>': 22.0rc1-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi-games-rumble-unplug.patch
+      - type: patch
+        path: patches/kodi-videoplayer-revert-empty-packet-sleep.patch
+      - type: patch
+        path: patches/kodi-videoplayer-mark-dropped-input.patch
+      - type: patch
+        path: patches/kodi-videoplayer-empty-packet-backoff.patch
+      - type: patch
+        path: patches/kodi-videoplayer-retry-addon-empty-packet.patch
+      - type: patch
+        path: patches/kodi-python-set-async-exc.patch
+      - type: patch
+        path: patches/kodi-script-stop-timeout.patch
+      - type: patch
+        path: patches/kodi-script-abort-notify.patch
+      - type: patch
+        path: patches/kodi-videoplayer-subtitle-demux-disabled.patch
+      - type: patch
+        path: patches/kodi-scripts-stop-in-parallel.patch
+      - type: patch
+        path: patches/kodi-network-wsdiscovery-stop.patch
+      - type: patch
+        path: patches/kodi-ae-pipewire-drain-paused.patch
+      - type: patch
+        path: patches/kodi-app-stop-drop-sleep.patch
+      - type: patch
+        path: patches/kodi-pvr-manager-stop-wake.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
@@ -940,6 +985,7 @@ modules:
   - addons/screensaver.stars/screensaver.stars.json
   - addons/screensavers.rsxs/screensavers.rsxs.json
   - addons/vfs.libarchive/vfs.libarchive.json
+  - addons/vfs.pdf/vfs.pdf.json
   - addons/vfs.rar/vfs.rar.json
   - addons/vfs.sftp/vfs.sftp.json
   - addons/visualization.fishbmc/visualization.fishbmc.json
@@ -1715,6 +1761,11 @@ add-extensions:
     no-autodownload: false
   tv.kodi.Kodi.Addon.vfs.libarchive:
     directory: lib/kodi/addons/vfs.libarchive
+    bundle: true
+    autodelete: true
+    no-autodownload: false
+  tv.kodi.Kodi.Addon.vfs.pdf:
+    directory: lib/kodi/addons/vfs.pdf
     bundle: true
     autodelete: true
     no-autodownload: false

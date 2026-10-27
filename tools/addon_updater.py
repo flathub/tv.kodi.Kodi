@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# /// script
+# dependencies = ["requests", "python-dotenv", "PyGithub"]
+# ///
 
 import argparse
 import glob

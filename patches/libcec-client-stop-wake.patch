@@ -1,0 +1,39 @@
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sat, 25 Oct 2026 20:40:00 +1000
+Subject: [PATCH] CECClient: wake the callback thread when the client is destroyed
+
+CCECClient::Process() waits in m_callbackCalls.Pop(cb, 500) and only
+looks at the stop flag when that times out. ~CCECClient() calls
+StopThread(), which sets the flag and then waits for the thread, so
+destroying a client takes up to 500 ms. Kodi creates a client at
+startup to poll for adapters, with or without one plugged in, and its
+exit stalls on this for 0 to 500 ms every time.
+
+Set the stop flag first, push a null entry so Pop() returns at once,
+then wait for the thread, as CCECProcessor::Close() does with its own
+buffer. Process() skips the null entry.
+
+Upstream: https://github.com/Pulse-Eight/libcec/issues/757
+
+---
+--- a/src/libcec/CECClient.cpp
++++ b/src/libcec/CECClient.cpp
+@@ -75,6 +75,9 @@
+ 
+ CCECClient::~CCECClient(void)
+ {
++  // set the stop flag, then wake Process() so it doesn't wait out its poll
++  StopThread(-1);
++  m_callbackCalls.Push(NULL);
+   StopThread();
+   CCallbackWrap* cb;
+   while (!m_callbackCalls.IsEmpty())
+@@ -1836,6 +1839,8 @@
+   {
+     if (m_callbackCalls.Pop(cb, 500))
+     {
++      if (!cb)
++        continue;
+       bool keepResult = cb->m_keepResult;
+       try
+       {

@@ -1,0 +1,37 @@
+From 6f51b0068c0d103e97a887ace0c3094ff47d3420 Mon Sep 17 00:00:00 2001
+From: Kel Modderman <kelvmod@gmail.com>
+Date: Sun, 25 Oct 2026 14:03:17 +1000
+Subject: [PATCH] [AE] PipeWire: don't wait for a paused stream to drain
+
+Drain() flushes the stream and waits up to 1 s for PipeWire's drained
+event. PipeWire only reports drained from its process cycle, which
+doesn't run while the stream is paused, and a stream is paused once it
+has drained, because Drained() makes it inactive. So when ActiveAE
+drains a sink that has already drained, as CloseSink() does when Kodi
+exits after playback, Drain() always waits out the full second.
+
+Return straight away unless the stream is streaming. A paused stream has
+nothing queued, since AddPackets() activates the stream before it queues
+anything.
+---
+ xbmc/cores/AudioEngine/Sinks/pipewire/AESinkPipewire.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/xbmc/cores/AudioEngine/Sinks/pipewire/AESinkPipewire.cpp b/xbmc/cores/AudioEngine/Sinks/pipewire/AESinkPipewire.cpp
+index 16e93e0a44..d806fff954 100644
+--- a/xbmc/cores/AudioEngine/Sinks/pipewire/AESinkPipewire.cpp
++++ b/xbmc/cores/AudioEngine/Sinks/pipewire/AESinkPipewire.cpp
+@@ -634,6 +634,10 @@ void CAESinkPipewire::Drain()
+ 
+   PIPEWIRE::CLoopLockGuard lock(loop);
+ 
++  // A paused stream has nothing queued, and PipeWire only reports drained while streaming
++  if (m_stream->GetState() != PW_STREAM_STATE_STREAMING)
++    return;
++
+   m_stream->Flush(true);
+ 
+   int ret = loop.Wait(1s);
+-- 
+2.55.0
+

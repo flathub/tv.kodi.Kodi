@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.tyrquake",
-            "commit": "b735720206113eaf68a5dcae01a2ae9ab4246ccc"
+            "commit": "72dfabee283b86f12ce993e91b14ca0a7a0ad96c"
         },
         {
             "type": "file",
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/tyrquake/archive/e57bb11597e8a00380f30f2627d219da960cf69a.tar.gz",
-                    "sha256": "6bedb86899ad6da030d15e11fa4a1a6b61db77a56d658d8de650f63afd1e166c"
+                    "url": "https://github.com/libretro/tyrquake/archive/67db338ff4d27fdbcead61d4e54938d758ae62cb.tar.gz",
+                    "sha256": "57d42b71613c092303cf8be817ef3d84c867e3c7ec9d61f06bd890c26d4c15c2"
                 }
             ]
         }
