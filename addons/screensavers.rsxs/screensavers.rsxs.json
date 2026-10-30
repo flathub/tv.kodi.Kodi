@@ -6,6 +6,10 @@
             "type": "git",
             "url": "https://github.com/xbmc/screensavers.rsxs",
             "commit": "293dccf853a9d9e2c765440c9e78b088561033aa"
+        },
+        {
+            "type": "patch",
+            "path": "../../patches/screensavers.rsxs-cmake4.patch"
         }
     ],
     "build-options": {

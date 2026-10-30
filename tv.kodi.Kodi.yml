@@ -1,6 +1,6 @@
 app-id: tv.kodi.Kodi
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
@@ -162,8 +162,8 @@ modules:
       - --datarootdir=${FLATPAK_DEST}/lib/
     sources:
       - type: archive
-        url: https://github.com/vcrhonek/hwdata/archive/v0.411/hwdata-0.411.tar.gz
-        sha256: d75462181fbd307228e0a48b8d1449f1773ea4b1f17e8a1d56346907f999ce33
+        url: https://github.com/vcrhonek/hwdata/archive/v0.412/hwdata-0.412.tar.gz
+        sha256: f0c64cd7e31d70a5fb3a52e53ab50a61e74c0421a6381eaa45114eec3bde5fe7
         x-checker-data:
           type: anitya
           project-id: 5387
@@ -346,8 +346,8 @@ modules:
           - -Ddocumentation=disabled
         sources:
           - type: archive
-            url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.7.tar.xz
-            sha256: 0caf824971108f15bb2ad356433bae198d7d3bf1e82d43f63626e069e060bfa6
+            url: https://www.freedesktop.org/software/libevdev/libevdev-1.14.0.tar.xz
+            sha256: 5a0966c7110648665983848bad696c7acba614a2160d2865d535397101007332
             x-checker-data:
               type: anitya
               project-id: 20540
@@ -376,8 +376,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-7.0.2.tar.gz
-        sha512: 722d7a65090153a9892749fc7b9513d86a75534f7ea49ad4ce18c3360c3740b0c7255e4510fd956215eb25f807fbdc668c1af0262a4cc87de678561198448f8b
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-8.0.0.tar.gz
+        sha512: d36127b8c2683b2a80b7e7f27b7c02f58951ca27da0a5e8984c979def9ad3a5947dedb7a0f890e7013d68bf58b79b29298526013f62b430a8edbcf4c77f557e4
         x-checker-data:
           type: anitya
           project-id: 7325
@@ -393,8 +393,8 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/releases/download/2.7.0/libplist-2.7.0.tar.bz2
-        sha512: 83d0398b75ea9e610e49b4b96a7675b854c7551d4faf3e82e74c5c45cf04bbd95478cc40688f0995742e6a50601744d2a36641d0673aa7cc413f5ce2ec42f2d4
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2
+        sha512: 8adeb6357c3f4059f94002308d7f23b04d43156c5c7bcd62ea2a6bf077990957b8b53026d3ab31b9bfa892fe9d3b88b20219b1b0be208cb1c179ba88926eaa83
         x-checker-data:
           type: anitya
           project-id: 11675
@@ -426,8 +426,8 @@ modules:
       - '*.a'
     sources:
       - type: archive
-        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.10.tar.gz
-        sha512: 8ab06eff88a0fdb278a6be566cb47e8a0828fb44b7b46c0ec35caab4c7b92ab2486ac6356537c07ed77b84d65d5f70dd703b87adf9b331fc96c72221cbbdd9cd
+        url: https://github.com/mariadb-corporation/mariadb-connector-c/archive/refs/tags/v3.4.11.tar.gz
+        sha512: 47d6fa55a9d562c11fdf9783972d0f745236e8d671db90cf132fa6d9cf9c4761f6ac03b14cd7eefb97d339603b903e19409b5bce56a1b5463e4c2479fb3b096f
         x-checker-data:
           type: anitya
           project-id: 16939
@@ -439,8 +439,14 @@ modules:
       - python3 setup.py install --prefix=/app --root=/
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz
-        sha512: 86c8db4f16d788190de6a24debaaaf78958b08179a2f56c021973e3d01828e655e7deb0c65a25aa93b2ac5420ba5a0945a30f5fa8f4455c6518c89347c301c84
+        url: https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz
+        sha512: 19421bd637d484b475037c47236c9cc140da0428601b7abad81e00b79ca2c4c52674638ecda64be4d4f024d835935150e28623131083c603363bf0cdcdc642cb
+        x-checker-data:
+          type: json
+          url: https://pypi.org/pypi/pycryptodome/json
+          # 3.x keeps the Cryptodome namespace, as Kodi's own depends do
+          version-query: '[.releases | keys[] | select(test("^3\\.[0-9]+\\.[0-9]+$"))] | sort_by(split(".") | map(tonumber)) | last'
+          url-query: '.releases[$version][] | select(.filename | endswith(".tar.gz")) | .url'
   - name: python3-pybind11
     buildsystem: simple
     build-commands:
@@ -458,8 +464,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/python-pillow/Pillow.git
-        tag: 12.3.0
-        commit: bb1d8e8ab8d29048624d96e3ee53cecf7c13d13d
+        tag: 13.0.0
+        commit: 293218ad059d994baf1777d882911bed6a49704a
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -533,8 +539,8 @@ modules:
         PERL5LIB: /app/lib/perl5
     sources:
       - type: archive
-        url: https://download.samba.org/pub/samba/stable/samba-4.24.7.tar.gz
-        sha256: 45b7747a47452eff2b2159a44cc63eb43690d339fd1069088e023a015fed06c7
+        url: https://download.samba.org/pub/samba/stable/samba-4.25.1.tar.gz
+        sha256: 7f367545bca69aa96897628f82f0f04d4b66b3bcb36cb978b9bb952c4b4c428d
         x-checker-data:
           type: anitya
           project-id: 4758
@@ -626,8 +632,8 @@ modules:
       - /share/swig
     sources:
       - type: archive
-        url: http://prdownloads.sourceforge.net/swig/swig-4.5.0.tar.gz
-        sha256: 22ae0e887f8cca8031a325c67d005207653200b40e71edb3f88780e28e47d0ff
+        url: http://prdownloads.sourceforge.net/swig/swig-4.5.1.tar.gz
+        sha256: 7fec50b27deddab5455a9633780b6341eddfb96215a7619e93a76eb27178f653
         x-checker-data:
           type: anitya
           project-id: 4919
@@ -737,25 +743,6 @@ modules:
               type: anitya
               project-id: 2610
               url-template: http://prdownloads.sourceforge.net/pcre/pcre-$version.tar.bz2
-  # taglib and lzo may be dropped once we move on from runtime 24.08
-  - name: taglib
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DBUILD_SHARED_LIBS=ON
-      - -DCMAKE_INSTALL_LIBDIR=lib
-    cleanup:
-      - /include
-      - /lib/*.so
-    sources:
-      - type: archive
-        url: https://taglib.org/releases/taglib-1.13.1.tar.gz
-        sha512: 986231ee62caa975afead7e94630d58acaac25a38bc33d4493d51bd635d79336e81bba60586d7355ebc0670e31f28d32da3ecceaf33292e4bc240c64bf00f35b
-        x-checker-data:
-          type: anitya
-          project-id: 1982
-          versions: {<: 2.0.0}
-          url-template: https://taglib.org/releases/taglib-$version.tar.gz
-  - shared-modules/lzo/lzo.json
   - name: kodi
     buildsystem: cmake-ninja
     config-opts:
@@ -805,6 +792,8 @@ modules:
         path: patches/kodi.sh.in.patch
       - type: patch
         path: patches/kodi.metainfo.xml.in.patch
+      - type: patch
+        path: patches/kodi-texturepacker-giflib6.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
