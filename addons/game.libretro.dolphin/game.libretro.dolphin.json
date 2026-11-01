@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.dolphin",
-            "commit": "ee1f30000a12d65b4e5370ac83027646ed1979cc"
+            "commit": "39f4d4b31f0b4142fe71793bcd33925ac5bf5929"
         },
         {
             "type": "file",
@@ -223,12 +223,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/dolphin/archive/5466da350f2fd143ee3e7b921e8c33aee64f7065.tar.gz",
-                    "sha256": "50bb1309dfe6bf1e09a29e0b640ed96dd84c1dfcdee285ae73c1fe3c19e18bfd"
-                },
-                {
-                    "type": "patch",
-                    "path": "libretro-dolphin-001-find-sys-beside-core.patch"
+                    "url": "https://github.com/libretro/dolphin/archive/3aac3f052f733f8df2f1616843a4d2e14002ed11.tar.gz",
+                    "sha256": "66fa818d81f28d37b99815d27d6e68456958e6712c52bf6bbcf1c95de0b05d50"
                 },
                 {
                     "type": "archive",

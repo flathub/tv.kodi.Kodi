@@ -1,4 +1,4 @@
-From 3c52e1c2f2f6830820f366d9e59df06f9fa237b7 Mon Sep 17 00:00:00 2001
+From 897ff3e47985bec82a936bbc2137ea5003157ad0 Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Sat, 17 Oct 2026 11:21:20 +1000
 Subject: [PATCH] [VideoPlayer] Ask an add-on demuxer again before passing on
@@ -24,10 +24,10 @@ grace notes the dependency.
  2 files changed, 21 insertions(+)
 
 diff --git a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
-index 4a820f9fff..0847859981 100644
+index c1a3ef8c70..46af5072c9 100644
 --- a/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
 +++ b/xbmc/cores/VideoPlayer/DVDDemuxers/DVDDemuxClient.cpp
-@@ -15,6 +15,7 @@
+@@ -16,6 +16,7 @@
  #include "utils/StreamUtils.h"
  #include "utils/log.h"
  
@@ -35,7 +35,7 @@ index 4a820f9fff..0847859981 100644
  #include <memory>
  #include <tuple>
  #include <type_traits>
-@@ -25,6 +26,16 @@ extern "C"
+@@ -26,6 +27,16 @@ extern "C"
  #include <libavcodec/defs.h>
  }
  
@@ -43,7 +43,7 @@ index 4a820f9fff..0847859981 100644
 +
 +namespace
 +{
-+// counted, not timed: an idle add-on answers in microseconds, a working one takes longer
++// an idle add-on answers in microseconds, so these cost little while a stream starves
 +constexpr int EMPTY_PACKET_RETRIES = 32;
 +// from entry, half the player's EMPTY_PACKET_GRACE, so a read that only retried never looks blocked
 +constexpr auto EMPTY_PACKET_RETRY_CAP = 500us;
@@ -52,7 +52,7 @@ index 4a820f9fff..0847859981 100644
  class CDemuxStreamClientInternal
  {
  public:
-@@ -321,7 +332,16 @@ DemuxPacket* CDVDDemuxClient::Read()
+@@ -324,7 +335,16 @@ DemuxPacket* CDVDDemuxClient::Read()
    if (m_packet)
      return m_packet.release();
  
@@ -70,7 +70,7 @@ index 4a820f9fff..0847859981 100644
    {
      return nullptr;
 diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
-index 785ccd44b3..65bc48d3ce 100644
+index 6ad4ae1055..7e8e8fe18e 100644
 --- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 +++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 @@ -92,6 +92,7 @@ using namespace std::chrono_literals;
@@ -81,6 +81,3 @@ index 785ccd44b3..65bc48d3ce 100644
  constexpr auto EMPTY_PACKET_GRACE = 1ms;
  // same as the idle sleep on full queues
  constexpr auto EMPTY_PACKET_MAX_SLEEP = 10ms;
--- 
-2.55.0
-

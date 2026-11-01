@@ -1,4 +1,4 @@
-From 4907d5f4b72915bbdd2fd62cd3c7619bebdcaf33 Mon Sep 17 00:00:00 2001
+From 3888949a9ec703faa01ef71f0f2a8c8a4bfb5af0 Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Sun, 18 Oct 2026 15:45:59 +1000
 Subject: [PATCH] [python] Tell scripts run by path that they should stop
@@ -18,32 +18,36 @@ matching to the invoker id but added __xbmcinvokerid__ behind the same
 add-on check. Set it for every script, and notify the script's monitors
 whenever it is stopped.
 ---
- xbmc/interfaces/python/PythonInvoker.cpp | 21 +++++++++++----------
- 1 file changed, 11 insertions(+), 10 deletions(-)
+ xbmc/interfaces/python/PythonInvoker.cpp | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
 diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
-index 5a7f2df69d..d9ee2566bc 100644
+index 78a13c7c77..5c982a1b1a 100644
 --- a/xbmc/interfaces/python/PythonInvoker.cpp
 +++ b/xbmc/interfaces/python/PythonInvoker.cpp
-@@ -493,13 +493,10 @@ bool CPythonInvoker::stop(bool abort)
+@@ -485,16 +485,13 @@ bool CPythonInvoker::stop(bool abort)
+       setState(InvokerStateStopping);
+       lock.unlock();
  
-       PyEval_RestoreThread(ts);
- 
--      //tell xbmc.Monitor to call onAbortRequested()
--      if (m_addon)
--      {
--        CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
--                  m_sourceFile);
--        AbortNotification();
--      }
-+      // wake xbmc.Monitor's waitForAbort() and abortRequested()
-+      CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
-+                m_sourceFile);
-+      AbortNotification();
- 
-       PyThreadState_Clear(ts);
-       PyThreadState_DeleteCurrent();
-@@ -675,11 +672,17 @@ void CPythonInvoker::onInitialization()
+-      //tell xbmc.Monitor to call onAbortRequested(). That needs no Python, but taking the GIL
+-      //here finds a script stuck holding it before the 5 s wait below.
++      // wake xbmc.Monitor's waitForAbort() and abortRequested(). That needs no Python, but taking
++      // the GIL here finds a script stuck holding it before the 5 s wait below.
+       const auto abortNotify = [this]
+       {
+-        if (m_addon)
+-        {
+-          CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
+-                    m_sourceFile);
+-          AbortNotification();
+-        }
++        CLog::Log(LOGDEBUG, "CPythonInvoker({}, {}): trigger Monitor abort request", GetId(),
++                  m_sourceFile);
++        AbortNotification();
+         return false;
+       };
+       if (!python.RunWithGil(abortNotify))
+@@ -694,11 +691,17 @@ void CPythonInvoker::onInitialization()
  
  void CPythonInvoker::onPythonModuleInitialization(void* moduleDict)
  {
@@ -62,7 +66,7 @@ index 5a7f2df69d..d9ee2566bc 100644
    PyDict_SetItemString(moduleDictionary, "__xbmcaddonid__",
                         PyObjectPtr(PyUnicode_FromString(m_addon->ID().c_str())).get());
  
-@@ -687,8 +690,6 @@ void CPythonInvoker::onPythonModuleInitialization(void* moduleDict)
+@@ -706,8 +709,6 @@ void CPythonInvoker::onPythonModuleInitialization(void* moduleDict)
    PyDict_SetItemString(moduleDictionary, "__xbmcapiversion__",
                         PyObjectPtr(PyUnicode_FromString(version.asString().c_str())).get());
  

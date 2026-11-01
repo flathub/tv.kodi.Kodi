@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.prboom",
-            "commit": "057e6b41679360050f877b2a66a4e854bbb7e112"
+            "commit": "f9d51b701bc913013fa86c666128da349b4b62c0"
         },
         {
             "type": "file",

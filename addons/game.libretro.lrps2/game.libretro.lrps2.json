@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.lrps2",
-            "commit": "2bfedd43ec3cf3298e35180943a2ee7ec0f2fafc"
+            "commit": "80ef7dc143ddd39428e0bcbd050771e3948ed66e"
         },
         {
             "type": "patch",
@@ -52,8 +52,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/ps2/archive/d4908f40fb32f43c5055852ecaed3c52aa725dce.tar.gz",
-                    "sha256": "e2756b4d650cbd15912d7ead03b8f97147247c50e76ec7652efd7d9e79eb0fd1"
+                    "url": "https://github.com/libretro/ps2/archive/38d3a83f4ecdec977d609ece8afcc527f5f68702.tar.gz",
+                    "sha256": "63cc6b89345422d2aefb4085e3e10d461b61c86865f5cff3bd4c56a8dadc0bce"
                 }
             ]
         }

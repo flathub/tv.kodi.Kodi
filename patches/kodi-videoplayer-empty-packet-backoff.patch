@@ -1,4 +1,4 @@
-From d48a8ea4ad3653db8765b30baa87e51455a9097d Mon Sep 17 00:00:00 2001
+From 59911b75f87e54a434407060eb81822d52aab83d Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Sat, 17 Oct 2026 05:00:27 +1000
 Subject: [PATCH] [VideoPlayer] Back off from a demuxer that keeps returning
@@ -30,7 +30,7 @@ throttled.
  1 file changed, 34 insertions(+)
 
 diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
-index b956ba92c6..785ccd44b3 100644
+index d97b228462..6ad4ae1055 100644
 --- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 +++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 @@ -91,6 +91,13 @@ using namespace std::chrono_literals;
@@ -108,6 +108,3 @@ index b956ba92c6..785ccd44b3 100644
      if (!pPacket)
      {
        // when paused, demuxer could be be returning empty
--- 
-2.55.0
-

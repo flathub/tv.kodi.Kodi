@@ -21,7 +21,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro",
-            "commit": "8933f8c8a23120560a70e2f68adf630c2f608569"
+            "commit": "4985b84fcaf17955a1666491eb26999620f109c4"
         },
         {
             "type": "file",
@@ -45,7 +45,7 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/8933f8c8a23120560a70e2f68adf630c2f608569/depends/common/libretro-common/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/4985b84fcaf17955a1666491eb26999620f109c4/depends/common/libretro-common/CMakeLists.txt",
                     "sha256": "e45d4f77e57478ba27e6bcfcab2f7b641061cea24efd836e3d082e45cd0b688f"
                 }
             ]
@@ -72,8 +72,34 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/8933f8c8a23120560a70e2f68adf630c2f608569/depends/common/rcheevos/CMakeLists.txt",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/4985b84fcaf17955a1666491eb26999620f109c4/depends/common/rcheevos/CMakeLists.txt",
                     "sha256": "49a8eb640f10ea35f98880f504048d07865627037bca1402039bb67fe28d1cc9"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/4985b84fcaf17955a1666491eb26999620f109c4/depends/common/rcheevos/0001-preserve-encore-unlock-times.patch",
+                    "sha256": "c056d1c852a3d7bbfa56765ecc9544b35c1f3068cd4ee9a859c1e93889d26e4f",
+                    "dest-filename": "0001-preserve-encore-unlock-times.patch"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/4985b84fcaf17955a1666491eb26999620f109c4/depends/common/rcheevos/0002-expose-zero-achievement-progress.patch",
+                    "sha256": "92fc825a96488e0f1c568e897b56efad8db5e5eb7044f79a21e91dd640d6873d",
+                    "dest-filename": "0002-expose-zero-achievement-progress.patch"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro/4985b84fcaf17955a1666491eb26999620f109c4/depends/common/rcheevos/0003-turn-a-subset-on-or-off.patch",
+                    "sha256": "20e1a2bad376c83c449ac5de2675032c59c3c2e92219532344bebd862faf6134",
+                    "dest-filename": "0003-turn-a-subset-on-or-off.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 0001-preserve-encore-unlock-times.patch",
+                        "patch -p1 < 0002-expose-zero-achievement-progress.patch",
+                        "patch -p1 < 0003-turn-a-subset-on-or-off.patch"
+                    ]
                 }
             ]
         }

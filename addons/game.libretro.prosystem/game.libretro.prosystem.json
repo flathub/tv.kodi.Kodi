@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.prosystem",
-            "commit": "6035a98e74485495d1002697a6a77918d9c547b1"
+            "commit": "e4aced7be187e49684ee05a4785eac3a30c4a7e8"
         },
         {
             "type": "file",

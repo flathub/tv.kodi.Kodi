@@ -1,7 +1,7 @@
-From afa60d9651beb9765f61d71e600fbd66afe8053c Mon Sep 17 00:00:00 2001
+From 746f3e873d1fc693b8e1d594be62fa1e9665b02d Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Sun, 25 Oct 2026 20:04:49 +1000
-Subject: [application] Drop the 200 ms sleep at the end of
+Subject: [PATCH] [application] Drop the 200 ms sleep at the end of
  CApplication::Stop()
 
 The sleep comes from 15dcb7b091 (2011), when Stop() ended with
@@ -33,6 +33,3 @@ index 95c2bbfa2a..ceee0536d4 100644
    return success;
  }
  
--- 
-2.55.0
-

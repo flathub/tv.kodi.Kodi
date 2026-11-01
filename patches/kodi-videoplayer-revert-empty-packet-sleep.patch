@@ -1,4 +1,4 @@
-From 3e23cff9f49d099c4ee216b8f6876878c279fadd Mon Sep 17 00:00:00 2001
+From 6f6ab9a0ec4d2cf4e57b673196e34b0d664644ff Mon Sep 17 00:00:00 2001
 From: Kel Modderman <kelvmod@gmail.com>
 Date: Thu, 15 Oct 2026 20:18:33 +1000
 Subject: [PATCH] Revert "VideoPlayer: stop spinning when the source cannot
@@ -21,7 +21,7 @@ with no stalls.
  1 file changed, 9 deletions(-)
 
 diff --git a/xbmc/cores/VideoPlayer/VideoPlayer.cpp b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
-index 44e6e72cbe..b956ba92c6 100644
+index 7684d00a93..d97b228462 100644
 --- a/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 +++ b/xbmc/cores/VideoPlayer/VideoPlayer.cpp
 @@ -1607,8 +1607,6 @@ void CVideoPlayer::Process()
@@ -50,6 +50,3 @@ index 44e6e72cbe..b956ba92c6 100644
      if (!pPacket)
      {
        // when paused, demuxer could be be returning empty
--- 
-2.55.0
-

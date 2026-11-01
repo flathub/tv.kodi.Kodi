@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-pcfx",
-            "commit": "66edf19f83fae957b8d3f7b9ab92273d9d1e80d7"
+            "commit": "8c4ff678e6d0070b6350591830db1bcd3504958b"
         },
         {
             "type": "file",

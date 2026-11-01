@@ -14,11 +14,7 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "e7418d4e8441dc53316657faf34c2f353c901a7e"
-        },
-        {
-            "type": "patch",
-            "path": "inputstream.adaptive-001-keep-segment-reader-caught-up-with.patch"
+            "commit": "4bbfbc67f97b5c06760c7b40bfc51b787e4bd542"
         },
         {
             "type": "patch",

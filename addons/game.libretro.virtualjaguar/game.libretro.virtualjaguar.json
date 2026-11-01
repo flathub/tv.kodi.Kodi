@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.virtualjaguar",
-            "commit": "37bf9e91208c589316626d4c4f40bf3bb0676dd4"
+            "commit": "70f3434f2ed26675d74fd022603c5ecaf39ef233"
         },
         {
             "type": "file",
