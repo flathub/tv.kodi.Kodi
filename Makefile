@@ -1,6 +1,10 @@
 PROJECT ?= tv.kodi.Kodi
+CHECKER ?= flatpak run org.flathub.flatpak-external-data-checker
 
-.PHONY: update-addons build flatpak install run clean
+.PHONY: update-addons lint-checkers build flatpak install run clean
+
+lint-checkers:
+	$(CHECKER) --lint $(PROJECT).yml
 
 update-addons:
 	cd tools && uv run addon_updater.py -r

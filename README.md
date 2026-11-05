@@ -42,3 +42,9 @@ uv pip install PyGithub
 `make update-addons` can help updating existing addons and also list missing ones. It will need a `GITHUB_TOKEN` environment variable set to a valid GitHub token. You can do this via an `.env` file in the root of the repository or by exporting the variable in your shell.
 
 You can contribute by updating addons, modules and the Kodi version.
+
+## Checking update metadata
+
+Run `make lint-checkers` to check update metadata offline. This requires
+`org.flathub.flatpak-external-data-checker` with `--lint` support and an initialized
+`shared-modules` submodule.

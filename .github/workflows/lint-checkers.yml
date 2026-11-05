@@ -1,0 +1,23 @@
+name: Lint update checkers
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-checkers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          submodules: true
+      - name: Lint checker metadata offline
+        # Pinned checker image with --lint and PyPI wheel compatibility support.
+        uses: docker://ghcr.io/flathub-infra/flatpak-external-data-checker@sha256:3cc2e744bd1785b3c9ee6146562c8124b976a2b63fa9010816da1211d7844af7
+        with:
+          args: --lint tv.kodi.Kodi.yml
