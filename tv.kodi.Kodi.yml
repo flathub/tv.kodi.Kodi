@@ -394,8 +394,8 @@ modules:
     config-opts: []
     sources:
       - type: archive
-        url: https://github.com/libimobiledevice/libplist/releases/download/2.8.0/libplist-2.8.0.tar.bz2
-        sha512: 8adeb6357c3f4059f94002308d7f23b04d43156c5c7bcd62ea2a6bf077990957b8b53026d3ab31b9bfa892fe9d3b88b20219b1b0be208cb1c179ba88926eaa83
+        url: https://github.com/libimobiledevice/libplist/releases/download/2.8.1/libplist-2.8.1.tar.bz2
+        sha512: 5fac7f1a947b73053f41c6765e3225e822cf64a1defe73ffcadeec21c3af2b048de5a3981ccae44ef617932fe56778a470159d09b85ef0d196da160c70b2470f
         x-checker-data:
           type: github
           repo: libimobiledevice/libplist
@@ -456,8 +456,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pybind11" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ab/87/99f21e9b20899d6dc1bf7544cfe53e5fa17acc21bb267971a540425357d3/pybind11-3.0.3-py3-none-any.whl
-        sha256: fb5f8e4a64946b4dcc0451c83a8c384f803bc0a62dd1ba02f199e97dbc9aad4c
+        url: https://files.pythonhosted.org/packages/33/fd/8762f7ee3e4e4be6d1d846cffb4916dd9bb02b2f800d3603718a0efe494c/pybind11-3.1.0-py3-none-any.whl
+        sha256: b8488090f8acffbcb6b5d6a85571a6827a0a2981ffb75e5a0b27b87c4a6b7dd0
         x-checker-data:
           type: pypi
           name: pybind11
