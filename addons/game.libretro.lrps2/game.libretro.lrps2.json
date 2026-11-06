@@ -16,11 +16,11 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.lrps2",
-            "commit": "b7f9598aea4973d5640679db266b2f4f896b9a55"
+            "commit": "80ef7dc143ddd39428e0bcbd050771e3948ed66e"
         },
         {
             "type": "patch",
-            "path": "game.libretro.lrps2-001-default-software-renderer.patch"
+            "path": "game.libretro.lrps2-001-drop-unbuilt-renderers.patch"
         },
         {
             "type": "file",
@@ -52,8 +52,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/ps2/archive/0e9057b73bd128a775aa9e59310d68692838e96c.tar.gz",
-                    "sha256": "3296c08d710af54a3cc8485ac584c3dc5291779a20fda2609eca83a7b284c46a"
+                    "url": "https://github.com/libretro/ps2/archive/38d3a83f4ecdec977d609ece8afcc527f5f68702.tar.gz",
+                    "sha256": "63cc6b89345422d2aefb4085e3e10d461b61c86865f5cff3bd4c56a8dadc0bce"
                 }
             ]
         }

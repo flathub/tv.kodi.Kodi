@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.nestopia",
-            "commit": "60ff56133d4559126e993fceda3a24b5c073f104"
+            "commit": "b9ddc248495fe9461caf967f2e0d3998d110df47"
         },
         {
             "type": "file",
@@ -42,8 +42,20 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/nestopia/archive/92578fdc9445f61dd376138329a938e01d8ba50e.tar.gz",
-                    "sha256": "6a108358f0c71f4a17d017b011389897643b81ddd803abb762395d19a7896789"
+                    "url": "https://github.com/libretro/nestopia/archive/2110d21b7174455ec98948bb474147dea0e3cad0.tar.gz",
+                    "sha256": "ed83409b97a547bd3619f830d3033222169c970669cc97353dd6ede30025b160"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.nestopia/b9ddc248495fe9461caf967f2e0d3998d110df47/depends/common/nestopia/0001-Disable-video-filter-by-default.patch",
+                    "sha256": "d49a2a8bce6181f44383e5e0ed11b9abb8f9393ce1ddadc3752492818a7a47d0",
+                    "dest-filename": "0001-Disable-video-filter-by-default.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 0001-Disable-video-filter-by-default.patch"
+                    ]
                 }
             ]
         }

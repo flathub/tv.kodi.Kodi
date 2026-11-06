@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.hatari",
-            "commit": "9e702b81ecfd8e2b2f682bfc5b06552f250ff3be"
+            "commit": "18605cb9744afb55393268835d01e6e59cdf2a9d"
         },
         {
             "type": "file",
@@ -33,8 +33,9 @@
                 "cxxflags": "-g0"
             },
             "build-commands": [
-                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
-                "install -s -D -m 755 hatari_libretro.so /app/lib/libretro/hatari_libretro.so"
+                "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DENABLE_HATARI=OFF -DENABLE_TOOLS=OFF -DENABLE_LIBRETRO=ON -DCMAKE_MODULE_LINKER_FLAGS=-Wl,--no-undefined",
+                "cmake --build build --target hatari_libretro -j$FLATPAK_BUILDER_N_JOBS",
+                "install -s -D -m 755 build/src/hatari_libretro.so /app/lib/libretro/hatari_libretro.so"
             ],
             "cleanup": [
                 "/lib/libretro"
@@ -42,8 +43,20 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/hatari/archive/24e7bd744f24f20b464385f365a3850c269bd140.tar.gz",
-                    "sha256": "f45c64793a082f1d5a33cb32560276cfd32945912c958066e422f819489817d8"
+                    "url": "https://github.com/libretro/hatari/archive/50929946d196f431906932420c55e1b3593dacc5.tar.gz",
+                    "sha256": "5e50527751e23b780a8244d1b01b7cbc2db800d17cd5037791d220cd90e29970"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.hatari/18605cb9744afb55393268835d01e6e59cdf2a9d/depends/common/hatari/01-hatari-libretro.patch",
+                    "sha256": "6a505ae953c31bbd56a64fbb2d8fb9037e90dd194525a35a03f4c2b6f95659ea",
+                    "dest-filename": "01-hatari-libretro.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 01-hatari-libretro.patch"
+                    ]
                 }
             ]
         }

@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-lynx",
-            "commit": "44bf5461010f0d2b6f298bdbc6b8691b3e615712"
+            "commit": "ecccc4984c80b8996eca4e6eb34c5e14d5fa2180"
         },
         {
             "type": "file",

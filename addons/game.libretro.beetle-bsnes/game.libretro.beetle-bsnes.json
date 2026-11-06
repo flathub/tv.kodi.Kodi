@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.beetle-bsnes",
-            "commit": "02fb12b07963ccc6866d51bb8fbb298df9146048"
+            "commit": "796d64e638e3e2eb41eb7f585450ef1e57c8d6fb"
         },
         {
             "type": "file",
@@ -47,13 +47,20 @@
                 },
                 {
                     "type": "file",
-                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.beetle-bsnes/02fb12b07963ccc6866d51bb8fbb298df9146048/depends/common/beetle-bsnes/0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.beetle-bsnes/796d64e638e3e2eb41eb7f585450ef1e57c8d6fb/depends/common/beetle-bsnes/0001-Fix-framebuffer-double-free-in-retro_deinit.patch",
+                    "sha256": "e291385cdd5a148d07282c15c5445034a4ac034c76d7ef6928de5126f35ef259",
+                    "dest-filename": "0001-Fix-framebuffer-double-free-in-retro_deinit.patch"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.beetle-bsnes/796d64e638e3e2eb41eb7f585450ef1e57c8d6fb/depends/common/beetle-bsnes/0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch",
                     "sha256": "f5027b984ec7ed4d292a16406c862f32244c6ccd88688d087f8cf3745f1e9526",
                     "dest-filename": "0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch"
                 },
                 {
                     "type": "shell",
                     "commands": [
+                        "patch -p1 < 0001-Fix-framebuffer-double-free-in-retro_deinit.patch",
                         "patch -p1 < 0001-Fix-strlcpy-strlcat-fallback-with-glibc-2.38.patch"
                     ]
                 }
