@@ -769,12 +769,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/xbmc/xbmc.git
-        commit: 2ee6db9d35ed8947d8754ccc94d3448afbed3784
+        commit: d686683a55d50e576dd282f53fb2bf9914931b38
         x-checker-data:
           type: git
           tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
           versions:
-            '>': 22.0rc1-Piers
+            '>': 22.0rc2-Piers
       - type: patch
         path: patches/kodi.sh.in.patch
       - type: patch
@@ -791,8 +791,6 @@ modules:
         path: patches/kodi-script-stop-timeout.patch
       - type: patch
         path: patches/kodi-script-abort-notify.patch
-      - type: patch
-        path: patches/kodi-app-stop-drop-sleep.patch
       - type: file
         path: addon-list.txt
         dest: build/download/
