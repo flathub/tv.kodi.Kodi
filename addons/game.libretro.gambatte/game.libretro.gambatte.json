@@ -16,7 +16,7 @@
         {
             "type": "git",
             "url": "https://github.com/kodi-game/game.libretro.gambatte",
-            "commit": "1209bc8be7b655debce4e9e0f8c6be84c26762c9"
+            "commit": "f06fb60f2cc9eba518a9b51d559df1e18b71e31c"
         },
         {
             "type": "file",
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/libretro/gambatte-libretro/archive/d9d6cd06382d1ced30de34d56d3609452323dab1.tar.gz",
-                    "sha256": "bd39cd38662135d17e221a7fd34baf2908a40065ade16edf2e8d1168b21b921e"
+                    "url": "https://github.com/libretro/gambatte-libretro/archive/7809bb68ee96c3e6c74e9d9c4c8bb09aa7c6801d.tar.gz",
+                    "sha256": "874744cd0e5fc965fcd1b49e14d1b792505c8bb18937bf4611950c435b4420fb"
                 }
             ]
         }

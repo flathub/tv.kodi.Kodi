@@ -14,7 +14,11 @@
         {
             "type": "git",
             "url": "https://github.com/xbmc/inputstream.adaptive",
-            "commit": "e14d199a5ed7224d1c42a36619ab0a67d3d8f3f6"
+            "commit": "4bbfbc67f97b5c06760c7b40bfc51b787e4bd542"
+        },
+        {
+            "type": "patch",
+            "path": "inputstream.adaptive-002-wait-briefly-for-a-sample-being-read.patch"
         },
         {
             "type": "file",

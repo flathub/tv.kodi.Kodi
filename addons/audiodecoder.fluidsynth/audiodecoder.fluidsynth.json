@@ -57,8 +57,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.1.tar.gz",
-                    "sha256": "3d258a3bf97cc20c59eeebfe62c2432fae88adda74d3ad098681c76e0ebf446b",
+                    "url": "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.2.tar.gz",
+                    "sha256": "ca376b42a3c1b186a4c8c248931789a455ac94a89b777394969d678010c2f91f",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 10437,
