@@ -799,6 +799,8 @@ modules:
         path: patches/kodi.metainfo.xml.in.patch
       - type: patch
         path: patches/kodi-texturepacker-giflib6.patch
+      - type: patch
+        path: patches/kodi-python-threadstate.patch
       - type: file
         path: addon-list.txt
         dest: build/download/

@@ -1,0 +1,305 @@
+From b5ed48457253d960b44bf70f5a9718bda8552c4c Mon Sep 17 00:00:00 2001
+From: Stephan Sundermann <stephansundermann@gmail.com>
+Date: Thu, 9 Oct 2025 14:06:02 +0200
+Subject: [PATCH 1/3] [python] Fix random segfaults on Android / webOS on
+ startup / script execution / finalization
+
+(cherry picked from commit 1ea5ca953ed91ca6dabe1c925547658c0f99949b)
+---
+ xbmc/interfaces/python/PythonInvoker.cpp | 19 +++++--------------
+ xbmc/interfaces/python/XBPython.cpp      | 24 ++----------------------
+ xbmc/interfaces/python/XBPython.h        |  6 +++++-
+ 3 files changed, 12 insertions(+), 37 deletions(-)
+
+diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
+index 87bc2a46f9..0c28402e72 100644
+--- a/xbmc/interfaces/python/PythonInvoker.cpp
++++ b/xbmc/interfaces/python/PythonInvoker.cpp
+@@ -43,6 +43,8 @@
+ #include <osdefs.h>
+ // clang-format on
+ 
++#include "XBPython.h"
++
+ #include <cassert>
+ #include <iterator>
+ 
+@@ -154,15 +156,8 @@ bool CPythonInvoker::execute(const std::string& script, std::vector<std::wstring
+   {
+     if (!m_threadState)
+     {
+-#if PY_VERSION_HEX < 0x03070000
+-      // this is a TOTAL hack. We need the GIL but we need to borrow a PyThreadState in order to get it
+-      // as of Python 3.2 since PyEval_AcquireLock is deprecated
+-      extern PyThreadState* savestate;
+-      PyEval_RestoreThread(savestate);
+-#else
+-      PyThreadState* ts = PyInterpreterState_ThreadHead(PyInterpreterState_Main());
+-      PyEval_RestoreThread(ts);
+-#endif
++      PyThreadState_Swap(CServiceBroker::GetXBPython().GetMainThreadState());
++
+       l_threadState = Py_NewInterpreter();
+       PyEval_ReleaseThread(l_threadState);
+       if (l_threadState == NULL)
+@@ -583,12 +578,8 @@ void CPythonInvoker::onExecutionDone()
+     // unregister the language hook
+     m_languageHook->UnregisterMe();
+ 
+-#if PY_VERSION_HEX < 0x03070000
+-    PyEval_ReleaseLock();
+-#else
+-    PyThreadState_Swap(PyInterpreterState_ThreadHead(PyInterpreterState_Main()));
++    PyThreadState_Swap(CServiceBroker::GetXBPython().GetMainThreadState());
+     PyEval_SaveThread();
+-#endif
+ 
+     // set stopped event - this allows ::stop to run and kill remaining threads
+     // this event has to be fired without holding m_critical
+diff --git a/xbmc/interfaces/python/XBPython.cpp b/xbmc/interfaces/python/XBPython.cpp
+index 5fdd17610f..19952cdab7 100644
+--- a/xbmc/interfaces/python/XBPython.cpp
++++ b/xbmc/interfaces/python/XBPython.cpp
+@@ -39,9 +39,6 @@
+ 
+ #include <algorithm>
+ 
+-// Only required for Py3 < 3.7
+-PyThreadState* savestate;
+-
+ bool XBPython::m_bInitialized = false;
+ 
+ XBPython::XBPython()
+@@ -54,11 +51,10 @@ XBPython::~XBPython()
+   XBMC_TRACE;
+   CServiceBroker::GetAnnouncementManager()->RemoveAnnouncer(this);
+ 
+-#if PY_VERSION_HEX >= 0x03070000
+   if (Py_IsInitialized())
+   {
+     // Switch to the main interpreter thread before finalizing
+-    PyThreadState_Swap(PyInterpreterState_ThreadHead(PyInterpreterState_Main()));
++    PyThreadState_Swap(m_mainThreadState);
+ 
+     // Clear all loaded modules to prevent circular references
+     PyObject* modules = PyImport_GetModuleDict();
+@@ -66,7 +62,6 @@ XBPython::~XBPython()
+ 
+     Py_Finalize();
+   }
+-#endif
+ }
+ 
+ #define LOCK_AND_COPY(type, dest, src) \
+@@ -544,22 +539,7 @@ bool XBPython::OnScriptInitialized(ILanguageInvoker* invoker)
+ #endif
+ 
+     Py_Initialize();
+-
+-#if PY_VERSION_HEX < 0x03070000
+-    // Python >= 3.7 Py_Initialize implicitly calls PyEval_InitThreads
+-    // Python < 3.7 we have to manually call initthreads.
+-    // PyEval_InitThreads is a no-op on subsequent calls, No need to wrap in
+-    // PyEval_ThreadsInitialized() check
+-    PyEval_InitThreads();
+-#endif
+-
+-    // Acquire GIL if thread doesn't currently hold.
+-    if (!PyGILState_Check())
+-      PyEval_RestoreThread((PyThreadState*)m_mainThreadState);
+-
+-    if (!(m_mainThreadState = PyThreadState_Get()))
+-      CLog::Log(LOGERROR, "Python threadstate is NULL.");
+-    savestate = PyEval_SaveThread();
++    m_mainThreadState = PyEval_SaveThread();
+ 
+     m_bInitialized = true;
+   }
+diff --git a/xbmc/interfaces/python/XBPython.h b/xbmc/interfaces/python/XBPython.h
+index e54b4a2193..e14c172463 100644
+--- a/xbmc/interfaces/python/XBPython.h
++++ b/xbmc/interfaces/python/XBPython.h
+@@ -21,6 +21,8 @@
+ class CPythonInvoker;
+ class CVariant;
+ 
++typedef struct _ts PyThreadState;
++
+ typedef struct
+ {
+   int id;
+@@ -100,13 +102,15 @@ public:
+   void OnScriptFinalized(ILanguageInvoker* invoker) override;
+   ILanguageInvoker* CreateInvoker() override;
+ 
++  PyThreadState* GetMainThreadState() const { return m_mainThreadState; }
++
+   bool WaitForEvent(CEvent& hEvent, unsigned int milliseconds);
+ 
+ private:
+   static bool m_bInitialized; // whether global python runtime was already initialized
+ 
+   CCriticalSection m_critSection;
+-  void* m_mainThreadState{nullptr};
++  PyThreadState* m_mainThreadState{nullptr};
+   int m_iDllScriptCounter{0}; // to keep track of the total scripts running that need the dll
+ 
+   //Vector with list of threads used for running scripts
+
+From 485a06ab05ea900e600637c76cbc78b19d84ae30 Mon Sep 17 00:00:00 2001
+From: Stephan Sundermann <stephansundermann@gmail.com>
+Date: Mon, 13 Oct 2025 15:44:22 +0200
+Subject: [PATCH 2/3] [python] Fix improper use of thread state by non-python
+ threads
+
+(cherry picked from commit 309b7cb645ac1f58233e818504ada9a31d71a01b)
+---
+ xbmc/interfaces/python/PythonInvoker.cpp | 44 ++++++++++++++++++++----
+ xbmc/interfaces/python/PythonInvoker.h   |  1 +
+ 2 files changed, 38 insertions(+), 7 deletions(-)
+
+diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
+index 0c28402e72..7e4799ae64 100644
+--- a/xbmc/interfaces/python/PythonInvoker.cpp
++++ b/xbmc/interfaces/python/PythonInvoker.cpp
+@@ -156,14 +156,26 @@ bool CPythonInvoker::execute(const std::string& script, std::vector<std::wstring
+   {
+     if (!m_threadState)
+     {
+-      PyThreadState_Swap(CServiceBroker::GetXBPython().GetMainThreadState());
++      m_mainThreadState =
++          PyThreadState_New(CServiceBroker::GetXBPython().GetMainThreadState()->interp);
+ 
++      if (m_mainThreadState == nullptr)
++      {
++        CLog::LogF(LOGERROR, "({}, {}) PyThreadState_New failed", GetId(), m_sourceFile);
++        return false;
++      }
++
++      PyThreadState_Swap(m_mainThreadState);
+       l_threadState = Py_NewInterpreter();
+       PyEval_ReleaseThread(l_threadState);
+       if (l_threadState == NULL)
+       {
+         CLog::Log(LOGERROR, "CPythonInvoker({}, {}): FAILED to get thread m_threadState!", GetId(),
+                   m_sourceFile);
++        PyThreadState_Swap(m_mainThreadState);
++        PyThreadState_Clear(m_mainThreadState);
++        PyThreadState_DeleteCurrent();
++        m_mainThreadState = nullptr;
+         return false;
+       }
+       newInterp = true;
+@@ -457,7 +469,14 @@ bool CPythonInvoker::stop(bool abort)
+       setState(InvokerStateStopping);
+       lock.unlock();
+ 
+-      PyEval_RestoreThread((PyThreadState*)m_threadState);
++      PyThreadState* ts = PyThreadState_New(m_threadState->interp);
++      if (ts == nullptr)
++      {
++        CLog::LogF(LOGERROR, "({}, {}) PyThreadState_New failed", GetId(), m_sourceFile);
++        return false;
++      }
++
++      PyEval_RestoreThread(ts);
+ 
+       //tell xbmc.Monitor to call onAbortRequested()
+       if (m_addon)
+@@ -467,7 +486,8 @@ bool CPythonInvoker::stop(bool abort)
+         AbortNotification();
+       }
+ 
+-      PyEval_ReleaseThread(m_threadState);
++      PyThreadState_Clear(ts);
++      PyThreadState_DeleteCurrent();
+     }
+     else
+       //Release the lock while waiting for threads to finish
+@@ -507,10 +527,17 @@ bool CPythonInvoker::stop(bool abort)
+     // so we need to recheck for m_threadState == NULL
+     if (m_threadState != NULL)
+     {
++      PyThreadState* ts = PyThreadState_New(m_threadState->interp);
++      if (ts == nullptr)
++      {
++        CLog::LogF(LOGERROR, "({}, {}) PyThreadState_New failed", GetId(), m_sourceFile);
++        return false;
++      }
++
+       {
+         // grabbing the PyLock while holding the m_critical is asking for a deadlock
+         CSingleExit ex2(m_critical);
+-        PyEval_RestoreThread((PyThreadState*)m_threadState);
++        PyEval_RestoreThread(ts);
+       }
+ 
+ 
+@@ -527,7 +554,8 @@ bool CPythonInvoker::stop(bool abort)
+       // If a dialog entered its doModal(), we need to wake it to see the exception
+       pulseGlobalEvent();
+ 
+-      PyEval_ReleaseThread(m_threadState);
++      PyThreadState_Clear(ts);
++      PyThreadState_DeleteCurrent();
+     }
+     lock.unlock();
+ 
+@@ -578,8 +606,10 @@ void CPythonInvoker::onExecutionDone()
+     // unregister the language hook
+     m_languageHook->UnregisterMe();
+ 
+-    PyThreadState_Swap(CServiceBroker::GetXBPython().GetMainThreadState());
+-    PyEval_SaveThread();
++    PyThreadState_Swap(m_mainThreadState);
++    PyThreadState_Clear(m_mainThreadState);
++    PyThreadState_DeleteCurrent();
++    m_mainThreadState = nullptr;
+ 
+     // set stopped event - this allows ::stop to run and kill remaining threads
+     // this event has to be fired without holding m_critical
+diff --git a/xbmc/interfaces/python/PythonInvoker.h b/xbmc/interfaces/python/PythonInvoker.h
+index 052cc31677..30e79ce143 100644
+--- a/xbmc/interfaces/python/PythonInvoker.h
++++ b/xbmc/interfaces/python/PythonInvoker.h
+@@ -61,6 +61,7 @@ private:
+   FILE* PyFile_AsFileWithMode(PyObject* py_file, const char* mode);
+ 
+   PyThreadState* m_threadState;
++  PyThreadState* m_mainThreadState{nullptr};
+   bool m_stop = false;
+   CEvent m_stoppedEvent;
+ 
+
+From 7ea79e4fada29d5f1cb1f1860defecd01379841c Mon Sep 17 00:00:00 2001
+From: Stephan Sundermann <stephansundermann@gmail.com>
+Date: Sat, 18 Oct 2025 13:24:17 +0200
+Subject: [PATCH 3/3] [python] Fix python 3.11 segfaults due to python API
+ usage without holding GIL
+
+(cherry picked from commit ddb60bd932b929724a9b0d2226043dc54d0d1912)
+---
+ xbmc/interfaces/python/PythonInvoker.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/xbmc/interfaces/python/PythonInvoker.cpp b/xbmc/interfaces/python/PythonInvoker.cpp
+index 7e4799ae64..2cbb09a500 100644
+--- a/xbmc/interfaces/python/PythonInvoker.cpp
++++ b/xbmc/interfaces/python/PythonInvoker.cpp
+@@ -165,14 +165,14 @@ bool CPythonInvoker::execute(const std::string& script, std::vector<std::wstring
+         return false;
+       }
+ 
+-      PyThreadState_Swap(m_mainThreadState);
++      PyEval_RestoreThread(m_mainThreadState);
+       l_threadState = Py_NewInterpreter();
+       PyEval_ReleaseThread(l_threadState);
+       if (l_threadState == NULL)
+       {
+         CLog::Log(LOGERROR, "CPythonInvoker({}, {}): FAILED to get thread m_threadState!", GetId(),
+                   m_sourceFile);
+-        PyThreadState_Swap(m_mainThreadState);
++        PyEval_RestoreThread(m_mainThreadState);
+         PyThreadState_Clear(m_mainThreadState);
+         PyThreadState_DeleteCurrent();
+         m_mainThreadState = nullptr;
