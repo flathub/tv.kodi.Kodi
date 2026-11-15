@@ -26,8 +26,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/Silicondust/libhdhomerun/archive/20260313/libhdhomerun-20260313.tar.gz",
-                    "sha256": "92a1df224a7c3636b596fc0ca44c9debe0b92440f5287686af79a756b8f5200a",
+                    "url": "https://github.com/Silicondust/libhdhomerun/archive/20361107/libhdhomerun-20361107.tar.gz",
+                    "sha256": "8ca33d1459e1ce79f4c8eac21b0366133737025e0b88f31f5bdded17486d0ac3",
                     "x-checker-data": {
                         "type": "json",
                         "url": "https://api.github.com/repos/Silicondust/libhdhomerun/releases/latest",
