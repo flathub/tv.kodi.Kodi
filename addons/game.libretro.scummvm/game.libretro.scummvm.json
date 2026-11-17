@@ -1,0 +1,183 @@
+{
+    "name": "game.libretro.scummvm",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.scummvm",
+            "commit": "7a49a9c84cdb2ddfe057ef483a6038680deece44"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libmad",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=OFF",
+                "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share/man"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://codeberg.org/tenacityteam/libmad/archive/0.16.4.tar.gz",
+                    "sha256": "f4eb229452252600ce48f3c2704c9e6d97b789f81e31c37b0c67dd66f445ea35"
+                }
+            ]
+        },
+        {
+            "name": "faad2",
+            "buildsystem": "cmake-ninja",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DBUILD_SHARED_LIBS=OFF"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share/man"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/knik0/faad2/archive/refs/tags/2.11.3.tar.gz",
+                    "sha256": "860ab62087e336c1844a70e33196c1790b525fb9a9e7b6ac4fab1a1a4e4d5ce8"
+                }
+            ]
+        },
+        {
+            "name": "libmpeg2",
+            "buildsystem": "autotools",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -fPIC",
+                "cxxflags": "-g0 -fPIC"
+            },
+            "config-opts": [
+                "--disable-shared"
+            ],
+            "post-install": [
+                "sed -i '1i #include <inttypes.h>' /app/include/mpeg2dec/mpeg2.h"
+            ],
+            "cleanup": [
+                "/bin",
+                "/include",
+                "/lib/pkgconfig",
+                "/share/man"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://deb.debian.org/debian/pool/main/m/mpeg2dec/mpeg2dec_0.5.1.orig.tar.gz",
+                    "sha256": "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "cp -f /usr/share/automake-*/config.guess /usr/share/automake-*/config.sub .auto/"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "libretro-scummvm",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0",
+                "env": {
+                    "CPATH": "/app/include",
+                    "LIBRARY_PATH": "/app/lib"
+                }
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -C backends/platform/libretro GIT_VERSION= USE_SYSTEM_FLAC=1 USE_SYSTEM_vorbisfile=1 USE_SYSTEM_z=1 USE_SYSTEM_png=1 USE_SYSTEM_jpeg=1 USE_SYSTEM_theoradec=1 USE_SYSTEM_freetype=1 USE_SYSTEM_fribidi=1 USE_SYSTEM_gif=1 USE_SYSTEM_mad=1 USE_SYSTEM_faad=1 USE_SYSTEM_mpeg2=1 USE_SYSTEM_fluidsynth=1 LIBS='-lmad -lfaad -lmpeg2 -logg' all",
+                "install -s -D -m 755 backends/platform/libretro/scummvm_libretro.so /app/lib/libretro/scummvm_libretro.so",
+                "install -D -m 644 backends/platform/libretro/scummvm.zip /app/share/libretro-scummvm/scummvm.zip"
+            ],
+            "cleanup": [
+                "/lib/libretro",
+                "/share/libretro-scummvm"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/scummvm/archive/e0ddc60bfabb1efdf1e135006c8914ca59d0596c.tar.gz",
+                    "sha256": "2f87ca94ce79af39571951f797712e350870c3e56f5b5d288328f377f73d15f9"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/kodi-game/libretro-deps/archive/093294285b8aa3267d274b2561d49225cf91110e.tar.gz",
+                    "sha256": "2ba58cbe083a30ca49a59d95e5c14ca08ec7ea5c668600a2d6c61326c14b77c7",
+                    "dest": "backends/platform/libretro/deps/libretro-deps"
+                },
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-common/archive/879c8d507b0b52e77e27d759239c2b5df1e26dfd.tar.gz",
+                    "sha256": "b464f796ff9752f9fb53c4ced9a0346e428fdbf7786032abac79d106d7170fcd",
+                    "dest": "backends/platform/libretro/deps/libretro-common"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.scummvm/7a49a9c84cdb2ddfe057ef483a6038680deece44/depends/common/scummvm/0001-LIBRETRO-Fix-missing-library-version.patch",
+                    "sha256": "7c5d6f71083c8c3f0ae54804dc628313206bfcc7ed952af7a6068702bbb7f7e4",
+                    "dest-filename": "0001-LIBRETRO-Fix-missing-library-version.patch"
+                },
+                {
+                    "type": "file",
+                    "url": "https://raw.githubusercontent.com/kodi-game/game.libretro.scummvm/7a49a9c84cdb2ddfe057ef483a6038680deece44/depends/common/scummvm/0002-LIBRETRO-Patch-libmad-libretro-dependency.patch",
+                    "sha256": "94b4b41fefa91dea8fb8802601b6b677c670473ecb2d2ab23b285cfb5fa8203a",
+                    "dest-filename": "0002-LIBRETRO-Patch-libmad-libretro-dependency.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "patch -p1 < 0001-LIBRETRO-Fix-missing-library-version.patch",
+                        "patch -p1 < 0002-LIBRETRO-Patch-libmad-libretro-dependency.patch",
+                        "sed -i 's/^SUBMODULE_FAILED = .*/SUBMODULE_FAILED =/' backends/platform/libretro/dependencies.mk",
+                        "sed -i -E 's/^(this_lib_flags *:= *-lvorbis)$/\\1 -lvorbisfile/; s/^(this_lib_flags *:= *-ltheora)$/\\1 -ltheoradec/' backends/platform/libretro/dependencies.mk",
+                        "grep -q -- '-lvorbis -lvorbisfile$' backends/platform/libretro/dependencies.mk && grep -q -- '-ltheora -ltheoradec$' backends/platform/libretro/dependencies.mk"
+                    ]
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.scummvm",
+        "mkdir -p /app/lib/kodi/addons/game.libretro.scummvm/resources/system",
+        "unzip -o /app/share/libretro-scummvm/scummvm.zip -d /app/lib/kodi/addons/game.libretro.scummvm/resources/system"
+    ]
+}
