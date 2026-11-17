@@ -22,10 +22,15 @@ EXTRA_EXTENSIONS = """\
 """
 EXTRA_CLEANUP = ["  - mkdir -p ${FLATPAK_DEST}/share/kodi/extra\n"]
 
-# not auto-downloaded: embedded system ROMs
+# not auto-downloaded: embedded system ROMs, non-commercial licences
 OPT_IN = (
     "game.libretro.cap32",
     "game.libretro.fuse",
+    "game.libretro.genplus",
+    "game.libretro.mame2000",
+    "game.libretro.mame2003_plus",
+    "game.libretro.mame2010",
+    "game.libretro.picodrive",
     "game.libretro.vecx",
 )
 

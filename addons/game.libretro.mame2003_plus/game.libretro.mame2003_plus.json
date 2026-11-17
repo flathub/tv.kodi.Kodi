@@ -1,0 +1,54 @@
+{
+    "name": "game.libretro.mame2003_plus",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.mame2003_plus",
+            "commit": "23f4befa4837d9024b7cb27bdf4dee61c469cfa0"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-mame2003_plus",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app ARCH= CC=cc NATIVE_CC=cc LD=cc",
+                "install -s -D -m 755 mame2003_plus_libretro.so /app/lib/libretro/mame2003_plus_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/mame2003-plus-libretro/archive/fde3d46fc48fcc0704797e96ac4613bb47ff2c57.tar.gz",
+                    "sha256": "eacb37e92124d7491e5f4b350a166848ea647574f7ade72684d028e596c0feed"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.mame2003_plus"
+    ]
+}
