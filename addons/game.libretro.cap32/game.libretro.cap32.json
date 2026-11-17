@@ -1,0 +1,54 @@
+{
+    "name": "game.libretro.cap32",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.cap32",
+            "commit": "d09b9258a5d2730351c980e3ee85f2ffd2115013"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-cap32",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app",
+                "install -s -D -m 755 cap32_libretro.so /app/lib/libretro/cap32_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-cap32/archive/06ad0da5d003ab8f2359300ebce4cf31d4c55b6e.tar.gz",
+                    "sha256": "15ebb0e6c5efefd224f11bc33cd8ef584fef7c1757102e8df735edbe611f562d"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.cap32"
+    ]
+}

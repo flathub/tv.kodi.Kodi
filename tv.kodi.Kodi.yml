@@ -887,10 +887,12 @@ modules:
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
+  - addons/game.libretro.cap32/game.libretro.cap32.json
   - addons/game.libretro.dolphin/game.libretro.dolphin.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
+  - addons/game.libretro.fuse/game.libretro.fuse.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gearsystem/game.libretro.gearsystem.json
   - addons/game.libretro.gw/game.libretro.gw.json
@@ -919,6 +921,7 @@ modules:
   - addons/game.libretro.tyrquake/game.libretro.tyrquake.json
   - addons/game.libretro.uae/game.libretro.uae.json
   - addons/game.libretro.vbam/game.libretro.vbam.json
+  - addons/game.libretro.vecx/game.libretro.vecx.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
   - addons/game.libretro.yabasanshiro/game.libretro.yabasanshiro.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
@@ -1229,6 +1232,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.cap32:
+    directory: lib/kodi/addons/game.libretro.cap32
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.dolphin:
     directory: lib/kodi/addons/game.libretro.dolphin
     bundle: true
@@ -1249,6 +1257,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.fuse:
+    directory: lib/kodi/addons/game.libretro.fuse
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.gambatte:
     directory: lib/kodi/addons/game.libretro.gambatte
     bundle: true
@@ -1389,6 +1402,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.vecx:
+    directory: lib/kodi/addons/game.libretro.vecx
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: lib/kodi/addons/game.libretro.virtualjaguar
     bundle: true

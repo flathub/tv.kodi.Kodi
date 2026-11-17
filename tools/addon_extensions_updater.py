@@ -22,8 +22,12 @@ EXTRA_EXTENSIONS = """\
 """
 EXTRA_CLEANUP = ["  - mkdir -p ${FLATPAK_DEST}/share/kodi/extra\n"]
 
-# opt-in (no-autodownload) cores are parked on branch extensions-opt-in-addons
-OPT_IN = ()
+# not auto-downloaded: embedded system ROMs
+OPT_IN = (
+    "game.libretro.cap32",
+    "game.libretro.fuse",
+    "game.libretro.vecx",
+)
 
 
 def extension_id(addon):

@@ -1,0 +1,54 @@
+{
+    "name": "game.libretro.vecx",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.vecx",
+            "commit": "65742b9a40e64838ca3242971df781c83aabfbc6"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-vecx",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0",
+                "cxxflags": "-g0"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app HAS_GLES=1 GLES=1 -f Makefile.libretro",
+                "install -s -D -m 755 vecx_libretro.so /app/lib/libretro/vecx_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/libretro-vecx/archive/dccff5402a16d1ea7c112095a8e42632bf149506.tar.gz",
+                    "sha256": "684808db7e9d3a81647e25e8a7e34df3e0f62ed317df578143055c6536d23a32"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.vecx"
+    ]
+}

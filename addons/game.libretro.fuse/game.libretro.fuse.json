@@ -1,0 +1,54 @@
+{
+    "name": "game.libretro.fuse",
+    "buildsystem": "cmake-ninja",
+    "build-options": {
+        "no-debuginfo": true,
+        "cflags": "-g0",
+        "cxxflags": "-g0"
+    },
+    "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DPACKAGE_ZIP=ON",
+        "-DCMAKE_INSTALL_PREFIX=/app/lib/kodi/addons",
+        "-DCMAKE_PREFIX_PATH=/app"
+    ],
+    "sources": [
+        {
+            "type": "git",
+            "url": "https://github.com/kodi-game/game.libretro.fuse",
+            "commit": "e33ae0bc58696c585f10760bb8ff22a51088cd72"
+        },
+        {
+            "type": "file",
+            "path": "../../tools/gen-addon-metainfo.sh"
+        }
+    ],
+    "modules": [
+        {
+            "name": "libretro-fuse",
+            "buildsystem": "simple",
+            "build-options": {
+                "no-debuginfo": true,
+                "cflags": "-g0 -DHAVE_LIBBZ2",
+                "cxxflags": "-g0 -DHAVE_LIBBZ2"
+            },
+            "build-commands": [
+                "make -j$FLATPAK_BUILDER_N_JOBS PREFIX=/app -f Makefile.libretro",
+                "install -s -D -m 755 fuse_libretro.so /app/lib/libretro/fuse_libretro.so"
+            ],
+            "cleanup": [
+                "/lib/libretro"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libretro/fuse-libretro/archive/e997e2bc32c888348f862f69f2c53babfedf7791.tar.gz",
+                    "sha256": "3b8af49fda13ed29ac6b9b03038a2761e397cc06a004dc499be64d5d3917d4a0"
+                }
+            ]
+        }
+    ],
+    "post-install": [
+        "bash $FLATPAK_BUILDER_BUILDDIR/gen-addon-metainfo.sh game.libretro.fuse"
+    ]
+}
