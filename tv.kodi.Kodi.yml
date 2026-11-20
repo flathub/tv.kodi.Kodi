@@ -361,8 +361,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.10.tar.gz
-        sha256: 04bfe8ef75db7d629a33de767599765cecadc56274a39822d5d081030d577685
+        url: https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-1.0.11.tar.gz
+        sha256: f227a044b75688e449b58ddedf0582255cc562899ff69f173a8ef76439744b4e
         x-checker-data:
           type: anitya
           project-id: 1658
@@ -377,8 +377,8 @@ modules:
       - /lib/*.so
     sources:
       - type: archive
-        url: https://github.com/sahlberg/libnfs/archive/libnfs-8.0.1.tar.gz
-        sha512: 6ce4450f28e163bc04b32954ef2094bfa464733e08520026821ce366946de501dae22aff073e729145d6450213317eda84f0078b47d3356b1d98d7dfee23e922
+        url: https://github.com/sahlberg/libnfs/archive/libnfs-8.1.0.tar.gz
+        sha512: 29a07c5fbba638738eb9b5443f4d1be0c424b8a5bf6982c40fb791123cbefdd930fff0b04d5debb21151991168f3ebaebab6e7f03bc1c64013e62040bb6a55f4
         x-checker-data:
           type: anitya
           project-id: 7325
