@@ -887,16 +887,22 @@ modules:
   - addons/game.libretro.beetle-wswan/game.libretro.beetle-wswan.json
   - addons/game.libretro.blastem/game.libretro.blastem.json
   - addons/game.libretro.bluemsx/game.libretro.bluemsx.json
+  - addons/game.libretro.cap32/game.libretro.cap32.json
   - addons/game.libretro.dolphin/game.libretro.dolphin.json
   - addons/game.libretro.dosbox/game.libretro.dosbox.json
   - addons/game.libretro.dosbox-pure/game.libretro.dosbox-pure.json
   - addons/game.libretro.fceumm/game.libretro.fceumm.json
+  - addons/game.libretro.fuse/game.libretro.fuse.json
   - addons/game.libretro.gambatte/game.libretro.gambatte.json
   - addons/game.libretro.gearsystem/game.libretro.gearsystem.json
+  - addons/game.libretro.genplus/game.libretro.genplus.json
   - addons/game.libretro.gw/game.libretro.gw.json
   - addons/game.libretro.handy/game.libretro.handy.json
   - addons/game.libretro.hatari/game.libretro.hatari.json
   - addons/game.libretro.lrps2/game.libretro.lrps2.json
+  - addons/game.libretro.mame2000/game.libretro.mame2000.json
+  - addons/game.libretro.mame2003_plus/game.libretro.mame2003_plus.json
+  - addons/game.libretro.mame2010/game.libretro.mame2010.json
   - addons/game.libretro.melonds/game.libretro.melonds.json
   - addons/game.libretro.mesen/game.libretro.mesen.json
   - addons/game.libretro.mesen-s/game.libretro.mesen-s.json
@@ -907,11 +913,13 @@ modules:
   - addons/game.libretro.nx/game.libretro.nx.json
   - addons/game.libretro.o2em/game.libretro.o2em.json
   - addons/game.libretro.pcsx-rearmed/game.libretro.pcsx-rearmed.json
+  - addons/game.libretro.picodrive/game.libretro.picodrive.json
   - addons/game.libretro.pokemini/game.libretro.pokemini.json
   - addons/game.libretro.prboom/game.libretro.prboom.json
   - addons/game.libretro.prosystem/game.libretro.prosystem.json
   - addons/game.libretro.quicknes/game.libretro.quicknes.json
   - addons/game.libretro.sameboy/game.libretro.sameboy.json
+  - addons/game.libretro.scummvm/game.libretro.scummvm.json
   - addons/game.libretro.stella/game.libretro.stella.json
   - addons/game.libretro.supafaust/game.libretro.supafaust.json
   - addons/game.libretro.swanstation/game.libretro.swanstation.json
@@ -919,6 +927,7 @@ modules:
   - addons/game.libretro.tyrquake/game.libretro.tyrquake.json
   - addons/game.libretro.uae/game.libretro.uae.json
   - addons/game.libretro.vbam/game.libretro.vbam.json
+  - addons/game.libretro.vecx/game.libretro.vecx.json
   - addons/game.libretro.virtualjaguar/game.libretro.virtualjaguar.json
   - addons/game.libretro.yabasanshiro/game.libretro.yabasanshiro.json
   - addons/game.libretro.yabause/game.libretro.yabause.json
@@ -1229,6 +1238,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.cap32:
+    directory: lib/kodi/addons/game.libretro.cap32
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.dolphin:
     directory: lib/kodi/addons/game.libretro.dolphin
     bundle: true
@@ -1249,6 +1263,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.fuse:
+    directory: lib/kodi/addons/game.libretro.fuse
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.gambatte:
     directory: lib/kodi/addons/game.libretro.gambatte
     bundle: true
@@ -1259,6 +1278,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.genplus:
+    directory: lib/kodi/addons/game.libretro.genplus
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.gw:
     directory: lib/kodi/addons/game.libretro.gw
     bundle: true
@@ -1279,6 +1303,21 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.mame2000:
+    directory: lib/kodi/addons/game.libretro.mame2000
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mame2003_plus:
+    directory: lib/kodi/addons/game.libretro.mame2003_plus
+    bundle: true
+    autodelete: true
+    no-autodownload: true
+  tv.kodi.Kodi.Addon.game.libretro.mame2010:
+    directory: lib/kodi/addons/game.libretro.mame2010
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.melonds:
     directory: lib/kodi/addons/game.libretro.melonds
     bundle: true
@@ -1329,6 +1368,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.picodrive:
+    directory: lib/kodi/addons/game.libretro.picodrive
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.pokemini:
     directory: lib/kodi/addons/game.libretro.pokemini
     bundle: true
@@ -1354,6 +1398,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.scummvm:
+    directory: lib/kodi/addons/game.libretro.scummvm
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.stella:
     directory: lib/kodi/addons/game.libretro.stella
     bundle: true
@@ -1389,6 +1438,11 @@ add-extensions:
     bundle: true
     autodelete: true
     no-autodownload: false
+  tv.kodi.Kodi.Addon.game.libretro.vecx:
+    directory: lib/kodi/addons/game.libretro.vecx
+    bundle: true
+    autodelete: true
+    no-autodownload: true
   tv.kodi.Kodi.Addon.game.libretro.virtualjaguar:
     directory: lib/kodi/addons/game.libretro.virtualjaguar
     bundle: true
