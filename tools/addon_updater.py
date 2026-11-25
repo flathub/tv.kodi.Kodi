@@ -499,7 +499,19 @@ parser.add_argument(
 parser.add_argument(
     "-z", "--zip", help="package each addon into a discrete folder", action="store_true"
 )
+parser.add_argument(
+    "addons", nargs="*", metavar="ADDON", help="only update these addons (default: all)"
+)
 args = parser.parse_args()
+
+selected_addons = set(args.addons)
+unknown_addons = sorted(
+    a for a in selected_addons
+    if not os.path.exists(os.path.join("..", "addons", a, a + ".json"))
+)
+if unknown_addons:
+    print("Error: not in the flatpak addons: " + ", ".join(unknown_addons))
+    sys.exit(2)
 
 if args.branch:
     addon_repo_branch = args.branch
@@ -534,6 +546,8 @@ for f in repo_file_list:
         continue
 
     addon_id = definition_file.rsplit(".txt", maxsplit=1)[0]
+    if selected_addons and addon_id not in selected_addons:
+        continue
     try:
         (name, url, rev, atype) = get_addon_definition(addon_id, f)
     except Exception as e:
@@ -581,6 +595,8 @@ addon_jsons = sorted(glob.glob(os.path.join("..", "addons", "*", "*.json")))
 for json_path in addon_jsons:
     addon_id = os.path.basename(os.path.dirname(json_path))
     if addon_id in updated_addons:
+        continue
+    if selected_addons and addon_id not in selected_addons:
         continue
 
     try:
