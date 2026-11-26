@@ -99,7 +99,9 @@ manifest in place; install it once with
 `update-addons` updates the binary addons from `repo-binary-addons`, rewires
 them as extensions and regenerates `addon-list.txt`. It needs a
 `GITHUB_TOKEN` (exported or in `.env`). `uv run` installs the Python modules
-it needs from the inline metadata in `tools/addon_updater.py`.
+it needs from the inline metadata in `tools/addon_updater.py`. To update only
+some addons, name them, e.g.
+`make update-addons UPDATE_ADDONS="inputstream.adaptive pvr.hts"`.
 
 Kodi itself is only bumped by the checker when a release tag appears. While
 the beta branch tracks Kodi master, update the `commit:` under the
