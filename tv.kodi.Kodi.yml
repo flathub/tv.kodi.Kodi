@@ -9,6 +9,53 @@ rename-icon: kodi
 rename-desktop-file: kodi.desktop
 desktop-file-name-suffix: ' (Beta)'
 
+# Kodi's commit and build options, for the kodi-addon-dev and kodi modules
+x-kodi-source: &kodi-source
+  type: git
+  url: https://github.com/xbmc/xbmc.git
+  commit: d686683a55d50e576dd282f53fb2bf9914931b38
+  x-checker-data:
+    type: git
+    tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
+    versions:
+      '>': 22.0rc2-Piers
+x-kodi-config-opts: &kodi-config-opts
+  - -DAPP_PACKAGE=tv.kodi.Kodi
+  - -DADDONS_CONFIGURE_AT_STARTUP=OFF
+  - -DVERBOSE=1
+  - -DENABLE_TESTING=ON
+  - -DENABLE_AIRTUNES=OFF
+  - -DENABLE_ALSA=ON
+  - -DENABLE_AVAHI=ON
+  - -DENABLE_BLURAY=ON
+  - -DENABLE_CEC=ON
+  - -DENABLE_DBUS=ON
+  - -DENABLE_DVDCSS=ON
+  - -DENABLE_EGL=ON
+  - -DENABLE_EVENTCLIENTS=ON
+  - -DENABLE_MICROHTTPD=ON
+  - -DENABLE_MARIADBCLIENT=ON
+  - -DENABLE_NFS=ON
+  - -DENABLE_OPTICAL=ON
+  - -DENABLE_PULSEAUDIO=ON
+  - -DENABLE_PIPEWIRE=ON
+  - -DENABLE_SMBCLIENT=ON
+  - -DENABLE_UDEV=ON
+  - -DENABLE_UPNP=ON
+  - -DENABLE_VAAPI=ON
+  - -DENABLE_XSLT=ON
+  - -DENABLE_LIRCCLIENT=ON
+  - -DDEPENDS_PATH=/app
+  - -DAPP_RENDER_SYSTEM=gles
+  - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
+  - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.xz
+  - -DLIBDVDCSS_HASH=SHA512=edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
+  - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.xz
+  - -DLIBDVDREAD_HASH=SHA512=03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
+  - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.xz
+  - -DLIBDVDNAV_HASH=SHA512=4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
+  - -DTARBALL_DIR=/app/tarballs
+
 finish-args:
   - --device=all
   - --allow=bluetooth
@@ -721,112 +768,31 @@ modules:
       - type: archive
         url: http://mirrors.kodi.tv/build-deps/sources/googletest-1.17.0.tar.gz
         sha512: 0f57e9ef06925e5b7722df1eb92ef5850e8dce79220ea16a8aaff586a71c0b01460ef1713649ee24ffedb2e6ad5a51e9198c5a5ae1b2789e43feb1f494e7d45c
-  - name: kodi
+  - name: kodi-addon-dev
     buildsystem: cmake-ninja
     builddir: true
-    config-opts:
-      - -DAPP_PACKAGE=tv.kodi.Kodi
-      - -DADDONS_CONFIGURE_AT_STARTUP=OFF
-      - -DVERBOSE=1
-      - -DENABLE_TESTING=ON
-      - -DENABLE_AIRTUNES=OFF
-      - -DENABLE_ALSA=ON
-      - -DENABLE_AVAHI=ON
-      - -DENABLE_BLURAY=ON
-      - -DENABLE_CEC=ON
-      - -DENABLE_DBUS=ON
-      - -DENABLE_DVDCSS=ON
-      - -DENABLE_EGL=ON
-      - -DENABLE_EVENTCLIENTS=ON
-      - -DENABLE_MICROHTTPD=ON
-      - -DENABLE_MARIADBCLIENT=ON
-      - -DENABLE_NFS=ON
-      - -DENABLE_OPTICAL=ON
-      - -DENABLE_PULSEAUDIO=ON
-      - -DENABLE_PIPEWIRE=ON
-      - -DENABLE_SMBCLIENT=ON
-      - -DENABLE_UDEV=ON
-      - -DENABLE_UPNP=ON
-      - -DENABLE_VAAPI=ON
-      - -DENABLE_XSLT=ON
-      - -DENABLE_LIRCCLIENT=ON
-      - -DDEPENDS_PATH=/app
-      - -DAPP_RENDER_SYSTEM=gles
-      - -DCROSSGUID_URL=/app/tarballs/crossguid.tar.gz
-      - -DLIBDVDCSS_URL=/app/tarballs/libdvdcss.tar.xz
-      - -DLIBDVDCSS_HASH=SHA512=edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
-      - -DLIBDVDREAD_URL=/app/tarballs/libdvdread.tar.xz
-      - -DLIBDVDREAD_HASH=SHA512=03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
-      - -DLIBDVDNAV_URL=/app/tarballs/libdvdnav.tar.xz
-      - -DLIBDVDNAV_HASH=SHA512=4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
-      - -DTARBALL_DIR=/app/tarballs
-    run-tests: true
-    test-rule: kodi-test
-    test-commands:
-      # PingHost needs ICMP, which the build sandbox lacks
-      - KODI_HOME=$PWD ./kodi-test --gtest_brief=1 --gtest_filter=-TestNetwork.PingHost
+    config-opts: *kodi-config-opts
+    make-args:
+      - --version
+    no-make-install: true
+    post-install:
+      - cmake --install "$FLATPAK_BUILDER_BUILDDIR/_flatpak_build" --component kodi-addon-dev
+      # configure also writes to /app: keep only the dev kit, kodi installs the rest
+      - test -s "$FLATPAK_BUILDER_BUILDDIR/.app-files" && find /app -type f | LC_ALL=C sort | LC_ALL=C
+        comm -13 "$FLATPAK_BUILDER_BUILDDIR/.app-files" - | grep -vE '^/app/(include/kodi|share/kodi/cmake|lib/kodi/cmake|share/licenses)/'
+        | xargs -r -d '\n' rm -v
+      - cd /app && find include/kodi share/kodi/cmake lib/kodi/cmake -type f | LC_ALL=C sort | xargs sha256sum
+        > share/kodi/kodi-addon-dev.sha256
+      - sed "s|$FLATPAK_BUILDER_BUILDDIR|@BUILDDIR@|g" "$FLATPAK_BUILDER_BUILDDIR/_flatpak_build/CMakeCache.txt"
+        > /app/share/kodi/kodi-addon-dev.cmakecache
+      - test -s /app/share/kodi/kodi-addon-dev.cmakecache
     sources:
-      - type: git
-        url: https://github.com/xbmc/xbmc.git
-        commit: d686683a55d50e576dd282f53fb2bf9914931b38
-        x-checker-data:
-          type: git
-          tag-pattern: ^(\d+\.\d+(?:\w+)?(?:-\w+)?)$
-          versions:
-            '>': 22.0rc2-Piers
-      - type: patch
-        path: patches/kodi.sh.in.patch
-      - type: patch
-        path: patches/kodi-videoplayer-revert-empty-packet-sleep.patch
-      - type: patch
-        path: patches/kodi-videoplayer-mark-dropped-input.patch
-      - type: patch
-        path: patches/kodi-videoplayer-empty-packet-backoff.patch
-      - type: patch
-        path: patches/kodi-videoplayer-retry-addon-empty-packet.patch
-      - type: patch
-        path: patches/kodi-python-set-async-exc.patch
-      - type: patch
-        path: patches/kodi-script-stop-timeout.patch
-      - type: patch
-        path: patches/kodi-script-abort-notify.patch
-      - type: file
-        path: addon-list.txt
-        dest: build/download/
-      - type: file
-        path: tools/patch-addon-manifest.sh
-        dest: build/download/
+      - *kodi-source
+      # copy kodi's patches here only if one touches the dev kit; tools/check_kodi_addon_dev.py lists which
       - type: shell
         commands:
-          - build/download/patch-addon-manifest.sh build/download/addon-list.txt
-      - type: file
-        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
-        sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
-        dest: build/download/
-        dest-filename: crossguid.tar.gz
-      - type: file
-        url: https://download.videolan.org/pub/videolan/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz
-        sha512: edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
-        dest: build/download/
-        dest-filename: libdvdcss.tar.xz
-      - type: file
-        url: https://download.videolan.org/pub/videolan/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz
-        sha512: 03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
-        dest: build/download/
-        dest-filename: libdvdread.tar.xz
-      - type: file
-        url: https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
-        sha512: 4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
-        dest: build/download/
-        dest-filename: libdvdnav.tar.xz
-      - type: shell
-        commands:
-          - mkdir -p /app/tarballs
-          - mv build/download/*.tar.gz build/download/*.tar.xz /app/tarballs/
-    cleanup:
-      - /tarballs
-      # PEP 484 stubs for addon authors, kodi-addon-dev material
-      - /share/kodi/python-stubs
+          - find /app -type f | LC_ALL=C sort > .app-files
+          - test -s .app-files
 
   # pvr.argustv, pvr.filmon, pvr.pctv, pvr.stalker, visualization.shadertoy
   - name: jsoncpp
@@ -991,6 +957,85 @@ modules:
   - addons/visualization.spectrum/visualization.spectrum.json
   - addons/visualization.starburst/visualization.starburst.json
   - addons/visualization.waveform/visualization.waveform.json
+
+  # the addons' deferred post-processing runs here, not in kodi's stage
+  - name: addons-post-process
+    buildsystem: simple
+    build-commands:
+      - 'true'
+
+  - name: kodi
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts: *kodi-config-opts
+    run-tests: true
+    test-rule: kodi-test
+    test-commands:
+      # PingHost needs ICMP, which the build sandbox lacks
+      - KODI_HOME=$PWD ./kodi-test --gtest_brief=1 --gtest_filter=-TestNetwork.PingHost
+    sources:
+      - *kodi-source
+      - type: patch
+        path: patches/kodi.sh.in.patch
+      - type: patch
+        path: patches/kodi-videoplayer-revert-empty-packet-sleep.patch
+      - type: patch
+        path: patches/kodi-videoplayer-mark-dropped-input.patch
+      - type: patch
+        path: patches/kodi-videoplayer-empty-packet-backoff.patch
+      - type: patch
+        path: patches/kodi-videoplayer-retry-addon-empty-packet.patch
+      - type: patch
+        path: patches/kodi-python-set-async-exc.patch
+      - type: patch
+        path: patches/kodi-script-stop-timeout.patch
+      - type: patch
+        path: patches/kodi-script-abort-notify.patch
+      - type: file
+        path: addon-list.txt
+        dest: build/download/
+      - type: file
+        path: tools/patch-addon-manifest.sh
+        dest: build/download/
+      - type: shell
+        commands:
+          - build/download/patch-addon-manifest.sh build/download/addon-list.txt
+      - type: file
+        url: http://mirrors.kodi.tv/build-deps/sources/crossguid-ca1bf4b810e2d188d04cb6286f957008ee1b7681.tar.gz
+        sha256: 6be27e0b3a4907f0cd3cfadec255ee1b925569e1bd06e67a4d2f4267299b69c4
+        dest: build/download/
+        dest-filename: crossguid.tar.gz
+      - type: file
+        url: https://download.videolan.org/pub/videolan/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz
+        sha512: edd8b00af2621d1b8fb7eac818e9e7a763aabb1b2868d2fc56836b8a22d6d6bc1855b027125557263a6607c86e5d32214b86ab4e22ecb6ca51964abd22574ea0
+        dest: build/download/
+        dest-filename: libdvdcss.tar.xz
+      - type: file
+        url: https://download.videolan.org/pub/videolan/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz
+        sha512: 03e7376327ba211fcc51ee4e4705b1cc7649c613a96e186eb62821b57a11a519c46720e33cf3351cd95fa02db200e40d3b1b9f7e4fe5a3003853fc40c5f511f0
+        dest: build/download/
+        dest-filename: libdvdread.tar.xz
+      - type: file
+        url: https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
+        sha512: 4df6336050f3b79ca2edafac28dd0383b950272ba6d8ebe6e43a85eddc737ce740d72a3fc1fa03c26fc5f285125e3672a022555a5399259386b2036c467a47f3
+        dest: build/download/
+        dest-filename: libdvdnav.tar.xz
+      - type: shell
+        commands:
+          - mkdir -p /app/tarballs
+          - mv build/download/*.tar.gz build/download/*.tar.xz /app/tarballs/
+    cleanup:
+      - /tarballs
+      # PEP 484 stubs for addon authors, kodi-addon-dev material
+      - /share/kodi/python-stubs
+    post-install:
+      # stop if kodi's dev kit or configure results differ from what the addons built against
+      - cd /app && sha256sum --quiet -c share/kodi/kodi-addon-dev.sha256
+      - grep -E '_FOUND:|_LIBRARY[A-Z_]*:|_INCLUDE_DIR[A-Z_]*:|_DIR:' /app/share/kodi/kodi-addon-dev.cmakecache
+        | LC_ALL=C sort > /tmp/kodi-addon-dev.found && sed "s|$FLATPAK_BUILDER_BUILDDIR|@BUILDDIR@|g"
+        "$FLATPAK_BUILDER_BUILDDIR/_flatpak_build/CMakeCache.txt" | grep -E '_FOUND:|_LIBRARY[A-Z_]*:|_INCLUDE_DIR[A-Z_]*:|_DIR:'
+        | LC_ALL=C sort | diff -u /tmp/kodi-addon-dev.found -
+      - rm /app/share/kodi/kodi-addon-dev.sha256 /app/share/kodi/kodi-addon-dev.cmakecache
 
   - name: bdj
     buildsystem: simple
