@@ -20,9 +20,11 @@ addon-list:
 		if [ -f "$$d/provides.txt" ]; then cat "$$d/provides.txt"; else echo "$$id"; fi; \
 	done | sort -u > addon-list.txt
 build:
+	python3 tools/check_kodi_addon_dev.py $(PROJECT).yml
 	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
 	$(MAKE) lint
 build-dev:
+	python3 tools/check_kodi_addon_dev.py $(PROJECT).yml
 	python3 tools/gen_dev_manifest.py $(PROJECT).yml addons-dev.txt $(PROJECT).dev.yml $(DEV_ADDONS)
 	set -o pipefail; flatpak run org.flatpak.Builder build-dir $(PROJECT).dev.yml --user --repo=repo --default-branch=$(BRANCH) --force-clean --ccache $(BUILDER_FLAGS) 2>&1 | tee -a build.log
 	$(MAKE) lint

@@ -41,6 +41,12 @@ failed build, pass `BUILDER_FLAGS=--disable-download` to reuse the cached
 sources rather than re-check them. To test on another machine, serve `repo`
 over HTTP and use that URL with `flatpak remote-add`.
 
+Kodi is built after the addons, so a change to Kodi's patches rebuilds only
+Kodi. The addons build against Kodi's headers and cmake files from the
+`kodi-addon-dev` module, which only configures Kodi. A Kodi patch that touches
+those files or Kodi's cmake setup goes to that module too, with the patches
+before it; `make build` checks this.
+
 ## Debugging
 
 After `make install`, install the debug symbols from `repo` and start Kodi on
