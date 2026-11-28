@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # /// script
-# dependencies = ["requests", "python-dotenv", "PyGithub"]
+# dependencies = ["requests", "python-dotenv"]
 # ///
 
 import argparse
@@ -13,10 +13,13 @@ import re
 import shutil
 import sys
 import tarfile
+from datetime import datetime
+from functools import lru_cache
 
 import requests
 from dotenv import load_dotenv
-from github import Auth, Github
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 addon_repo_base = "https://github.com/xbmc/repo-binary-addons"
 addon_repo_branch = "Piers"
@@ -25,8 +28,12 @@ addon_repo_remote = "binary_addons_repo"
 
 load_dotenv()
 
-auth = Auth.Token(os.environ["GITHUB_TOKEN"])
-g = Github(auth=auth)
+github = requests.Session()
+github.headers["Authorization"] = "bearer " + os.environ["GITHUB_TOKEN"]
+# GraphQL answers 502 now and then: retry those, POST included
+github.mount("https://", HTTPAdapter(max_retries=Retry(
+    total=3, backoff_factor=1, status_forcelist=(502, 503, 504), allowed_methods=None
+)))
 
 
 def is_github_url(url: str) -> bool:
@@ -38,28 +45,58 @@ def _repo_name_from_url(url: str) -> str:
     return repo_path.split("/")[-2] + "/" + repo_path.split("/")[-1]
 
 
-def get_current_github_rev(url: str, branch: str) -> str | None:
-    """Return the HEAD commit SHA for branch in the GitHub repo at url."""
-    repo_name = _repo_name_from_url(url)
+def graphql(repo_name: str, query: str, **variables) -> dict | None:
+    """
+    The repository field of one GraphQL query against the GitHub repo
+    (owner and name are passed in), or None if the request or the repo
+    lookup failed.  One query costs one point of the GraphQL rate limit.
+    """
+    owner, name = repo_name.split("/", 1)
     try:
-        repo = g.get_repo(repo_name)
-        return repo.get_branch(branch).commit.sha
-    except Exception as e:
+        response = github.post(
+            "https://api.github.com/graphql",
+            json={"query": query, "variables": dict(variables, owner=owner, name=name)},
+            timeout=60,
+        )
+        response.raise_for_status()
+        body = response.json()
+    except (requests.RequestException, ValueError) as e:
         if args.verbose:
-            print(f"  could not resolve {repo_name}@{branch}: {e}")
-    return None
+            print(f"  GraphQL query for {repo_name} failed: {e}")
+        return None
+    data = (body.get("data") or {}).get("repository")
+    if data is None and args.verbose:
+        errors = body.get("errors") or [{}]
+        print(f"  could not resolve {repo_name}: {errors[0].get('message', 'not found')}")
+    return data
 
 
-def get_commit_date(url: str, sha: str):
-    """Return the committer datetime for a commit SHA, or None if unresolved."""
-    repo_name = _repo_name_from_url(url)
-    try:
-        repo = g.get_repo(repo_name)
-        return repo.get_commit(sha).commit.committer.date
-    except Exception as e:
-        if args.verbose:
-            print(f"  could not resolve date for {repo_name}@{sha[:12]}: {e}")
-    return None
+HEADS_QUERY = """
+query($owner: String!, $name: String!, $branch: String!) {
+  repository(owner: $owner, name: $name) {
+    branch: ref(qualifiedName: $branch) { target { oid } }
+    master: ref(qualifiedName: "refs/heads/master") { target { oid } }
+    main: ref(qualifiedName: "refs/heads/main") { target { oid } }
+  }
+}
+"""
+
+
+@lru_cache(maxsize=None)
+def get_branch_heads(url: str, branch: str) -> dict | None:
+    """
+    Head commit SHA of branch, master and main in the GitHub repo at url, in
+    one query (None for a branch that does not exist), or None if unresolved.
+    """
+    if not is_github_url(url):
+        return None
+    repo = graphql(_repo_name_from_url(url), HEADS_QUERY, branch="refs/heads/" + branch)
+    if repo is None:
+        return None
+    return {
+        key: (repo[key] or {}).get("target", {}).get("oid")
+        for key in ("branch", "master", "main")
+    }
 
 
 def resolve_commit(url: str, preferred_branch: str) -> str | None:
@@ -67,18 +104,29 @@ def resolve_commit(url: str, preferred_branch: str) -> str | None:
     Try *preferred_branch* first; if that fails fall back to 'master' then
     'main'.  Returns the commit SHA, or None if all attempts fail.
     """
-    commit = get_current_github_rev(url, preferred_branch)
-    if commit:
-        return commit
+    heads = get_branch_heads(url, preferred_branch)
+    if heads is None:
+        return None
+    if heads["branch"]:
+        return heads["branch"]
     for fallback in ("master", "main"):
         if preferred_branch == fallback:
             continue
-        commit = get_current_github_rev(url, fallback)
-        if commit:
+        if heads[fallback]:
             if args.verbose:
                 print(f"  branch '{preferred_branch}' not found; used '{fallback}'")
-            return commit
+            return heads[fallback]
     return None
+
+
+DATES_QUERY = """
+query($owner: String!, $name: String!, $current: GitObjectID!, $candidate: GitObjectID!) {
+  repository(owner: $owner, name: $name) {
+    current: object(oid: $current) { ... on Commit { committedDate } }
+    candidate: object(oid: $candidate) { ... on Commit { committedDate } }
+  }
+}
+"""
 
 
 def commit_is_newer(url: str, current_sha: str, candidate_sha: str) -> bool:
@@ -88,10 +136,13 @@ def commit_is_newer(url: str, current_sha: str, candidate_sha: str) -> bool:
     candidate is treated as *not* newer, so a known-good commit is retained
     rather than risk overwriting it with a stale one.
     """
-    current_date = get_commit_date(url, current_sha)
-    candidate_date = get_commit_date(url, candidate_sha)
-    if current_date is None or candidate_date is None:
+    repo = graphql(
+        _repo_name_from_url(url), DATES_QUERY, current=current_sha, candidate=candidate_sha
+    )
+    dates = [((repo or {}).get(key) or {}).get("committedDate") for key in ("current", "candidate")]
+    if None in dates:
         return False
+    current_date, candidate_date = (datetime.fromisoformat(d.replace("Z", "+00:00")) for d in dates)
     return candidate_date > current_date
 
 
@@ -261,27 +312,41 @@ def _apply_git_update(source: dict, url: str, branch: str) -> bool:
     return True
 
 
+DEPENDS_QUERY = """
+query($owner: String!, $name: String!, $expression: String!) {
+  repository(owner: $owner, name: $name) {
+    object(expression: $expression) {
+      ... on Tree {
+        entries { name type object { ... on Tree { entries { name object { ... on Blob { text } } } } } }
+      }
+    }
+  }
+}
+"""
+
+
 def get_depends_pins(repo_name: str, ref: str) -> dict:
     """
     Map dependency name -> (url, rev) parsed from every
-    depends/common/<name>/<name>.txt in the addon repo at ref.  rev is None
-    for archive urls, which embed their pin.
+    depends/common/<name>/<name>.txt in the addon repo at ref, all read in
+    one query.  rev is None for archive urls, which embed their pin.
     """
     pins = {}
-    try:
-        repo = g.get_repo(repo_name)
-        entries = repo.get_contents("depends/common", ref=ref)
-    except Exception as e:
+    repo = graphql(repo_name, DEPENDS_QUERY, expression=f"{ref}:depends/common")
+    tree = (repo or {}).get("object") or {}
+    if not tree.get("entries"):
         if args.verbose:
-            print(f"  no depends/common in {repo_name}@{ref[:12]}: {e}")
+            print(f"  no depends/common in {repo_name}@{ref[:12]}")
         return pins
-    for entry in entries:
-        if entry.type != "dir":
+    for entry in tree["entries"]:
+        if entry["type"] != "tree":
             continue
-        path = f"depends/common/{entry.name}/{entry.name}.txt"
-        try:
-            raw = repo.get_contents(path, ref=ref).decoded_content.decode()
-        except Exception:
+        raw = next(
+            ((f["object"] or {}).get("text") for f in (entry["object"] or {}).get("entries", [])
+             if f["name"] == entry["name"] + ".txt"),
+            None,
+        )
+        if raw is None:
             continue
         parts = raw.split()
         if len(parts) >= 2:
